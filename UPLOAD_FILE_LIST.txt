@@ -1,22 +1,31 @@
-UPLOAD THESE FILES/FOLDERS FROM THIS PACKAGE ROOT:
+TARGET: bhanu13yadav1-ai/Brand-website-v2, branch main
 
-ADD/REPLACE overlay paths:
-- css/styles.css (replace overlay wrapper only; original root styles.css stays untouched)
-- js/app.js (replace overlay loader only; original root app.js stays untouched)
-- sw.js (replace service worker)
-- manifest.webmanifest (replace manifest)
-- phase3.js (new)
-- phase3.css (new)
-- phase2-diagnostics.html (add/update)
-- phase3-diagnostics.html (new)
-- README_PHASE3_UPLOAD_HINGLISH.md (new documentation)
-- PHASE3_IMPLEMENTATION_REPORT.md (new documentation)
-- PHASE3_MEMORY_NOTE_COPY_PASTE.txt (new handoff note)
+UPLOAD THE CONTENTS OF THIS SINGLE FOLDER TO THE REPOSITORY ROOT.
+Do not upload the ZIP file itself or create a nested V1_PHASE4_RECOVERY_UPLOAD directory.
 
-DO NOT upload or overwrite these root source files from this package (they are not included):
+ADD these files:
 - index.html
-- app.js
-- styles.css
-- product/catalogue data or existing images
+- fallback.js
+- app-icon.svg
+- phase4-diagnostics.html
+- 00_MASTER_RULES_PHASE_MAP.md
+- EXTERNAL_ASSET_MANIFEST.csv
+- PHASE4_IMPLEMENTATION_REPORT.md
+- PHASE4_LOCAL_BROWSER_TESTS.json
+- PHASE4_MEMORY_NOTE_COPY_PASTE.txt
+- PHASE4_QA_RESULTS.json
+- README_PHASE4_UPLOAD_HINGLISH.md
+- RESEARCH_NOTES_PHASE4.md
+- ROOT_CAUSE_PHASE2_PHASE3_BUG.md
+- UPLOAD_FILE_LIST.txt
 
-Preserve the subfolders css/ and js/. Upload contents into the repository ROOT, not a second nested folder.
+REPLACE these existing root files:
+- app.js                 (old root file is a loader/shim, not the main application)
+- styles.css             (old root file is an @import wrapper)
+- sw.js                  (old cache references the previous overlay package)
+- manifest.webmanifest
+- README.md               (old content is only the repository title)
+
+The package does not replace or upload original product image binaries. Images load from the public sources listed in EXTERNAL_ASSET_MANIFEST.csv and have a fallback if unavailable.
+
+DO NOT delete old Phase 2/3 diagnostic pages while testing. They are from the previous overlay structure and may be stale; use /phase4-diagnostics.html for the new recovered application.

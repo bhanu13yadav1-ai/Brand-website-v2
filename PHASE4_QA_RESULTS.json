@@ -1,0 +1,47 @@
+{
+  "version": "V1 Phase 4 recovery build",
+  "target_repository": "bhanu13yadav1-ai/Brand-website-v2",
+  "checks": {
+    "root_index_html_included": "PASS",
+    "main_app_js_included": "PASS",
+    "real_stylesheet_included": "PASS",
+    "project_scoped_service_worker_included": "PASS",
+    "three_original_wheel_locations_present_in_source": "PASS",
+    "dedicated_dirty_wild_wheel_present_in_source": "PASS",
+    "boyfriend_couples_section_present_in_source": "PASS",
+    "sanskari_and_two_coming_soon_previews_present_in_source": "PASS",
+    "raw_image_references_verified_in_public_repository_trees": "PASS",
+    "external_image_live_load": "NOT TESTED",
+    "live_pages_deployment": "NOT TESTED",
+    "physical_android_chrome": "NOT TESTED",
+    "local_headless_browser_functional_tests": "PASS: 43/43 tests passed; see PHASE4_LOCAL_BROWSER_TESTS.json",
+    "responsive_overflow_320_360_390_430_1440": "PASS: no horizontal overflow found in local headless viewports",
+    "wheel_nonrepeat_behavior": "PASS: repeated same-range spins tested for all three original size wheels; category-based Dirty/Wild selection tested",
+    "eight_frame_concept_viewer": "PASS: previous/next/slider locally tested",
+    "early_image_fallback": "PASS: fallback was tested with public image requests deliberately blocked",
+    "image_fallback_script_loads_before_body": "PASS: fallback.js is loaded early in head before body images; fallback behavior exercised by local headless browser tests",
+    "sanskari_gallery_count_and_unique_urls": "PASS: 10 distinct campaign URLs from audited public source repositories",
+    "service_worker_runtime": "NOT TESTED in local browser test; check with hosted diagnostics after upload",
+    "advanced_legacy_feature_regression_complete": "NOT TESTED / PENDING: manual Try-On overlay canvas, Fit Passport, Fit Detective, Style Quiz, Style Board, Build-a-Set and full original content inventory remain to be restored before final V1 release"
+  },
+  "root_cause": "Brand-website-v2 main branch had no root index.html and included only compatibility/overlay files, so Pages rendered the README.",
+  "limitations": [
+    "The original image binaries were not present in Brand-website-v2; image sources are public raw.githubusercontent.com URLs listed in EXTERNAL_ASSET_MANIFEST.csv.",
+    "Live Pages image requests were not tested; local browser test deliberately blocked external image requests to test fallback behavior.",
+    "Local browser test ran in an isolated about:blank document because local web navigation was blocked; a localStorage API shim was used for functional tests.",
+    "Live Pages deployment and physical Android Chrome remain NOT TESTED.",
+    "No real inventory, checkout, payment, user account or formal age verification."
+  ],
+  "research_sources": [
+    {
+      "title": "Planned Parenthood \u2014 Sexual Consent",
+      "url": "https://www.plannedparenthood.org/learn/relationships/sexual-consent",
+      "use": "Consent is freely given and reversible; informs optional prompts and skip/stop language."
+    },
+    {
+      "title": "Joyal, Cossette & Lapierre (2015) \u2014 What Exactly Is an Unusual Sexual Fantasy?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25359122/",
+      "use": "Caution against simplistic claims about fantasies; survey was online and not India-specific."
+    }
+  ]
+}

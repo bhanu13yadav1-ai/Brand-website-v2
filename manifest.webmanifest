@@ -1,24 +1,13 @@
 {
-  "name": "BLACKED Fusion \u2014 V1 Phase 3",
+  "name": "BLACKED · V1 Phase 4",
   "short_name": "BLACKED",
-  "description": "BLACKED concept store, Sanskari collection, future collection previews and wellness references.",
+  "description": "Innerwear references, Sanskari Edit, wellness education and consensual couple tools.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#100d10",
-  "theme_color": "#100d10",
+  "background_color": "#100c10",
+  "theme_color": "#100c10",
   "icons": [
-    {
-      "src": "./icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "./icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "./app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }

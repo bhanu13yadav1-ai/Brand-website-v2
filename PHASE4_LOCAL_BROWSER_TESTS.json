@@ -1,0 +1,217 @@
+[
+  {
+    "test": "Root index loads and app initializes",
+    "status": "PASS",
+    "detail": "BLACKED \u00b7 V1 Phase 4"
+  },
+  {
+    "test": "Six primary views present",
+    "status": "PASS",
+    "detail": "6"
+  },
+  {
+    "test": "Ten supplied Sanskari campaign cards rendered",
+    "status": "PASS",
+    "detail": "10"
+  },
+  {
+    "test": "Sanskari gallery uses ten distinct image sources",
+    "status": "PASS",
+    "detail": "10 unique src URLs"
+  },
+  {
+    "test": "Two future collection previews",
+    "status": "PASS",
+    "detail": "2"
+  },
+  {
+    "test": "Three original wheel locations and new wheel present",
+    "status": "PASS",
+    "detail": "Boyfriend, Dildo, Butt Plug, Dirty/Wild controls found"
+  },
+  {
+    "test": "Innerwear catalogue rendered",
+    "status": "PASS",
+    "detail": "8"
+  },
+  {
+    "test": "Eight-frame concept viewer is present",
+    "status": "PASS",
+    "detail": "01 / 08 \u00b7 Front"
+  },
+  {
+    "test": "Concept viewer next button advances frame",
+    "status": "PASS",
+    "detail": "02 / 08 \u00b7 Front three-quarter"
+  },
+  {
+    "test": "Concept viewer slider selects frame",
+    "status": "PASS",
+    "detail": "07 / 08 \u00b7 Side opposite"
+  },
+  {
+    "test": "Concept viewer previous button moves back",
+    "status": "PASS",
+    "detail": "06 / 08 \u00b7 Rear opposite"
+  },
+  {
+    "test": "Sanskari navigation",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Innerwear navigation",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Catalogue search filters cards",
+    "status": "PASS",
+    "detail": "1 concept reference"
+  },
+  {
+    "test": "Wishlist action and count",
+    "status": "PASS",
+    "detail": "1"
+  },
+  {
+    "test": "Demo bag add and count",
+    "status": "PASS",
+    "detail": "1"
+  },
+  {
+    "test": "Compare opens for first style",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Compare handles a second distinct style",
+    "status": "PASS",
+    "detail": "2"
+  },
+  {
+    "test": "Compare list can be cleared",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Adult gate appears for Wellness",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Wellness opens after confirmation",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "dildo wheel produces selected-range result",
+    "status": "PASS",
+    "detail": "Regular \u00b7 10\u201313 cm Overall length and insertable length can differ. Verify the product dimensions be"
+  },
+  {
+    "test": "dildo wheel avoids immediate repeat in the same range",
+    "status": "PASS",
+    "detail": "Regular \u00b7 10\u201313 cm -> Regular \u00b7 10\u201313 cm \u00b7 alternate prompt"
+  },
+  {
+    "test": "dildo wheel reset",
+    "status": "PASS",
+    "detail": "Select a range to start."
+  },
+  {
+    "test": "plug wheel produces selected-range result",
+    "status": "PASS",
+    "detail": "Medium \u00b7 2.5\u20133.5 cm widest diameter \u00b7 alternate prompt For medium \u00b7 2.5\u20133.5 cm widest diameter, veri"
+  },
+  {
+    "test": "plug wheel avoids immediate repeat in the same range",
+    "status": "PASS",
+    "detail": "Medium \u00b7 2.5\u20133.5 cm widest diameter \u00b7 alternate prompt -> Medium \u00b7 2.5\u20133.5 cm widest diameter"
+  },
+  {
+    "test": "plug wheel reset",
+    "status": "PASS",
+    "detail": "Select a range to start."
+  },
+  {
+    "test": "boy wheel produces selected-range result",
+    "status": "PASS",
+    "detail": "Classic-range conversation \u00b7 alternate prompt Use classic-range conversation as a conversation start"
+  },
+  {
+    "test": "boy wheel avoids immediate repeat in the same range",
+    "status": "PASS",
+    "detail": "Classic-range conversation \u00b7 alternate prompt -> Classic-range conversation"
+  },
+  {
+    "test": "boy wheel reset",
+    "status": "PASS",
+    "detail": "Choose a range first."
+  },
+  {
+    "test": "Dirty/Wild wheel result matches Dark Romance category",
+    "status": "PASS",
+    "detail": "Dark Romance & Mystery Choose a mysterious song and invent a consensual fictional backstory together. OPTIONAL \u00b7 CONSENT"
+  },
+  {
+    "test": "Dirty/Wild round reset",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Boyfriend section opens after current-session consent",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Date planner returns suggestion",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Message generator returns message",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Measurement converter performs cm/in conversion",
+    "status": "PASS",
+    "detail": "75 cm = 29.53 in"
+  },
+  {
+    "test": "Fit notes save feedback",
+    "status": "PASS",
+    "detail": "Saved in this browser on this device."
+  },
+  {
+    "test": "Fit Studio local photo preview shows",
+    "status": "PASS",
+    "detail": "Local preview only; this page does not upload the photo."
+  },
+  {
+    "test": "Fit Studio photo can be cleared",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Broken images receive fallback instead of missing icon",
+    "status": "PASS",
+    "detail": "71 fallback(s) exercised; remote images were deliberately blocked in this offline test"
+  },
+  {
+    "test": "No page horizontal overflow at 320/360/390/430/1440",
+    "status": "PASS",
+    "detail": "[{\"width\": 320, \"vw\": 320, \"sw\": 320, \"bw\": 320, \"overflow\": false}, {\"width\": 360, \"vw\": 360, \"sw\": 360, \"bw\": 360, \"overflow\": false}, {\"width\": 390, \"vw\": 390, \"sw\": 390, \"bw\": 390, \"overflow\": false}, {\"width\": 430, \"vw\": 430, \"sw\": 430, \"bw\": 430, \"overflow\": false}, {\"width\": 1440, \"vw\": 1440, \"sw\": 1440, \"bw\": 1440, \"overflow\": false}]"
+  },
+  {
+    "test": "No uncaught JavaScript page errors",
+    "status": "PASS",
+    "detail": "[]"
+  },
+  {
+    "test": "No application console errors apart from blocked external imagery/SW runtime",
+    "status": "PASS",
+    "detail": "[\"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\"]"
+  }
+]

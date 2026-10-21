@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#100c10"><title>BLACKED V1 Phase 4 · Diagnostics</title>
+<style>
+:root{color-scheme:dark;--bg:#100c10;--panel:#1c151d;--line:#473348;--pink:#f4a0c1;--muted:#cbbbc7;--ok:#9be3b0;--bad:#ff9da6;--warn:#eacb8c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff5fa;font:14px/1.5 system-ui,sans-serif;padding:17px;max-width:1000px;margin-inline:auto}h1{font-size:clamp(25px,5vw,38px);line-height:1.1;margin:6px 0 12px}h2{font-size:19px;margin:0 0 10px}.muted{color:var(--muted)}.panel{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:15px;margin:13px 0}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border:1px solid var(--pink);background:var(--pink);color:#210f19;font-weight:800;border-radius:12px;padding:10px 15px;text-decoration:none}.btn.secondary{background:transparent;color:var(--pink);margin-left:8px}.summary{font-weight:800;margin:10px 0}.results{padding:0;list-style:none;display:grid;gap:8px}.results li{padding:10px 12px;border:1px solid var(--line);border-radius:11px;overflow-wrap:anywhere}.pass{color:var(--ok)}.fail{color:var(--bad)}.warn{color:var(--warn)}.detail{font-size:12px;color:var(--muted);display:block;margin-top:2px}iframe{width:100%;height:360px;border:1px solid var(--line);border-radius:13px;background:#100c10}.micro{font-size:12px;color:var(--muted)}code{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<p class="micro">BLACKED · V1 Phase 4 recovery check</p>
+<h1>Website & feature diagnostics</h1>
+<p class="muted">Use this page after uploading the complete Phase 4 package to the repository root. It checks the actual deployed files, loaded application, image sources, navigation, all three original wheel locations, and the new Dirty/Wild Wheel. External images require an internet connection.</p>
+<div class="panel"><h2>Live app preview</h2><iframe id="appFrame" title="Live BLACKED application preview" src="./index.html?phase4check=1"></iframe><p class="micro">If this shows a blank page or a README heading, the root index.html was not published correctly.</p></div>
+<div class="panel"><h2>Run tests</h2><p class="muted">Leave this tab open until the checks finish. Image tests may take several seconds on mobile data.</p><button class="btn" id="runChecks" type="button">Run full checks</button><a class="btn secondary" href="./index.html">Open website</a><div class="summary" id="summary" aria-live="polite">Not tested yet.</div><ul class="results" id="results"></ul></div>
+<div class="panel"><h2>Known scope</h2><p class="micro">A passing result confirms only the tests listed here, in this deployed browser session. It is not a security certification, medical review, commercial inventory verification, or a guarantee that every Android browser behaves identically. Send the result list or a screenshot if any test fails.</p></div>
+<script>
+(() => {
+ 'use strict';
+ const $=s=>document.querySelector(s);const frame=$('#appFrame');
+ const add=(name,status,detail='')=>{const li=document.createElement('li');li.className=status;li.textContent=`${status==='pass'?'PASS':status==='fail'?'FAIL':'NOT TESTED'} — ${name}`;if(detail){const small=document.createElement('span');small.className='detail';small.textContent=detail;li.append(small)}$('#results').append(li)};
+ const wait=ms=>new Promise(r=>setTimeout(r,ms));
+ const loadImage=src=>new Promise(resolve=>{const img=new Image();let done=false;const finish=ok=>{if(done)return;done=true;clearTimeout(timer);resolve(ok)};const timer=setTimeout(()=>finish(false),10000);img.onload=()=>finish(img.naturalWidth>0&&img.naturalHeight>0);img.onerror=()=>finish(false);img.src=src;});
+ async function run(){
+  $('#runChecks').disabled=true;$('#summary').textContent='Running checks…';$('#results').innerHTML='';let pass=0,fail=0,notTested=0;
+  const record=(name,ok,detail='')=>{if(ok===true){pass++;add(name,'pass',detail)}else if(ok===false){fail++;add(name,'fail',detail)}else{notTested++;add(name,'warn',detail)}};
+  const rootPaths=['./index.html','./styles.css','./fallback.js','./app.js','./sw.js','./manifest.webmanifest','./app-icon.svg'];
+  for(const path of rootPaths){try{const res=await fetch(path,{cache:'no-store'});record(`Root file ${path}`,res.ok,`HTTP ${res.status}`)}catch(e){record(`Root file ${path}`,false,String(e))}}
+  try{const res=await fetch('./manifest.webmanifest',{cache:'no-store'});const manifest=await res.json();record('Manifest JSON parses',!!manifest.name&&manifest.start_url==='./index.html',manifest.name||'Name missing')}catch(e){record('Manifest JSON parses',false,String(e))}
+  try{await new Promise((resolve,reject)=>{const timeout=setTimeout(()=>reject(new Error('Preview load timed out')),12000);if(frame.contentDocument?.readyState==='complete'){clearTimeout(timeout);resolve();return;}frame.addEventListener('load',()=>{clearTimeout(timeout);resolve()},{once:true});frame.addEventListener('error',()=>{clearTimeout(timeout);reject(new Error('Iframe failed to load'))},{once:true});});await wait(250);const win=frame.contentWindow,doc=frame.contentDocument;record('Main app JavaScript initialized',!!win.BLACKED_V1,win.BLACKED_V1?.version||'window.BLACKED_V1 not found');
+   if(win.BLACKED_V1){
+    const state=win.BLACKED_V1.getDiagnostics();
+    record('Six main views exist',state.views.length===6,state.views.map(v=>v.name).join(', '));
+    record('Sanskari gallery has ten distinct cards',doc.querySelectorAll('#sanskariGallery .campaign-card').length===10,`${doc.querySelectorAll('#sanskariGallery .campaign-card').length} cards`);
+    record('Muslim and Christian Coming Soon cards exist',doc.querySelectorAll('.coming-card').length===2,`${doc.querySelectorAll('.coming-card').length} cards`);
+    record('Three original wheel locations exist',Object.values(state.originalWheels).every(Boolean),JSON.stringify(state.originalWheels));
+    record('Dedicated Dirty/Wild Wheel exists',state.wildWheel,`Category choices: ${doc.querySelectorAll('#wildCategory option').length}`);
+    record('Eight-frame concept viewer exists',state.spinViewer&&doc.querySelectorAll('#spinSlider option').length===0,`frame ${state.spinFrameIndex+1} of 8`);
+    record('Core navigation buttons exist',state.navButtons>=10,`${state.navButtons} in-page navigation controls`);
+    // View navigation and age-gate checks.
+    win.BLACKED_V1.setView('sanskari');record('Sanskari navigation works',!doc.querySelector('#view-sanskari').hidden,`view=${win.BLACKED_V1.getState().view}`);
+    win.BLACKED_V1.setView('innerwear');record('Innerwear navigation works',!doc.querySelector('#view-innerwear').hidden,`view=${win.BLACKED_V1.getState().view}`);
+    record('Eight-frame concept viewer appears in Innerwear',state.spinViewer&&!!doc.querySelector('#spinFrameImage'),`frame ${state.spinFrameIndex+1} of 8`);
+    doc.querySelector('#spinNext').click();record('Concept viewer next button works',doc.querySelector('#spinViewLabel').textContent.startsWith('02 / 08'),doc.querySelector('#spinViewLabel').textContent);
+    doc.querySelector('#spinSlider').value='6';doc.querySelector('#spinSlider').dispatchEvent(new Event('input',{bubbles:true}));record('Concept viewer slider works',doc.querySelector('#spinViewLabel').textContent.startsWith('07 / 08'),doc.querySelector('#spinViewLabel').textContent);
+    doc.querySelector('#spinPrev').click();record('Concept viewer previous button works',doc.querySelector('#spinViewLabel').textContent.startsWith('06 / 08'),doc.querySelector('#spinViewLabel').textContent);
+    win.BLACKED_V1.setView('wellness');record('18+ gate blocks Wellness until confirmed',!doc.querySelector('#ageModal').classList.contains('hidden'),`view remained ${win.BLACKED_V1.getState().view}`);
+    doc.querySelector('#ageConfirm').checked=true;doc.querySelector('#confirmAge').click();await wait(80);record('Wellness opens after age confirmation',!doc.querySelector('#view-wellness').hidden,`view=${win.BLACKED_V1.getState().view}`);
+    win.BLACKED_V1.setView('boyfriend');record('Boyfriend 18+ gate remembers current-session consent',!doc.querySelector('#view-boyfriend').hidden,`view=${win.BLACKED_V1.getState().view}`);
+    // Functional wheel checks: controls are clicked against the actual app in the iframe.
+    const wheelTests=[{kind:'dildo',select:'#dildoPreference',value:'regular',result:'#dildoResult'},{kind:'plug',select:'#plugPreference',value:'medium',result:'#plugResult'},{kind:'boy',select:'#boyPreference',value:'classic',result:'#boyResult'}];
+    for(const w of wheelTests){const sel=doc.querySelector(w.select);sel.value=w.value;doc.querySelector(`[data-spin-wheel="${w.kind}"]`).click();await wait(1950);const result=doc.querySelector(w.result).textContent;record(`${w.kind} wheel spins and returns a result`,!doc.querySelector(`[data-spin-wheel="${w.kind}"]`).disabled&&!/spinning…/i.test(result)&&result.length>20,result.slice(0,180));doc.querySelector(`[data-wheel-reset="${w.kind}"]`).click();}
+    doc.querySelector('#wildCategory').value='dark';doc.querySelector('[data-spin-wheel="wild"]').click();await wait(1950);const wild=doc.querySelector('#wildResult').textContent;record('Dirty/Wild category result matches selection',wild.includes('Dark Romance & Mystery')&&!/spinning…/i.test(wild),wild.slice(0,180));doc.querySelector('[data-wheel-reset="wild"]').click();
+    record('Innerwear catalogue renders products',doc.querySelectorAll('#catalogGrid .product-card').length>=6,`${doc.querySelectorAll('#catalogGrid .product-card').length} product cards`);
+    // Verify styles are applied, rather than a README/Jekyll page.
+    const bg=win.getComputedStyle(doc.body).backgroundColor;record('Stylesheet is active',doc.styleSheets.length>=1&&!!bg,`computed body background=${bg}`);
+    if ('serviceWorker' in navigator) { await wait(1200); try { const reg=await navigator.serviceWorker.getRegistration('./'); record('Service worker has a registration',!!reg,reg?.active?.state||'registration pending/absent'); } catch(err) { record('Service worker has a registration',false,String(err)); } } else { record('Service worker API available',null,'Not supported by this browser context.'); }
+   }else{record('Application interaction tests',null,'Blocked because the app JavaScript did not initialize. Check index.html and script path.');}
+  }catch(e){record('Embedded app loaded',false,String(e));record('Feature interaction tests',null,'Blocked because the app preview did not load.');}
+  const assetUrls=[
+   'https://raw.githubusercontent.com/bhanu13yadav1-ai/Brand-website-4f/main/look-sanskari-blue.webp',
+   'https://raw.githubusercontent.com/bhanu13yadav1-ai/Brand-website-4f/main/campaign-sanskari-raat.webp',
+   'https://raw.githubusercontent.com/bhanu13yadav1-ai/Brand-website-3/main/companion-cafe.webp'
+  ];
+  for(let i=0;i<assetUrls.length;i++){record(`External original image sample ${i+1}`,await loadImage(assetUrls[i]),assetUrls[i].split('/').pop())}
+  const total=pass+fail+notTested;$('#summary').textContent=`Finished: ${pass} PASS · ${fail} FAIL · ${notTested} NOT TESTED (${total} checks)`;$('#summary').className='summary '+(fail?'fail':'pass');$('#runChecks').disabled=false;
+ }
+ $('#runChecks').addEventListener('click',run);
+})();
+</script>
+</body></html>
