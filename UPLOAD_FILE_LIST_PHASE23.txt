@@ -1,0 +1,42 @@
+REPLACE ROOT FILES:
+- README.md
+- index.html
+- part-c-enhancements.js
+- part-c-enhancements.css
+- sw.js
+- manifest.webmanifest
+
+ADD:
+- phase23-diagnostics.html
+- assets/fantasy-gallery/male-reference-01.webp
+- assets/fantasy-gallery/male-reference-02.webp
+- assets/fantasy-gallery/male-reference-03.webp
+- assets/fantasy-gallery/male-reference-04.webp
+- assets/fantasy-gallery/threesome-fantasy-cover.webp
+- assets/wheel-posters/tease-guess-wheel.webp
+- assets/wheel-posters/after-dark-questions.webp
+- assets/campaigns/blacked-red-lace-campaign.webp
+- assets/sanskari/sanskari-outside-bold-within.webp
+- assets/sanskari/shaam-se-raat-tak.webp
+- assets/sanskari/shaam-ki-roshni.webp
+- assets/sanskari/shaam-e-noor.webp
+- assets/sanskari/noor-ka-nasha.webp
+- assets/sanskari/sanskari-outside-bold-within-high-res.webp
+- assets/sanskari/sanskari-outside-bold-within-web-optimized.webp
+
+OPTIONAL PROJECT RECORDS:
+- PHASE23_ASSET_MANIFEST.csv
+- PHASE23_IMPLEMENTATION_REPORT.md
+- PHASE23_QA_RESULTS.json
+- PHASE23_STATIC_CHECKS.json
+- PHASE23_MEMORY_NOTE_COPY_PASTE.txt
+- WHEEL_SELECTION_ACCEPTANCE.md
+- README_START_HERE.md
+- README_PHASE23_UPLOAD_HINGLISH.md
+
+DO NOT REPLACE:
+- app.js
+- styles.css
+- fallback.js
+- innerwear-image-library.json
+- size-chart-template.json

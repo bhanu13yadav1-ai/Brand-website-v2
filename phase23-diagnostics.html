@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#100c10"><meta name="referrer" content="no-referrer">
+<title>V2 Phase 2+3 Repair Diagnostics</title>
+<style>
+:root{color-scheme:dark;--bg:#100c10;--panel:#1c151d;--line:#493448;--text:#fff5fa;--muted:#c8b8c5;--pink:#f4a0c1;--green:#9be3b0;--red:#ff9da6;--gold:#eacb8c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;padding:20px;max-width:980px;margin-inline:auto}h1,h2{line-height:1.2}h1{font-size:clamp(27px,5vw,42px)}p,small{color:var(--muted)}.panel{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:16px;margin:14px 0}.actions{display:flex;flex-wrap:wrap;gap:9px}button,a.btn{background:#842342;color:white;border:0;border-radius:10px;padding:12px 15px;min-height:44px;font-weight:700;text-decoration:none;cursor:pointer}button.secondary{background:#332230;border:1px solid var(--line)}button:disabled{opacity:.55;cursor:wait}.status{border-top:1px solid var(--line);padding:10px 0;display:flex;justify-content:space-between;gap:12px;align-items:start}.ok{color:var(--green)}.fail{color:var(--red)}.warn{color:var(--gold)}pre{white-space:pre-wrap;word-break:break-word;background:#0c090d;border-radius:12px;padding:12px;max-height:420px;overflow:auto}.pill{border:1px solid var(--line);border-radius:99px;padding:4px 8px;font-size:12px}.note{border-left:3px solid var(--gold);padding:8px 12px}.skip-link{position:absolute;left:-999px}.skip-link:focus{left:10px;top:10px;background:white;color:black;padding:10px;z-index:3}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to checks</a><main id="main">
+<p class="pill">V2 · PHASE 2 + 3 COMBINED REPAIR</p><h1>Run the integration and wheel checks</h1>
+<p>This page checks whether the add-on is actually connected to the main site. It does not claim that the main GitHub Pages site is fixed until it is uploaded and tested.</p>
+<div class="panel"><h2>1. Run basic checks</h2><div class="actions"><button id="runBasic">Run basic checks</button><button id="runWheels" class="secondary">Run all 4 wheel tests</button><button id="checkImages" class="secondary">Check bundled images</button><button id="checkArchive" class="secondary">Check all archive URLs</button></div><div id="status" aria-live="polite"></div></div>
+<div class="panel"><h2>2. Results</h2><pre id="output">Tap “Run basic checks” to begin.</pre></div>
+<div class="panel"><h2>3. Known verification boundaries</h2><p class="note">The poster, Sanskari and supplied reference files in this patch are locally bundled. The larger 151-record archive in the core app may still contain remote URLs, so those records must be checked separately after deploy.</p><p>Use an Android browser after the checks and verify the actual hosted website URL, not just this diagnostics page.</p></div>
+<div class="actions"><a class="btn" href="./index.html">Back to website</a><a class="btn secondary" href="https://github.com/bhanu13yadav1-ai/Brand-website-v2" rel="noopener noreferrer">Open GitHub repository</a></div>
+</main>
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const out = $('#output'), status = $('#status');
+  const rows=[];
+  function row(name,pass,detail=''){rows.push({name,result:pass?'PASS':'FAIL',detail});const el=document.createElement('div');el.className='status';const label=document.createElement('span');label.textContent=name;const value=document.createElement('strong');value.className=pass?'ok':'fail';value.textContent=pass?'PASS':'FAIL';el.append(label,value);if(detail){const p=document.createElement('small');p.textContent=detail;el.append(p);}status.append(el);}
+  function show(){out.textContent=JSON.stringify({checks:rows,diagnostics:window.BLACKED_V2_P23?.getDiagnostics?.()||'Add-on is not loaded'},null,2);}
+  async function wait(ms){return new Promise(r=>setTimeout(r,ms));}
+  async function imageLoaded(src){return new Promise(resolve=>{const image=new Image();const timer=setTimeout(()=>resolve(false),7000);image.onload=()=>{clearTimeout(timer);resolve(image.naturalWidth>0)};image.onerror=()=>{clearTimeout(timer);resolve(false)};image.src=src;});}
+  $('#runBasic').addEventListener('click',()=>{
+    rows.length=0;status.replaceChildren();
+    const d=window.BLACKED_V2_P23?.getDiagnostics?.();
+    row('V2 enhancement JavaScript loaded',!!d?.addonLoaded);
+    row('Home wheel hub exists',!!d?.wheelHub);
+    row('Two wheel poster cards exist',d?.wheelPosterCards===2,String(d?.wheelPosterCards??0)+' cards');
+    row('Four labelled wheels exist',d?.wheelCount===4,Object.keys(d?.wheels||{}).join(', '));
+    for(const kind of ['boy','dildo','plug','wild']) row(`${kind} has 8 visible segments`,d?.wheels?.[kind]?.segments===8,`${d?.wheels?.[kind]?.segments??0} segments`);
+    row('Boyfriend gallery has four cards',d?.boyfriendGalleryCards===4,`${d?.boyfriendGalleryCards??0} cards`);
+    row('Separate Threesome Fantasy section exists',!!d?.threesomeSection);
+    row('Seven locally bundled Sanskari cards exist',d?.sanskariLocalCards===7,`${d?.sanskariLocalCards??0} cards`);
+    row('Local innerwear campaign card exists',!!d?.innerwearCampaign);
+    row('Original app views remain present',(['home','stories','innerwear','sanskari','wellness','boyfriend','fit'].every(v=>document.querySelector(`[data-view="${v}"]`))));
+    const refs=[...document.querySelectorAll('link[rel="stylesheet"],script[src]')].filter(x=>(x.href||x.src).includes('part-c-enhancements'));
+    row('CSS and JS references exist in page',refs.length===2,`${refs.length} matching references`);
+    show();
+  });
+  $('#checkImages').addEventListener('click',async()=>{
+    rows.length=0;status.replaceChildren();$('#checkImages').disabled=true;
+    const list=[
+      'assets/fantasy-gallery/male-reference-01.webp','assets/fantasy-gallery/male-reference-02.webp','assets/fantasy-gallery/male-reference-03.webp','assets/fantasy-gallery/male-reference-04.webp','assets/fantasy-gallery/threesome-fantasy-cover.webp',
+      'assets/wheel-posters/tease-guess-wheel.webp','assets/wheel-posters/after-dark-questions.webp','assets/campaigns/blacked-red-lace-campaign.webp',
+      'assets/sanskari/sanskari-outside-bold-within.webp','assets/sanskari/shaam-se-raat-tak.webp','assets/sanskari/shaam-ki-roshni.webp','assets/sanskari/shaam-e-noor.webp','assets/sanskari/noor-ka-nasha.webp','assets/sanskari/sanskari-outside-bold-within-high-res.webp','assets/sanskari/sanskari-outside-bold-within-web-optimized.webp'
+    ];
+    for(const path of list){const ok=await imageLoaded('./'+path);row(path,ok);}
+    $('#checkImages').disabled=false;show();
+  });
+  $('#checkArchive').addEventListener('click',async()=>{
+    rows.length=0;status.replaceChildren();$('#checkArchive').disabled=true;
+    row('Archive manifest exists',true,'Loading the existing 151-record image-library JSON.');
+    let records=[];
+    try {
+      const response=await fetch('./innerwear-image-library.json',{cache:'no-store'});
+      if(!response.ok) throw new Error('HTTP '+response.status);
+      records=await response.json();
+      if(!Array.isArray(records)) throw new Error('Manifest is not a JSON array');
+    } catch(error) {
+      row('Archive manifest can be read',false,String(error));
+      $('#checkArchive').disabled=false;show();return;
+    }
+    const checked=[];const batchSize=12;
+    async function checkOne(item){
+      const url=typeof item?.src==='string'?item.src:'';
+      if(!url)return {id:item?.id||'',filename:item?.filename||'',url:'',ok:false,error:'missing src'};
+      const ok=await imageLoaded(url);
+      return {id:item.id||'',filename:item.filename||'',category:item.category||'',url,ok};
+    }
+    for(let i=0;i<records.length;i+=batchSize){
+      const batch=records.slice(i,i+batchSize);
+      const outcomes=await Promise.all(batch.map(checkOne));checked.push(...outcomes);
+      status.replaceChildren();
+      const summary=document.createElement('div');summary.className='status';
+      const left=document.createElement('span');left.textContent=`Checking archive images ${Math.min(i+batch.length,records.length)}/${records.length}`;
+      const right=document.createElement('strong');right.className='warn';right.textContent='IN PROGRESS';summary.append(left,right);status.append(summary);
+    }
+    const ok=checked.filter(x=>x.ok),failed=checked.filter(x=>!x.ok);
+    rows.length=0;status.replaceChildren();
+    row('Manifest records checked',checked.length===records.length,`${checked.length} of ${records.length}`);
+    row('Image URLs loaded',failed.length===0,`${ok.length} loaded · ${failed.length} failed`);
+    out.textContent=JSON.stringify({summary:{records:checked.length,loaded:ok.length,failed:failed.length,note:'Network/source failures do not necessarily mean the local card is missing; use the exact URL and repository filename to investigate.'},failedImages:failed},null,2);
+    $('#checkArchive').disabled=false;
+  });
+  $('#runWheels').addEventListener('click',async()=>{
+    rows.length=0;status.replaceChildren();$('#runWheels').disabled=true;
+    const d=window.BLACKED_V2_P23?.getDiagnostics?.();
+    if(!d?.addonLoaded){row('Add-on loaded',false);$('#runWheels').disabled=false;show();return;}
+    const ranges={boy:'#boyPreference',dildo:'#dildoPreference',plug:'#plugPreference'};
+    for(const kind of ['boy','dildo','plug','wild']){
+      const sel=ranges[kind]?document.querySelector(ranges[kind]):null;
+      if(sel&&!sel.value)sel.value=sel.options[1]?.value||'';
+      window.BLACKED_V2_P23.spin(kind);
+      await wait(matchMedia('(prefers-reduced-motion: reduce)').matches?100:2900);
+      const after=window.BLACKED_V2_P23.getDiagnostics().wheels[kind];
+      row(`${kind}: result matches the labelled segment`,after.selectedIndex!==null&&!!after.selectedLabel&&after.alignmentErrorDegrees!==null&&after.alignmentErrorDegrees<0.5,`index=${after.selectedIndex}; label=${after.selectedLabel}; angular error=${after.alignmentErrorDegrees}`);
+    }
+    $('#runWheels').disabled=false;show();
+  });
+})();
+</script>
+</body></html>

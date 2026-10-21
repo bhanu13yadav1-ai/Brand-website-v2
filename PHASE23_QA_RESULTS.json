@@ -1,0 +1,185 @@
+{
+  "suite": "V2 Phase 2+3 local Chromium fixture",
+  "tested_at": "2026-10-21",
+  "note": "The fixture uses the current repository root HTML and actual repair add-on with a test-only core shim for the existing BLACKED_V1 API. External raw GitHub requests were blocked. This is not live GitHub Pages or physical Android testing.",
+  "total": 35,
+  "passed": 35,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Add-on loaded",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Home wheel hub has two poster cards",
+      "result": "PASS",
+      "detail": "2"
+    },
+    {
+      "name": "Four wheels initialize",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Every wheel has exactly 8 visible labels",
+      "result": "PASS",
+      "detail": "{'boy': 8, 'dildo': 8, 'plug': 8, 'wild': 8}"
+    },
+    {
+      "name": "Boyfriend gallery has four cards",
+      "result": "PASS",
+      "detail": "4"
+    },
+    {
+      "name": "Separate Threesome Fantasy section exists",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Seven local Sanskari cards exist",
+      "result": "PASS",
+      "detail": "7"
+    },
+    {
+      "name": "Innerwear campaign card exists",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "All seven original views remain",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Both wheel poster images load locally",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Local innerwear campaign image loads",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "All seven local Sanskari images load",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "All four boyfriend reference photos load",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "boy result equals its labelled sector",
+      "result": "PASS",
+      "detail": "{'selectedIndex': 6, 'selectedLabel': 'Privacy', 'alignmentErrorDegrees': 0, 'rotationDegrees': 1507.5}"
+    },
+    {
+      "name": "Repeat spin remains aligned",
+      "result": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "Reset returns wheel to zero and clears result",
+      "result": "PASS",
+      "detail": "{'rotationDegrees': 0, 'selectedIndex': None}"
+    },
+    {
+      "name": "dildo result equals its labelled sector",
+      "result": "PASS",
+      "detail": "{'selectedIndex': 5, 'selectedLabel': 'Comfort', 'alignmentErrorDegrees': 0, 'rotationDegrees': 1552.5}"
+    },
+    {
+      "name": "plug result equals its labelled sector",
+      "result": "PASS",
+      "detail": "{'selectedIndex': 2, 'selectedLabel': 'Suitable lube', 'alignmentErrorDegrees': 0, 'rotationDegrees': 1687.5}"
+    },
+    {
+      "name": "wild result equals its labelled sector",
+      "result": "PASS",
+      "detail": "{'selectedIndex': 5, 'selectedLabel': 'One promise', 'alignmentErrorDegrees': 0, 'rotationDegrees': 1552.5}"
+    },
+    {
+      "name": "Dark category refreshes the actual wheel labels",
+      "result": "PASS",
+      "detail": "['Secret note', 'Powerful entrance', 'Hidden truth', 'Slow burn', 'Trust test', 'Midnight call', 'Choose the ending', 'Skip']"
+    },
+    {
+      "name": "Poster button opens Boyfriend view and selects category",
+      "result": "PASS",
+      "detail": "confession"
+    },
+    {
+      "name": "18+ gate appears before showing image",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Gate blocks continuation until checked",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Age self-attestation opens separate section",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Threesome cover decodes from bundled asset",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Hide action hides protected cover section",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No overflow at 320px",
+      "result": "PASS",
+      "detail": "{'doc': 320, 'body': 320, 'win': 320, 'overs': [{'tag': 'A', 'id': '', 'cls': 'skip-link', 'right': -900, 'left': -999, 'width': 99}], 'anc': [{'tag': 'DIV', 'id': '', 'cls': 'hero-media', 'left': 39, 'right': 281, 'width': 242, 'display': 'block', 'grid': 'none', 'overflow': 'hidden'}, {'tag': 'DIV', 'id': '', 'cls': 'hero', 'left': 20, 'right': 300, 'width': 280, 'display': 'grid', 'grid': '242px', 'overflow': 'visible'}, {'tag': 'SECTION', 'id': 'view-home', 'cls': 'view active', 'left': 12, 'right': 308, 'width': 296, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'MAIN', 'id': 'main', 'cls': 'wrap main-content', 'left': 12, 'right': 308, 'width': 296, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'BODY', 'id': '', 'cls': '', 'left': 0, 'right': 320, 'width': 320, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'HTML', 'id': '', 'cls': '', 'left': 0, 'right': 320, 'width': 320, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}]}"
+    },
+    {
+      "name": "No overflow at 360px",
+      "result": "PASS",
+      "detail": "{'doc': 360, 'body': 360, 'win': 360, 'overs': [{'tag': 'A', 'id': '', 'cls': 'skip-link', 'right': -900, 'left': -999, 'width': 99}], 'anc': [{'tag': 'DIV', 'id': '', 'cls': 'hero-media', 'left': 39, 'right': 321, 'width': 282, 'display': 'block', 'grid': 'none', 'overflow': 'hidden'}, {'tag': 'DIV', 'id': '', 'cls': 'hero', 'left': 20, 'right': 340, 'width': 320, 'display': 'grid', 'grid': '282px', 'overflow': 'visible'}, {'tag': 'SECTION', 'id': 'view-home', 'cls': 'view active', 'left': 12, 'right': 348, 'width': 336, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'MAIN', 'id': 'main', 'cls': 'wrap main-content', 'left': 12, 'right': 348, 'width': 336, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'BODY', 'id': '', 'cls': '', 'left': 0, 'right': 360, 'width': 360, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'HTML', 'id': '', 'cls': '', 'left': 0, 'right': 360, 'width': 360, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}]}"
+    },
+    {
+      "name": "No overflow at 390px",
+      "result": "PASS",
+      "detail": "{'doc': 390, 'body': 390, 'win': 390, 'overs': [{'tag': 'A', 'id': '', 'cls': 'skip-link', 'right': -900, 'left': -999, 'width': 99}], 'anc': [{'tag': 'DIV', 'id': '', 'cls': 'hero-media', 'left': 39, 'right': 351, 'width': 312, 'display': 'block', 'grid': 'none', 'overflow': 'hidden'}, {'tag': 'DIV', 'id': '', 'cls': 'hero', 'left': 20, 'right': 370, 'width': 350, 'display': 'grid', 'grid': '312px', 'overflow': 'visible'}, {'tag': 'SECTION', 'id': 'view-home', 'cls': 'view active', 'left': 12, 'right': 378, 'width': 366, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'MAIN', 'id': 'main', 'cls': 'wrap main-content', 'left': 12, 'right': 378, 'width': 366, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'BODY', 'id': '', 'cls': '', 'left': 0, 'right': 390, 'width': 390, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'HTML', 'id': '', 'cls': '', 'left': 0, 'right': 390, 'width': 390, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}]}"
+    },
+    {
+      "name": "No overflow at 430px",
+      "result": "PASS",
+      "detail": "{'doc': 430, 'body': 430, 'win': 430, 'overs': [{'tag': 'A', 'id': '', 'cls': 'skip-link', 'right': -900, 'left': -999, 'width': 99}], 'anc': [{'tag': 'DIV', 'id': '', 'cls': 'hero-media', 'left': 39, 'right': 391, 'width': 352, 'display': 'block', 'grid': 'none', 'overflow': 'hidden'}, {'tag': 'DIV', 'id': '', 'cls': 'hero', 'left': 20, 'right': 410, 'width': 390, 'display': 'grid', 'grid': '352px', 'overflow': 'visible'}, {'tag': 'SECTION', 'id': 'view-home', 'cls': 'view active', 'left': 12, 'right': 418, 'width': 406, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'MAIN', 'id': 'main', 'cls': 'wrap main-content', 'left': 12, 'right': 418, 'width': 406, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'BODY', 'id': '', 'cls': '', 'left': 0, 'right': 430, 'width': 430, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'HTML', 'id': '', 'cls': '', 'left': 0, 'right': 430, 'width': 430, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}]}"
+    },
+    {
+      "name": "No overflow at 1440px",
+      "result": "PASS",
+      "detail": "{'doc': 1440, 'body': 1440, 'win': 1440, 'overs': [{'tag': 'A', 'id': '', 'cls': 'skip-link', 'right': -900, 'left': -999, 'width': 99}], 'anc': [{'tag': 'DIV', 'id': '', 'cls': 'hero-media', 'left': 785.59375, 'right': 1268, 'width': 482.40625, 'display': 'block', 'grid': 'none', 'overflow': 'hidden'}, {'tag': 'DIV', 'id': '', 'cls': 'hero', 'left': 148, 'right': 1292, 'width': 1144, 'display': 'grid', 'grid': '589.594px 482.406px', 'overflow': 'visible'}, {'tag': 'SECTION', 'id': 'view-home', 'cls': 'view active', 'left': 130, 'right': 1310, 'width': 1180, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'MAIN', 'id': 'main', 'cls': 'wrap main-content', 'left': 130, 'right': 1310, 'width': 1180, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'BODY', 'id': '', 'cls': '', 'left': 0, 'right': 1440, 'width': 1440, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}, {'tag': 'HTML', 'id': '', 'cls': '', 'left': 0, 'right': 1440, 'width': 1440, 'display': 'block', 'grid': 'none', 'overflow': 'visible'}]}"
+    },
+    {
+      "name": "Wheel gradient origin matches the 8 label centres",
+      "result": "PASS",
+      "detail": "gradient starts at 0deg; labels use index + 0.5"
+    },
+    {
+      "name": "Centre SPIN button triggers the same wheel logic",
+      "result": "PASS",
+      "detail": "{'selectedIndex': 2, 'selectedLabel': 'No comparison'}"
+    },
+    {
+      "name": "Capture handler prevents duplicate core wheel spin",
+      "result": "PASS",
+      "detail": "core bubble handler count=0"
+    },
+    {
+      "name": "No uncaught JavaScript errors",
+      "result": "PASS",
+      "detail": "[]"
+    }
+  ]
+}

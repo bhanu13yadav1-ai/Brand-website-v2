@@ -1,0 +1,11 @@
+V2 PHASE 2+3 HANDOFF NOTE
+
+Project: https://github.com/bhanu13yadav1-ai/Brand-website-v2
+
+This combined repair fixes the Phase 1 integration/image problems and merges V2 Phase 2 + 3. Current root index.html was not linking part-c-enhancements.css/js, so gallery/wheel additions were never initialized. The enhancement logic expected assets/fantasy-gallery paths, while the earlier supplied images had existed only as root-level image files; this package instead bundles local optimized assets at exact expected paths. The revised add-on inserts two wheel-poster cards into Home, a red-lace draft campaign in Innerwear, 7 locally bundled Sanskari image cards, four separate male reference cards and an 18+ gated Threesome Fantasy section. It also uses a single index to calculate the visible 8-segment wheel stop and selected result across boy/dildo/plug/wild, supports reset, repeat spins and Wild category changes, and updates service-worker caching.
+
+Upload instructions: see README_PHASE23_UPLOAD_HINGLISH.md and UPLOAD_FILE_LIST_PHASE23.txt. Preserve app.js/styles.css/fallback.js/core data. Back up main first. Live diagnostics URL: https://bhanu13yadav1-ai.github.io/Brand-website-v2/phase23-diagnostics.html
+
+Local fixture checks are not live GitHub Pages or physical Android testing. External image-library requests are separate and need a post-upload runtime check.
+
+NEW QA FIX: The mobile test found `.hero-media` overflow at 320px because 220px min-height plus a 16:11 aspect-ratio forced a wider card. CSS now uses fixed responsive height with aspect-ratio:auto below 640px; local fixture suite now passes 35/35. Static validation now passes 11/11. The wheel gradient origin was changed from -22.5deg to 0deg to align visual sector centres with labels and the spin-selection formula. The diagnostics can also batch-check all 151 remote archive URLs. The uploaded root HTML still needs to be applied to the repo; no live deployment or Android-device test has been claimed.

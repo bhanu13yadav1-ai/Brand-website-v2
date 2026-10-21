@@ -1,0 +1,68 @@
+{
+  "suite": "V2 Phase 2+3 static package validation",
+  "tested_at": "2026-10-21",
+  "total": 11,
+  "passed": 11,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "node --check part-c-enhancements.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "node --check sw.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "node --check diagnostics inline JS",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSS braces balanced",
+      "pass": true,
+      "detail": "open=72 close=72"
+    },
+    {
+      "check": "Wheel segment colours start at top and centres match labels",
+      "pass": true,
+      "detail": "Gradient starts at 0deg; labels and stop formula use centre offset 22.5deg."
+    },
+    {
+      "check": "Main HTML and diagnostics parse",
+      "pass": true,
+      "detail": "Both pages parse without HTMLParser errors."
+    },
+    {
+      "check": "Main HTML IDs unique",
+      "pass": true,
+      "detail": "158 IDs; duplicates=[]"
+    },
+    {
+      "check": "PWA manifest and QA JSON valid",
+      "pass": true,
+      "detail": "JSON parsed successfully."
+    },
+    {
+      "check": "All bundled WebP files decode",
+      "pass": true,
+      "detail": "15 files, decode errors=0"
+    },
+    {
+      "check": "All required local assets exist",
+      "pass": true,
+      "detail": "15/15 present; missing=[]"
+    },
+    {
+      "check": "Index links the addon CSS and JavaScript",
+      "pass": true,
+      "detail": "Both references are present in root index.html."
+    }
+  ],
+  "notes": [
+    "This static validation does not claim live GitHub Pages or physical Android verification.",
+    "The 151-record archive is externally sourced and must be tested in browser after upload."
+  ]
+}

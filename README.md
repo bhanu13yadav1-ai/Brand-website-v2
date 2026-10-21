@@ -1,34 +1,23 @@
-# BLACKED V1 Part B — Story Series & Desi Size Guide
+# BLACKED — V2 Phase 2+3 Repair
 
-This is a root-ready incremental update for `bhanu13yadav1-ai/Brand-website-v2`, based on the Part A source files currently present on its `main` branch.
+This repository contains a mobile-first innerwear concept catalogue, an educational Wellness & Size Guide, fictional adult stories, interactive conversation wheels and campaign reference collections. This is a front-end prototype: there is no verified stock inventory, checkout/payment backend, account system or booking system.
 
-## What Part B adds
+## What the V2 Phase 2+3 repair fixes
 
-- Three fictional adult story series, each with Part 1 preserved from existing stories, two additional chapters and two choice-based endings.
-- Three new original Hinglish dark-romance/dirty-banter starter stories; Part A's 10 stories remain.
-- Chapter navigation inside the story reader.
-- Optional Continue Reading and bookmarks stored in a new app-owned localStorage key, `blackedV1PartBStoryVault`. Saving is off by default unless already opted in. The data is not encrypted and not synced. A clear control and the site's Privacy & Data Controls include this key.
-- A researched, plain-language Hinglish glossary explaining the slang terms “chut”, “land”, “gand”, dildo dimensions and butt-plug safety.
-- Dildo, Butt Plug and Land/Boyfriend wheel text, range labels, results and reset messages use desi Hinglish. Dark Romance prompts use colloquial Hindi/Hinglish gaali-banter, remain non-graphic, adult-only and skippable. Original wheel controls and option keys stay the same.
-- Stories now use the existing 18+ self-attestation gate.
-- Updated service-worker cache version and Part B diagnostics.
+- Connects the Part C enhancement CSS/JavaScript to the actual `index.html`. Before this repair, those files existed but were not loaded, so new sections did not appear.
+- Locally bundles the supplied boyfriend reference photos, wheel posters, red-lace campaign image and Sanskari campaign visuals at the exact `assets/` paths used by the page.
+- Rebuilds all four wheel overlays with eight labelled sectors. The pointer, sector label and result now share the same selection index; the centre Spin button also uses the same wheel logic.
+- Fixes a 320px mobile overflow caused by an intrinsic `aspect-ratio` combined with a minimum height on the home hero image.
+- Updates the service-worker cache and PWA manifest, and adds a diagnostics page for the four wheels, locally bundled assets and the existing 151-record external image library.
 
-## Existing features kept
+## Verify after deployment
 
-The package retains the Part A catalogue, all three original wheels, Dirty/Wild wheel, Boyfriend/Couples area, Sanskari/Noor/Grace collection previews, 151-record image archive, Wellness education, Fit Studio, wishlist, demo bag, comparison, privacy controls and image fallback source files.
+Open `phase23-diagnostics.html` on the deployed GitHub Pages site. Run **Run basic checks**, **Run all 4 wheel tests**, **Check bundled images**, and **Check all archive URLs**. The larger 151-record archive still uses public source URLs; diagnostics will identify records whose source URLs no longer load.
 
-## Upload
+## Upload / preservation rules
 
-1. Back up the current repository first.
-2. Extract this ZIP on the phone.
-3. Upload the **contents** of `V1_PART_B_STORY_SERIES` to the root of the existing `main` branch in `Brand-website-v2`.
-4. Replace matching root source files (`index.html`, `app.js`, `styles.css`, `sw.js`, `manifest.webmanifest`, `README.md`) and add/update the listed JSON, CSV and diagnostics files. Do not create a nested second copy of the folder.
-5. Commit once all files are present, then open `/part-b-diagnostics.html` on the published GitHub Pages URL.
+Back up the branch before uploading. Apply the contents of the combined repair package to the repository root, preserving the `assets/` directory structure. The existing `app.js`, `styles.css`, `fallback.js` and `innerwear-image-library.json` are intentionally retained.
 
-## Honest testing boundary
+## Testing boundaries
 
-The checked-in source passed syntax/static checks and 36 in-memory Chromium functional tests. The test fixture used the exact source and image-manifest JSON, isolated/mock browser storage and intentionally blocked public raw-GitHub image requests. That verifies local component behavior, not a live deployment, upstream image availability or a physical Android device. Those checks remain NOT TESTED until run from the hosted website/device.
-
-## Medical accuracy
-
-The size guide does not claim there is one “normal” vulva/vagina size or one best toy size. Listed wheel ranges are illustrative demo filters, not recommendations. Anal-use toys need a flared base or safe retrieval stop; product dimensions and lubricant/material compatibility must be checked. References are listed in `RESEARCH_NOTES_PART_B.md`.
+Static validation passed 11/11 and the local Chromium fixture passed 35/35 interaction checks. Those are local tests, not proof that GitHub Pages or a physical Android device has been tested. The 18+ gate is self-attestation, not formal age verification.
