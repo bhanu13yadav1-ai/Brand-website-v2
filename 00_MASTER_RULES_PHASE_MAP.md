@@ -45,3 +45,8 @@ Phase 4 cannot be called fully released until the ZIP has been uploaded to V2 an
 - Add the `MORE DIRTY FOR HORNY GIRLS` next-update teaser; long-form story library stays roadmap-only.
 - Run `phase7-diagnostics.html` locally and after deployment; distinguish source/local checks from live GitHub Pages, external image availability and real Android testing.
 - Release report must mark each check PASS / FAIL / NOT TESTED / BLOCKED honestly.
+
+
+## Part B handoff (After Dark V2)
+
+Part B source is in `PART_B_IMPLEMENTATION_REPORT.md`; QA results and the exact in-memory test scope are in `PART_B_QA_RESULTS.json` and `PART_B_LOCAL_BROWSER_TESTS.json`. The release is upload-ready but NOT production verified. The story vault only persists after the reader opts in and is not encrypted. All 151 external asset URLs still require hosted verification. See `README_PART_B_UPLOAD_HINGLISH.md` and `NEXT_PARTS_ROADMAP.md`.

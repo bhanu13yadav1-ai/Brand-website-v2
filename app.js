@@ -122,7 +122,7 @@
       '“Would you like to get chai while we wait?” Dev asked. “No pressure. I can stay right here if you’d rather.” Ananya smiled, relieved by the question instead of pushed by it. “Chai, yes. And maybe one more honest question.”',
       'Outside the station kiosk, the rain softened the streetlights into gold. Their hands brushed around the paper cups; both noticed, neither assumed. Ananya offered her hand, palm up. Dev met it gently, waiting until she laced their fingers together. The train finally arrived, but the evening had already changed direction.'
     ]},
-    {id:'velvet-key',title:'The Key Behind the Velvet Frame',mood:'dark-romance',moodLabel:'Dark Romance & Mystery',readingTime:'4 min read',teaser:'At a private art opening, Rhea finds a brass key and a note that turns a mysterious evening into a game of mutual curiosity.',content:[
+    {id:'velvet-key',title:'The Key Behind the Velvet Frame',mood:'dark-romance',moodLabel:'Andheri Raat · Dark Romance',readingTime:'4 min read',teaser:'At a private art opening, Rhea finds a brass key and a note that turns a mysterious evening into a game of mutual curiosity.',content:[
       'Rhea, 30, found the brass key tucked behind a velvet frame at the gallery’s final room. Beside it was a card in neat handwriting: “Only if you choose. Ask me about the blue door.” Across the room, Kabir, 32, lifted his glass in a question rather than a demand.',
       'The blue door opened onto a quiet reading room, not a secret trap or a grand reveal. One lamp, two chairs, a stack of old letters, and a city view made the space feel like a scene waiting for its own rules. Kabir explained the little mystery he had built for the guests, then offered to end the game whenever she wished.',
       'Rhea chose another clue. The next card asked what made her feel safe enough to be adventurous. Her answer surprised them both: clear choices, honest intentions, and the freedom to laugh when a plan got ridiculous. Kabir wrote it down as the best clue of the night.',
@@ -158,7 +158,7 @@
       'Dono ne rule banaya: tease karo, insult nahi; bold ho, pushy nahi. Jab Dev ne poocha ki kya woh thoda aur flirt kar sakta hai, Tara ne smile karke kaha, “Haan, aaj permission hai. Kal phir poochna padega, hero.”',
       'Raat khatam hui toh number exchange hua, koi promise nahi. Tara ne last line bheji: “Goodnight, saale. Aaj ke liye pass ho.” Dev ne screenshot nahi, bas message save kiya—aur kal ka plan poochne ka wait kiya.'
     ]}
-    ,{id:'boss-lady-rule',title:'Boss Lady Ka Secret Rule',mood:'dark-romance',moodLabel:'Dark Romance & Mystery',language:'hinglish',readingTime:'4 min read',teaser:'A mysterious invitation, a velvet envelope and a confident adult who writes the rules before the night begins.',content:[
+    ,{id:'boss-lady-rule',title:'Boss Lady Ka Secret Rule',mood:'dark-romance',moodLabel:'Andheri Raat · Dark Romance',language:'hinglish',readingTime:'4 min read',teaser:'A mysterious invitation, a velvet envelope and a confident adult who writes the rules before the night begins.',content:[
       'Aisha, 31, ko ek black envelope mila. Andar sirf ek line thi: “Midnight library. Dress sharp. Leave whenever you want.” Neeche Rehan, 33, ka naam tha—woh aadmi jo hamesha mysteries create karta tha, lekin kabhi uski choice chheen-ne ki koshish nahi karta.',
       'Library mein red lamp, old books aur ek table par teen cards the: “Ask”, “Answer” aur “Pass”. Rehan ne bataya ki har card optional hai. Aisha ne “Ask” uthaya: “Tumhe lagta hai bold hone ka matlab rules todna hai?”',
       'Rehan ne kaha, “Nahi. Bold hone ka matlab apni baat saaf kehna aur doosre ka no bhi sunna.” Aisha ne “Pass” card uske saamne rakha aur hans padi. “Test pass. Ab chai lao.”',
@@ -177,6 +177,172 @@
       'Date night ka ending dramatic nahi tha—bas ek shared playlist, extra dessert aur agle hafte ke liye ek naya card idea. Unhe yaad aaya ki boldness ka matlab pressure nahi; honest communication bhi sexy confidence ho sakta hai.'
     ]}
   ];
+
+  // Part B: additional dark-romance Hinglish starters. All characters are fictional adults; scenes stay suggestive, non-graphic and consent-first.
+  storyLibrary.push(
+    {id:'kaali-raat-ka-rule',title:'Kaali Raat, Seedha Sawaal',mood:'dark-romance',moodLabel:'Andheri Raat · Dark Romance',language:'hinglish',readingTime:'4 min read',teaser:'Ek black envelope, ek harami mystery aur ek boss lady jo rules khud likhti hai.',content:[
+      'Zoya, 29, ko raat ke 11:47 par ek message aaya: “Madam, tumhari bold baaton ki reputation hai. Aaj mystery solve karogi?” Sender tha Armaan, 32—smart suit, shaitaan smile aur overconfident one-liners ka walking showroom.',
+      'Zoya ne reply kiya: “Sun saale, suspense theek hai. Mind-reading aur zabardasti nahi. Main jab bolun bas, toh game khatam.” Armaan ka jawab seedha tha: “Deal. Tum rules likho, main bakwaas shayari aur clues laata hoon.”',
+      'Old library mein teen envelopes rakhe the. Pehla clue uski favourite film nikla, doosra ek honest question: “Tumhe bold feel karne ke liye kya chahiye?” Zoya boli, “Choice. Aur koi harami meri ‘no’ ko challenge na samjhe.” Armaan ne clue ke neeche likha: “Rule number one: no means no.”',
+      'Aakhri envelope mein date invitation tha, koi secret demand nahi. Zoya hansi: “Itna drama karke coffee?” Armaan bola, “Coffee ke saath meri bekaar shayari free.” Zoya ne haan kaha—sirf coffee ke liye. Raat mysterious thi, par decision bilkul clear.'
+    ]},
+    {id:'gandi-soch-seedhi-baat',title:'Gandi Soch, Seedhi Baat',mood:'dirty-hinglish',moodLabel:'Dirty Hinglish & Gaali Banter',language:'hinglish',readingTime:'3 min read',teaser:'Desi double meaning full volume par—par asli confidence clear boundaries ke saath.',content:[
+      'Naina, 30, ne Kunal, 31, ka phone dekha: usne date ke liye ek boring restaurant aur teen cringe pickup lines shortlist ki thi. “Oye saale, flirting karni hai ya HR interview?” Naina ne chheda.',
+      'Kunal bola, “Madam, main harami ho sakta hoon, telepath nahi. Tum vibe set karo—kitna double meaning, kitni gaali, aur kis line par brake?” Naina ne kaha, “Banter bold rakh. Body par insult nahi. Aur ‘pass’ ka matlab pass.”',
+      'Unhone ek card game shuru kiya: ek cheeky line, ek honest question, aur ek chance to skip. Naina ne likha, “Aaj tumhari shakal se zyada tumhara confidence test hoga.” Kunal ne jawab diya, “Phir toh main pehle hi fail—confidence ke saath bakwaas bhi laaya hoon.”',
+      'Dono ki hansi ruk hi nahi rahi thi. Raat ka mood naughty tha, lekin koi pressure nahi. Naina ne last card par likha: “Dirty talk tabhi sexy hai jab dono ko maza aaye. Baaki sab chutiyapa.” Kunal ne card pocket mein rakha—rules yaad rakhne ke liye, kisi ko control karne ke liye nahi.'
+    ]},
+    {id:'madam-ke-rules',title:'Madam Ke Rules, Saale',mood:'dark-romance',moodLabel:'Andheri Raat · Dark Romance',language:'hinglish',readingTime:'4 min read',teaser:'Ek private masquerade, ek masked stranger aur heroine jo har scene ka control apne paas rakhti hai.',content:[
+      'Aarohi, 28, masquerade party mein black mask pehen kar gayi. Ek stranger ne card diya: “Agar tum chaho toh teen clues. Har clue ke baad tum decide karogi game aage chalega ya nahi.” Naam: Veer, 30.',
+      'Aarohi ne card palta aur likha: “Rule one: drama, yes. Pressure, no. Rule two: meri permission har next step par dobara poochni padegi.” Veer ne sir hilaaya. “Aur rule three?” “Bakwas shayari pe fine lagega, saale.”',
+      'Clues ne unhe ballroom se balcony tak le gaye, par har turn par Aarohi ke paas choice thi. Ek pal woh hansi, doosre pal usne pause maanga. Veer ruk gaya, sawaal nahi kiya, bas paani le aaya. Us chhoti si baat ne saare dramatic gestures se zyada impression chhoda.',
+      'Midnight par mask utarne se pehle Aarohi ne kaha, “Mystery acchi thi. Ab real naam aur normal coffee invite do.” Veer ne diya. Ending cliffhanger nahi thi—ek respectful beginning thi, jahan dono ko apni marzi se next chapter likhna tha.'
+    ]}
+  );
+
+  // Series use each existing story as Part 1, preserving the original story text.
+  const storySeries = {
+    'velvet-key': {
+      label:'Blue Door Mystery · 3 parts', chapters:[
+        {title:'Part 2 · Blue Door Ka Dusra Raaz',content:[
+          'Rhea, 30, ne brass key table par rakhi. “Kabir, mystery theek hai, par rules clear: koi surprise touch nahi, aur main jab bolun bas, toh game khatam.” Kabir ne seedha kaha, “Deal. Har next step ka yes alag hoga.”',
+          'Blue door ke peeche ek aur letter tha: “Sabse bold secret woh nahi jo chhupaya jaaye—woh hai jo tum khud decide karke share karo.” Rhea ne apni story ka sirf utna hissa bataya jitna woh comfortable thi.',
+          'Kabir ne koi interrogation nahi ki. Usne apna secret bataya: use logon ko impress karne ke chakkar mein over-plan karna pasand nahi tha. Rhea hansi, “Finally, ek normal flaw. Tum itne mysterious nahi, thode se dramatic ho, saale.”'
+        ]},
+        {title:'Part 3 · Aakhri Clue, Apni Marzi',content:[
+          'Aakhri card par do options the: “Ek aur clue” ya “Mystery yahin band.” Rhea ko laga ki kisi ne uske choice ko story ka central part bana diya tha. Usne card Kabir ko dikhaya: “Achha likha hai. Is baar decision main loongi.”',
+          'Kabir ne kaha, “Exactly. Tumhara jawab story ka end nahi, tumhara right hai.” Rhea ne pehle coffee choose ki, phir ek last clue. Mystery ne unke liye kuch prove nahi kiya; bas unhe bataya ki curiosity bina pressure bhi exciting ho sakti hai.'
+        ]}
+      ], endings:[
+        {id:'stay',label:'Ek aur clue ke liye rukna',content:['Rhea ne muskurakar “One more clue” card uthaya. Kabir ne ek chhota note diya: “Next date tum choose karogi.” Rhea ne kaha, “Aur tum apni shayari ghar par practice karoge, harami.” Dono hasi ke saath gallery se nikle; next chapter ka plan mutual tha.']},
+        {id:'leave',label:'Mystery yahin chhod dena',content:['Rhea ne key wapas velvet frame ke paas rakh di. “Aaj ke liye itna kaafi hai.” Kabir ne smile ki: “Thanks for playing. Coffee ka invite ab bhi open hai—no pressure.” Rhea ne kaha, “Kal message karna, phir dekhenge.” Mystery adhuri rahi, par choice poori thi.']}
+      ]
+    },
+    'boss-lady-rule': {
+      label:'Boss Lady Files · 3 parts', chapters:[
+        {title:'Part 2 · Madam Ka Agla Rule',content:[
+          'Aisha, 31, ne next envelope khola: “Choose the music.” Rehan, 33, ne speaker uski taraf kar diya. “Boss lady ka rule hai, toh playlist bhi boss lady ki.” Aisha boli, “Good. Ab meri taste par comment kiya toh tumhari entry ban.”',
+          'Song ke beech ek prompt aaya: “Aisi kaunsi baat hai jo tumhe bold feel karati hai?” Aisha ne jawab diya, “Jab meri baat suni jaati hai, sirf meri daring image ko nahi.” Rehan ne is baar joke nahi maara; usne jawab yaad rakha.'
+        ]},
+        {title:'Part 3 · The Rule She Kept',content:[
+          'Final note par likha tha: “Agar tum continue karna chaho, next clue tum set karo.” Aisha ne teen rules likhe: sach bolna, pass ko respect karna, aur kisi private baat ko kabhi public joke na banana.',
+          'Rehan ne sign kiya aur apna naam neeche likha. “Done.” Aisha ne kaha, “Bas itna? Mujhe laga tum aur dramatic dialogue maaroge.” “Draft mein tha,” woh bola, “par tumne no cringe clause rakha hai.” Aisha hansi aur date ka next plan choose kiya.'
+        ]}
+      ], endings:[
+        {id:'bold-date',label:'Bold coffee date choose karo',content:['Aisha ne late-night coffee spot choose kiya. “Public place, ek ghanta, aur meri choice ka music.” Rehan bola, “Approved—boss lady ka schedule.” Usne kisi aur promise ka pressure nahi dala. Dono ne ek date plan ki, bas utna hi jitna dono chahte the.']},
+        {id:'mystery-end',label:'Mystery ko yahin end karo',content:['Aisha ne envelope band kiya: “Aaj ka game khatam.” Rehan ne kaha, “Thanks for telling me clearly.” Usne koi guilt trip nahi diya, aur Aisha ko wahi confidence sabse zyada pasand aaya. Story yahin end hui—respect ke saath.']}
+      ]
+    },
+    'kaali-raat-ka-rule': {
+      label:'Kaali Raat Files · 3 parts', chapters:[
+        {title:'Part 2 · Harami Clue',content:[
+          'Zoya ko agle din ek laal envelope mila. Andar likha tha: “Kal raat tumne rules banaye. Aaj tum clue writer ho.” Usne Armaan ko message kiya, “Saale, tumhara drama budget khatam nahi hota?” Armaan ne reply diya, “Tumhari roast rating high hai, sponsor mil jaata hai.”',
+          'Zoya ne clue ko ek art café tak follow kiya. Wahan Armaan ne usse teen choices di—question, joke, ya game end. Zoya ne question choose kiya: “Tum mysterious kyun bante ho?” Armaan ne sach bola: “Kabhi-kabhi rejection se darr lagta hai, toh main joke ke peeche chhup jaata hoon.”'
+        ]},
+        {title:'Part 3 · Kaun Control Mein?',content:[
+          'Zoya ne kaha, “Confidence ka matlab yeh nahi ki tum kabhi darrte nahi. Matlab tum seedha pooch sakte ho aur jawab accept kar sakte ho.” Armaan ne haan mein sir hilaaya. Aaj usne bina riddle ke date poochi.',
+          'Zoya ne apni marzi se haan kaha, time aur place khud choose kiya. Kaali raat ka suspense ab bhi tha, par kisi ko guess karne ki zaroorat nahi thi. Unki kahani mein boldness thi, par control kisi ek ka nahi—choice dono ki thi.'
+        ]}
+      ], endings:[
+        {id:'say-yes',label:'Coffee date ke liye haan',content:['Zoya ne message bheja: “Public café, 7 baje. Late hue toh roast karungi.” Armaan ne reply kiya, “Accepted. No riddles, no excuses.” Date set hui, future open raha.']},
+        {id:'not-tonight',label:'Aaj nahi, baad mein dekhna',content:['Zoya ne likha: “Aaj nahi. Kal shayad baat karenge.” Armaan ne answer kiya, “No worries. Thanks for telling me.” Koi guilt trip nahi, koi force nahi. Kabhi-kabhi best ending hoti hai space dena.']}
+      ]
+    }
+  };
+
+  const STORY_VAULT_KEY = 'blackedV1PartBStoryVault';
+  const validStoryIds = new Set(storyLibrary.map(s=>s.id));
+  const rawStoryVault = safeRead(STORY_VAULT_KEY, {});
+  const storyVault = {
+    enabled: rawStoryVault && rawStoryVault.enabled === true,
+    bookmarks: Array.isArray(rawStoryVault?.bookmarks) ? [...new Set(rawStoryVault.bookmarks.filter(id=>validStoryIds.has(id)))].slice(0,80) : [],
+    progress: {}, lastRead: null
+  };
+  if (rawStoryVault && rawStoryVault.progress && typeof rawStoryVault.progress === 'object' && !Array.isArray(rawStoryVault.progress)) {
+    for (const [id,p] of Object.entries(rawStoryVault.progress)) {
+      if (validStoryIds.has(id) && p && Number.isInteger(p.chapterIndex) && p.chapterIndex>=0 && p.chapterIndex<=((storySeries[id]?.chapters.length||0))) {
+        storyVault.progress[id]={chapterIndex:p.chapterIndex,completed:p.completed===true,branchId:typeof p.branchId==='string'?p.branchId:null,updatedAt:typeof p.updatedAt==='string'?p.updatedAt:''};
+      }
+    }
+  }
+  if (rawStoryVault?.lastRead && validStoryIds.has(rawStoryVault.lastRead.id)) {
+    const id=rawStoryVault.lastRead.id; const max=storySeries[id]?.chapters.length||0; const chapterIndex=Number.isInteger(rawStoryVault.lastRead.chapterIndex)?Math.max(0,Math.min(max,rawStoryVault.lastRead.chapterIndex)):0;
+    storyVault.lastRead={id,chapterIndex,branchId:typeof rawStoryVault.lastRead.branchId==='string'?rawStoryVault.lastRead.branchId:null,updatedAt:typeof rawStoryVault.lastRead.updatedAt==='string'?rawStoryVault.lastRead.updatedAt:''};
+  }
+  function persistStoryVault() {
+    const payload={version:1,enabled:storyVault.enabled,bookmarks:storyVault.bookmarks.slice(0,80),progress:storyVault.progress,lastRead:storyVault.lastRead};
+    try { localStorage.setItem(STORY_VAULT_KEY,JSON.stringify(payload)); return true; }
+    catch { toast('Browser storage blocked. Reading data was not saved.'); return false; }
+  }
+  function clearStoryVaultData(render=true) {
+    storyVault.enabled=false; storyVault.bookmarks.length=0; storyVault.progress={}; storyVault.lastRead=null;
+    try { localStorage.removeItem(STORY_VAULT_KEY); } catch {}
+    if (render) { if ($('#storyVaultOptIn')) $('#storyVaultOptIn').checked=false; renderStories(); renderStoryVault(); }
+  }
+  function storyIsBookmarked(id) { return storyVault.bookmarks.includes(id); }
+  function toggleStoryBookmark(id) {
+    if (!storyVault.enabled) { toast('Pehle “Save on this device” opt-in on karo.'); $('#storyVaultOptIn')?.focus(); return; }
+    const index=storyVault.bookmarks.indexOf(id);
+    if(index>=0)storyVault.bookmarks.splice(index,1);else if(storyVault.bookmarks.length<80)storyVault.bookmarks.push(id);else{toast('Bookmark limit reached (80).');return;}
+    persistStoryVault(); renderStories(); renderStoryVault();
+  }
+  function saveStoryProgress(story, chapterIndex=0, branchId=null, completed=false) {
+    if (!storyVault.enabled) return;
+    const max=storySeries[story.id]?.chapters.length||0;
+    const safeIndex=Math.max(0,Math.min(max,Number.isInteger(chapterIndex)?chapterIndex:0));
+    const record={chapterIndex:safeIndex,completed:completed===true,branchId:typeof branchId==='string'?branchId:null,updatedAt:new Date().toISOString()};
+    storyVault.progress[story.id]=record; storyVault.lastRead={id:story.id,chapterIndex:safeIndex,branchId:record.branchId,updatedAt:record.updatedAt};
+    persistStoryVault(); renderStoryVault();
+  }
+  function renderStoryVault() {
+    const host=$('#storyVaultGrid'); if(!host)return;
+    const status=$('#storyVaultStatus'); const opt=$('#storyVaultOptIn'); if(opt)opt.checked=storyVault.enabled;
+    if(!storyVault.enabled) {
+      status.textContent='Saving is off. No new reading progress or bookmark is recorded.';
+      host.innerHTML='<p class="muted">Enable local saving to use bookmarks and Continue Reading.</p>'; return;
+    }
+    status.textContent='On-device saving is enabled. These values are not encrypted or synced; clear them whenever you want.';
+    const rows=[]; const last=storyVault.lastRead;
+    if(last) {
+      const s=storyLibrary.find(x=>x.id===last.id); const series=storySeries[last.id]; const partName=last.chapterIndex===0?s?.title:(series?.chapters[last.chapterIndex-1]?.title||s?.title);
+      if(s)rows.push(`<article class="story-vault-card"><span class="story-mood">CONTINUE READING</span><h3>${esc(s.title)}</h3><p>${esc(partName)}${storyVault.progress[last.id]?.completed?' · Marked complete':''}</p><button class="btn secondary full" type="button" data-vault-open="${esc(last.id)}" data-vault-chapter="${last.chapterIndex}" data-vault-branch="${esc(last.branchId||'')}">Continue reading ↗</button></article>`);
+    }
+    for(const id of storyVault.bookmarks) {const s=storyLibrary.find(x=>x.id===id);if(!s)continue;const p=storyVault.progress[id];rows.push(`<article class="story-vault-card"><span class="story-mood">BOOKMARKED</span><h3>${esc(s.title)}</h3><p>${esc(s.teaser)}</p><button class="btn secondary full" type="button" data-vault-open="${esc(id)}" data-vault-chapter="${p?.chapterIndex||0}" data-vault-branch="${esc(p?.branchId||'')}">Open saved story ↗</button></article>`);}
+    host.innerHTML=rows.length?rows.join(''):'<p class="muted">No bookmarks or reading progress saved yet. Open a story or tap Bookmark on any card.</p>';
+  }
+  const storyReaderState={storyId:null,chapterIndex:0,branchId:null,returnFocus:null};
+  function renderStoryReader(storyId, chapterIndex=0, branchId=null) {
+    const story=storyLibrary.find(s=>s.id===storyId); if(!story)return;
+    const series=storySeries[storyId]; const max=series?.chapters.length||0;
+    const safeIndex=Math.max(0,Math.min(max,Number.isInteger(chapterIndex)?chapterIndex:0));
+    let partTitle=story.title, content=story.content, branch=null;
+    if(safeIndex>0 && series) {const part=series.chapters[safeIndex-1];partTitle=part.title;content=part.content;}
+    if(branchId && series) {branch=series.endings.find(e=>e.id===branchId)||null;if(branch){partTitle=branch.label;content=branch.content;}}
+    storyReaderState.storyId=storyId;storyReaderState.chapterIndex=safeIndex;storyReaderState.branchId=branch?.id||null;
+    $('#storyModalTitle').textContent=partTitle;
+    $('#storyModalMeta').textContent=`${story.moodLabel} · ${story.readingTime} · ${(story.language==='hinglish'?'Hindi / Hinglish':'English')} · Adult fictional characters`;
+    $('#storyModalBody').innerHTML=content.map((paragraph,i)=>`<p${i===content.length-1?' class="story-consent-note"':''}>${esc(paragraph)}</p>`).join('');
+    const controls=$('#storySeriesControls');
+    if(series) {
+      const buttons=[];
+      if(!branch && safeIndex>0) buttons.push(`<button class="btn ghost" type="button" data-story-prev>← Previous part</button>`);
+      if(!branch && safeIndex<max) buttons.push(`<button class="btn primary" type="button" data-story-next>Next part ↗</button>`);
+      if(!branch && safeIndex===max) buttons.push(...series.endings.map(e=>`<button class="btn secondary" type="button" data-story-branch="${esc(e.id)}">${esc(e.label)}</button>`));
+      if(branch) buttons.push(`<button class="btn secondary" type="button" data-story-restart-branch>Choose another ending</button><button class="btn primary" type="button" data-story-finish>Mark series complete</button>`);
+      if(!branch && safeIndex===0) buttons.push(`<button class="btn ghost" type="button" data-story-mark-read>Mark Part 1 as read</button>`);
+      controls.innerHTML=`<div class="story-series-progress"><span>${esc(series.label)}</span><span>Part ${branch?max+1:safeIndex+1} of ${max+1}${branch?' · ending':''}</span></div><div class="button-row">${buttons.join('')}</div><p class="micro muted">Choose a branch ending, or close this story any time. Each ending is a valid choice.</p>`;
+    } else {
+      controls.innerHTML=`<div class="story-series-progress"><span>Single story · ${esc(story.readingTime)}</span><span>Optional completion</span></div><div class="button-row"><button class="btn secondary" type="button" data-story-mark-read>Mark as read</button></div>`;
+    }
+    saveStoryProgress(story,safeIndex,branch?.id||null,!!branch);
+    $('#storyModal').classList.remove('hidden');
+  }
+  function bookmarkButton(story) {
+    const saved=storyIsBookmarked(story.id);
+    return `<button class="small-btn story-bookmark-btn" type="button" data-story-bookmark="${esc(story.id)}" aria-pressed="${String(saved)}">${saved?'♥ Saved':'♡ Bookmark'}</button>`;
+  }
+  function openSavedStory(id,chapterIndex=0) { renderStoryReader(id,chapterIndex,null); }
+
   let activeStoryFilter='all';
   function renderStories(){
     const host=$('#storyGrid'); if(!host)return;
@@ -189,9 +355,13 @@
     if(sort==='title')list=[...list].sort((a,b)=>a.title.localeCompare(b.title));
     if(sort==='shortest')list=[...list].sort((a,b)=>parseInt(a.readingTime)-parseInt(b.readingTime));
     if(sort==='longest')list=[...list].sort((a,b)=>parseInt(b.readingTime)-parseInt(a.readingTime));
-    host.innerHTML=list.map(s=>`<article class="story-card" data-story-card="${esc(s.id)}" data-story-category="${esc(s.mood)}" data-story-language="${esc(s.language||'en')}"><div class="story-topline"><span class="story-mood">${esc(s.moodLabel)}</span><span class="story-meta">${esc(s.readingTime)} · ${s.language==='hinglish'?'HINGLISH':'ENGLISH'} · 18+</span></div><h2>${esc(s.title)}</h2><p>${esc(s.teaser)}</p><div class="story-card-actions"><button class="btn secondary full" type="button" data-story-open="${esc(s.id)}">Read story ↗</button></div></article>`).join('');
+    host.innerHTML=list.map(s=>{
+      const series=storySeries[s.id];
+      return `<article class="story-card" data-story-card="${esc(s.id)}" data-story-category="${esc(s.mood)}" data-story-language="${esc(s.language||'en')}"><div class="story-topline"><span class="story-mood">${esc(s.moodLabel)}</span><span class="story-meta">${esc(s.readingTime)} · ${(s.language||'en')==='hinglish'?'HINGLISH':'ENGLISH'} · 18+</span></div><h2>${esc(s.title)}</h2><p>${esc(s.teaser)}</p>${series?`<span class="story-series-tag">${esc(series.label)}</span>`:''}<div class="story-card-actions"><button class="btn secondary full" type="button" data-story-open="${esc(s.id)}">${storyVault.progress[s.id]?'Continue story ↗':'Read story ↗'}</button>${bookmarkButton(s)}</div></article>`;
+    }).join('');
     $('#storyCount').textContent=`${list.length} of ${storyLibrary.length} stories available`;
     $('#storyStatus').textContent=`${list.length} stories shown.`;
+    renderStoryVault();
   }
   $$('[data-dirty-pick]').forEach(button=>button.addEventListener('click',()=>{
     const result=$('#dirtyPollResult');
@@ -209,12 +379,36 @@
   $('#storyCategory').addEventListener('change',()=>{activeStoryFilter=$('#storyCategory').value;$$('[data-story-filter]').forEach(b=>{const on=b.dataset.storyFilter===activeStoryFilter;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});renderStories();});
   $$('[data-story-filter]').forEach(b=>b.addEventListener('click',()=>{activeStoryFilter=b.dataset.storyFilter;$('#storyCategory').value=activeStoryFilter;$$('[data-story-filter]').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});renderStories();}));
   document.addEventListener('click',event=>{
-    const btn=event.target instanceof Element?event.target.closest('[data-story-open]'):null;
-    if(!btn)return;
-    const story=storyLibrary.find(s=>s.id===btn.dataset.storyOpen);if(!story)return;
-    $('#storyModalTitle').textContent=story.title;$('#storyModalMeta').textContent=`${story.moodLabel} · ${story.readingTime} · ${(story.language==='hinglish'?'Hindi / Hinglish':'English')} · All characters are adults`;
-    $('#storyModalBody').innerHTML=story.content.map((paragraph,i)=>`<p${i===story.content.length-1?' class="story-consent-note"':''}>${esc(paragraph)}</p>`).join('');
-    $('#storyModal').classList.remove('hidden');
+    const target=event.target instanceof Element?event.target:null;if(!target)return;
+    const bookmark=target.closest('[data-story-bookmark]');
+    if(bookmark){toggleStoryBookmark(bookmark.dataset.storyBookmark);return;}
+    const open=target.closest('[data-story-open]');
+    if(open){renderStoryReader(open.dataset.storyOpen,0,null);return;}
+    const vaultOpen=target.closest('[data-vault-open]');
+    if(vaultOpen){renderStoryReader(vaultOpen.dataset.vaultOpen,Number(vaultOpen.dataset.vaultChapter)||0,vaultOpen.dataset.vaultBranch||null);return;}
+    const next=target.closest('[data-story-next]');
+    if(next){renderStoryReader(storyReaderState.storyId,storyReaderState.chapterIndex+1,null);return;}
+    const prev=target.closest('[data-story-prev]');
+    if(prev){renderStoryReader(storyReaderState.storyId,storyReaderState.chapterIndex-1,null);return;}
+    const branch=target.closest('[data-story-branch]');
+    if(branch){renderStoryReader(storyReaderState.storyId,storyReaderState.chapterIndex,branch.dataset.storyBranch);return;}
+    const restart=target.closest('[data-story-restart-branch]');
+    if(restart){renderStoryReader(storyReaderState.storyId,storyReaderState.chapterIndex,null);return;}
+    const finish=target.closest('[data-story-finish]');
+    if(finish){const story=storyLibrary.find(s=>s.id===storyReaderState.storyId);if(story)saveStoryProgress(story,storyReaderState.chapterIndex,storyReaderState.branchId,true);toast('Series marked complete on this device.');renderStoryReader(storyReaderState.storyId,storyReaderState.chapterIndex,storyReaderState.branchId);return;}
+    const mark=target.closest('[data-story-mark-read]');
+    if(mark){const story=storyLibrary.find(s=>s.id===storyReaderState.storyId);if(story)saveStoryProgress(story,storyReaderState.chapterIndex,null,true);toast(storyVault.enabled?'Marked as read.':'Enable local saving to keep reading progress.');renderStoryVault();return;}
+    if(target.closest('#clearStoryVault')){
+      const yes=window.confirm('Clear all saved story bookmarks and reading progress from this browser?');
+      if(yes){clearStoryVaultData(true);toast('Saved story data cleared.');}
+      return;
+    }
+  });
+  $('#storyVaultOptIn').addEventListener('change',()=>{
+    storyVault.enabled=$('#storyVaultOptIn').checked;
+    persistStoryVault();
+    renderStories();
+    $('#storyVaultStatus').textContent=storyVault.enabled?'On-device saving enabled. Data is local, not encrypted, and not synced.':'Saving paused. Previously saved values remain until you clear them.';
   });
 
   function renderHomeCampaigns() {
@@ -336,49 +530,91 @@
   }));
 
   const wheelConfig = {
-    boy: { preference:'#boyPreference', experience:null, result:'#boyResult', disc:'[data-wheel-disc="boy"]', rangeLabels:{compact:'Up to 10 cm',classic:'10–12 cm',long:'12–14 cm',xl:'14+ cm'}, options:[
-      {key:'compact',label:'Compact-range conversation',text:'Ask your partner what feels comfortable; never assume a preference from a measurement.',item:'Boyfriend conversation card'},
-      {key:'classic',label:'Classic-range conversation',text:'Try a calm, private conversation about preferences and boundaries. A range is not a prediction.',item:'Couple conversation card'},
-      {key:'long',label:'Longer-range fantasy prompt',text:'Discuss comfort, preferences and boundaries without treating a size label as a performance score.',item:'Private fantasy prompt'},
-      {key:'xl',label:'XL-range fantasy prompt',text:'This is an illustrative range only, not a medical category or claim about averages.',item:'Secret date prompt'}
+    boy: { preference:'#boyPreference', experience:null, result:'#boyResult', disc:'[data-wheel-disc="boy"]', rangeLabels:{compact:'10 cm tak · demo range',classic:'10–12 cm · demo range',long:'12–14 cm · demo range',xl:'14+ cm · demo label'}, options:[
+      {key:'compact',label:'Chhoti range · 10 cm tak',text:'Land ki measurement sirf ek number hai. Partner ko kya comfortable lagta hai, woh seedha aur bina pressure poochho—andaaza mat lagao.',item:'Boyfriend conversation card'},
+      {key:'classic',label:'Beech ki range · 10–12 cm',text:'Aaram se baat karo ki dono ko kya pasand aur comfortable lagta hai. Yeh demo range hai, kisi ki preference ya performance ka prediction nahi.',item:'Couple conversation card'},
+      {key:'long',label:'Lambi range · 12–14 cm',text:'Size label ko performance score mat banao. Comfort, communication aur clear boundaries number se zyada important hain.',item:'Private fantasy prompt'},
+      {key:'xl',label:'XL label · 14+ cm',text:'XL bas ek label hai; brand aur measurement method ke hisaab se meaning badal sakta hai. Yeh medical category ya recommendation nahi.',item:'Secret date prompt'}
     ]},
     dildo: { preference:'#dildoPreference', experience:'#dildoExperience', result:'#dildoResult', disc:'[data-wheel-disc="dildo"]', options:[
-      {key:'compact',label:'Compact · 8–10 cm',text:'Compare usable insertable length and widest diameter on the actual maker’s listing.',item:'Compact size guide card'},
-      {key:'regular',label:'Regular · 10–13 cm',text:'Overall length and insertable length can differ. Verify the product dimensions before deciding.',item:'Regular size guide card'},
-      {key:'long',label:'Longer · 13–16 cm',text:'This is a filter concept, not a recommendation. Comfort, dimensions and maker guidance matter.',item:'Longer size guide card'},
-      {key:'xl',label:'XL · 16+ cm',text:'Labels vary by manufacturer. Compare actual dimensions and do not choose by label alone.',item:'XL size guide card'}
+      {key:'compact',label:'Chhota / compact · 8–10 cm (demo)',text:'Dildo ki woh length dekho jo use ke liye bani hai—sirf total length nahi. Sabse chaudi width bhi check karo. Yeh demo range hai, personal recommendation nahi.',item:'Compact size guide card'},
+      {key:'regular',label:'Regular · 10–13 cm (demo)',text:'Overall length matlab poore toy ki length; insertable length matlab intended-use wala hissa. Dono alag ho sakte hain. Product ke exact dimensions padho.',item:'Regular size guide card'},
+      {key:'long',label:'Lamba · 13–16 cm (demo)',text:'Yeh sirf catalogue filter hai, “best size” nahi. Apne comfort, exact insertable length, width aur manufacturer ke instructions ko dekho.',item:'Longer size guide card'},
+      {key:'xl',label:'XL · 16+ cm (demo)',text:'Har brand ka XL ek jaisa nahi. Label dekh kar decide mat karo—usable/insertable length, widest diameter, material aur intended use verify karo.',item:'XL size guide card'}
     ]},
     plug: { preference:'#plugPreference', experience:'#plugExperience', result:'#plugResult', disc:'[data-wheel-disc="plug"]', options:[
-      {key:'small',label:'Small · up to 2.5 cm widest diameter',text:'Check the widest diameter and ensure the design has a proper flared base or retrieval stop.',item:'Small size guide card'},
-      {key:'medium',label:'Medium · 2.5–3.5 cm widest diameter',text:'Verify dimensions, suitable lubricant instructions and the product’s intended use.',item:'Medium size guide card'},
-      {key:'large',label:'Large · above 3.5 cm widest diameter',text:'This is a shopping filter only. Never force insertion; stop if there is pain.',item:'Large size guide card'}
+      {key:'small',label:'Chhoti width · 2.5 cm tak (demo)',text:'Gand ke opening ko size mein judge mat karo. Anal-use toy ki sabse chaudi width aur usable length check karo; flared base ya safe retrieval stop hona chahiye.',item:'Small size guide card'},
+      {key:'medium',label:'Beech ki width · 2.5–3.5 cm (demo)',text:'Label har brand mein same nahi hota. Exact widest diameter, length, material aur suitable lubricant ki guidance verify karo.',item:'Medium size guide card'},
+      {key:'large',label:'Badi width · 3.5 cm se zyada (demo)',text:'Yeh sirf demo filter hai, safety guarantee nahi. Kabhi force mat karo; dard ya bleeding ho toh stop karo aur zarurat par medical help lo.',item:'Large size guide card'}
     ]}
   };
   // Each selected size range has at least two content variants to avoid immediate repeats.
   for (const kind of ['boy','dildo','plug']) {
     const original = wheelConfig[kind].options.map((item,index)=>({...item,id:`${kind}-${item.key}-primary-${index}`}));
     const alternateText = kind==='boy'
-      ? item => `Use ${item.label.toLowerCase()} as a conversation starter, not a prediction. Ask your partner about comfort and preferences without pressure.`
+      ? item => `Is ${item.label.toLowerCase()} ko bas baat shuru karne ka prompt samjho, prediction nahi. Partner se comfort aur pasand poochho—pressure bilkul nahi.`
       : kind==='dildo'
-        ? item => `For ${item.label.toLowerCase()}, compare actual insertable length and widest diameter, and follow the maker’s intended-use guidance.`
-        : item => `For ${item.label.toLowerCase()}, verify widest diameter, usable length and a proper flared base or retrieval stop; stop if anything hurts.`;
-    const alternates = original.map((item,index)=>({...item,id:`${kind}-${item.key}-alternate-${index}`,label:`${item.label} · alternate prompt`,text:alternateText(item)}));
+        ? item => `${item.label} dekh kar exact insertable length, sabse chaudi width aur maker ke instructions check karo. Range demo hai, size recommendation nahi.`
+        : item => `${item.label} ke liye widest diameter aur usable length verify karo; anal-use toy mein flared base/retrieval stop hona chahiye. Dard ho toh turant stop.`;
+    const alternates = original.map((item,index)=>({...item,id:`${kind}-${item.key}-alternate-${index}`,label:`${item.label} · doosra prompt`,text:alternateText(item)}));
     wheelConfig[kind].options = [...original,...alternates];
   }
 
   const wildPrompts = {
-    flirty:['Send a voice note with one sincere compliment and one playful hint.','Plan a tiny surprise, then let your partner guess the theme.','Ask: “What is one thing I do that makes you smile without trying?”'],
-    double:['“Aaj seedhi baat kam… aankhon se hints zyada?” Only if you both enjoy the joke.','Create a double-meaning caption together, and let either person veto the final line.','Trade one playful hint each—keep it fun, and stop if either person is uncomfortable.'],
-    bold:['Take turns choosing a date activity; both must approve the final plan.','Pick one confident compliment each—no teasing about insecurities.','Try a 10-minute no-phone conversation with one question each.'],
-    spicy:['Set the mood with a shared playlist and ask what atmosphere your partner likes.','Plan a slow-build date with a clear end time and a no-pressure option to change plans.','Ask: “What would make tonight feel special and comfortable for you?”'],
-    fantasy:['Invent a fictional date-night setting together and agree on boundaries before roleplay.','Choose a mystery character for a harmless first-date roleplay; either person can pause.','Build a two-line romantic story, taking turns to add one line.'],
-    truth:['Truth: what small gesture makes you feel most appreciated?','Dare: choose a song that reminds you of your partner and explain why.','Truth: name one boundary that helps you feel relaxed and respected.'],
-    confession:['Share one kind thought you were shy to say out loud.','Finish this sentence: “One thing I appreciate about us is…”','Ask before sharing a secret; either person can pass without explaining.'],
-    boyfriend:['Plan a date around something your partner mentioned enjoying.','Send one specific compliment—make it about a choice, effort or quality you genuinely appreciate.','Ask: “What kind of support would feel good from me this week?”'],
-    private:['Talk about one curiosity and one clear boundary; either person may pass.','Ask: “What helps you feel safe enough to talk honestly?”','Agree on a pause word for any game, and confirm that either person can stop any time.'],
-    dark:['Write a two-sentence mystery-romance scene with both partners as equal decision-makers.','Create a fictional secret admirer clue trail—only for a partner who wants to play.','Choose a mysterious song and invent a consensual fictional backstory together.']
+    flirty:[
+      'Ek voice note bhejo: ek asli tareef aur ek shararti hint—sirf tab jab saamne wala enjoy kare.',
+      'Chhota sa surprise plan karo, phir partner ko guess karne do ki mood kya hai.',
+      'Poochho: “Meri kaunsi aadat tumhare chehre par bina koshish ke smile le aati hai?”'
+    ],
+    double:[
+      '“Aaj seedhi baat kam, aankhon ke ishare zyada?” Joke tabhi jab dono ko maza aaye.',
+      'Saath mein ek double-meaning caption banao; final line par dono ki haan honi chahiye.',
+      'Ek-ek shararti hint do. Agar kisi ko awkward lage toh chutiyapa band—prompt skip.'
+    ],
+    bold:[
+      'Aaj date ka plan ek tum banao, agla partner. Final plan dono ko manzoor hona chahiye.',
+      'Ek confident tareef do, par body insecurity ya purane dard par taana nahi.',
+      '10 minute phone side rakho aur ek honest sawaal poochho—jawab dena optional.'
+    ],
+    spicy:[
+      'Playlist lagao aur poochho: “Aaj ka mood cosy, filmy ya thoda shararti?”',
+      'Slow-burn date plan karo, par end time aur ghar jaane ka option pehle clear rakho.',
+      'Poochho: “Aaj ki shaam tumhare liye special aur comfortable kaise banegi?”'
+    ],
+    fantasy:[
+      'Ek fictional date-night setting socho. Roleplay se pehle boundaries aur pause word decide karo.',
+      'First-date roleplay mein mystery character banao; dono mein se koi bhi kabhi bhi pause bol sakta hai.',
+      'Do line ki romantic kahani banao—ek line tum, agali partner. Jo comfortable nahi, woh skip.'
+    ],
+    truth:[
+      'Truth: kaunsi chhoti si harkat tumhe sabse zyada valued feel karati hai?',
+      'Dare: partner ke naam ek gaana chuno aur batao kyun yaad aaya.',
+      'Truth: ek boundary batao jisse tum relaxed aur respected feel karte ho. Pass allowed hai.'
+    ],
+    confession:[
+      'Ek achhi baat batao jo kehne mein thodi sharam aati thi—sirf jab ready ho.',
+      'Yeh line complete karo: “Hum dono ke beech mujhe ek cheez sabse achhi lagti hai…”',
+      'Secret share karne se pehle poochho. “Nahi” ya “abhi nahi” par koi sawaal-jawaab nahi.'
+    ],
+    boyfriend:[
+      'Partner ne jo cheez pasand batayi thi, usi par based date plan karo—dhyaan bhi romance hai.',
+      'Ek specific tareef bhejo jo dil se ho; fake buttering nahi, genuine baat.',
+      'Poochho: “Is hafte meri taraf se kaunsa support tumhe achha lagega?”'
+    ],
+    private:[
+      'Ek curiosity aur ek clear boundary par baat karo. Kisi ko explain karna zaroori nahi—pass allowed.',
+      'Poochho: “Kis cheez se tumhe sach bolna safe lagta hai?”',
+      'Game ke liye pause word rakho. Dono mein se koi bhi kabhi bhi game rok sakta hai.'
+    ],
+    dark:[
+      'Band haveli, aadhi raat aur note: “Madam, raaz kholun ya pehle tumhari gaali khaun?” Heroine bole: “Saale, pehle sach bol, phir drama kar.” Har agla qadam uski marzi se.',
+      'Secret admirer ke teen clues banao—par sirf us partner ke liye jo khud khelna chahe. Zabardasti ka natak nahi; mana kare toh poora harami game band.',
+      'Hero bole: “Raat ka raaz khulega, par tumhari haan ke bina ek kadam nahi.” Heroine: “Bas, ab baat bani—warna tera saara attitude chutiyapa tha.”',
+      'Masked stranger poochhe: “Tum muskura rahi ho ya meri barbaadi ka plan bana rahi ho?” Heroine: “Dono, harami—par agla qadam meri marzi se.”',
+      'Heroine bole: “Mujhe dark romance chahiye, zabardasti ka natak nahi. Drama tez rakh, boundaries usse tez.” Is dialogue se mystery scene banao.'
+    ]
   };
-  const wildCategoryNames = {flirty:'Flirty & Teasing',double:'Dirty Double Meanings',bold:'Bold Couple Challenges',spicy:'Romantic but Spicy',fantasy:'Wild Fantasy Prompts',truth:'Truth or Dare for Couples',confession:'Secret Crush & Confessions',boyfriend:'Boyfriend Challenges',private:'Private Fantasy Conversations',dark:'Dark Romance & Mystery'};
+  const wildCategoryNames = {flirty:'Flirty aur Teasing',double:'Gande Double Meanings',bold:'Bold Couple Challenges',spicy:'Romantic par Spicy',fantasy:'Wild Fantasy Prompts',truth:'Couples Truth ya Dare',confession:'Secret Crush aur Confessions',boyfriend:'Boyfriend Challenges',private:'Private Fantasy Conversations',dark:'Andheri Raat · Dark Romance'};
   function randomInt(max){return Math.floor(Math.random()*max);}
   function chooseDifferent(items, key) {
     if (!items.length) return null;
@@ -390,7 +626,7 @@
   }
   function setWheelResult(kind, title, description, meta, includeBag = false) {
     const cfg=wheelConfig[kind]; const host=kind==='wild'?$('#wildResult'):$(cfg.result);
-    host.innerHTML=`<strong>${esc(title)}</strong><span>${esc(description)}</span>${meta?`<span class="result-meta">${esc(meta)}</span>`:''}<div class="button-row"><button class="small-btn" type="button" data-wheel-retry="${esc(kind)}">Spin again</button>${includeBag?`<button class="small-btn" type="button" data-wheel-add="${esc(kind)}" data-wheel-name="${esc(title)}">Add demo pick</button>`:''}</div>`;
+    host.innerHTML=`<strong>${esc(title)}</strong><span>${esc(description)}</span>${meta?`<span class="result-meta">${esc(meta)}</span>`:''}<div class="button-row"><button class="small-btn" type="button" data-wheel-retry="${esc(kind)}">Phir se ghumao</button>${includeBag?`<button class="small-btn" type="button" data-wheel-add="${esc(kind)}" data-wheel-name="${esc(title)}">Demo pick bag mein add karo</button>`:''}</div>`;
   }
   function spinWheel(kind) {
     const disc=$(`[data-wheel-disc="${kind}"]`);
@@ -400,21 +636,21 @@
     let title='', description='', meta='', includeBag=false;
     if(kind==='wild'){
       const category=$('#wildCategory').value; const prompt=chooseDifferent(wildPrompts[category]||wildPrompts.flirty,`wild-${category}`);
-      title=wildCategoryNames[category]||'Dirty/Wild prompt';description=prompt;meta='OPTIONAL · CONSENT FIRST · SKIP ANY TIME';
+      title=wildCategoryNames[category]||'Dirty/Wild prompt';description=prompt;meta='OPTIONAL · PEHLE HAAN · KABHI BHI SKIP KARO';
     } else {
       const cfg=wheelConfig[kind]; const preference=$(cfg.preference).value; const experience=cfg.experience?$(cfg.experience).value:null;
-      if(!preference){toast('Choose a range first.');return;}
+      if(!preference){toast('Pehle ek demo range select karo.');return;}
       let options=cfg.options;
       if(preference!=='surprise') options=options.filter(x=>x.key===preference);
       if(experience==='new' && preference==='surprise') options=options.slice(0,Math.min(2,options.length));
       const item=chooseDifferent(options,kind);
-      if(!item){toast('No result available. Try again.');return;}
-      title=item.label;description=item.text;meta=kind==='boy'?'PLAYFUL FILTER · NOT A PREDICTION':'REFERENCE ONLY · CHECK REAL PRODUCT DIMENSIONS';includeBag=kind!=='boy';
+      if(!item){toast('Result nahi mila. Phir se try karo.');return;}
+      title=item.label;description=item.text;meta=kind==='boy'?'SIRF FUN FILTER · KOI PREDICTION NAHI':'SIRF REFERENCE · ASLI PRODUCT KI DIMENSIONS CHECK KARO';includeBag=kind!=='boy';
     }
     state.diagnostic.wheelSpins++;
     disc.style.transform=`rotate(${1900+randomInt(1400)}deg)`;
-    const buttons=$$(`[data-spin-wheel="${kind}"]`); buttons.forEach(b=>{b.disabled=true;b.dataset.oldLabel=b.textContent;b.textContent='Spinning…';});
-    const host=kind==='wild'?$('#wildResult'):$(wheelConfig[kind].result);host.innerHTML='<span>Wheel is spinning…</span>';
+    const buttons=$$(`[data-spin-wheel="${kind}"]`); buttons.forEach(b=>{b.disabled=true;b.dataset.oldLabel=b.textContent;b.textContent='Ghoom raha hai…';});
+    const host=kind==='wild'?$('#wildResult'):$(wheelConfig[kind].result);host.innerHTML='<span>Wheel ghoom raha hai…</span>';
     state.wheelTimers[kind]=setTimeout(()=>{
       if(state.wheelTokens[kind]!==token)return;
       setWheelResult(kind,title,description,meta,includeBag);
@@ -427,8 +663,8 @@
     if(state.wheelTimers[kind])clearTimeout(state.wheelTimers[kind]);
     const disc=$(`[data-wheel-disc="${kind}"]`); if(disc)disc.style.transform='rotate(0deg)';
     $$(`[data-spin-wheel="${kind}"]`).forEach(b=>{b.disabled=false;if(b.dataset.oldLabel){b.textContent=b.dataset.oldLabel;delete b.dataset.oldLabel;}});
-    if(kind==='wild')$('#wildResult').textContent='Round reset. Choose a category and spin when ready.';
-    else $(wheelConfig[kind].result).textContent=kind==='boy'?'Choose a range first.':'Select a range to start.';
+    if(kind==='wild')$('#wildResult').textContent='Round reset. Category chuno aur jab ready ho tab wheel ghumao.';
+    else $(wheelConfig[kind].result).textContent=kind==='boy'?'Pehle ek demo range select karo.':'Pehle demo range select karo.';
     delete state.lastWheelChoice[kind];
     if(kind==='wild')Object.keys(wildPrompts).forEach(k=>delete state.lastWheelChoice[`wild-${k}`]);
   }
@@ -691,6 +927,12 @@
       views:$$('.view').map(v=>({name:v.dataset.view,exists:true,visible:!v.hidden})),
       sexStoriesView:!!$('#view-stories'),
       sexStoriesCount:storyLibrary.length,
+      storySeriesCount:Object.keys(storySeries).length,
+      storySeriesControls:!!$('#storySeriesControls'),
+      storyVaultEnabled:storyVault.enabled,
+      storyVaultOptIn:!!$('#storyVaultOptIn'),
+      storyVaultBookmarkCount:storyVault.bookmarks.length,
+      desiSizeGuide:!!$('#desiSizeGuideTitle') && !!$('#dildoPreference') && !!$('#plugPreference'),
       storyLanguages:[...new Set(storyLibrary.map(s=>s.language||'en'))],
       dirtyPoll:!!$('#dirtyPollResult')&&$$('[data-dirty-pick]').length===3,
       storyLanguageFilter:!!$('#storyLanguage'),
@@ -726,13 +968,13 @@
       errors:state.diagnostic.errors
     };
   }
-  window.BLACKED_V1 = {version:'part-a-story-foundation-1.0.0',getStoryLibrary:()=>storyLibrary.map(s=>({id:s.id,title:s.title,mood:s.mood,moodLabel:s.moodLabel,contentLength:s.content.length})),getDiagnostics,getState:()=>({view:state.view,wishlistCount:state.wishlist.size,bagCount:state.bag.reduce((n,p)=>n+p.qty,0),adultAllowed:state.adultAllowed}),getImageLibrary:()=>imageLibrary.map(x=>({id:x.id,category:x.category,filename:x.filename,source_repo:x.source_repo,src:x.src})),setView};
+  window.BLACKED_V1 = {version:'part-b-story-series-2.0.0',getStoryLibrary:()=>storyLibrary.map(s=>({id:s.id,title:s.title,mood:s.mood,moodLabel:s.moodLabel,language:s.language||'en',contentLength:s.content.length,series:!!storySeries[s.id]})),getStorySeries:()=>Object.entries(storySeries).map(([id,s])=>({id,label:s.label,chapters:s.chapters.length,endings:s.endings.length})),getStoryVault:()=>({enabled:storyVault.enabled,bookmarks:[...storyVault.bookmarks],progress:JSON.parse(JSON.stringify(storyVault.progress)),lastRead:storyVault.lastRead?{...storyVault.lastRead}:null}),getDiagnostics,getState:()=>({view:state.view,wishlistCount:state.wishlist.size,bagCount:state.bag.reduce((n,p)=>n+p.qty,0),adultAllowed:state.adultAllowed}),getImageLibrary:()=>imageLibrary.map(x=>({id:x.id,category:x.category,filename:x.filename,source_repo:x.source_repo,src:x.src})),setView};
 
   state.wishlist = new Set((Array.isArray(safeRead(STORAGE.wishlist,[]))?safeRead(STORAGE.wishlist,[]):[]).filter(x=>typeof x==='string'));
   const rawBag=safeRead(STORAGE.bag,[]);
   state.bag=Array.isArray(rawBag)?rawBag.filter(p=>p&&typeof p.id==='string'&&p.id.length<=120).slice(0,100).map(p=>({id:p.id,name:String(p.name||'Demo pick').slice(0,160),price:Number.isFinite(Number(p.price))?Math.max(0,Math.min(1000000,Number(p.price))):0,image:isSafeAppImageURL(p.image)?p.image:RAW4+'look-black-lace.webp',qty:Math.max(1,Math.min(99,parseInt(p.qty,10)||1))})):[];
   // Phase 6 privacy control: only remove keys owned by this app, and only after an explicit confirmation.
-  const appLocalStorageKeys = [...new Set([...Object.values(STORAGE),'blackedV1MeasurementsOptIn','blackedDeltaSaved','blackedDeltaBag','blackedDeltaFitNotes','blacked31FitNote'])];
+  const appLocalStorageKeys = [...new Set([...Object.values(STORAGE),'blackedV1MeasurementsOptIn','blackedV1PartBStoryVault','blackedDeltaSaved','blackedDeltaBag','blackedDeltaFitNotes','blacked31FitNote'])];
   const appSessionStorageKeys = [...new Set([STORAGE.adult,'blacked31Adult'])];
   $('#privacyOpen').addEventListener('click',()=>$('#privacyModal').classList.remove('hidden'));
   $('#clearAppData').addEventListener('click',()=>{
@@ -741,7 +983,7 @@
     let hadFailure=false;
     for(const key of appLocalStorageKeys){try{localStorage.removeItem(key)}catch{hadFailure=true}}
     for(const key of appSessionStorageKeys){try{sessionStorage.removeItem(key)}catch{hadFailure=true}}
-    state.wishlist.clear();state.bag=[];state.compare?.clear();state.adultAllowed=false;
+    state.wishlist.clear();state.bag=[];state.compare?.clear();state.adultAllowed=false;clearStoryVaultData(false);
     $('#fitNotes').value='';$('#fitSaved').textContent='Local notes cleared.';
     $('#saveMeasurementsOptIn').checked=false;
     $('#measurementSummary').innerHTML='<p class="muted">Saved data cleared. Enter measurements again only if needed.</p>';
@@ -780,7 +1022,7 @@
   // Release local object URLs for selected photos when the document is discarded.
   window.addEventListener('pagehide',()=>{if(state.currentPhotoUrl){URL.revokeObjectURL(state.currentPhotoUrl);state.currentPhotoUrl=null;}});
 
-  renderHomeCampaigns();renderCampaigns();renderCatalog();renderStories();initImageLibrary();initMeasurementTools();renderHeaderCounts();renderWishlist();renderBag();updateMeasureConversion();showSpinFrame(0);
+  renderHomeCampaigns();renderCampaigns();renderCatalog();renderStories();renderStoryVault();initImageLibrary();initMeasurementTools();renderHeaderCounts();renderWishlist();renderBag();updateMeasureConversion();showSpinFrame(0);
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
     window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(err=>{state.diagnostic.errors.push('Service worker: '+String(err));console.warn('[BLACKED V1] Service worker registration failed',err);}));
   }

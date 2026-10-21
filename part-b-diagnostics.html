@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#100c10">
+<title>BLACKED · Part B diagnostics</title>
+<style>
+:root{color-scheme:dark;--bg:#0d0a0e;--panel:#181219;--line:#493344;--cream:#fff5fa;--pink:#f4a0c1;--muted:#c9bac5;--ok:#9be3b0;--bad:#ff9da6;--warn:#eacb8c}*{box-sizing:border-box}body{margin:0;padding:18px;max-width:1000px;margin-inline:auto;background:var(--bg);color:var(--cream);font:15px/1.55 system-ui,sans-serif}h1{font-size:clamp(25px,5vw,38px);line-height:1.12}h2{font-size:19px}.panel{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:15px;margin:14px 0}.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{display:inline-flex;min-height:44px;align-items:center;justify-content:center;padding:10px 14px;border-radius:11px;border:1px solid var(--pink);background:var(--pink);color:#170d13;font-weight:800;text-decoration:none;cursor:pointer}.btn.alt{background:transparent;color:var(--cream)}.row{border-bottom:1px solid var(--line);padding:10px 0;overflow-wrap:anywhere}.PASS{color:var(--ok)}.FAIL{color:var(--bad)}.WARN{color:var(--warn)}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#100c10;padding:12px;border-radius:10px;font-size:12px}.muted{color:var(--muted)}button:focus-visible,a:focus-visible{outline:3px solid var(--warn);outline-offset:3px}iframe{position:absolute;width:1px;height:1px;opacity:.001;pointer-events:none;border:0}.small{font-size:12px}.progress{height:8px;background:#2a202b;border-radius:99px;overflow:hidden}.progress>span{display:block;height:100%;width:0;background:var(--pink);transition:width .15s}
+</style></head>
+<body><main>
+<p class="muted">BLACKED · V1 PART B · STORY SERIES</p>
+<h1>Part B — upload & regression diagnostics</h1>
+<p class="muted">Checks the same-origin deployment files, Part B story reader, branching endings, optional reading vault, desi size guide, original wheel controls and archive manifest. Original raw-GitHub photos are checked separately; network failures must not be treated as local-code failures.</p>
+<section class="panel"><div class="actions"><a class="btn" href="./index.html">Open website</a><button class="btn alt" id="run" type="button">Run Part B checks</button><button class="btn alt" id="images" type="button">Check all image URLs</button></div><p id="status" role="status" aria-live="polite">Not run yet.</p><div class="progress"><span id="bar"></span></div></section>
+<iframe id="runtime" title="Same-origin app runtime" src="./index.html?partBdiagnostics=1" aria-hidden="true"></iframe>
+<section class="panel"><h2>Results</h2><div id="results"></div></section>
+<section class="panel"><h2>Raw report</h2><pre id="raw">No tests run.</pre></section>
+<section class="panel"><h2>Before calling the release complete</h2><p>These diagnostics cannot prove physical Android behavior. After the report passes, manually check on your phone: open each story series, advance chapters, choose both endings, enable then clear reading data, open all three original wheels, and review failed image URLs.</p><p class="small muted">The 18+ gate is self-attestation, not formal age verification. Local reading data is not encrypted. Images still load from the public source repositories; upload/diagnostics must confirm those URLs from your own network.</p></section>
+</main>
+<script>
+const $=s=>document.querySelector(s);const wait=ms=>new Promise(r=>setTimeout(r,ms));
+function row(name,status,detail=''){const el=document.createElement('div');el.className='row';const b=document.createElement('b');b.className=status;b.textContent=status;const t=document.createElement('div');t.textContent=name;const p=document.createElement('div');p.className='muted';p.textContent=detail;el.append(b,t,p);$('#results').append(el)}
+async function getRuntime(){for(let i=0;i<100;i++){try{const w=$('#runtime').contentWindow;const d=w.BLACKED_V1?.getDiagnostics?.();if(d?.loaded&&d?.imageLibraryReady)return {w,d}}catch{}await wait(150)}return null}
+$('#run').addEventListener('click',async()=>{
+ $('#results').textContent='';$('#status').textContent='Checking app files and runtime…';$('#bar').style.width='10%';
+ const names=['index.html','app.js','styles.css','fallback.js','sw.js','manifest.webmanifest','app-icon.svg','innerwear-image-library.json','size-chart-template.json','part-b-diagnostics.html'];
+ const files=await Promise.all(names.map(async n=>{try{const r=await fetch('./'+n,{cache:'no-store'});return{name:n,ok:r.ok,status:r.status}}catch(e){return{name:n,ok:false,error:String(e)}}}));
+ files.forEach(f=>row('File '+f.name,f.ok?'PASS':'FAIL',f.ok?'HTTP '+f.status:f.error||'HTTP '+f.status));$('#bar').style.width='35%';
+ let parsedManifest=null;try{const r=await fetch('./innerwear-image-library.json',{cache:'no-store'});parsedManifest=await r.json();row('Image manifest contains 151 records',Array.isArray(parsedManifest)&&parsedManifest.length===151?'PASS':'FAIL',`Count: ${Array.isArray(parsedManifest)?parsedManifest.length:0}`)}catch(e){row('Image manifest is valid JSON','FAIL',String(e))}
+ const rt=await getRuntime();if(!rt){row('Application boot','FAIL','BLACKED_V1 runtime diagnostics not ready. Check index.html/app.js/manifest request failures.');$('#bar').style.width='100%';$('#raw').textContent=JSON.stringify({files,runtime:null,checkedAt:new Date().toISOString()},null,2);$('#status').textContent='Runtime failed; check file/path issues before release.';return;}
+ const {w,d}=rt;const stories=w.BLACKED_V1.getStoryLibrary?.()||[];const series=w.BLACKED_V1.getStorySeries?.()||[];
+ const checks=[
+ ['Seven main views preserved',d.views?.length>=7,`${d.views?.length||0} views`],
+ ['13 stories available',stories.length===13,`count=${stories.length}`],
+ ['Three story series with two branching endings each',series.length===3&&series.every(s=>s.chapters===2&&s.endings===2),JSON.stringify(series)],
+ ['Hinglish story filters',d.storyLanguageFilter&&d.storySort,`language=${d.storyLanguageFilter}; sort=${d.storySort}`],
+ ['Desi Chut/Land/Gand/Dildo size guide',!!d.desiSizeGuide,String(d.desiSizeGuide)],
+ ['All three original wheel headings use desi terminology',['#dildoPreference','#plugPreference','#boyPreference'].every(sel=>!!w.document.querySelector(sel))&&w.document.querySelector('#view-wellness')?.textContent.toLowerCase().includes('chut')&&w.document.querySelector('#view-wellness')?.textContent.toLowerCase().includes('gand'),'Dildo, Butt Plug and Land/Boyfriend wheel IDs and glossary copy present'],
+ ['Dark fantasy category uses Hinglish wording',w.document.querySelector('#wildCategory option[value="dark"]')?.textContent.includes('Andheri Raat'),'Dark category label should read Andheri Raat · Dark Romance'],
+ ['On-device reading opt-in control',!!d.storyVaultOptIn,String(d.storyVaultOptIn)],
+ ['Story reader and chapter controls',!!d.storyModal&&!!d.storySeriesControls,`reader=${d.storyModal}; controls=${d.storySeriesControls}`],
+ ['All 151 image records loaded',d.imageLibraryReady&&d.imageLibraryCount===151,`ready=${d.imageLibraryReady}; count=${d.imageLibraryCount}`],
+ ['Image archive first batch is bounded',d.imageLibraryRendered>0&&d.imageLibraryRendered<=24,`initial cards=${d.imageLibraryRendered}`],
+ ['All three original wheels preserved',d.originalWheels?.boy&&d.originalWheels?.dildo&&d.originalWheels?.plug,JSON.stringify(d.originalWheels)],
+ ['Dirty/Wild wheel preserved',!!d.wildWheel,String(d.wildWheel)],
+ ['Privacy controls preserved',!!d.privacyControls,String(d.privacyControls)]
+ ];checks.forEach(c=>row(c[0],c[1]?'PASS':'FAIL',c[2]));$('#bar').style.width='75%';
+ const failed=files.filter(f=>!f.ok).length+checks.filter(c=>!c[1]).length;
+ $('#raw').textContent=JSON.stringify({files,runtime:d,storyCount:stories.length,series,checkedAt:new Date().toISOString(),liveAndroid:'Test separately on a physical device',liveImageRequests:'Use the Check all image URLs control; not tested by this source-only run.'},null,2);
+ $('#status').textContent=failed?`Check complete: ${failed} item(s) failed; resolve them before release.`:'Part B source/runtime checks passed. Physical Android and original-image checks remain separate.';$('#bar').style.width='100%';
+});
+$('#images').addEventListener('click',async()=>{
+ $('#results').textContent='';$('#status').textContent='Loading the 151-record image manifest…';$('#bar').style.width='0%';let list;
+ try{const r=await fetch('./innerwear-image-library.json',{cache:'no-store'});if(!r.ok)throw Error('Manifest HTTP '+r.status);list=await r.json()}catch(e){row('Image manifest','FAIL',String(e));return}
+ let loaded=0,failed=0;const misses=[];const one=x=>new Promise(resolve=>{const i=new Image();let done=false;const finish=s=>{if(done)return;done=true;clearTimeout(t);resolve({x,s})};const t=setTimeout(()=>finish('timeout'),7000);i.onload=()=>finish('loaded');i.onerror=()=>finish('failed');i.referrerPolicy='no-referrer';i.src=x.src});
+ for(let n=0;n<list.length;n+=12){const batch=await Promise.all(list.slice(n,n+12).map(one));for(const r of batch){if(r.s==='loaded')loaded++;else{failed++;if(misses.length<50)misses.push({filename:r.x.filename,repo:r.x.source_repo,url:r.x.src,status:r.s})}}$('#bar').style.width=`${Math.round(Math.min(n+12,list.length)/list.length*100)}%`;$('#status').textContent=`Checked ${Math.min(n+12,list.length)}/${list.length}: ${loaded} loaded, ${failed} failed/timeouts`}
+ row('Image records',list.length===151?'PASS':'FAIL',`${list.length} records`);row('Original source URLs',failed===0?'PASS':'WARN',`${loaded} loaded; ${failed} failed/timeouts`);$('#raw').textContent=JSON.stringify({total:list.length,loaded,failed,failures:misses,checkedAt:new Date().toISOString(),note:'A network, privacy setting, or missing upstream file can cause failure. Each reported URL is the exact asset path to investigate.'},null,2);$('#status').textContent=`Image check complete: ${loaded}/${list.length} loaded; ${failed} failed/timeouts.`;
+});
+</script></body></html>

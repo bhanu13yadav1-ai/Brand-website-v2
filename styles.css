@@ -101,3 +101,32 @@ button:disabled{opacity:.62;cursor:not-allowed}
 .story-card .story-meta{line-height:1.5}
 @media(max-width:900px){.story-tools-part-a{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.story-tools-part-a{grid-template-columns:1fr}.dirty-poll-actions{display:grid;grid-template-columns:1fr}.dirty-poll-actions .btn{width:100%}}
+
+
+/* V1 Part B — chapter navigation, optional reading vault, Hinglish body/size guide. */
+.story-card-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:stretch}
+.story-card-actions .btn{margin:0}
+.story-bookmark-btn{min-height:44px;white-space:nowrap;padding-inline:12px}
+.story-series-tag{display:inline-flex;align-self:flex-start;border:1px solid #79516a;border-radius:999px;padding:6px 9px;color:#f5c5d9;background:#271723;font-size:11px}
+.story-vault{padding:clamp(16px,3vw,24px);border:1px solid #594052;border-radius:20px;background:linear-gradient(145deg,#1e1520,#120d13)}
+.story-vault-optin{display:flex;gap:10px;align-items:flex-start;margin:12px 0;padding:13px;border:1px solid #68485f;border-radius:12px;background:#221722;color:var(--cream);font-size:13px;line-height:1.5}
+.story-vault-optin input{width:20px;height:20px;min-width:20px;accent-color:var(--pink);margin-top:1px}
+.story-vault-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+.story-vault-card{min-width:0;border:1px solid #4e3649;border-radius:14px;background:#171019;padding:15px;display:flex;flex-direction:column;gap:8px}
+.story-vault-card h3{font-size:16px;line-height:1.25;margin:0}
+.story-vault-card p{font-size:12px;color:var(--muted);margin:0}
+.story-series-controls{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:12px}
+.story-series-progress{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;color:var(--gold);font-size:12px}
+.story-series-controls .button-row{display:flex;flex-wrap:wrap;gap:8px}
+.story-series-controls .btn{min-height:44px}
+.desi-size-guide{border:1px solid #68465e;border-radius:22px;padding:clamp(16px,3vw,24px);background:linear-gradient(145deg,#21151f,#120d13)}
+.desi-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.desi-guide-card{min-width:0;border:1px solid #4e3648;border-radius:16px;padding:16px;background:#171019}
+.desi-guide-card h3{font-size:17px;line-height:1.25;margin:8px 0}
+.desi-guide-card p{font-size:13px;line-height:1.65;color:var(--muted)}
+.desi-guide-card p b{color:var(--cream)}
+.desi-guide-card .story-mood{font-size:10px}
+.desi-guide-warning{border-color:#7a4c68;background:linear-gradient(140deg,#251522,#171019)}
+.story-vault-card .btn{margin-top:auto}
+@media(max-width:700px){.story-vault-grid,.desi-guide-grid{grid-template-columns:1fr}.story-card-actions{grid-template-columns:1fr}.story-bookmark-btn{width:100%}.story-series-controls .button-row{display:grid;grid-template-columns:1fr}.story-series-controls .btn{width:100%}}
+@media(max-width:360px){.story-vault,.desi-size-guide{padding:13px}.desi-guide-card{padding:13px}.story-vault-card{padding:13px}}

@@ -1,0 +1,24 @@
+PART B — UPLOAD CONTENTS TO THE ROOT OF Brand-website-v2/main
+
+REPLACE these existing root files after making a backup:
+- index.html
+- app.js
+- styles.css
+- sw.js
+- manifest.webmanifest
+- README.md
+
+ADD/UPDATE these runtime support files:
+- fallback.js
+- app-icon.svg
+- innerwear-image-library.json
+- size-chart-template.json
+- EXTERNAL_ASSET_MANIFEST.csv
+- INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv
+- part-b-diagnostics.html
+
+Other Markdown/JSON/CSV/HTML files are project notes, historical reports, diagnostics, or QA evidence. They are not all runtime dependencies, but are included so the project memory stays together. Do not delete unrelated repository files.
+
+Upload the CONTENTS of the extracted folder, not the ZIP and not a nested V1_PART_B_STORY_SERIES folder. Commit after all root source and data files are in place.
+
+IMPORTANT: the 151 image records point to public raw-GitHub source URLs; original binary images are not embedded in this package. Use part-b-diagnostics.html > Check all image URLs after deployment. Live image availability and physical Android behavior are NOT TESTED until you run those checks.

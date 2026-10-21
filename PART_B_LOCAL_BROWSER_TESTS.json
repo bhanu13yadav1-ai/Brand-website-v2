@@ -1,0 +1,200 @@
+{
+  "phase": "Part B Story Series",
+  "environment": "In-memory Chromium fixture with exact checked-in source, checked-in JSON manifest, isolated mock browser storage, and intentionally blocked raw-GitHub image requests. This is functional component testing, not live deployment or physical-device testing.",
+  "total": 36,
+  "passed": 36,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Application source boots in Chromium fixture",
+      "status": "PASS",
+      "detail": "{'views': 7, 'errors': []}"
+    },
+    {
+      "name": "Checked-in 151-record image manifest loads",
+      "status": "PASS",
+      "detail": "151"
+    },
+    {
+      "name": "13 stories preserved/available",
+      "status": "PASS",
+      "detail": "13"
+    },
+    {
+      "name": "3 branching story series available",
+      "status": "PASS",
+      "detail": "[{'id': 'velvet-key', 'label': 'Blue Door Mystery · 3 parts', 'chapters': 2, 'endings': 2}, {'id': 'boss-lady-rule', 'label': 'Boss Lady Files · 3 parts', 'chapters': 2, 'endings': 2}, {'id': 'kaali-raat-ka-rule', 'label': 'Kaali Raat Files · 3 parts', 'chapters': 2, 'endings': 2}]"
+    },
+    {
+      "name": "Desi size guide exists",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "All three original wheels and Wild wheel present",
+      "status": "PASS",
+      "detail": "{'original': {'boy': True, 'dildo': True, 'plug': True}, 'wild': True}"
+    },
+    {
+      "name": "Stories require 18+ self-attestation",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "Age confirmation opens stories view",
+      "status": "PASS",
+      "detail": "None"
+    },
+    {
+      "name": "13 story cards render",
+      "status": "PASS",
+      "detail": "13 of 13 stories available"
+    },
+    {
+      "name": "Hinglish filter works",
+      "status": "PASS",
+      "detail": "9 of 13 stories available"
+    },
+    {
+      "name": "Dark-romance filter works",
+      "status": "PASS",
+      "detail": "4"
+    },
+    {
+      "name": "Search finds new Hinglish dark-fantasy story",
+      "status": "PASS",
+      "detail": "1 of 13 stories available"
+    },
+    {
+      "name": "Story dialog opens",
+      "status": "PASS",
+      "detail": "The Key Behind the Velvet Frame"
+    },
+    {
+      "name": "Series offers next-part action",
+      "status": "PASS",
+      "detail": "Blue Door Mystery · 3 parts\nPart 1 of 3\nNext part ↗\nMark Part 1 as read\n\nChoose a branch ending, or close this story any time. Each ending is a valid choice."
+    },
+    {
+      "name": "Next chapter is rendered",
+      "status": "PASS",
+      "detail": "Part 2 · Blue Door Ka Dusra Raaz"
+    },
+    {
+      "name": "Final chapter is rendered",
+      "status": "PASS",
+      "detail": "Part 3 · Aakhri Clue, Apni Marzi"
+    },
+    {
+      "name": "Two distinct branch endings shown",
+      "status": "PASS",
+      "detail": "Blue Door Mystery · 3 parts\nPart 3 of 3\n← Previous part\nEk aur clue ke liye rukna\nMystery yahin chhod dena\n\nChoose a branch ending, or close this story any time. Each ending is a valid choice."
+    },
+    {
+      "name": "Choice ending renders fictional content",
+      "status": "PASS",
+      "detail": "Ek aur clue ke liye rukna"
+    },
+    {
+      "name": "Story dialog closes",
+      "status": "PASS",
+      "detail": "hidden"
+    },
+    {
+      "name": "Reading vault is OFF initially",
+      "status": "PASS",
+      "detail": "Saving is off. No new reading progress or bookmark is recorded."
+    },
+    {
+      "name": "Reading progress saved after opening a chapter while opted in",
+      "status": "PASS",
+      "detail": "{'id': 'velvet-key', 'chapterIndex': 1, 'branchId': None, 'updatedAt': '2026-10-21T15:24:06.868Z'}"
+    },
+    {
+      "name": "Bookmark saved after explicit opt-in",
+      "status": "PASS",
+      "detail": "{'enabled': True, 'bookmarks': ['velvet-key'], 'progress': {'velvet-key': {'chapterIndex': 1, 'completed': False, 'branchId': None, 'updatedAt': '2026-10-21T15:24:06.868Z'}}, 'lastRead': {'id': 'velvet-key', 'chapterIndex': 1, 'branchId': None, 'updatedAt': '2026-10-21T15:24:06.868Z'}}"
+    },
+    {
+      "name": "Bookmark progress persisted in app local storage",
+      "status": "PASS",
+      "detail": "{\"version\":1,\"enabled\":true,\"bookmarks\":[\"velvet-key\"],\"progress\":{\"velvet-key\":{\"chapterIndex\":1,\"completed\":false,\"branchId\":null,\"updatedAt\":\"2026-10-21T15:24:06.868Z\"}},\"lastRead\":{\"id\":\"velvet-key\",\"chapterIndex\":1,\"branchId\":null,\"updatedAt\":\"2026-10-21T15:24:06.868Z\"}}"
+    },
+    {
+      "name": "Local reading vault describes storage limits",
+      "status": "PASS",
+      "detail": "On-device saving is enabled. These values are not encrypted or synced; clear them whenever you want."
+    },
+    {
+      "name": "Clear story vault removes bookmark/progress key",
+      "status": "PASS",
+      "detail": "{'enabled': False, 'bookmarks': [], 'progress': {}, 'lastRead': None}"
+    },
+    {
+      "name": "Global app-data clear includes story vault",
+      "status": "PASS",
+      "detail": "App-owned saved data was removed from this browser. Other websites’ data was not touched."
+    },
+    {
+      "name": "Desi-size glossary contains four key terms",
+      "status": "PASS",
+      "detail": "Chut, land, gand — seedhi baat"
+    },
+    {
+      "name": "dildo original wheel returns a result",
+      "status": "PASS",
+      "detail": "Chhota / compact · 8–10 cm (demo)\nDildo ki woh length dekho jo use ke liye bani hai—sirf total length nahi. Sabse chaudi width bhi check karo. Yeh demo range hai, personal recommendation nahi.\nSIRF REFERENCE · ASLI PRODUCT KI DIMENSIONS CHECK KARO\nPh"
+    },
+    {
+      "name": "plug original wheel returns a result",
+      "status": "PASS",
+      "detail": "Chhoti width · 2.5 cm tak (demo)\nGand ke opening ko size mein judge mat karo. Anal-use toy ki sabse chaudi width aur usable length check karo; flared base ya safe retrieval stop hona chahiye.\nSIRF REFERENCE · ASLI PRODUCT KI DIMENSIONS CHECK KARO\nPhi"
+    },
+    {
+      "name": "Dirty/Wild wheel still spins",
+      "status": "PASS",
+      "detail": "Andheri Raat · Dark Romance\nHeroine bole: “Mujhe dark romance chahiye, zabardasti ka natak nahi. Drama tez rakh, boundaries usse tez.” Is dialogue se mystery scene banao.\nOPTIONAL · PEHLE HAAN · KABHI BHI SKIP KARO\nPhir se ghumao"
+    },
+    {
+      "name": "No horizontal overflow at 320px",
+      "status": "PASS",
+      "detail": "{'doc': 320, 'body': 320, 'inner': 320}"
+    },
+    {
+      "name": "No horizontal overflow at 360px",
+      "status": "PASS",
+      "detail": "{'doc': 360, 'body': 360, 'inner': 360}"
+    },
+    {
+      "name": "No horizontal overflow at 390px",
+      "status": "PASS",
+      "detail": "{'doc': 390, 'body': 390, 'inner': 390}"
+    },
+    {
+      "name": "No horizontal overflow at 430px",
+      "status": "PASS",
+      "detail": "{'doc': 430, 'body': 430, 'inner': 430}"
+    },
+    {
+      "name": "No horizontal overflow at 1440px",
+      "status": "PASS",
+      "detail": "{'doc': 1440, 'body': 1440, 'inner': 1440}"
+    },
+    {
+      "name": "No uncaught JavaScript exceptions",
+      "status": "PASS",
+      "detail": "[]"
+    }
+  ],
+  "console_errors": [
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED"
+  ],
+  "uncaught_page_errors": []
+}

@@ -1,0 +1,127 @@
+{
+  "phase": "Part B Story Series",
+  "created": "2026-10-21",
+  "static_check_count": 20,
+  "static_passed": 20,
+  "static_failed": 0,
+  "checks": [
+    {
+      "name": "JavaScript syntax: app.js",
+      "status": "PASS",
+      "detail": "node --check passed"
+    },
+    {
+      "name": "JavaScript syntax: sw.js",
+      "status": "PASS",
+      "detail": "node --check passed"
+    },
+    {
+      "name": "JavaScript syntax: fallback.js",
+      "status": "PASS",
+      "detail": "node --check passed"
+    },
+    {
+      "name": "HTML parses; no duplicate DOM IDs",
+      "status": "PASS",
+      "detail": "{'id_count': 158, 'duplicates': []}"
+    },
+    {
+      "name": "All local HTML src/href files exist",
+      "status": "PASS",
+      "detail": "{'references': ['app-icon.svg', 'app.js', 'fallback.js', 'manifest.webmanifest', 'phase5-diagnostics.html', 'phase6-diagnostics.html', 'phase7-diagnostics.html', 'styles.css'], 'missing': []}"
+    },
+    {
+      "name": "JSON valid: manifest.webmanifest",
+      "status": "PASS",
+      "detail": "9 top-level records"
+    },
+    {
+      "name": "JSON valid: innerwear-image-library.json",
+      "status": "PASS",
+      "detail": "151 top-level records"
+    },
+    {
+      "name": "JSON valid: size-chart-template.json",
+      "status": "PASS",
+      "detail": "7 top-level records"
+    },
+    {
+      "name": "JSON valid: PART_B_LOCAL_BROWSER_TESTS.json",
+      "status": "PASS",
+      "detail": "8 top-level records"
+    },
+    {
+      "name": "Source image manifest count is 151",
+      "status": "PASS",
+      "detail": "151"
+    },
+    {
+      "name": "Manifest uses only the 3 allowed source repos",
+      "status": "PASS",
+      "detail": "['Brand-website-3', 'Brand-website-4f', 'Brand-website-full-finally-']"
+    },
+    {
+      "name": "13 story entries expected",
+      "status": "PASS",
+      "detail": "Runtime browser test confirms 13 stories"
+    },
+    {
+      "name": "Story Vault has explicit opt-in and clear key",
+      "status": "PASS",
+      "detail": "opt-in/local key/clear handler present"
+    },
+    {
+      "name": "3 series each define two alternate endings",
+      "status": "PASS",
+      "detail": "Runtime browser test confirms 3 series × 2 endings"
+    },
+    {
+      "name": "Dildo/plug/boy wheel IDs preserved",
+      "status": "PASS",
+      "detail": "all original wheels and the Wild wheel present"
+    },
+    {
+      "name": "Desi slang size guide has key terms",
+      "status": "PASS",
+      "detail": "size glossary included"
+    },
+    {
+      "name": "All three wheel labels/results use Hinglish explanations",
+      "status": "PASS",
+      "detail": "original wheel IDs remain unchanged; user-facing text is colloquial Hinglish"
+    },
+    {
+      "name": "Dark-fantasy wheel prompts use desi Hinglish gaali-banter",
+      "status": "PASS",
+      "detail": "5 dark romance prompts; non-graphic, adult-only, consensual and skippable"
+    },
+    {
+      "name": "Service worker version advanced and caches diagnostics",
+      "status": "PASS",
+      "detail": "cache version and diagnostic path"
+    },
+    {
+      "name": "Part B diagnostics file present",
+      "status": "PASS",
+      "detail": "part-b-diagnostics.html"
+    }
+  ],
+  "browser_tests": {
+    "total": 36,
+    "passed": 36,
+    "failed": 0,
+    "environment": "In-memory Chromium fixture with exact checked-in source, checked-in JSON manifest, isolated mock browser storage, and intentionally blocked raw-GitHub image requests. This is functional component testing, not live deployment or physical-device testing.",
+    "console_errors": [
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED"
+    ],
+    "uncaught_page_errors": []
+  },
+  "release_status": "UPLOAD READY; LIVE GITHUB PAGES, REMOTE IMAGE AVAILABILITY AND PHYSICAL ANDROID NOT TESTED"
+}

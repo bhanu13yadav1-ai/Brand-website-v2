@@ -1,0 +1,66 @@
+﻿file_name,group,upload_action,size_bytes,notes
+00_MASTER_RULES_PHASE_MAP.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,5668,
+app-icon.svg,Runtime support / data / diagnostics,ADD_OR_UPDATE_RUNTIME_FILE,364,
+app.js,Core website source,REPLACE_EXISTING_ROOT,107491,Back up existing repo before replacing.
+EXTERNAL_ASSET_MANIFEST.csv,Runtime support / data / diagnostics,ADD_OR_UPDATE_RUNTIME_FILE,43195,
+fallback.js,Runtime support / data / diagnostics,ADD_OR_UPDATE_RUNTIME_FILE,1696,
+index.html,Core website source,REPLACE_EXISTING_ROOT,56593,Back up existing repo before replacing.
+innerwear-image-library.json,Runtime support / data / diagnostics,ADD_OR_UPDATE_RUNTIME_FILE,62145,151 image records; points to public source repos; original binary image files are not bundled here.
+INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv,Runtime support / data / diagnostics,ADD_OR_UPDATE_RUNTIME_FILE,43195,
+manifest.webmanifest,Core website source,REPLACE_EXISTING_ROOT,487,Back up existing repo before replacing.
+NEXT_BIG_UPDATE_IDEAS.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2152,
+NEXT_PARTS_ROADMAP.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2094,
+part-a-diagnostics.html,Diagnostics page,UPLOAD_OR_KEEP_DOCUMENTATION,6791,
+part-b-diagnostics.html,Runtime support / data / diagnostics,ADD_OR_UPDATE_RUNTIME_FILE,10104,"Run hosted source/runtime checks, then run separate image URL test."
+PART_A_FILE_MANIFEST.tsv,Manifest or checklist,UPLOAD_OR_KEEP_DOCUMENTATION,1747,
+PART_A_IMPLEMENTATION_REPORT.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2887,
+PART_A_LOCAL_BROWSER_TESTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,4764,
+PART_A_MEMORY_NOTE_COPY_PASTE.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,1105,
+PART_A_QA_RESULTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,3468,
+PART_B_FILE_MANIFEST.csv,Manifest or checklist,DOCUMENTATION_MANIFEST,6092,Inventory of every file in the one-folder upload package.
+PART_B_IMPLEMENTATION_REPORT.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,4807,
+PART_B_LOCAL_BROWSER_TESTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,7708,36/36 in-memory Chromium checks; remote images deliberately blocked; not live/device proof.
+PART_B_MEMORY_NOTE_COPY_PASTE.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2549,
+PART_B_QA_RESULTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,4155,20/20 static checks and 36/36 browser fixture tests; live deployment/Android not tested.
+phase4-diagnostics.html,Diagnostics page,UPLOAD_OR_KEEP_DOCUMENTATION,11409,
+PHASE4_IMPLEMENTATION_REPORT.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,5435,
+PHASE4_LOCAL_BROWSER_TESTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,6419,
+PHASE4_MEMORY_NOTE_COPY_PASTE.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,3123,
+PHASE4_QA_RESULTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,3347,
+phase5-diagnostics.html,Diagnostics page,UPLOAD_OR_KEEP_DOCUMENTATION,6993,
+PHASE5_IMPLEMENTATION_REPORT.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,3922,
+PHASE5_LOCAL_BROWSER_TESTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,5849,
+PHASE5_MEMORY_NOTE_COPY_PASTE.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2692,
+PHASE5_QA_RESULTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,3814,
+phase6-diagnostics.html,Diagnostics page,UPLOAD_OR_KEEP_DOCUMENTATION,7237,
+PHASE6_FILE_MANIFEST.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,5534,
+PHASE6_IMPLEMENTATION_REPORT.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2971,
+PHASE6_LOCAL_BROWSER_TESTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,4426,
+PHASE6_MEMORY_NOTE_COPY_PASTE.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,1683,
+PHASE6_QA_RESULTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,2115,
+phase7-diagnostics.html,Diagnostics page,UPLOAD_OR_KEEP_DOCUMENTATION,7696,
+PHASE7_FILE_MANIFEST.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,7628,
+PHASE7_FINAL_RELEASE_CHECKLIST.csv,Manifest or checklist,UPLOAD_OR_KEEP_DOCUMENTATION,2260,
+PHASE7_IMPLEMENTATION_REPORT.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,4095,
+PHASE7_LOCAL_BROWSER_TESTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,9234,
+PHASE7_MEMORY_NOTE_COPY_PASTE.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,1474,
+PHASE7_QA_RESULTS.json,QA or project data,UPLOAD_OR_KEEP_DOCUMENTATION,3554,
+README.md,Core website source,REPLACE_EXISTING_ROOT,3061,Back up existing repo before replacing.
+README_PART_A_UPLOAD_HINGLISH.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,1323,
+README_PART_B_UPLOAD_HINGLISH.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2856,
+README_PHASE4_UPLOAD_HINGLISH.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2667,
+README_PHASE5_UPLOAD_HINGLISH.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2383,
+README_PHASE6_UPLOAD_HINGLISH.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2367,
+README_PHASE7_UPLOAD_HINGLISH.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,1675,
+RESEARCH_NOTES_PART_B.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2898,
+RESEARCH_NOTES_PHASE4.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,1711,
+RESEARCH_NOTES_PHASE5.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2490,
+ROOT_CAUSE_IMAGE_COLLECTION_PHASE5.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,1836,
+ROOT_CAUSE_PHASE2_PHASE3_BUG.md,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,2171,
+size-chart-template.json,Runtime support / data / diagnostics,ADD_OR_UPDATE_RUNTIME_FILE,516,
+styles.css,Core website source,REPLACE_EXISTING_ROOT,40182,Back up existing repo before replacing.
+sw.js,Core website source,REPLACE_EXISTING_ROOT,2250,Back up existing repo before replacing.
+UPLOAD_FILE_LIST.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,671,
+UPLOAD_FILE_LIST_PART_B.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,833,
+UPLOAD_FILE_LIST_PHASE6.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,661,
+UPLOAD_FILE_LIST_PHASE7.txt,Documentation / handoff,UPLOAD_OR_KEEP_DOCUMENTATION,631,

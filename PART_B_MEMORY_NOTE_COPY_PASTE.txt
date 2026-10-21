@@ -1,0 +1,20 @@
+V1 PART B — MEMORY/HANDOFF NOTE
+
+Target repo: https://github.com/bhanu13yadav1-ai/Brand-website-v2
+Current source baseline: Part A root files in the repo. Part B ZIP is a root-ready replacement package; upload the contents of V1_PART_B_STORY_SERIES to repo root, not as a nested folder. Back up first.
+
+Part B adds:
+- Original 10 Part A stories preserved + 3 new Hinglish dark-romance/dirty-banter stories = 13 total.
+- 3 multi-part series: velvet-key, boss-lady-rule, kaali-raat-ka-rule. Each adds Part 2 and Part 3 plus two different branch endings.
+- Chapter navigation in story modal.
+- Optional Reading Vault with explicit opt-in; app-owned localStorage key `blackedV1PartBStoryVault`, bookmarks and reading progress; unencrypted and not synced. Overall Privacy & Data Controls clear this key.
+- Desi Hinglish educational glossary: “chut” vs vulva/vagina, “land” slang for penis, “gand” vs anus, dildo dimensions, butt-plug flared-base/retrieval-stop and safer-use notes.
+- All three original wheel UIs and result text upgraded into desi Hinglish (Chut/Land/Gand/Dildo terms explained, demo ranges clearly labelled). Dirty/Wild categories and Dark Romance prompts use colloquial Hindi/Hinglish gaali-banter; non-graphic, adults-only and skippable. Existing wheel keys/control IDs preserved.
+- Sex Stories gets the existing 18+ self-attestation gate.
+- Updated service-worker cache and new `/part-b-diagnostics.html`.
+
+Verification: Node syntax + JSON + HTML/duplicate-ID checks pass. In-memory Chromium fixture: 36/36 interaction checks pass; 20/20 static checks pass. The fixture uses the checked-in source and image manifest, mocked/isolated browser storage, and intentionally blocked raw GitHub image requests; expected image request errors appear in console, 0 uncaught JS exceptions. This is NOT a live GitHub Pages test and NOT physical Android verification.
+
+Mandatory next step after upload: open `/part-b-diagnostics.html`, run Part B checks, then check all 151 source image URLs in batches. Manually test story series/choices, local vault opt-in/clear, all three original wheels + Dirty/Wild, existing catalogue, image archive, Wellness, Boyfriend, Fit Studio and Android Chrome.
+
+Next Part C: final polish/QA, validate remote image failures, improve story/library maintainability only if beneficial, restore/review any missing legacy advanced feature from exact source, test live deployment + physical Android, then issue PASS/FAIL/NOT TESTED/BLOCKED release report. Do not report production PASS before hosted checks.
