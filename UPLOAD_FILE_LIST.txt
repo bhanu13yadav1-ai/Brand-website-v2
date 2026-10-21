@@ -1,0 +1,22 @@
+UPLOAD THESE FILES/FOLDERS FROM THIS PACKAGE ROOT:
+
+ADD/REPLACE overlay paths:
+- css/styles.css (replace overlay wrapper only; original root styles.css stays untouched)
+- js/app.js (replace overlay loader only; original root app.js stays untouched)
+- sw.js (replace service worker)
+- manifest.webmanifest (replace manifest)
+- phase3.js (new)
+- phase3.css (new)
+- phase2-diagnostics.html (add/update)
+- phase3-diagnostics.html (new)
+- README_PHASE3_UPLOAD_HINGLISH.md (new documentation)
+- PHASE3_IMPLEMENTATION_REPORT.md (new documentation)
+- PHASE3_MEMORY_NOTE_COPY_PASTE.txt (new handoff note)
+
+DO NOT upload or overwrite these root source files from this package (they are not included):
+- index.html
+- app.js
+- styles.css
+- product/catalogue data or existing images
+
+Preserve the subfolders css/ and js/. Upload contents into the repository ROOT, not a second nested folder.

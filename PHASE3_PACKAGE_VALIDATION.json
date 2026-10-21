@@ -1,0 +1,95 @@
+{
+  "package": "V1_PHASE3_UPLOAD_PACKAGE.zip",
+  "target_repo": "bhanu13yadav1-ai/Brand-website-4f",
+  "validation": [
+    {
+      "check": "node --check phase3.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "node --check js/app.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "node --check sw.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "manifest.webmanifest JSON parse",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "HTML parser phase2-diagnostics.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "HTML parser phase3-diagnostics.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "static contract phase3-collection-directory",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "static contract Muslim-Inspired Collection",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "static contract Christian-Inspired Collection",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "static contract data-phase3-open=\"sanskari\"",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "static contract #sanskariGallery",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "ZIP opens/integrity test",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "ZIP single root folder",
+      "status": "PASS",
+      "detail": "{'V1_PHASE3_UPLOAD_PACKAGE'}"
+    },
+    {
+      "check": "ZIP includes Phase 2+3 upload files",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "file_count": 13,
+  "zip_member_count_including_validation": 13,
+  "zip_members": [
+    "V1_PHASE3_UPLOAD_PACKAGE/PHASE3_IMPLEMENTATION_REPORT.md",
+    "V1_PHASE3_UPLOAD_PACKAGE/PHASE3_MEMORY_NOTE_COPY_PASTE.txt",
+    "V1_PHASE3_UPLOAD_PACKAGE/README_PHASE3_UPLOAD_HINGLISH.md",
+    "V1_PHASE3_UPLOAD_PACKAGE/UPLOAD_FILE_LIST.txt",
+    "V1_PHASE3_UPLOAD_PACKAGE/css/styles.css",
+    "V1_PHASE3_UPLOAD_PACKAGE/js/app.js",
+    "V1_PHASE3_UPLOAD_PACKAGE/manifest.webmanifest",
+    "V1_PHASE3_UPLOAD_PACKAGE/phase2-diagnostics.html",
+    "V1_PHASE3_UPLOAD_PACKAGE/phase3-diagnostics.html",
+    "V1_PHASE3_UPLOAD_PACKAGE/phase3.css",
+    "V1_PHASE3_UPLOAD_PACKAGE/phase3.js",
+    "V1_PHASE3_UPLOAD_PACKAGE/sw.js"
+  ],
+  "live_deployment": "NOT TESTED",
+  "android_physical_device": "NOT TESTED",
+  "repo_write": "BLOCKED_READ_ONLY_CONNECTION"
+}

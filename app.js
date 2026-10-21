@@ -1,26 +1,27 @@
 /*
- * V1 Phase 2 compatibility loader for the existing Brand-website-4f repository.
- * Keep the original root app.js unchanged. This file is loaded by the current
- * index.html (which expects js/app.js), repairs legacy assets/<filename> paths,
- * registers the corrected service worker, then loads ../app.js.
+ * V1 Phase 2+3 compatibility loader for Brand-website-4f.
+ * Does not overwrite the original root app.js or styles.css.
+ * Repairs legacy assets/<root-file> paths, registers the current service worker,
+ * then loads the original app and Phase 3 enhancement script in order.
  */
 (() => {
   'use strict';
   const shim = document.currentScript;
   if (!shim) {
-    console.error('[V1 Phase 2] Could not identify the compatibility-loader script.');
+    console.error('[V1 Phase 2+3] Could not identify the compatibility-loader script.');
     return;
   }
 
   const siteRoot = new URL('../', shim.src);
   const state = window.BLACKED_PHASE2 = {
-    version: '2.0.0-path-compat',
+    version: '2.1.0-phase3-ready',
     siteRoot: siteRoot.href,
     imagePathRewrites: 0,
     cssPathRewrites: 0,
     imageRetryCount: 0,
     serviceWorker: 'pending',
-    originalApp: 'pending'
+    originalApp: 'pending',
+    phase3: 'pending'
   };
 
   function rootFallbackForURL(candidate, baseURL) {
@@ -30,13 +31,10 @@
       const legacyPrefix = siteRoot.pathname + 'assets/';
       if (!u.pathname.startsWith(legacyPrefix)) return null;
       const tail = u.pathname.slice(legacyPrefix.length);
-      // Only map the known broken shape assets/<root-filename>. Do not flatten
-      // legitimate future paths such as assets/new-gallery/photo.webp.
+      // Map only assets/<root-filename>. Do not flatten legitimate nested paths.
       if (!tail || tail.includes('/')) return null;
       return new URL(tail + u.search + u.hash, siteRoot);
-    } catch (_) {
-      return null;
-    }
+    } catch (_) { return null; }
   }
 
   function normalizeAttribute(el, attr) {
@@ -44,9 +42,9 @@
     if (!original || /^(?:data:|blob:|javascript:|mailto:|tel:|#)/i.test(original.trim())) return;
     const mapped = rootFallbackForURL(original, document.baseURI);
     if (!mapped) return;
-    const absolute = mapped.href;
-    if (absolute !== el.href && absolute !== el.src && absolute !== original) {
-      el.setAttribute(attr, absolute);
+    const current = attr === 'href' ? el.href : attr === 'poster' ? el.poster : el.src;
+    if (mapped.href !== current && mapped.href !== original) {
+      el.setAttribute(attr, mapped.href);
       state.imagePathRewrites++;
     }
   }
@@ -61,14 +59,10 @@
       const bits = entry.split(/\s+/);
       const mapped = rootFallbackForURL(bits[0], document.baseURI);
       if (!mapped) return entry;
-      bits[0] = mapped.href;
-      changed = true;
+      bits[0] = mapped.href; changed = true;
       return bits.join(' ');
     }).join(', ');
-    if (changed && next !== original) {
-      el.setAttribute('srcset', next);
-      state.imagePathRewrites++;
-    }
+    if (changed && next !== original) { el.setAttribute('srcset', next); state.imagePathRewrites++; }
   }
 
   function normalizeElement(el) {
@@ -76,26 +70,19 @@
     ['src', 'href', 'poster'].forEach(attr => normalizeAttribute(el, attr));
     normalizeSrcset(el);
   }
-
   function normalizeTree(node) {
     if (!node) return;
     if (node.nodeType === 1) normalizeElement(node);
-    if (node.querySelectorAll) {
-      node.querySelectorAll('[src], [href], [poster], [srcset]').forEach(normalizeElement);
-    }
+    if (node.querySelectorAll) node.querySelectorAll('[src], [href], [poster], [srcset]').forEach(normalizeElement);
   }
 
-  // Register capture-phase fallback before the original application adds its
-  // own broken-image placeholder handler. The wrong path is repaired first.
+  // Capture-phase retry is deliberately limited to the known legacy one-level path.
   document.addEventListener('error', event => {
     const el = event.target;
-    if (!(el instanceof HTMLImageElement)) return;
-    if (el.dataset.phase2Retried === '1') return;
+    if (!(el instanceof HTMLImageElement) || el.dataset.phase2Retried === '1') return;
     const mapped = rootFallbackForURL(el.currentSrc || el.src, document.baseURI);
     if (!mapped) return;
-    el.dataset.phase2Retried = '1';
-    state.imageRetryCount++;
-    el.src = mapped.href;
+    el.dataset.phase2Retried = '1'; state.imageRetryCount++; el.src = mapped.href;
   }, true);
 
   normalizeTree(document);
@@ -105,20 +92,12 @@
       for (const added of record.addedNodes || []) normalizeTree(added);
     }
   });
-  observer.observe(document.documentElement, {
-    subtree: true,
-    childList: true,
-    attributes: true,
-    attributeFilter: ['src', 'href', 'poster', 'srcset']
-  });
+  observer.observe(document.documentElement, {subtree:true, childList:true, attributes:true, attributeFilter:['src','href','poster','srcset']});
 
-  // Patch CSS url(...) values in same-origin stylesheets too. This handles
-  // root CSS files that still refer to assets/<filename>.
   function normalizeStylesheet(sheet, visited = new Set()) {
     if (!sheet || visited.has(sheet)) return;
     visited.add(sheet);
-    let rules;
-    try { rules = sheet.cssRules; } catch (_) { return; }
+    let rules; try { rules = sheet.cssRules; } catch (_) { return; }
     if (!rules) return;
     for (const rule of Array.from(rules)) {
       if (rule.style) {
@@ -128,50 +107,40 @@
           const next = value.replace(/url\(\s*(['"]?)([^'")]+)\1\s*\)/gi, (full, quote, raw) => {
             const mapped = rootFallbackForURL(raw.trim(), sheet.href || siteRoot.href);
             if (!mapped) return full;
-            state.cssPathRewrites++;
-            return `url("${mapped.href}")`;
+            state.cssPathRewrites++; return `url("${mapped.href}")`;
           });
           if (next !== value) rule.style.setProperty(prop, next);
         }
       }
       if (rule.styleSheet) normalizeStylesheet(rule.styleSheet, visited);
-      if (rule.cssRules) {
-        for (const child of Array.from(rule.cssRules)) {
-          if (child.styleSheet) normalizeStylesheet(child.styleSheet, visited);
-        }
-      }
+      if (rule.cssRules) for (const child of Array.from(rule.cssRules)) if (child.styleSheet) normalizeStylesheet(child.styleSheet, visited);
     }
   }
-  function normalizeAllStylesheets() {
-    for (const sheet of Array.from(document.styleSheets)) normalizeStylesheet(sheet);
-  }
+  function normalizeAllStylesheets() { Array.from(document.styleSheets).forEach(sheet => normalizeStylesheet(sheet)); }
   normalizeAllStylesheets();
-  window.addEventListener('load', normalizeAllStylesheets, { once: true });
+  window.addEventListener('load', normalizeAllStylesheets, {once:true});
 
-  // Connect the existing app manifest to the root-level icon files, without
-  // forcing a manual index.html edit.
   if (!document.querySelector('link[rel="manifest"]')) {
-    const manifest = document.createElement('link');
-    manifest.rel = 'manifest';
-    manifest.href = new URL('../manifest.webmanifest', shim.src).href;
-    document.head.appendChild(manifest);
+    const link = document.createElement('link'); link.rel = 'manifest';
+    link.href = new URL('../manifest.webmanifest', shim.src).href; document.head.appendChild(link);
   }
 
-  // Register the corrected root service worker. App startup does not depend on
-  // service-worker support; the runtime path normalizer above still works.
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register(new URL('../sw.js', shim.src).href, { scope: siteRoot.pathname })
+    navigator.serviceWorker.register(new URL('../sw.js', shim.src).href, {scope:siteRoot.pathname})
       .then(() => { state.serviceWorker = 'registered'; })
-      .catch(err => {
-        state.serviceWorker = 'failed';
-        console.warn('[V1 Phase 2] Service worker registration failed; path normalizer remains active.', err);
-      });
-  } else {
-    state.serviceWorker = 'unsupported';
+      .catch(err => { state.serviceWorker = 'failed'; console.warn('[V1 Phase 2+3] Service worker registration failed; path normalization remains active.', err); });
+  } else state.serviceWorker = 'unsupported';
+
+  function loadPhase3() {
+    if (document.querySelector('script[data-phase3-enhancement]')) { state.phase3 = 'already-present'; return; }
+    const feature = document.createElement('script');
+    feature.src = new URL('../phase3.js', shim.src).href;
+    feature.dataset.phase3Enhancement = 'true';
+    feature.onload = () => { state.phase3 = window.BLACKED_PHASE3 ? 'loaded' : 'loaded-without-status'; };
+    feature.onerror = () => { state.phase3 = 'failed'; console.error('[V1 Phase 3] phase3.js failed to load. Check that it is at the repository root.'); };
+    document.body.appendChild(feature);
   }
 
-  // index.html expects js/app.js, while the full original app is at ./app.js.
-  // Load the original script once, after installing all compatibility handlers.
   if (!document.querySelector('script[data-phase2-original-app]')) {
     const original = document.createElement('script');
     original.src = new URL('../app.js', shim.src).href;
@@ -179,11 +148,12 @@
     original.dataset.phase2OriginalApp = 'true';
     original.onload = () => {
       state.originalApp = window.BLACKED_FUSION31 ? 'loaded' : 'loaded-without-diagnostics-hook';
+      loadPhase3();
     };
     original.onerror = () => {
-      state.originalApp = 'failed';
-      console.error('[V1 Phase 2] Original root app.js did not load. Confirm app.js exists at the repository root.');
+      state.originalApp = 'failed'; state.phase3 = 'blocked-original-app-failed';
+      console.error('[V1 Phase 2+3] Original root app.js did not load. Confirm app.js exists at repository root.');
     };
     document.body.appendChild(original);
-  }
+  } else loadPhase3();
 })();

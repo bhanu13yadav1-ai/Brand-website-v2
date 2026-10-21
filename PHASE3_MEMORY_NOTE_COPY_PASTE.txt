@@ -1,0 +1,20 @@
+V1 PHASE 3 MEMORY NOTE — COPY/PASTE
+
+Phase: 3 — Architecture/Navigation & Collections (additive overlay).
+Target repository: bhanu13yadav1-ai/Brand-website-4f, branch main.
+Package: V1_PHASE3_UPLOAD_PACKAGE.zip.
+
+Phase 3 changes:
+- Adds phase3.js and phase3.css.
+- Home receives one Collections directory: existing Sanskari Collection (available to explore) plus Muslim-Inspired and Christian-Inspired Collection preview cards marked Coming Soon.
+- Existing Sanskari page and gallery remain; existing Noor/Grace teasers are relabelled with clear Muslim-Inspired/Christian-Inspired headings and careful non-stereotyping copy.
+- Coming Soon items are non-clickable, not fake shop buttons.
+- Active nav receives aria-current state; one idempotent delegated action routes to the existing Sanskari nav button.
+- css/styles.css wrapper imports root styles.css then phase3.css. js/app.js wrapper loads original root app.js and then phase3.js, without overwriting root source files.
+- sw.js cache version and core path list updated. manifest points icons to root files. Phase 2 diagnostics retained and phase3-diagnostics.html added.
+
+Upload: extract ZIP; upload contents (not outer folder) to existing Brand-website-4f repository root; preserve css/ and js/. Replace overlay files `css/styles.css`, `js/app.js`, `sw.js`, `manifest.webmanifest`; add `phase3.js`, `phase3.css`, `phase3-diagnostics.html`, `phase2-diagnostics.html`, README/report/memory note. Do not delete/replace root index.html, root app.js, root styles.css, product data or source images.
+
+Validation run on package only: Node syntax checks, manifest JSON parse, HTML parser, static contract checks, and ZIP top-folder structure checks passed. Live Pages, actual images, Android physical device, click-through, and regressions are NOT TESTED. GitHub connector is read-only; no repository files were committed by assistant.
+
+Next: upload, open `/phase3-diagnostics.html`, refresh once after service-worker update if needed, send actual PASS/FAIL screenshot/results. Do not begin Phase 4 until runtime failures/regressions are reviewed. Keep all 14 master rules active.

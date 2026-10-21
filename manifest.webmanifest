@@ -1,7 +1,7 @@
 {
-  "name": "BLACKED Fusion — Confidence Looks Good on You",
+  "name": "BLACKED Fusion \u2014 V1 Phase 3",
   "short_name": "BLACKED",
-  "description": "BLACKED concept store, Sanskari Edit gallery and wellness references.",
+  "description": "BLACKED concept store, Sanskari collection, future collection previews and wellness references.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

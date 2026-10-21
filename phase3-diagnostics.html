@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#100d10">
+<title>BLACKED V1 — Phase 3 Diagnostics</title>
+<style>
+:root{color-scheme:dark;--bg:#100d10;--panel:#1b151b;--line:#3a2a37;--pink:#f6a4c2;--muted:#c7b9c5;--ok:#96e6b2;--bad:#ff9b9b;--warn:#f7d28b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff7fb;font:15px/1.5 system-ui,sans-serif;padding:18px;max-width:1040px;margin-inline:auto}h1{font-size:clamp(24px,5vw,35px);line-height:1.15}h2{font-size:19px;margin-top:0}.muted{color:var(--muted)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border:1px solid var(--pink);border-radius:12px;padding:10px 14px;color:#170d14;background:var(--pink);font-weight:700;text-decoration:none;cursor:pointer}.btn.alt{background:transparent;color:var(--pink)}.row{border-top:1px solid var(--line);padding:9px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}.tag{font-size:12px;white-space:nowrap}.PASS{color:var(--ok)}.FAIL{color:var(--bad)}.NOTTESTED,.BLOCKED{color:var(--warn)}iframe{border:1px solid var(--line);width:100%;height:390px;border-radius:12px;background:#fff}code,pre{overflow-wrap:anywhere;white-space:pre-wrap}.small{font-size:12px}@media(max-width:400px){body{padding:11px}.row{grid-template-columns:1fr;gap:2px}.panel{padding:12px}}
+</style>
+</head>
+<body>
+<h1>V1 Phase 3 — Structure & Collections Check</h1>
+<p class="muted">This checks whether the additive Phase 3 code is loaded on the hosted page. It does not certify every feature, the full image catalogue, or physical Android testing.</p>
+<div class="panel"><h2>Actions</h2><div class="actions"><a class="btn" href="./index.html">Open main website</a><button class="btn alt" id="rerun" type="button">Run checks again</button></div><p class="small muted">Open after uploading the whole package. If this is the first visit after a service-worker update, wait briefly and refresh once.</p></div>
+<div class="panel"><h2>File routes</h2><div id="files">Checking…</div></div>
+<div class="panel"><h2>Runtime integration (embedded same-origin page)</h2><div id="runtime">Loading main website inside the diagnostic page…</div><p class="small muted">The embedded page uses the actual published website URL. The interaction checks are real browser checks once this page is hosted; they do not replace testing the whole website manually.</p><iframe id="siteFrame" title="Embedded website for Phase 3 checks" src="./index.html?phase3-diagnostic=1"></iframe></div>
+<div class="panel"><h2>Image checks</h2><div id="images">Waiting for the embedded page…</div></div>
+<div class="panel"><h2>Original wheels — source structure</h2><div id="wheels">Waiting for the embedded page…</div></div>
+<div class="panel"><h2>Interpretation</h2><p class="small"><b class="PASS">PASS</b> = this check ran and succeeded. <b class="FAIL">FAIL</b> = this check ran and failed. <b class="NOTTESTED">NOT TESTED</b> = unavailable in this browser/session. Diagnostics do not claim backend commerce, formal age verification, or zero bugs.</p></div>
+<script>
+(() => {
+'use strict';
+const $=s=>document.querySelector(s);const paths=['./index.html','./app.js','./styles.css','./css/styles.css','./js/app.js','./phase3.js','./phase3.css','./sw.js','./manifest.webmanifest'];
+function row(host,label,status,detail=''){const e=document.createElement('div');e.className='row';const a=document.createElement('span');a.textContent=label+(detail?' — '+detail:'');const b=document.createElement('strong');b.className='tag '+status;b.textContent=status;e.append(a,b);host.append(e)}
+async function routeCheck(){const host=$('#files');host.replaceChildren();for(const path of paths){try{const r=await fetch(path,{cache:'no-store'});row(host,path,r.ok?'PASS':'FAIL',`HTTP ${r.status}`)}catch(e){row(host,path,'FAIL',String(e))}}}
+function waitFor(fn,timeout=8000){return new Promise(resolve=>{const start=Date.now();const tick=()=>{let v=false;try{v=fn()}catch{}if(v){resolve(true);return}if(Date.now()-start>timeout){resolve(false);return}setTimeout(tick,150)};tick()})}
+async function runtimeCheck(){const host=$('#runtime'),imageHost=$('#images'),wheelHost=$('#wheels');host.replaceChildren();imageHost.replaceChildren();wheelHost.replaceChildren();const frame=$('#siteFrame');const ready=await waitFor(()=>frame.contentDocument&&frame.contentDocument.querySelector('#phase3-collection-directory')&&frame.contentWindow.BLACKED_PHASE3);if(!ready){row(host,'Phase 3 directory loaded','FAIL','timeout or phase3.js not loaded');row(host,'Phase 3 status object','FAIL','window.BLACKED_PHASE3 missing');row(imageHost,'Sanskari preview images','NOT TESTED','runtime injection did not complete');row(wheelHost,'Three original wheel controls','NOT TESTED','main page not ready');return}
+ const doc=frame.contentDocument,win=frame.contentWindow,s=win.BLACKED_PHASE3.recheck?win.BLACKED_PHASE3.recheck():win.BLACKED_PHASE3;
+ row(host,'Phase 3 script initialization',s.initialized?'PASS':'FAIL',`version ${s.version||'unknown'}`);
+ row(host,'Home collection directory',!!doc.getElementById('phase3-collection-directory')?'PASS':'FAIL','added after existing destination grid');
+ row(host,'Existing Sanskari gallery retained',!!doc.querySelector('#view-sanskari #sanskariGallery')?'PASS':'FAIL','original gallery element still present');
+ row(host,'Sanskari route action',!!doc.querySelector('[data-phase3-open="sanskari"]')?'PASS':'FAIL','button exists');
+ row(host,'Muslim-Inspired Coming Soon',!!doc.querySelector('#view-sanskari [data-phase3-preview="muslim-inspired"]')?'PASS':'FAIL','existing Noor teaser relabelled, not replaced');
+ row(host,'Christian-Inspired Coming Soon',!!doc.querySelector('#view-sanskari [data-phase3-preview="christian-inspired"]')?'PASS':'FAIL','existing Grace teaser relabelled, not replaced');
+ const button=doc.querySelector('[data-phase3-open="sanskari"]');if(button){button.click();await new Promise(r=>setTimeout(r,350));const active=doc.querySelector('.view.active')?.dataset.view;row(host,'Click “Explore Sanskari”',active==='sanskari'?'PASS':'FAIL',`active view: ${active||'unknown'}`);const homeNav=doc.querySelector('#mainNav [data-view-link="home"]');if(homeNav){homeNav.click();await new Promise(r=>setTimeout(r,180));row(host,'Return to Home',doc.querySelector('.view.active')?.dataset.view==='home'?'PASS':'FAIL','uses the existing navigation handler')}}
+ // Trigger load of every image in the current Sanskari view without replacing source paths.
+ const sanskariNav=doc.querySelector('#mainNav [data-view-link="sanskari"]');if(sanskariNav)sanskariNav.click();await new Promise(r=>setTimeout(r,500));
+ const imgs=[...doc.querySelectorAll('#view-sanskari img')];if(!imgs.length)row(imageHost,'Sanskari image elements','FAIL','none found');else{const checks=await Promise.all(imgs.map(img=>new Promise(resolve=>{img.loading='eager';if(img.complete)resolve({ok:img.naturalWidth>0,alt:img.alt||'(no alt text)',src:img.currentSrc||img.src,width:img.naturalWidth});else{const timer=setTimeout(()=>resolve({ok:img.naturalWidth>0,alt:img.alt||'(no alt text)',src:img.currentSrc||img.src,width:img.naturalWidth}),6000);img.addEventListener('load',()=>{clearTimeout(timer);resolve({ok:img.naturalWidth>0,alt:img.alt||'(no alt text)',src:img.currentSrc||img.src,width:img.naturalWidth})},{once:true});img.addEventListener('error',()=>{clearTimeout(timer);resolve({ok:false,alt:img.alt||'(no alt text)',src:img.currentSrc||img.src,width:0})},{once:true})}})));const failed=checks.filter(x=>!x.ok);row(imageHost,'Sanskari images loaded',failed.length===0?'PASS':'FAIL',`${checks.length-failed.length}/${checks.length} loaded`);failed.slice(0,12).forEach(x=>row(imageHost,'Failed image', 'FAIL',`${x.src} · alt: ${x.alt}`));}
+ const required=[['Boyfriend wheel','boyPreference','boyResult','boy'],['Dildo wheel','dildoPreference','dildoResult','dildo'],['Butt Plug wheel','plugPreference','plugResult','plug']];for(const [name,select,result,kind] of required){const ok=!!doc.getElementById(select)&&!!doc.getElementById(result)&&!!doc.querySelector(`[data-spin-wheel="${kind}"]`)&&!!doc.querySelector(`[data-wheel-disc="${kind}"]`);row(wheelHost,name,ok?'PASS':'FAIL','source controls exist; spin interaction still needs manual test')}
+}
+async function run(){await routeCheck();await runtimeCheck()}
+$('#rerun').addEventListener('click',run);$('#siteFrame').addEventListener('load',()=>{setTimeout(()=>runtimeCheck(),250)});run();
+})();
+</script>
+</body>
+</html>
