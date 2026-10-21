@@ -1,0 +1,55 @@
+{
+  "phase": "V1 Phase 6",
+  "target": "bhanu13yadav1-ai/Brand-website-v2",
+  "image_library_records": 151,
+  "changes": {
+    "image_manifest_extracted_from_app_js": "PASS",
+    "progressive_archive_rendering": "PASS",
+    "source_url_allowlist": "PASS",
+    "saved_bag_validation": "PASS",
+    "privacy_controls": "PASS",
+    "clear_data_requires_confirmation": "PASS",
+    "preserve_other_sites_storage": "PASS",
+    "skip_link_and_focus_styles": "PASS",
+    "reduced_motion": "PASS",
+    "modal_focus_trap_and_restore": "PASS",
+    "service_worker_versioned_cache": "PASS",
+    "external_image_binaries_bundled": "NO - source repositories remain external"
+  },
+  "static_checks": {
+    "node_check_app_js": "PASS",
+    "manifest_json": "PASS",
+    "size_chart_json": "PASS",
+    "image_manifest_json": "PASS",
+    "html_parse": "PASS",
+    "duplicate_html_ids": "PASS",
+    "local_css_js_refs": "PASS",
+    "all_151_records_preserved": true,
+    "app_js_bytes_before": 111064,
+    "app_js_bytes_after": 66127,
+    "app_js_size_reduction_percent": 40.5,
+    "node_check_fallback_js": "PASS",
+    "node_check_service_worker": "PASS",
+    "local_html_script_style_references": "PASS",
+    "privacy_keyboard_focus_open_restore": "PASS"
+  },
+  "live_image_http_status": "NOT TESTED; raw-GitHub requests were blocked in offline local QA; run phase6-diagnostics.html after deployment.",
+  "live_pages": "NOT TESTED",
+  "physical_android_chrome": "NOT TESTED",
+  "remaining_phase": "Phase 7 regression and release",
+  "known_limits": [
+    "image binaries remain in 3 public source repositories",
+    "browser localStorage is not encrypted",
+    "no backend accounts/real checkout/inventory"
+  ],
+  "local_browser_functional_tests": {
+    "status": "PASS",
+    "passed": 32,
+    "failed": 0,
+    "total": 32,
+    "details": "Local Chromium/Playwright run. External raw-GitHub image requests were deliberately blocked to exercise the fallback; source availability remains NOT TESTED."
+  },
+  "app_js_size_reduction_percent": 40.5,
+  "initial_image_library_dom_cards": 24,
+  "all_records_preserved_with_load_more": 151
+}

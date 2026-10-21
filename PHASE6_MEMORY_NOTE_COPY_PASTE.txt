@@ -1,0 +1,17 @@
+V1 MASTER RULES — PHASE 6 HANDOFF
+
+Phase 6 objective: performance, accessibility, privacy/security, saved-data integrity, caching and responsive hardening. Maintain all 14 MASTER PROMPT rules. Target repo: https://github.com/bhanu13yadav1-ai/Brand-website-v2
+
+Phase 6 completed in source package:
+- Image manifest moved out of app.js into same-origin JSON loading; 151 library records preserved.
+- Archive progressively renders 24 records per batch + Load more; search/filter/sort operate on all records.
+- Source URL allowlist, bounded persisted data, safe image URL handling and a CSP/referrer policy were added.
+- Privacy & data control panel added with explicit confirmation to clear only known app-owned local/session storage keys. No automatic destructive migration.
+- Skip link, visible keyboard focus, 44px touch target minimum, reduced-motion styles, dialog focus trapping/restoration and image dimensions added.
+- Service worker cache versioned and old phase caches cleared on activation; external image assets remain network dependencies.
+- Phase 6 diagnostics added.
+- Local Chromium/Playwright: 32/32 functional checks PASS, 0 FAIL; no uncaught app JavaScript errors. Remote source-image URLs were blocked for offline testing, so live original-image availability is NOT TESTED.
+
+Do not claim live image requests or Android device testing passed until the owner uploads the package and runs `phase6-diagnostics.html` on GitHub Pages.
+
+Next: Phase 7 — full regression testing, live deployment checks, original 3 wheel interaction tests, every core feature, all 151 image URLs in batches, responsive viewport checks, fix every critical error, final release report/ZIP.

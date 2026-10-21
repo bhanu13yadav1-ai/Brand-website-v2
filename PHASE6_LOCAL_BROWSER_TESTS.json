@@ -1,0 +1,162 @@
+[
+  {
+    "test": "Main app boots with Phase 6 version",
+    "status": "PASS",
+    "detail": "phase6-quality-hardening-1.0.0"
+  },
+  {
+    "test": "Six original views preserved",
+    "status": "PASS",
+    "detail": "6"
+  },
+  {
+    "test": "Catalogue and campaign counts retained",
+    "status": "PASS",
+    "detail": "{'products': 8, 'campaigns': 10}"
+  },
+  {
+    "test": "All 151 records load from separate same-origin JSON",
+    "status": "PASS",
+    "detail": "151"
+  },
+  {
+    "test": "Initial image DOM capped at 24 cards",
+    "status": "PASS",
+    "detail": "24"
+  },
+  {
+    "test": "Load more button presented",
+    "status": "PASS",
+    "detail": "Load next 24 images (127 remaining)"
+  },
+  {
+    "test": "Load more appends next batch",
+    "status": "PASS",
+    "detail": "48"
+  },
+  {
+    "test": "Search reaches all source records, not only loaded batch",
+    "status": "PASS",
+    "detail": "14"
+  },
+  {
+    "test": "Category filter reaches complete manifest",
+    "status": "PASS",
+    "detail": "12"
+  },
+  {
+    "test": "Catalogue search preserved",
+    "status": "PASS",
+    "detail": "1"
+  },
+  {
+    "test": "Demo bag still operates",
+    "status": "PASS",
+    "detail": "1"
+  },
+  {
+    "test": "Wishlist still operates",
+    "status": "PASS",
+    "detail": "1"
+  },
+  {
+    "test": "Wellness remains age-gated",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Age gate opens Wellness after self-attestation",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Original Dildo wheel still interactive",
+    "status": "PASS",
+    "detail": "Regular · 10–13 cm\nOverall length and insertable length can differ. Verify the product dimensions be"
+  },
+  {
+    "test": "Three original wheels and Dirty/Wild control remain",
+    "status": "PASS",
+    "detail": "{'boy': True, 'dildo': True, 'plug': True, 'wild': True}"
+  },
+  {
+    "test": "Dirty/Wild categories count is 10",
+    "status": "PASS",
+    "detail": "10"
+  },
+  {
+    "test": "Size worksheet does not invent a size",
+    "status": "PASS",
+    "detail": "ments are recorded as a summary only. The exact product size cannot be calculated because no verified BLACKED chart is configured."
+  },
+  {
+    "test": "Measurement persistence blocked unless opted in",
+    "status": "PASS",
+    "detail": "Saving is off. Tick “Save these measurements on this device only” to opt in."
+  },
+  {
+    "test": "Measurement save works after opt-in",
+    "status": "PASS",
+    "detail": "{\"version\":1,\"garment\":\"bra\",\"measurementsCm\":{\"bust\":91,\"underbust\":76,\"waist\":null,\"hips\":null},\"updatedAt\":\"2026-10-2"
+  },
+  {
+    "test": "Privacy panel opens with clear labels",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Dialog moves keyboard focus inside on open",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Dialog restores focus to the invoking control",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Privacy deletion can be cancelled without wiping data",
+    "status": "PASS",
+    "detail": "{\"version\":1,\"garment\":\"bra\",\"measurementsCm\":{\"bust\":91,\"underbust\":76,\"waist\":null,\"hips\":null},\"u"
+  },
+  {
+    "test": "Confirmed privacy deletion removes app-owned keys",
+    "status": "PASS",
+    "detail": "{'measure': None, 'wishlist': None, 'bag': None}"
+  },
+  {
+    "test": "Skip link exists",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Reduced motion rules exist",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "CSP and no-referrer meta are set",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Image fallback handler active",
+    "status": "PASS",
+    "detail": "94"
+  },
+  {
+    "test": "No horizontal overflow at 320/360/390/430/1440",
+    "status": "PASS",
+    "detail": "[{'width': 320, 'vw': 320, 'sw': 320, 'bw': 320, 'overflow': False}, {'width': 360, 'vw': 360, 'sw': 360, 'bw': 360, 'overflow': False}, {'width': 390, 'vw': 390, 'sw': 390, 'bw': 390, 'overflow': False}, {'width': 430, 'vw': 430, 'sw': 430, 'bw': 430, 'overflow': False}, {'width': 1440, 'vw': 1440, 'sw': 1440, 'bw': 1440, 'overflow': False}]"
+  },
+  {
+    "test": "No uncaught JavaScript errors",
+    "status": "PASS",
+    "detail": "[]"
+  },
+  {
+    "test": "App JavaScript reduced by externalizing library data",
+    "status": "PASS",
+    "detail": "{'before': 111064, 'after': 66127, 'reductionPercent': 40.5}"
+  }
+]

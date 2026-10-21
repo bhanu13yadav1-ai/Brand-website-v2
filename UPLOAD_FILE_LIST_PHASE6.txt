@@ -1,0 +1,23 @@
+PHASE 6 ROOT UPLOAD FILES
+
+Replace existing root files:
+- index.html
+- app.js
+- styles.css
+- fallback.js
+- sw.js
+- manifest.webmanifest
+- innerwear-image-library.json
+- INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv
+- size-chart-template.json
+- README.md
+
+Add or replace diagnostics/docs:
+- phase6-diagnostics.html
+- PHASE6_IMPLEMENTATION_REPORT.md
+- PHASE6_QA_RESULTS.json
+- PHASE6_MEMORY_NOTE_COPY_PASTE.txt
+- README_PHASE6_UPLOAD_HINGLISH.md
+- prior phase reports/checklists/manifests included for reference
+
+Back up the repository before replacing files. Do not remove any unlisted files. Upload contents of this folder into the repository root, not a nested folder.
