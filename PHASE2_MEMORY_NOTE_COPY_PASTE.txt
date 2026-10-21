@@ -1,0 +1,21 @@
+V1 PHASE 2 MEMORY NOTE — COPY/PASTE
+
+Phase: 2 — Foundation & image-path compatibility patch.
+Target repo: bhanu13yadav1-ai/Brand-website-4f (existing repo only).
+Package: V1_PHASE2_UPLOAD_PACKAGE.zip.
+
+Added in patch:
+- css/styles.css imports existing root styles.css.
+- js/app.js is a compatibility loader: normalizes direct assets/<filename> references to existing root images and loads existing root app.js without replacing it.
+- sw.js uses corrected root paths, versioned cache, and same-scope fallback for legacy assets/<filename> URLs.
+- manifest.webmanifest points icons at existing root icon files.
+- phase2-diagnostics.html checks file routes, image previews and markup for all three existing wheels.
+- README_PHASE2_UPLOAD_HINGLISH.md and PHASE2_IMPLEMENTATION_REPORT.md document how to upload/test.
+
+Preservation: do not delete/replace existing index.html, root app.js, root styles.css, catalogue content, or original root image files.
+Upload: extract ZIP; upload contents into the root of existing Brand-website-4f main branch; preserve css/ and js/ folders. This is an overlay patch, not a standalone website ZIP.
+
+Tests run: Node syntax checks for shim and service worker, manifest JSON parse, diagnostics HTML parse and ZIP content audit passed.
+Not tested: live Pages deployment, real Android device, full wheel click/animation tests, complete regression testing. Current GitHub connector has read-only access to the supplied repositories. Do not claim live fixes until diagnostics and manual tests pass.
+
+Next: user uploads patch; run phase2-diagnostics.html; collect PASS/FAIL screenshot/result; then start Phase 3 only after reviewing output. Keep all 14 master rules active.
