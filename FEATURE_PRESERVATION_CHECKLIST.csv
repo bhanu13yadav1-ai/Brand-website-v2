@@ -1,0 +1,23 @@
+﻿feature,source_location,baseline_status,required_action_or_acceptance
+Home / Dashboard,index.html#view-home,Preserve,Primary overview and navigation must continue to work.
+Sex Stories Library,index.html#view-stories; app.js story data/rendering,Preserve,Existing stories and filters must not disappear.
+Story series / choice endings,Part B story code in app.js,Preserve,"Continue chapter navigation, choices and saved progress where present."
+Innerwear catalogue,index.html#view-innerwear; app.js products,Preserve,"Search, filters, sort, product detail and category mapping."
+Image Library (151 records),innerwear-image-library.json; index.html image library,Preserve and repair,All source records stay discoverable; identify failed URLs; avoid duplicate card images.
+Wishlist,app.js storage/rendering,Preserve,Saved items persist and clear controls work.
+Compare,app.js comparison logic,Preserve,Maximum count / selection and compare results stay consistent.
+Demo bag,app.js bag logic,Preserve,Clearly demo-only; no real payment claims.
+Sanskari collection,index.html#view-sanskari; existing source images,Preserve + new campaign mapping,Add uploaded Sanskari campaign images once each; preserve current cards.
+Noor / Grace previews,collection previews / phase3 add-on,Preserve,Respectful Coming Soon labels; no religion inferred from model appearance.
+Wellness & Size Guide,index.html#view-wellness,Preserve,"Medical accuracy, no invented universal size chart."
+Boyfriend / Couples,index.html#view-boyfriend; Part C add-on currently not linked,Broken/incomplete,Link add-on and fix root-vs-nested asset paths.
+Fit Studio,index.html#view-fit,Preserve,"Local photo previews, clear/cleanup logic and helpful fallback."
+Boyfriend / Land wheel,index.html wheel controls; app.js spinWheel; Part C add-on,Fix result/rotation root cause,Correct final pointer sector = exact result.
+Dildo size wheel,index.html wheel controls; app.js; Part C add-on,Fix result/rotation root cause,"Use fictional/demo ranges, don't infer a human body size."
+Butt Plug wheel,index.html wheel controls; app.js; Part C add-on,Fix result/rotation root cause,Include safe use language; no size claims about people.
+Dirty/Wild wheel,index.html wheel controls; app.js; Part C add-on,Fix integration and segment mapping,Show category-specific 8 sectors; every result optional and skippable.
+Threesome Fantasy 18+,Part C add-on JS; current index does not load it,Not visible/integrated,"Separate section only for fictional consenting adults, with age gate/skip."
+Privacy/data controls,app.js storage and privacy controls,Preserve,No secrets/private data exposure; opt-in local saves remain explicit.
+PWA / Service Worker,sw.js; manifest.webmanifest,Update cache after integration,Add all required local assets and scripts to versioned cache.
+Part C enhancement CSS/JS,part-c-enhancements.css / .js,Present but not linked,Integrate once; test double listeners/nav conflicts.
+Wheel poster concepts,"User uploads 1000201720.png, 1000201714.png",Add in Phase 2/3,"Use as cover/idea imagery, not a static substitute for the real wheel."

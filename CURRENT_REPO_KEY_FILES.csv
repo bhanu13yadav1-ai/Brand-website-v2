@@ -1,0 +1,31 @@
+﻿path,observed_bytes,phase1_note
+00_MASTER_RULES_PHASE_MAP.md,5194,
+EXTERNAL_ASSET_MANIFEST.csv,43195,
+INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv,43195,
+NEXT_BIG_UPDATE_IDEAS.md,2152,
+NEXT_PARTS_ROADMAP.md,2094,
+PART_A_IMPLEMENTATION_REPORT.md,2887,
+PART_B_FILE_MANIFEST.csv,6226,
+PART_B_IMPLEMENTATION_REPORT.md,4807,
+PART_C_FILE_MANIFEST.csv,2390,
+PART_C_IMAGE_MANIFEST.csv,809,
+PART_C_IMPLEMENTATION_REPORT.md,3395,
+PART_C_LOCAL_BROWSER_TESTS.json,9564,
+PART_C_QA_RESULTS.json,3613,
+README.md,3043,
+app-icon.svg,364,
+app.js,106697,Legacy spinWheel randomizes result and rotation independently; visual sectors not tied to result in core app.
+fallback.js,1696,
+index.html,56242,Missing references to part-c-enhancements.js and .css; currently only fallback.js and app.js scripts are referenced.
+innerwear-image-library.json,62145,
+manifest.webmanifest,486,
+male-reference-01.webp,21340,Root-level file; Part C JS expects ./assets/fantasy-gallery/<name>.
+male-reference-02.webp,21634,Root-level file; Part C JS expects ./assets/fantasy-gallery/<name>.
+male-reference-03.webp,110746,Root-level file; Part C JS expects ./assets/fantasy-gallery/<name>.
+male-reference-04.webp,21878,Root-level file; Part C JS expects ./assets/fantasy-gallery/<name>.
+part-c-enhancements.css,7239,
+part-c-enhancements.js,34058,"Contains intended wheel sector labels, image gallery and Threesome section, but is not loaded by index.html."
+part-c-diagnostics.html,9946,
+styles.css,40174,
+sw.js,2250,Part B cache list does not include Part C JS/CSS and all new uploaded images.
+threesome-fantasy-cover.webp,24036,Root-level file; Part C JS expects ./assets/fantasy-gallery/<name>.

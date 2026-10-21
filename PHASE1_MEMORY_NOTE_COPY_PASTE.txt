@@ -1,0 +1,19 @@
+V2 PHASE 1 HANDOFF — COPY/PASTE
+
+Target repo: https://github.com/bhanu13yadav1-ai/Brand-website-v2
+Phase 1 status: AUDIT COMPLETE; code not modified or pushed.
+
+Critical findings:
+1. Current `index.html` loads only `fallback.js` and `app.js` plus `styles.css`. It does NOT link `part-c-enhancements.js` or `part-c-enhancements.css`, so the intended labelled-wheel layer, Boyfriend reference gallery and Threesome Fantasy view do not initialize.
+2. `part-c-enhancements.js` references `./assets/fantasy-gallery/male-reference-01.webp` through `male-reference-04.webp` and `threesome-fantasy-cover.webp`, but those five binaries are at repository root. Path mismatch remains even if the add-on is linked.
+3. Core `app.js` spin logic separately selects result and rotation, allowing wheel/result mismatch. The Part C wheel implementation should be integrated/tested rather than replacing core blindly.
+4. User added two poster images: `1000201720.png` (Tease & Guess Wheel) and `1000201714.png` (After-Dark Questions); use as campaign/hero references, not as the functional wheel itself.
+5. User added red-lace campaign art `1000201721.png`, Sanskari/Noor campaign references and exact duplicate WebPs. See `PHASE1_ASSET_MANIFEST.csv`.
+6. Four WebP pairs are byte-for-byte duplicates; don't display each twice.
+7. Do not infer real identities or genital sizes from photographs. Use neutral reference labels and verified product specifications only.
+
+Preserve: stories/series, image archive (151 source records), innerwear catalogue, search/filter/sort, wishlist, compare, demo bag, Sanskari/Noor/Grace previews, Wellness & Size Guide, Boyfriend/Couples, Fit Studio, original Boyfriend/Dildo/Butt Plug wheels, Dirty/Wild wheel, privacy controls and PWA/service worker.
+
+Next: Phase 2 should use a safe working copy, wire the Part C CSS/JS once, correct local asset paths, add the 10 unique new image designs in sensible folders, update service-worker cache, and test before proceeding.
+
+Testing truth: source/tree audit passed; live GitHub Pages and physical Android testing not done. No GitHub code changed in Phase 1.
