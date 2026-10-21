@@ -1,0 +1,162 @@
+[
+  {
+    "test": "Phase 5 application boots",
+    "status": "PASS",
+    "detail": "V1 Phase 5 image library & wellness"
+  },
+  {
+    "test": "Six existing views preserved",
+    "status": "PASS",
+    "detail": "6"
+  },
+  {
+    "test": "Original 8 catalogue products preserved",
+    "status": "PASS",
+    "detail": "8"
+  },
+  {
+    "test": "151 full image archive records exposed",
+    "status": "PASS",
+    "detail": "151"
+  },
+  {
+    "test": "All archive cards rendered",
+    "status": "PASS",
+    "detail": "151"
+  },
+  {
+    "test": "All source URL paths are unique",
+    "status": "PASS",
+    "detail": "151"
+  },
+  {
+    "test": "Image groups are available",
+    "status": "PASS",
+    "detail": "25"
+  },
+  {
+    "test": "Image archive search works",
+    "status": "PASS",
+    "detail": "9"
+  },
+  {
+    "test": "External inspiration is separately searchable",
+    "status": "PASS",
+    "detail": "14"
+  },
+  {
+    "test": "Product cutout concepts can be filtered",
+    "status": "PASS",
+    "detail": "12"
+  },
+  {
+    "test": "Original innerwear catalogue search is preserved",
+    "status": "PASS",
+    "detail": "1"
+  },
+  {
+    "test": "18+ gate appears before Wellness",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Wellness section opens after confirmation",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Bra worksheet validates required measures",
+    "status": "PASS",
+    "detail": "Bra / bralette worksheet\n\nBust / fullest part\n91.4 cm · 36.0 in\nUnderbust / ribcage\n75.0 cm · 29.5 in\n\nMeasurements are recorded as a summary only. The exact pr"
+  },
+  {
+    "test": "Size chart limitation is explicit",
+    "status": "PASS",
+    "detail": " part\n91.4 cm · 36.0 in\nUnderbust / ribcage\n75.0 cm · 29.5 in\n\nMeasurements are recorded as a summary only. The exact product size cannot be calculated because no verified BLACKED chart is configured."
+  },
+  {
+    "test": "Measurement helper does not output a made-up size",
+    "status": "PASS",
+    "detail": "recorded as a summary only. The exact product size cannot be calculated because no verified BLACKED chart is configured."
+  },
+  {
+    "test": "Measurement save is blocked without opt-in",
+    "status": "PASS",
+    "detail": "Saving is off. Tick “Save these measurements on this device only” to opt in."
+  },
+  {
+    "test": "Measurement storage only after opt-in",
+    "status": "PASS",
+    "detail": "{\"version\":1,\"garment\":\"bra\",\"measurementsCm\":{\"bust\":91.4,\"underbust\":75,\"waist\":null,\"hips\":null},\"updatedAt\":\"2026-10-21T12:01:29.051Z\"}"
+  },
+  {
+    "test": "Saved measurements can be deleted",
+    "status": "PASS",
+    "detail": ""
+  },
+  {
+    "test": "Centimetre-to-inch converter still works",
+    "status": "PASS",
+    "detail": "75 cm = 29.53 in"
+  },
+  {
+    "test": "Fit cue helper produces cautious guidance",
+    "status": "PASS",
+    "detail": "If the back band rides up, recheck that the band is level and comfortably snug. Some fit guides suggest trying a different band/cup combination, but do not use "
+  },
+  {
+    "test": "Virginity/hymen myth guide is medically cautious",
+    "status": "PASS",
+    "detail": "Virginity is not a medical diagnosis. There is no reliable physical examination that can establish whether a person has had sexual intercourse.\n\nThe hymen naturally varies in shape and elasticity. Its appearance cannot r"
+  },
+  {
+    "test": "Anatomy education schematic is labelled and present",
+    "status": "PASS",
+    "detail": "Simplified external anatomy map"
+  },
+  {
+    "test": "Symptom guidance includes clinical and source caveats",
+    "status": "PASS",
+    "detail": "General education cannot tell you what is causing a symptom. Consider contacting a qualified clinician for persistent vulvar pain, itching or burning; sores or skin changes; unusua"
+  },
+  {
+    "test": "Failed source images still remain as image cards",
+    "status": "PASS",
+    "detail": "151"
+  },
+  {
+    "test": "Broken-source status is visible on image records",
+    "status": "PASS",
+    "detail": "151 failed source cards, fallback count 183 (source images deliberately blocked in offline QA)"
+  },
+  {
+    "test": "Original-source and retry links available",
+    "status": "PASS",
+    "detail": "151"
+  },
+  {
+    "test": "Three original wheels and Dirty/Wild controls retained",
+    "status": "PASS",
+    "detail": "{'boy': True, 'dildo': True, 'plug': True, 'wild': True}"
+  },
+  {
+    "test": "Original Dildo wheel still works",
+    "status": "PASS",
+    "detail": "Regular · 10–13 cm · alternate prompt\nFor regular · 10–13 cm, compare actual insertable length and widest diameter, and follow the maker’s i"
+  },
+  {
+    "test": "No horizontal overflow at 320/360/390/430/1440",
+    "status": "PASS",
+    "detail": "[{\"width\": 320, \"vw\": 320, \"sw\": 320, \"bw\": 320, \"overflow\": false}, {\"width\": 360, \"vw\": 360, \"sw\": 360, \"bw\": 360, \"overflow\": false}, {\"width\": 390, \"vw\": 390, \"sw\": 390, \"bw\": 390, \"overflow\": false}, {\"width\": 430, \"vw\": 430, \"sw\": 430, \"bw\": 430, \"overflow\": false}, {\"width\": 1440, \"vw\": 1440, \"sw\": 1440, \"bw\": 1440, \"overflow\": false}]"
+  },
+  {
+    "test": "No uncaught JavaScript errors",
+    "status": "PASS",
+    "detail": "[]"
+  },
+  {
+    "test": "No unexpected console errors except deliberately blocked source images",
+    "status": "PASS",
+    "detail": "[\"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Failed to load resource: net::ERR_FAILED\", \"Fa"
+  }
+]

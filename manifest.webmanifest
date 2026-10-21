@@ -1,13 +1,18 @@
 {
-  "name": "BLACKED · V1 Phase 4",
+  "name": "BLACKED \u00b7 V1 Phase 5",
   "short_name": "BLACKED",
-  "description": "Innerwear references, Sanskari Edit, wellness education and consensual couple tools.",
+  "description": "Complete source-image archive, innerwear references and body/size education.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#100c10",
   "theme_color": "#100c10",
   "icons": [
-    { "src": "./app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    {
+      "src": "./app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
   ]
 }

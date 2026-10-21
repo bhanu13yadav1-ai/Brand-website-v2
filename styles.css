@@ -3,3 +3,57 @@
 .compare-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.compare-card{border:1px solid var(--line);border-radius:15px;background:#171119;padding:13px;min-width:0}.compare-card img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;background:#201620}.compare-card h3{font-size:15px;margin:8px 0}.compare-card dl{display:grid;grid-template-columns:1fr;gap:7px;margin:10px 0}.compare-card dt{font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em}.compare-card dd{font-size:12px;margin:1px 0 0;color:var(--muted);overflow-wrap:anywhere}.compare-card .small-btn{width:100%}@media(max-width:640px){.compare-grid{grid-template-columns:1fr 1fr}}@media(max-width:360px){.compare-grid{grid-template-columns:1fr}}
 
 .spin-viewer{padding:16px;border:1px solid var(--line);border-radius:18px;background:#171119}.spin-viewer-layout{display:grid;grid-template-columns:46px minmax(0,1fr) 46px;gap:12px;align-items:center}.spin-viewer-layout img{display:block;width:100%;height:290px;object-fit:contain;border-radius:12px;background:#0d0a0e}.spin-arrow{width:44px;height:44px;border:1px solid #65475b;border-radius:13px;background:#281b28;color:var(--cream);font-size:23px}.spin-range-label{margin-top:14px}.spin-range-label input{padding:0;accent-color:var(--pink)}@media(max-width:640px){.spin-viewer{padding:12px}.spin-viewer-layout{grid-template-columns:38px minmax(0,1fr) 38px;gap:7px}.spin-viewer-layout img{height:225px}.spin-arrow{width:38px;height:40px}}
+
+
+/* V1 Phase 5 — complete source-image archive and wellness worksheet */
+.image-library-section{border:1px solid var(--line);border-radius:22px;padding:clamp(14px,2.5vw,22px);background:linear-gradient(145deg,#17111a,#100c11)}
+.image-library-toolbar{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(160px,1fr) minmax(155px,1fr);gap:12px;margin:14px 0}
+.image-library-summary{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px;padding:10px 0 14px}
+.image-library-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
+.image-library-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;background:#171119;border:1px solid var(--line);border-radius:15px}
+.image-library-card.image-source-failed{border-color:#8d5260}
+.image-library-media{display:block;position:relative;overflow:hidden;background:#0d090f;min-width:0}
+.image-library-media img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;object-position:center;background:#0d090f;color:var(--muted)}
+.image-open-label{position:absolute;right:7px;bottom:7px;background:#110c12e8;color:var(--cream);font-size:10px;padding:5px 7px;border:1px solid #5c4658;border-radius:8px}
+.image-library-copy{padding:11px;display:flex;flex-direction:column;gap:6px;min-width:0;height:100%}
+.image-library-copy h3{font-size:13px;line-height:1.3;margin:0;overflow-wrap:anywhere}
+.image-library-copy>p{font-size:11px;color:var(--muted);margin:0;overflow-wrap:anywhere}
+.image-library-copy>small{font-size:10px;color:var(--gold);overflow-wrap:anywhere}
+.image-library-note{border-top:1px solid var(--line);padding-top:7px;margin-top:auto!important;font-size:10px!important}
+.image-library-actions{display:flex;gap:6px;flex-wrap:wrap}
+.image-library-actions .small-btn{font-size:10px;padding:7px 8px;text-decoration:none;text-align:center;min-height:34px;display:inline-flex;align-items:center;justify-content:center}
+.image-source-status{padding:8px!important;border-radius:8px;background:#382025;color:#ffe0e3!important;font-size:10px!important;line-height:1.4}
+.wellness-measurements{border:1px solid var(--line);border-radius:22px;padding:clamp(14px,2.5vw,22px);background:linear-gradient(140deg,#1b1420,#130e15)}
+.measurement-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:14px;align-items:start}
+.measurement-form,.measurement-output{margin:0;min-width:0}
+.measurement-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.measurement-fields .field{margin:0}
+.opt-in-save{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+.opt-in-save .check-label{display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--muted);margin:0 0 10px}
+.chart-not-configured{border:1px solid #785c3f;border-radius:12px;background:#2a2018;padding:12px;margin-top:14px;color:#f5dfbd}
+.chart-not-configured strong{display:block;font-size:13px;line-height:1.35}
+.chart-not-configured p{margin:6px 0 0;font-size:12px;color:#dbc7ad}
+.measurement-output-list{margin:12px 0;display:grid;gap:7px}
+.measurement-output-row{display:flex;align-items:start;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:8px 0}
+.measurement-output-row dt{font-size:12px;color:var(--muted)}
+.measurement-output-row dd{margin:0;font-size:13px;font-weight:700;text-align:right;white-space:nowrap}
+.measurement-output-row dd span{font-size:11px;font-weight:400;color:var(--muted)}
+.fit-cue-section,.wellness-quick-guides,.wellness-research-note{border:1px solid var(--line);border-radius:22px;padding:clamp(14px,2.5vw,22px);background:#171119}
+.fit-cue-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end}
+.fit-cue-controls .field{margin:0}
+.fit-cue-result{margin-top:12px;padding:14px;border:1px solid #6a4d62;border-radius:13px;background:#100d12;color:var(--cream);font-size:13px;line-height:1.6}
+.wellness-basics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.wellness-basic-card{padding:15px;border:1px solid var(--line);border-radius:15px;background:#100d12;min-width:0}
+.wellness-basic-card h3{font-size:17px;margin:4px 0 10px}
+.wellness-basic-card p,.wellness-basic-card li{font-size:12px;color:var(--muted);line-height:1.65}
+.wellness-basic-card ol{padding-left:19px}
+.wellness-basic-card li{margin:6px 0}
+.wellness-basic-card a,.wellness-research-note a{color:var(--pink2);text-decoration:underline;text-underline-offset:3px}
+.wellness-warning{border-color:#77544b;background:#211516}
+.wellness-research-note p{font-size:12px;color:var(--muted);line-height:1.7}
+.wellness-research-note time{color:var(--cream);font-weight:700}
+
+.wellness-anatomy-diagram{margin:12px 0 8px;border:1px solid var(--line);border-radius:13px;padding:7px;background:#130e15}.wellness-anatomy-diagram svg{display:block;width:100%;height:auto}.wellness-anatomy-diagram figcaption{font-size:10px;color:var(--muted);line-height:1.45;padding:7px 4px 2px}
+@media(max-width:1000px){.image-library-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.wellness-basics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.image-library-toolbar{grid-template-columns:1fr}.image-library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.image-library-copy{padding:9px}.image-library-copy h3{font-size:12px}.image-library-copy>p{font-size:10px}.image-library-note{font-size:9px!important}.measurement-layout{grid-template-columns:1fr}.fit-cue-controls{grid-template-columns:1fr}.wellness-basics-grid{grid-template-columns:1fr}.measurement-fields{gap:8px}.image-library-media img{aspect-ratio:3/4}}
+@media(max-width:360px){.image-library-grid{grid-template-columns:1fr}.image-library-media img{aspect-ratio:4/3}.measurement-fields{grid-template-columns:1fr}.image-library-actions{display:grid;grid-template-columns:1fr 1fr}}

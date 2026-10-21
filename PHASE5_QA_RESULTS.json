@@ -1,0 +1,103 @@
+{
+  "phase": "V1 Phase 5",
+  "created": "2026-10-21",
+  "target": "bhanu13yadav1-ai/Brand-website-v2",
+  "image_library_records": 151,
+  "source_repository_count": 3,
+  "collection_records_by_category": {
+    "8-frame concept viewer": 16,
+    "Campaign concept": 4,
+    "Category reference": 4,
+    "Core innerwear / campaign": 1,
+    "Cutout concept contact sheet": 1,
+    "External brand inspiration (separate brand)": 14,
+    "Full campaign design concept": 4,
+    "Innerwear look / black lace": 1,
+    "Model / editorial": 7,
+    "Movement / comfort reference": 2,
+    "Owner reference / editorial": 12,
+    "Owner reference image": 10,
+    "Product reference / everyday": 1,
+    "Product reference / lace": 1,
+    "Product-only concept image": 4,
+    "Sanskari / campaign": 19,
+    "Sanskari / campaign concept": 9,
+    "Sanskari / detail concept": 1,
+    "Sanskari / editorial concept": 2,
+    "Sanskari / everyday concept": 2,
+    "Sanskari / style concept": 4,
+    "Sanskari campaign artwork": 16,
+    "Style library concept": 4,
+    "Transparent garment cutout concept": 12
+  },
+  "checks": {
+    "node_syntax": {
+      "status": "PASS",
+      "details": "node --check app.js"
+    },
+    "manifest_json_valid": "PASS",
+    "size_chart_template_valid": "PASS",
+    "webmanifest_valid": "PASS",
+    "CSV records match JSON records": "PASS",
+    "unique_source_urls": true,
+    "root_index_included": true,
+    "image_library_gallery_present": true,
+    "wellness_measurement_form_present": true,
+    "no_fake_size_table": true,
+    "external_image_live_load": "NOT TESTED",
+    "live_pages_deployment": "NOT TESTED",
+    "physical_android_chrome": "NOT TESTED",
+    "HTML_parse": "PASS",
+    "duplicate_HTML_ids": "PASS",
+    "required_gallery_ids": true,
+    "local_browser_functional_tests": {
+      "status": "PASS",
+      "passed": 32,
+      "failed": 0,
+      "total": 32,
+      "details": "Chromium functional checks after final Phase 5 package update; external raw-GitHub image requests deliberately blocked to test fallback; original remote image availability NOT TESTED."
+    },
+    "source_image_http_status": "NOT TESTED: original image requests blocked in offline test; use phase5-diagnostics.html after upload.",
+    "innerwear_collection_card_rendering": {
+      "status": "PASS",
+      "count": 151,
+      "source_repositories": 3
+    },
+    "wellness_measurement_helper": {
+      "status": "PASS",
+      "details": "Validates required fields and summarizes cm/in; no size guess without verified chart; local persistence requires opt-in and can be deleted."
+    },
+    "anatomy_schematic": {
+      "status": "PASS",
+      "details": "Inline simplified, explicitly not-to-scale, labelled educational schematic."
+    },
+    "responsive_local_checks": {
+      "status": "PASS",
+      "viewports_px": [
+        320,
+        360,
+        390,
+        430,
+        1440
+      ]
+    },
+    "diagnostics_batch_image_test": {
+      "status": "PASS",
+      "details": "Diagnostic script syntax-checked; runs 12 image URLs in parallel per batch with 7-second per-image timeout and reports failing filename/repository/URL. Live source status still NOT TESTED."
+    }
+  },
+  "known_limitations": [
+    "Original image binaries could not be bundled in this environment; the visual archive uses exact public raw-GitHub paths.",
+    "Source paths were collected from earlier repository tree audits; live image requests need post-upload verification.",
+    "No verified BLACKED product size chart supplied, so the helper does not generate product sizes.",
+    "This phase is not the final V1 release; Phase 6/7 remain."
+  ],
+  "html_id_count": 123,
+  "duplicate_ids": [],
+  "local_browser_test_result": {
+    "passed": 32,
+    "failed": 0,
+    "total": 32,
+    "file": "PHASE5_LOCAL_BROWSER_TESTS.json"
+  }
+}

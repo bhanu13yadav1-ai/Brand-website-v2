@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "brand": "BLACKED",
+  "status": "not-configured",
+  "lastReviewed": "2026-10-21",
+  "categories": {
+    "bra": null,
+    "briefs": null,
+    "bodysuit": null
+  },
+  "requiredOwnerInput": [
+    "verified chart per category/product",
+    "measurement method and units",
+    "region/country system",
+    "between-size instructions",
+    "version/date and approval"
+  ],
+  "safetyRule": "When a verified chart is missing, do not generate a size recommendation. Show measurement summary only."
+}
