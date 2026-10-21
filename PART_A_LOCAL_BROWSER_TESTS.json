@@ -1,0 +1,142 @@
+{
+  "phase": "V1 Part A",
+  "method": "Playwright Chromium DOM harness via set_content; local manifest mocked; external images deliberately aborted. Not a live-site/device test.",
+  "total": 24,
+  "passed": 24,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "App boot + manifest loaded",
+      "status": "PASS",
+      "detail": "records=151"
+    },
+    {
+      "name": "7 views remain",
+      "status": "PASS",
+      "detail": "['home', 'stories', 'innerwear', 'sanskari', 'wellness', 'boyfriend', 'fit']"
+    },
+    {
+      "name": "10 story records",
+      "status": "PASS",
+      "detail": "10"
+    },
+    {
+      "name": "language/sort/poll controls",
+      "status": "PASS",
+      "detail": "{'storyLanguageFilter': True, 'storySort': True, 'dirtyPoll': True}"
+    },
+    {
+      "name": "3 original + Dirty/Wild wheels",
+      "status": "PASS",
+      "detail": "{'original': {'boy': True, 'dildo': True, 'plug': True}, 'wild': True}"
+    },
+    {
+      "name": "Adult gate routes to stories",
+      "status": "PASS",
+      "detail": "stories active"
+    },
+    {
+      "name": "10 cards initially shown",
+      "status": "PASS",
+      "detail": "10 of 10 stories available"
+    },
+    {
+      "name": "Dirty Hinglish filter",
+      "status": "PASS",
+      "detail": "2 of 10 stories available"
+    },
+    {
+      "name": "Language filter",
+      "status": "PASS",
+      "detail": "6 of 10 stories available"
+    },
+    {
+      "name": "Sort A–Z",
+      "status": "PASS",
+      "detail": "['Aaj Mood Bada Harami Hai', 'Boss Lady Ka Secret Rule', 'Couple Ka Dirty-Dare Deck']"
+    },
+    {
+      "name": "Search by title",
+      "status": "PASS",
+      "detail": "1 of 10 stories available"
+    },
+    {
+      "name": "Poll toy button",
+      "status": "PASS",
+      "detail": "Dildo wala fictional vibe selected: playful toy-themed fiction mood. Koi pressure nahi; comfort, hygiene and consent matter, aur skip hamesha okay hai."
+    },
+    {
+      "name": "Poll skip button",
+      "status": "PASS",
+      "detail": "Bilkul—skip is always okay. Poll ka answer save ya send nahi hota. Seedha story choose karo ya mood filter badlo."
+    },
+    {
+      "name": "Story reader opens",
+      "status": "PASS",
+      "detail": "The Last Train Wasn’t the Plan"
+    },
+    {
+      "name": "Story reader closes",
+      "status": "PASS",
+      "detail": "hidden"
+    },
+    {
+      "name": "Boyfriend original wheel spins",
+      "status": "PASS",
+      "detail": "Compact-range conversation\nAsk your partner what feels comfortable; never assume a preference from a"
+    },
+    {
+      "name": "Dirty/Wild wheel spins",
+      "status": "PASS",
+      "detail": "Dirty Double Meanings\nCreate a double-meaning caption together, and let either person veto the final line.\nOPTIONAL · CONSENT FIRST · SKIP ANY TIME\nSpin again"
+    },
+    {
+      "name": "dildo wheel spins",
+      "status": "PASS",
+      "detail": "Regular · 10–13 cm\nOverall length and insertable length can differ. Verify the p"
+    },
+    {
+      "name": "plug wheel spins",
+      "status": "PASS",
+      "detail": "Medium · 2.5–3.5 cm widest diameter\nVerify dimensions, suitable lubricant instru"
+    },
+    {
+      "name": "No overflow at 320px",
+      "status": "PASS",
+      "detail": "{'body': 320, 'doc': 320, 'w': 320, 'bad': [{'tag': 'BUTTON', 'id': '', 'cls': 'nav-link', 'right': 378.1, 'left': 301.2, 'width': 76.9, 'display': 'block'}]}"
+    },
+    {
+      "name": "No overflow at 360px",
+      "status": "PASS",
+      "detail": "{'body': 360, 'doc': 360, 'w': 360, 'bad': [{'tag': 'BUTTON', 'id': '', 'cls': 'nav-link', 'right': 375.1, 'left': 298.2, 'width': 76.9, 'display': 'block'}]}"
+    },
+    {
+      "name": "No overflow at 390px",
+      "status": "PASS",
+      "detail": "{'body': 390, 'doc': 390, 'w': 390, 'bad': []}"
+    },
+    {
+      "name": "No overflow at 430px",
+      "status": "PASS",
+      "detail": "{'body': 430, 'doc': 430, 'w': 430, 'bad': []}"
+    },
+    {
+      "name": "No overflow at 1440px",
+      "status": "PASS",
+      "detail": "{'body': 1440, 'doc': 1440, 'w': 1440, 'bad': []}"
+    }
+  ],
+  "console_errors": [
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED"
+  ],
+  "uncaught_page_errors": [],
+  "limitation": "A direct local HTTP navigation was blocked by the managed Chromium environment. These are DOM interaction tests, not GitHub Pages tests."
+}

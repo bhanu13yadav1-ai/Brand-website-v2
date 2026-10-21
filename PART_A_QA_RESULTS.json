@@ -1,0 +1,128 @@
+{
+  "phase": "V1 Part A — Stories Foundation",
+  "status": "PASS",
+  "passed": 20,
+  "failed": 0,
+  "total": 20,
+  "checks": [
+    {
+      "name": "HTML parses",
+      "status": "PASS",
+      "detail": "150 IDs, 769 element start tags"
+    },
+    {
+      "name": "No duplicate HTML IDs",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Static image tags have alt text",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Local source references exist",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Node syntax: app.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: fallback.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: sw.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "JSON parses: manifest.webmanifest",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "JSON parses: innerwear-image-library.json",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "JSON parses: size-chart-template.json",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "10 story records",
+      "status": "PASS",
+      "detail": "10"
+    },
+    {
+      "name": "Language filter in HTML and JS",
+      "status": "PASS",
+      "detail": "storyLanguage"
+    },
+    {
+      "name": "Story sort filter in HTML and JS",
+      "status": "PASS",
+      "detail": "storySort"
+    },
+    {
+      "name": "Poll has 3 choices and non-persistent interaction",
+      "status": "PASS",
+      "detail": "3 choices; result text only"
+    },
+    {
+      "name": "Three original wheels retained",
+      "status": "PASS",
+      "detail": "boy, dildo, plug"
+    },
+    {
+      "name": "Dirty/Wild wheel retained",
+      "status": "PASS",
+      "detail": "wild controls"
+    },
+    {
+      "name": "151 image reference records retained",
+      "status": "PASS",
+      "detail": "151"
+    },
+    {
+      "name": "7 main views retained",
+      "status": "PASS",
+      "detail": "7"
+    },
+    {
+      "name": "Part A diagnostics included",
+      "status": "PASS",
+      "detail": "part-a-diagnostics.html"
+    },
+    {
+      "name": "Service worker cache version bumped",
+      "status": "PASS",
+      "detail": "new cache name"
+    }
+  ],
+  "runtime": {
+    "static_package_checks": "20/20 PASS",
+    "local_chromium_dom_interaction_suite": "24/24 PASS",
+    "test_method": "Playwright Chromium DOM harness via set_content; local manifest mocked; external images deliberately aborted. Not a live-site/device test.",
+    "direct_local_http_navigation": "BLOCKED by managed Chromium environment; DOM harness used instead",
+    "live_GitHub_Pages": "NOT TESTED",
+    "physical_Android": "NOT TESTED",
+    "external_image_URLs": "NOT TESTED; raw GitHub image requests deliberately aborted during DOM interactions",
+    "uncaught_page_errors": 0,
+    "console_errors": 9,
+    "console_error_note": "The recorded image load errors are expected because remote raw GitHub images were deliberately aborted in this harness; no uncaught page exceptions occurred."
+  },
+  "story_count": 10,
+  "language_filter": [
+    "English",
+    "Hindi / Hinglish"
+  ],
+  "preserved_image_records": 151,
+  "note": "Static package validation and isolated local DOM interactions passed; neither proves that the live GitHub Pages deployment or external images work."
+}

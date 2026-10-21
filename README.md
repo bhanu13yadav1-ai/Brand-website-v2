@@ -1,15 +1,15 @@
-# BLACKED V1 Release Candidate 1 — Phase 7
+# BLACKED V1 — Part A: After Dark Story Foundation
 
-This package is a full root-ready release candidate based on the Phase 6 hardened working copy. It includes the existing catalogue, all 151 image records, three legacy wheel experiences, Dirty/Wild wheel, Sanskari collection, Muslim/Christian Coming Soon previews, wellness education and privacy controls.
+## What Part A adds
+- Expands the story starter library from 4 to 10 original stories.
+- Adds 6 Hinglish stories and preserves all 4 original English stories.
+- Adds Hindi/Hinglish vs English filter, mood filter, search and story sorting.
+- Adds the requested blunt Desi dirty-banter poll: “Aaj chut mein kya lena hai—land ya dildo?” with three optional fictional-vibe choices. Poll answers stay in page state only and are not saved or sent.
+- Keeps adult self-attestation, non-graphic fictional previews, clear consent language and a skip option.
+- Adds Part A diagnostics and bumps the service-worker cache name.
 
-## This release adds
-- A clearly highlighted `Sex Stories · After Dark 18+` area on Home and a dedicated age-gated story view.
-- Four short original, suggestive/non-graphic stories with mood filters and a story preview dialog. All characters are adults and consent remains explicit.
-- A campaign preview titled `MORE DIRTY FOR HORNY GIRLS` for the next major update. That banner is a roadmap teaser; the planned longer-chapter feature set is not represented as shipped.
-- Final diagnostics at `phase7-diagnostics.html`.
+## Preserved existing features
+Innerwear catalogue, 151-record source-image library, Sanskari gallery, Noor/Grace coming-soon previews, Wellness & Size Guide, 3 original wheels, Dirty/Wild Wheel, Boyfriend/Couples, Fit Studio, measurement opt-in, privacy clear-data control, PWA manifest and image fallback are retained from the V1 Release Candidate source package.
 
-## Honesty / limitations
-- Public image files still load from the three public source repositories; the manifest indexes 151 file records, but does not bundle their binary image contents. Run `phase7-diagnostics.html` after deployment to test source URL availability.
-- The adult prompt is self-attestation, not formal age verification. Local data is not encrypted or synced.
-- No account backend, real stock, payments, checkout, or server-side reading history is configured.
-- A local Chromium run is not live deployment or physical Android verification.
+## Honesty about scope
+This is Part A only. It does not ship long multi-part series, reader accounts, online sync or a backend story CMS. The poll is an adult-fiction prompt, not a real-world recommendation. The 18+ check is self-attestation, not formal age verification. Source images still load from public GitHub repositories and remain external dependencies.

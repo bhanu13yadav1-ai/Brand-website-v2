@@ -90,6 +90,7 @@
     state.view = name;
     $$('.view').forEach(v => { const active = v.dataset.view === name; v.hidden = !active; v.classList.toggle('active', active); });
     $$('[data-view-link]').forEach(b => b.classList.toggle('active', b.dataset.viewLink === name));
+    $$('.main-nav [data-view-link]').forEach(b => { if (b.dataset.viewLink === name) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     $('#mobileMenu').classList.add('hidden'); $('#menuToggle').setAttribute('aria-expanded','false');
     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
     if (name === 'innerwear') renderCatalog();
@@ -98,6 +99,7 @@
     if (name === 'stories') renderStories();
   }
   $$('[data-view-link]').forEach(b => b.addEventListener('click', () => setView(b.dataset.viewLink)));
+  $$('.main-nav [data-view-link]').forEach(b => { if (b.dataset.viewLink === state.view) b.setAttribute('aria-current','page'); });
   $('#menuToggle').addEventListener('click', () => {
     const opened = $('#mobileMenu').classList.toggle('hidden') === false;
     $('#menuToggle').setAttribute('aria-expanded', String(opened));
@@ -138,6 +140,42 @@
       'They made three house rules for the game: either person could pass, a pass needed no explanation, and nothing shared tonight became a joke tomorrow. With the rules clear, the questions became lighter—an ideal weekend, a secret comfort film, the kind of compliment that stays with you after the room goes quiet.',
       'When dessert arrived, Meera slipped the last card into Isha’s palm. It read: “What should we try next, together?” Isha wrote “a dance class” and drew a tiny star. They left with a plan, not a promise they could not keep. Their best kind of bold was making honesty feel exciting.'
     ]}
+    ,{id:'aaj-mood-harami',title:'Aaj Mood Bada Harami Hai',mood:'dirty-hinglish',moodLabel:'Dirty Hinglish & Gaali Banter',language:'hinglish',readingTime:'3 min read',teaser:'A late-night text, a shameless grin, and two adults who know that bold banter still needs boundaries.',content:[
+      'Mahi, 28, ne group chat mute karke Aarav, 30, ko message bheja: “Aaj mood bada harami hai. Tumhari flirting ka level dekhna hai—par line cross hui toh seedha block.”',
+      'Aarav ne turant reply kiya: “Madam, gaali allowed, pressure bilkul nahi. Tum rules batao; main overacting aur bad jokes laata hoon.” Mahi hansi. Usse confidence pasand tha, mind-reading nahi.',
+      'Unhone ek game banaya: har turn mein ek cheeky compliment, ek silly challenge, aur ek “pass” option. “Saale, compliment theek tha—par tumhari shayari ko toh police pakadni chahiye,” Mahi ne likha.',
+      'Aarav ne challenge accept kiya aur poocha ki kya woh aur bold ban sakta hai. Mahi ne kaha, “Haan, par pehle pooch. Mere mood ka remote mere paas hai.” Us raat banter dirty tha, par rules clear the; dono ko wahi vibe sabse zyada pasand aayi.'
+    ]}
+    ,{id:'land-ya-dildo',title:'Land Ya Dildo? Seedha Bol',mood:'dirty-hinglish',moodLabel:'Dirty Hinglish & Gaali Banter',language:'hinglish',readingTime:'3 min read',teaser:'A blunt fictional question becomes a surprisingly honest conversation about comfort, curiosity and saying what you actually mean.',content:[
+      'Nisha, 27, aur Kabir, 29, apne “no awkward questions” game ke liye cards bana rahe the. Nisha ne ek card utha kar seedha pooch diya: “Aaj chut mein kya lena hai—land ya dildo? Fictional mood bata, koi pressure nahi.”',
+      'Kabir pehle hans pada, phir bola, “Question toh full savage hai, madam. Lekin answer ka rule bhi likho: real life mein guess nahi karna, seedha baat karni hai.” Nisha ne card ke neeche bold letters mein likha: “Choice, comfort, clear yes.”',
+      'Nisha ne kaha ki dirty joke ka maza tabhi hai jab dono ko funny lage. Kabir agreed; agar koi uncomfortable ho, topic change. Dono ne poll ke teen options bana diye: bold fantasy, playful toy-themed fiction, ya simply skip.',
+      'Unhone card deck ko “No Pressure, Full Bakchodi” naam diya. Game ka winner woh nahi tha jisne sabse dirty answer diya—winner woh tha jisne doosre ki boundary suni aur vibe ko fun rakha.'
+    ]}
+    ,{id:'saali-attitude',title:'Saali, Itna Attitude!',mood:'desi-tease',moodLabel:'Desi Double Meaning',language:'hinglish',readingTime:'3 min read',teaser:'A rooftop flirt-off turns into a contest of confidence, clever insults and mutual respect.',content:[
+      'Tara, 26, ne rooftop par entry li toh Dev, 28, ne dramatic salute maara. “Saali, itna attitude! Main hello bolun ya appointment book karun?”',
+      '“Appointment le lo, waiting list lambi hai,” Tara ne jawab diya. “Aur bakwaas shayari laaye ho toh pehle hi bata do.” Dev ne apni terrible rhyme sunayi; Tara ki hansi ne uski saari rehearsed lines khatam kar di.',
+      'Dono ne rule banaya: tease karo, insult nahi; bold ho, pushy nahi. Jab Dev ne poocha ki kya woh thoda aur flirt kar sakta hai, Tara ne smile karke kaha, “Haan, aaj permission hai. Kal phir poochna padega, hero.”',
+      'Raat khatam hui toh number exchange hua, koi promise nahi. Tara ne last line bheji: “Goodnight, saale. Aaj ke liye pass ho.” Dev ne screenshot nahi, bas message save kiya—aur kal ka plan poochne ka wait kiya.'
+    ]}
+    ,{id:'boss-lady-rule',title:'Boss Lady Ka Secret Rule',mood:'dark-romance',moodLabel:'Dark Romance & Mystery',language:'hinglish',readingTime:'4 min read',teaser:'A mysterious invitation, a velvet envelope and a confident adult who writes the rules before the night begins.',content:[
+      'Aisha, 31, ko ek black envelope mila. Andar sirf ek line thi: “Midnight library. Dress sharp. Leave whenever you want.” Neeche Rehan, 33, ka naam tha—woh aadmi jo hamesha mysteries create karta tha, lekin kabhi uski choice chheen-ne ki koshish nahi karta.',
+      'Library mein red lamp, old books aur ek table par teen cards the: “Ask”, “Answer” aur “Pass”. Rehan ne bataya ki har card optional hai. Aisha ne “Ask” uthaya: “Tumhe lagta hai bold hone ka matlab rules todna hai?”',
+      'Rehan ne kaha, “Nahi. Bold hone ka matlab apni baat saaf kehna aur doosre ka no bhi sunna.” Aisha ne “Pass” card uske saamne rakha aur hans padi. “Test pass. Ab chai lao.”',
+      'Midnight tak unhone fictional secrets aur impossible dreams share kiye. Mystery ka best part koi hidden demand nahi tha—balki yeh tha ki Aisha har turn par apni choice khud karti rahi.'
+    ]}
+    ,{id:'text-mat-aa',title:'Text Mat Kar, Aake Chai Pee',mood:'slow-burn',moodLabel:'Slow Burn',language:'hinglish',readingTime:'3 min read',teaser:'A teasing voice note, one rainy evening and a date that goes exactly as slowly as both adults want.',content:[
+      'Pooja, 29, ne Adil, 30, ko voice note bheja: “Bas text pe hero mat ban. Chai pe mil, phir dekhte hain kitni himmat hai.” Adil ne reply kiya, “Public café, tumhara choice, aur exit whenever you want. Done?”',
+      'Café mein Adil ne pehle chai order ki aur phir uski playlist ke baare mein poocha. Pooja ko uski attention achhi lagi—woh har silence ko flirt se bharne ki koshish nahi kar raha tha.',
+      'Baarish tez hui toh Adil ne umbrella offer kiya; Pooja ne apni speed choose ki. “Aaj bas walk aur chai,” usne kaha. “Next time aur bold ban sakte hain.” Adil ne kaha, “Next time pooch lunga.”',
+      'Ghar pahunch kar Pooja ne message kiya: “Aaj tum pass hue, hero. Chai decent thi, company better.” Adil ne smile emoji bheja aur agle plan se pehle uski availability poochi.'
+    ]}
+    ,{id:'couple-ka-dirty-deck',title:'Couple Ka Dirty-Dare Deck',mood:'couple-vibes',moodLabel:'Couple Vibes',language:'hinglish',readingTime:'4 min read',teaser:'A married couple reinvent date night with cheeky cards, ridiculous dares and a rule that makes honesty feel safe.',content:[
+      'Ritu, 32, aur Manav, 34, ko laga ki unki date nights sirf food-order aur phone-scroll ban gayi hain. Ritu ne cards banaye: “Compliment”, “Confession”, “Dare” aur “Pass”.',
+      'Manav ne pehla dare padha: “Apni sabse cringe flirting line bolo.” Usne itni buri line boli ki Ritu sofa se uth kar fake award le aayi: “Best Bakwaas, Lifetime Achievement.”',
+      'Agla card personal tha. Manav ne poocha ki kaunsi type ki teasing Ritu ko pasand hai aur kis baat se woh uncomfortable hoti hai. Dono ne answers share kiye aur decide kiya ki kisi bhi dare ko skip karne par explanation nahi dena padega.',
+      'Date night ka ending dramatic nahi tha—bas ek shared playlist, extra dessert aur agle hafte ke liye ek naya card idea. Unhe yaad aaya ki boldness ka matlab pressure nahi; honest communication bhi sexy confidence ho sakta hai.'
+    ]}
   ];
   let activeStoryFilter='all';
   function renderStories(){
@@ -145,19 +183,36 @@
     const q=($('#storySearch')?.value||'').trim().toLowerCase();
     const cat=$('#storyCategory')?.value||'all';
     const effective=cat!=='all'?cat:activeStoryFilter;
-    const list=storyLibrary.filter(s=>(effective==='all'||s.mood===effective)&&`${s.title} ${s.moodLabel} ${s.teaser} ${s.content.join(' ')}`.toLowerCase().includes(q));
-    host.innerHTML=list.map(s=>`<article class="story-card" data-story-card="${esc(s.id)}" data-story-category="${esc(s.mood)}"><div class="story-topline"><span class="story-mood">${esc(s.moodLabel)}</span><span class="story-meta">${esc(s.readingTime)} · 18+</span></div><h2>${esc(s.title)}</h2><p>${esc(s.teaser)}</p><div class="story-card-actions"><button class="btn secondary full" type="button" data-story-open="${esc(s.id)}">Read story ↗</button></div></article>`).join('');
-    $('#storyCount').textContent=`${list.length} ${list.length===1?'story':'stories'} available`;
+    const lang=$('#storyLanguage')?.value||'all';
+    const sort=$('#storySort')?.value||'featured';
+    let list=storyLibrary.filter(s=>(effective==='all'||s.mood===effective)&&(lang==='all'||(s.language||'en')===lang)&&`${s.title} ${s.moodLabel} ${s.teaser} ${s.content.join(' ')}`.toLowerCase().includes(q));
+    if(sort==='title')list=[...list].sort((a,b)=>a.title.localeCompare(b.title));
+    if(sort==='shortest')list=[...list].sort((a,b)=>parseInt(a.readingTime)-parseInt(b.readingTime));
+    if(sort==='longest')list=[...list].sort((a,b)=>parseInt(b.readingTime)-parseInt(a.readingTime));
+    host.innerHTML=list.map(s=>`<article class="story-card" data-story-card="${esc(s.id)}" data-story-category="${esc(s.mood)}" data-story-language="${esc(s.language||'en')}"><div class="story-topline"><span class="story-mood">${esc(s.moodLabel)}</span><span class="story-meta">${esc(s.readingTime)} · ${s.language==='hinglish'?'HINGLISH':'ENGLISH'} · 18+</span></div><h2>${esc(s.title)}</h2><p>${esc(s.teaser)}</p><div class="story-card-actions"><button class="btn secondary full" type="button" data-story-open="${esc(s.id)}">Read story ↗</button></div></article>`).join('');
+    $('#storyCount').textContent=`${list.length} of ${storyLibrary.length} stories available`;
     $('#storyStatus').textContent=`${list.length} stories shown.`;
   }
+  $$('[data-dirty-pick]').forEach(button=>button.addEventListener('click',()=>{
+    const result=$('#dirtyPollResult');
+    const responses={
+      land:'Land wala fictional vibe selected: bold banter + slow-burn story mood. Real life mein clear, mutual marzi aur comfort first—guesswork nahi.',
+      toy:'Dildo wala fictional vibe selected: playful toy-themed fiction mood. Koi pressure nahi; comfort, hygiene and consent matter, aur skip hamesha okay hai.',
+      skip:'Bilkul—skip is always okay. Poll ka answer save ya send nahi hota. Seedha story choose karo ya mood filter badlo.'
+    };
+    if(result)result.textContent=responses[button.dataset.dirtyPick]||responses.skip;
+    $$('[data-dirty-pick]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));
+  }));
   $('#storySearch').addEventListener('input',renderStories);
+  $('#storyLanguage').addEventListener('change',renderStories);
+  $('#storySort').addEventListener('change',renderStories);
   $('#storyCategory').addEventListener('change',()=>{activeStoryFilter=$('#storyCategory').value;$$('[data-story-filter]').forEach(b=>{const on=b.dataset.storyFilter===activeStoryFilter;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});renderStories();});
   $$('[data-story-filter]').forEach(b=>b.addEventListener('click',()=>{activeStoryFilter=b.dataset.storyFilter;$('#storyCategory').value=activeStoryFilter;$$('[data-story-filter]').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});renderStories();}));
   document.addEventListener('click',event=>{
     const btn=event.target instanceof Element?event.target.closest('[data-story-open]'):null;
     if(!btn)return;
     const story=storyLibrary.find(s=>s.id===btn.dataset.storyOpen);if(!story)return;
-    $('#storyModalTitle').textContent=story.title;$('#storyModalMeta').textContent=`${story.moodLabel} · ${story.readingTime} · All characters are adults`;
+    $('#storyModalTitle').textContent=story.title;$('#storyModalMeta').textContent=`${story.moodLabel} · ${story.readingTime} · ${(story.language==='hinglish'?'Hindi / Hinglish':'English')} · All characters are adults`;
     $('#storyModalBody').innerHTML=story.content.map((paragraph,i)=>`<p${i===story.content.length-1?' class="story-consent-note"':''}>${esc(paragraph)}</p>`).join('');
     $('#storyModal').classList.remove('hidden');
   });
@@ -631,12 +686,16 @@
   }
   function getDiagnostics() {
     return {
-      version:'V1 Phase 7 Release Candidate 1',
+      version:'V1 Part A — Story Foundation',
       loaded:document.readyState==='complete'||document.readyState==='interactive',
       views:$$('.view').map(v=>({name:v.dataset.view,exists:true,visible:!v.hidden})),
       sexStoriesView:!!$('#view-stories'),
       sexStoriesCount:storyLibrary.length,
-      sexStoriesFilters:!!$('#storySearch')&&!!$('#storyCategory')&&$$('[data-story-filter]').length===5,
+      storyLanguages:[...new Set(storyLibrary.map(s=>s.language||'en'))],
+      dirtyPoll:!!$('#dirtyPollResult')&&$$('[data-dirty-pick]').length===3,
+      storyLanguageFilter:!!$('#storyLanguage'),
+      storySort:!!$('#storySort'),
+      sexStoriesFilters:!!$('#storySearch')&&!!$('#storyCategory')&&$$('[data-story-filter]').length===6,
       storyModal:!!$('#storyModal')&&!!$('#storyModalTitle')&&!!$('#storyModalBody'),
       nextUpdateSpotlight:document.body.textContent.includes('MORE DIRTY')&&document.body.textContent.includes('HORNY GIRLS'),
       navButtons:$$('[data-view-link]').length,
@@ -667,7 +726,7 @@
       errors:state.diagnostic.errors
     };
   }
-  window.BLACKED_V1 = {version:'phase7-release-candidate-1.0.0',getStoryLibrary:()=>storyLibrary.map(s=>({id:s.id,title:s.title,mood:s.mood,moodLabel:s.moodLabel,contentLength:s.content.length})),getDiagnostics,getState:()=>({view:state.view,wishlistCount:state.wishlist.size,bagCount:state.bag.reduce((n,p)=>n+p.qty,0),adultAllowed:state.adultAllowed}),getImageLibrary:()=>imageLibrary.map(x=>({id:x.id,category:x.category,filename:x.filename,source_repo:x.source_repo,src:x.src})),setView};
+  window.BLACKED_V1 = {version:'part-a-story-foundation-1.0.0',getStoryLibrary:()=>storyLibrary.map(s=>({id:s.id,title:s.title,mood:s.mood,moodLabel:s.moodLabel,contentLength:s.content.length})),getDiagnostics,getState:()=>({view:state.view,wishlistCount:state.wishlist.size,bagCount:state.bag.reduce((n,p)=>n+p.qty,0),adultAllowed:state.adultAllowed}),getImageLibrary:()=>imageLibrary.map(x=>({id:x.id,category:x.category,filename:x.filename,source_repo:x.source_repo,src:x.src})),setView};
 
   state.wishlist = new Set((Array.isArray(safeRead(STORAGE.wishlist,[]))?safeRead(STORAGE.wishlist,[]):[]).filter(x=>typeof x==='string'));
   const rawBag=safeRead(STORAGE.bag,[]);

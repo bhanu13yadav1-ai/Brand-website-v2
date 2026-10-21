@@ -1,7 +1,7 @@
 {
-  "name": "BLACKED · V1 Release Candidate 1",
+  "name": "BLACKED · V1 Part A Story Foundation",
   "short_name": "BLACKED",
-  "description": "Complete innerwear reference library, wellness education, consensual couple tools and adult fictional story previews.",
+  "description": "Innerwear reference library, wellness education, consensual couple tools and a searchable Hinglish/English 18+ fictional story starter collection.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

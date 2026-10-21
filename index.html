@@ -7,7 +7,7 @@
   <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#100c10">
   <meta name="description" content="BLACKED — innerwear reference library, wellness education, consensual couple tools and 18+ fictional after-dark stories.">
-  <title>BLACKED · V1 Release Candidate 1</title>
+  <title>BLACKED · V1 Part A — After Dark Story Foundation</title>
   <link rel="icon" href="./app-icon.svg" type="image/svg+xml">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./styles.css">
@@ -49,7 +49,7 @@
     <section class="view active" id="view-home" data-view="home" aria-labelledby="homeTitle">
       <div class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">BLACKED · V1 RELEASE CANDIDATE 1</p>
+          <p class="eyebrow">BLACKED · V1 PART A · STORY FOUNDATION</p>
           <h1 id="homeTitle">Premium style.<br><em>Personal confidence.</em></h1>
           <p>A calmer, clearer home for innerwear concepts, the Sanskari edit, wellness education and playful tools for consenting adults.</p>
           <div class="button-row"><button class="btn primary" type="button" data-view-link="innerwear">Explore Innerwear ↗</button><button class="btn secondary" type="button" data-view-link="sanskari">Discover Sanskari</button></div>
@@ -75,8 +75,8 @@
         <div class="story-spotlight-copy">
           <p class="eyebrow">18+ Fiction · Featured on BLACKED</p>
           <h2 id="storySpotlightTitle">Sex Stories,<br><em>After Dark.</em></h2>
-          <p>Slow-burn attraction, dark-romance mystery, desi double meanings and honest couple moments. Original fiction for consenting adults; previews stay suggestive, non-graphic and easy to skip.</p>
-          <div class="story-tag-row"><span>Slow Burn</span><span>Dark Romance</span><span>Desi Tease</span><span>Couple Vibes</span></div>
+          <p>10 original starter stories in English and Hinglish: slow-burn, dark romance, desi dirty banter and couple vibes. Adult fiction with clear boundaries; every prompt is optional and easy to skip.</p>
+          <div class="story-tag-row"><span>Slow Burn</span><span>Dark Romance</span><span>Hindi / Hinglish</span><span>Desi Dirty Banter</span><span>Couple Vibes</span></div>
           <div class="button-row"><button class="btn primary" type="button" data-view-link="stories">Explore Sex Stories ↗</button><span class="story-age-note">18+ · Fiction only</span></div>
         </div>
         <aside class="next-update-card" aria-labelledby="nextUpdateTitle">
@@ -94,17 +94,29 @@
 
 
     <section class="view" id="view-stories" data-view="stories" aria-labelledby="storiesTitle" hidden>
-      <div class="page-intro story-page-intro"><p class="eyebrow">18+ · Original fictional stories</p><h1 id="storiesTitle">Sex Stories.<br><em>After Dark.</em></h1><p class="muted">A curated starter collection for adult readers: tension, mystery, confident flirting and honest couple conversations. Characters are adults. Consent and personal boundaries stay central; these stories are suggestive rather than graphic.</p></div>
+      <div class="page-intro story-page-intro"><p class="eyebrow">18+ · Original fictional stories</p><h1 id="storiesTitle">Sex Stories.<br><em>After Dark.</em></h1><p class="muted">10 starter stories for adults: English plus Hindi/Hinglish dirty banter, dark romance, bold teasing and couple conversations. All characters are adults; stories stay fictional, consent-first and non-graphic.</p></div>
       <section class="story-next-banner" aria-labelledby="storyNextBannerTitle"><div><p class="eyebrow">Next major update</p><h2 id="storyNextBannerTitle">MORE DIRTY FOR HORNY GIRLS</h2><p>More daring fiction concepts are planned for the next major update. This release contains short starter stories and previews only.</p></div><span class="pill">ROADMAP · NOT YET RELEASED</span></section>
-      <div class="story-tools">
-        <label class="field field-search">Search stories<input id="storySearch" type="search" placeholder="Train, mystery, desi tease…" autocomplete="off"></label>
-        <label class="field">Mood<select id="storyCategory"><option value="all">All moods</option><option value="slow-burn">Slow burn</option><option value="dark-romance">Dark romance & mystery</option><option value="desi-tease">Desi double meaning</option><option value="couple-vibes">Couple conversations</option></select></label>
+      <section class="dirty-poll" aria-labelledby="dirtyPollTitle">
+        <div class="dirty-poll-copy"><p class="eyebrow">Desi dirty banter · adults 18+</p><h2 id="dirtyPollTitle">Aaj chut mein kya lena hai—<em>land ya dildo?</em></h2><p>Bilkul blunt fictional mood poll. Ye real-life instruction ya recommendation nahi hai—sirf story vibe choose karo. No pressure, no judgement; skip is always okay.</p></div>
+        <div class="dirty-poll-actions" role="group" aria-label="Choose a fictional story vibe">
+          <button class="btn primary" type="button" data-dirty-pick="land" aria-pressed="false">Land wala fantasy</button>
+          <button class="btn secondary" type="button" data-dirty-pick="toy" aria-pressed="false">Dildo wala fantasy</button>
+          <button class="btn ghost" type="button" data-dirty-pick="skip" aria-pressed="false">Aaj skip karte hain</button>
+        </div>
+        <p id="dirtyPollResult" class="dirty-poll-result" role="status" aria-live="polite">Choose a fictional vibe—or skip and read any story.</p>
+      </section>
+      <div class="story-tools story-tools-part-a">
+        <label class="field field-search">Search stories<input id="storySearch" type="search" placeholder="Train, mystery, chutpata banter…" autocomplete="off"></label>
+        <label class="field">Mood<select id="storyCategory"><option value="all">All moods</option><option value="slow-burn">Slow burn</option><option value="dark-romance">Dark romance & mystery</option><option value="desi-tease">Desi double meaning</option><option value="dirty-hinglish">Dirty Hinglish & gaali banter</option><option value="couple-vibes">Couple conversations</option></select></label>
+        <label class="field">Language<select id="storyLanguage"><option value="all">All languages</option><option value="hinglish">Hindi / Hinglish</option><option value="en">English</option></select></label>
+        <label class="field">Sort<select id="storySort"><option value="featured">Featured order</option><option value="title">Title A–Z</option><option value="shortest">Shortest read</option><option value="longest">Longest read</option></select></label>
       </div>
       <div class="story-filter-row" role="group" aria-label="Filter stories by mood">
         <button class="story-filter active" type="button" data-story-filter="all" aria-pressed="true">All</button>
         <button class="story-filter" type="button" data-story-filter="slow-burn" aria-pressed="false">Slow Burn</button>
         <button class="story-filter" type="button" data-story-filter="dark-romance" aria-pressed="false">Dark Romance</button>
         <button class="story-filter" type="button" data-story-filter="desi-tease" aria-pressed="false">Desi Tease</button>
+        <button class="story-filter" type="button" data-story-filter="dirty-hinglish" aria-pressed="false">Dirty Hinglish</button>
         <button class="story-filter" type="button" data-story-filter="couple-vibes" aria-pressed="false">Couple Vibes</button>
       </div>
       <p class="result-line"><span id="storyCount" aria-live="polite">Loading stories…</span><span class="muted">Adult fiction · voluntary reading · skip any story</span></p>
@@ -216,7 +228,7 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="wrap footer-inner"><div><b>BLACKED</b><p>V1 Release Candidate 1 · Final QA & 18+ fiction spotlight</p></div><div><a href="./phase5-diagnostics.html">Phase 5 diagnostics</a><a href="./phase6-diagnostics.html">Phase 6 diagnostics</a><a href="./phase7-diagnostics.html">Phase 7 final QA</a><button class="text-btn footer-privacy-btn" id="privacyOpen" type="button">Privacy & data controls</button><a href="https://github.com/bhanu13yadav1-ai/Brand-website-4f" target="_blank" rel="noopener noreferrer">Reference repository</a></div></div><p class="wrap footer-note">This is a front-end concept prototype. There is no real inventory, checkout, payment, account system or companion booking. The image archive points to public source repositories, not locally bundled binaries. Use the source status and manifest to identify any unavailable original images.</p></footer>
+  <footer class="site-footer"><div class="wrap footer-inner"><div><b>BLACKED</b><p>V1 Part A · 10-story Hinglish/English story foundation</p></div><div><a href="./phase5-diagnostics.html">Phase 5 diagnostics</a><a href="./phase6-diagnostics.html">Phase 6 diagnostics</a><a href="./phase7-diagnostics.html">Phase 7 final QA</a><button class="text-btn footer-privacy-btn" id="privacyOpen" type="button">Privacy & data controls</button><a href="https://github.com/bhanu13yadav1-ai/Brand-website-4f" target="_blank" rel="noopener noreferrer">Reference repository</a></div></div><p class="wrap footer-note">This is a front-end concept prototype. There is no real inventory, checkout, payment, account system or companion booking. The image archive points to public source repositories, not locally bundled binaries. Use the source status and manifest to identify any unavailable original images.</p></footer>
 
   <div class="overlay hidden" id="ageModal" role="dialog" aria-modal="true" aria-labelledby="ageTitle" aria-describedby="ageDescription"><div class="modal-card"><p class="eyebrow">Adults only</p><h2 id="ageTitle">Before entering</h2><p id="ageDescription">This section is intended for adults 18+. This is self-attestation, not formal age verification.</p><label class="check-label"><input id="ageConfirm" type="checkbox"> I confirm that I am 18 or older.</label><p id="ageError" class="error-text hidden">Please confirm before continuing.</p><button class="btn primary full" id="confirmAge" type="button">Enter section</button><button class="text-btn" id="cancelAge" type="button">Go back</button></div></div>
   <div class="overlay hidden" id="wishlistModal" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle"><div class="modal-card modal-wide"><button class="modal-close" type="button" data-close="wishlistModal" aria-label="Close">×</button><p class="eyebrow">Saved on this device</p><h2 id="wishlistTitle">Saved styles</h2><div id="wishlistItems"><p class="muted">No saved styles yet.</p></div><button class="btn ghost full" id="clearWishlist" type="button">Clear saved styles</button></div></div>
