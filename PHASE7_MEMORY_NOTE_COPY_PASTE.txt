@@ -1,0 +1,11 @@
+V1 PHASE 7 HANDOFF — COPY/PASTE NOTE
+
+Master source of truth: 14-rule MASTER PROMPT in `00_MASTER_RULES_PHASE_MAP.md`. Do not delete features or call untested items PASS.
+
+Phase 7 package: full root-ready release candidate based on Phase 6 hardening, because live `Brand-website-v2` was still showing Phase 5 files at last audit. Contains the existing feature set and 151-record image manifest, plus a highlighted, self-attestation-gated Sex Stories / After Dark section with four short suggestive/non-graphic original stories, searchable mood filters, story preview modal, and a `MORE DIRTY FOR HORNY GIRLS` roadmap teaser. All story characters are adults; preserve consent and non-graphic preview scope.
+
+Next major update concept: longer chapter library, multi-part series, richer mood discovery, content warnings, optional local reading history and writer/editor content manifest. Do not claim these future features are already shipped.
+
+Testing rules: run local syntax/static/HTML/a11y/navigation/story/wheel regressions. After user upload run `phase7-diagnostics.html` on live Pages, then verify all image source URLs and physical Android interactions. Remote raw image binary assets remain external dependencies; live image HTTP testing and physical Android testing are NOT TESTED until executed.
+
+Known limitations: no real backend, checkout, inventory, authenticated accounts, encrypted storage or formal age verification. Local browser storage is not encrypted.

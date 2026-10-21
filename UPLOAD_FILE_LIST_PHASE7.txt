@@ -1,0 +1,8 @@
+PHASE 7 UPLOAD CONTENTS (repository root)
+
+Replace matching existing root files from this release candidate: index.html, app.js, styles.css, fallback.js, sw.js, manifest.webmanifest, innerwear-image-library.json, size-chart-template.json, README.md.
+Add phase7-diagnostics.html, NEXT_BIG_UPDATE_IDEAS.md, PHASE7_IMPLEMENTATION_REPORT.md, PHASE7_QA_RESULTS.json, PHASE7_LOCAL_BROWSER_TESTS.json, PHASE7_MEMORY_NOTE_COPY_PASTE.txt, README_PHASE7_UPLOAD_HINGLISH.md.
+Keep app-icon.svg. Preserve unrelated existing files.
+- PHASE7_FINAL_RELEASE_CHECKLIST.csv
+- PHASE7_FILE_MANIFEST.json (integrity manifest)
+- NEXT_BIG_UPDATE_IDEAS.md

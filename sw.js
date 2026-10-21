@@ -1,7 +1,7 @@
 /* BLACKED V1 Phase 6 service worker. Same-origin caching only; external source images remain network resources. */
 'use strict';
-const CACHE_NAME = 'blacked-v1-phase6-hardening-1';
-const CORE = ['./','./index.html','./styles.css','./fallback.js','./app.js','./manifest.webmanifest','./app-icon.svg','./innerwear-image-library.json','./INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv','./size-chart-template.json','./phase4-diagnostics.html','./phase5-diagnostics.html','./phase6-diagnostics.html','./README.md'];
+const CACHE_NAME = 'blacked-v1-release-candidate-1';
+const CORE = ['./','./index.html','./styles.css','./fallback.js','./app.js','./manifest.webmanifest','./app-icon.svg','./innerwear-image-library.json','./INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv','./size-chart-template.json','./phase4-diagnostics.html','./phase5-diagnostics.html','./phase6-diagnostics.html','./phase7-diagnostics.html','./README.md'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
   const cache=await caches.open(CACHE_NAME);
   await Promise.allSettled(CORE.map(async path=>{try{const r=await fetch(path,{cache:'reload',credentials:'same-origin'});if(r.ok)await cache.put(path,r)}catch{}}));

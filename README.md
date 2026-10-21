@@ -1,11 +1,15 @@
-# BLACKED V1 Phase 6
+# BLACKED V1 Release Candidate 1 — Phase 7
 
-Root-ready static website package for `bhanu13yadav1-ai/Brand-website-v2`. Phase 6 improves performance, accessibility, privacy and data handling while preserving the Phase 4–5 features.
+This package is a full root-ready release candidate based on the Phase 6 hardened working copy. It includes the existing catalogue, all 151 image records, three legacy wheel experiences, Dirty/Wild wheel, Sanskari collection, Muslim/Christian Coming Soon previews, wellness education and privacy controls.
 
-- 151 image-library records remain in `innerwear-image-library.json` (source photos are external, not bundled binaries).
-- Initial image-library render is capped at 24 cards; use Load more to access the complete collection.
-- Wellness education and measurement worksheet do not guess a BLACKED product size without a verified brand chart.
-- Local notes/wishlist/demo bag/opt-in measurements use browser storage; they are not encrypted or synced.
-- Use `phase6-diagnostics.html` after GitHub Pages deploy. External image requests and physical Android testing are NOT TESTED until then.
+## This release adds
+- A clearly highlighted `Sex Stories · After Dark 18+` area on Home and a dedicated age-gated story view.
+- Four short original, suggestive/non-graphic stories with mood filters and a story preview dialog. All characters are adults and consent remains explicit.
+- A campaign preview titled `MORE DIRTY FOR HORNY GIRLS` for the next major update. That banner is a roadmap teaser; the planned longer-chapter feature set is not represented as shipped.
+- Final diagnostics at `phase7-diagnostics.html`.
 
-Read `README_PHASE6_UPLOAD_HINGLISH.md` before uploading.
+## Honesty / limitations
+- Public image files still load from the three public source repositories; the manifest indexes 151 file records, but does not bundle their binary image contents. Run `phase7-diagnostics.html` after deployment to test source URL availability.
+- The adult prompt is self-attestation, not formal age verification. Local data is not encrypted or synced.
+- No account backend, real stock, payments, checkout, or server-side reading history is configured.
+- A local Chromium run is not live deployment or physical Android verification.

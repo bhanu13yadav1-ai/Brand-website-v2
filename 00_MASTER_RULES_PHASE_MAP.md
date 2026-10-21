@@ -35,3 +35,13 @@ This file keeps the user's 14-rule Master Prompt as the governing release contra
 7. Production regression, deployment checks and final release report.
 
 Phase 4 cannot be called fully released until the ZIP has been uploaded to V2 and `/phase4-diagnostics.html` has passed in GitHub Pages. The external-image requests and a physical Android browser are specifically NOT TESTED here.
+
+
+## Phase 7 — Final regression, story spotlight and release candidate
+
+- Re-check current repository before deployment; it was still Phase 5 source at the last audit even though Phase 6 files exist in the working package.
+- Run final local validation and preserve all Phase 4–6 behaviors.
+- Feature a self-attestation-gated `Sex Stories · After Dark 18+` destination with four short suggestive/non-graphic fictional stories; all characters are adults and consent is central.
+- Add the `MORE DIRTY FOR HORNY GIRLS` next-update teaser; long-form story library stays roadmap-only.
+- Run `phase7-diagnostics.html` locally and after deployment; distinguish source/local checks from live GitHub Pages, external image availability and real Android testing.
+- Release report must mark each check PASS / FAIL / NOT TESTED / BLOCKED honestly.

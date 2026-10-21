@@ -1,0 +1,144 @@
+{
+  "phase": "V1 Phase 7",
+  "status": "PASS",
+  "passed": 24,
+  "failed": 0,
+  "total": 24,
+  "checks": [
+    {
+      "name": "HTML parses",
+      "status": "PASS",
+      "detail": "146 IDs, 7 static image elements"
+    },
+    {
+      "name": "No duplicate HTML IDs",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Static img elements have alt text",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Static local src/href files exist",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "node --check app.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "node --check fallback.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "node --check sw.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "JSON parse manifest.webmanifest",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "JSON parse innerwear-image-library.json",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "JSON parse size-chart-template.json",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "JSON parse PHASE7_LOCAL_BROWSER_TESTS.json",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "Exactly 151 image records retained",
+      "status": "PASS",
+      "detail": "151"
+    },
+    {
+      "name": "All image manifest IDs are unique",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "Manifest source URLs use HTTPS and allowlist",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Every story feature ID exists",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "All required release functions are in app JS",
+      "status": "PASS",
+      "detail": "stories, wheels and privacy controls"
+    },
+    {
+      "name": "Home campaign spotlight exists",
+      "status": "PASS",
+      "detail": "featured 18+ area and roadmap teaser"
+    },
+    {
+      "name": "Current release page title matches release",
+      "status": "PASS",
+      "detail": "BLACKED · V1 Release Candidate 1"
+    },
+    {
+      "name": "Archive pagination still configured",
+      "status": "PASS",
+      "detail": "expected 24-card initial batch"
+    },
+    {
+      "name": "Three original wheel control pairs exist",
+      "status": "PASS",
+      "detail": "Dildo, Butt Plug, Boyfriend"
+    },
+    {
+      "name": "Dirty/Wild wheel controls exist",
+      "status": "PASS",
+      "detail": "category and result"
+    },
+    {
+      "name": "Local browser suite 37/37 passed",
+      "status": "PASS",
+      "detail": "{'passed': 37, 'failed': 0, 'total': 37}"
+    },
+    {
+      "name": "No uncaught page errors in local run",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Live external images honestly marked not tested",
+      "status": "PASS",
+      "detail": "remote requests blocked in local QA"
+    }
+  ],
+  "live_github_pages": "NOT TESTED",
+  "external_image_http_status": "NOT TESTED (external DNS/network unavailable here)",
+  "physical_android_chrome": "NOT TESTED",
+  "local_browser_tests": {
+    "status": "PASS",
+    "passed": 37,
+    "failed": 0,
+    "total": 37
+  },
+  "known_external_and_deployment_status": {
+    "live_github_pages": "NOT TESTED",
+    "external_image_http": "NOT TESTED: external DNS/network unavailable",
+    "physical_android_chrome": "NOT TESTED",
+    "source_repositories_read_only_for_current_audit": true
+  }
+}

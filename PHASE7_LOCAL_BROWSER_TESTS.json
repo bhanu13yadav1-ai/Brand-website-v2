@@ -1,0 +1,299 @@
+{
+  "phase": "V1 Phase 7",
+  "status": "PASS",
+  "passed": 37,
+  "failed": 0,
+  "total": 37,
+  "tests": [
+    {
+      "name": "App boots",
+      "status": "PASS",
+      "detail": "V1 Phase 7 Release Candidate 1"
+    },
+    {
+      "name": "Seven views visible in app map",
+      "status": "PASS",
+      "detail": "['home', 'stories', 'innerwear', 'sanskari', 'wellness', 'boyfriend', 'fit']"
+    },
+    {
+      "name": "151 image records preserved",
+      "status": "PASS",
+      "detail": "151"
+    },
+    {
+      "name": "Initial image cards progressive load",
+      "status": "PASS",
+      "detail": "24"
+    },
+    {
+      "name": "Three original wheel locations exist",
+      "status": "PASS",
+      "detail": "{'boy': True, 'dildo': True, 'plug': True}"
+    },
+    {
+      "name": "Dirty/Wild wheel exists",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "Wellness tools exist",
+      "status": "PASS",
+      "detail": "{'measurement': True, 'fit': True}"
+    },
+    {
+      "name": "Privacy controls exist",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "Reduced-motion CSS active",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "Sex Stories view, filters and modal present",
+      "status": "PASS",
+      "detail": "{'view': True, 'filters': True, 'modal': True}"
+    },
+    {
+      "name": "Four original story entries present",
+      "status": "PASS",
+      "detail": "[{'id': 'last-train', 'title': 'The Last Train Wasn’t the Plan', 'mood': 'slow-burn', 'moodLabel': 'Slow Burn', 'contentLength': 4}, {'id': 'velvet-key', 'title': 'The Key Behind the Velvet Frame', 'mood': 'dark-romance', 'moodLabel': 'Dark Romance & Mystery', 'contentLength': 4}, {'id': 'shareef-nazar', 'title': 'Shareef Si Nazar', 'mood': 'desi-tease', 'moodLabel': 'Desi Double Meaning', 'contentLength': 4}, {'id': 'one-honest-question', 'title': 'One Honest Question', 'mood': 'couple-vibes', 'moodLabel': 'Couple Vibes', 'contentLength': 4}]"
+    },
+    {
+      "name": "Next update phrase highlighted",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "Stories nav enforces age self-attestation",
+      "status": "PASS",
+      "detail": "Modal should appear before stories view"
+    },
+    {
+      "name": "Age confirmation opens stories",
+      "status": "PASS",
+      "detail": "Stories view visible after opt-in"
+    },
+    {
+      "name": "Story cards render",
+      "status": "PASS",
+      "detail": "4 stories available"
+    },
+    {
+      "name": "Mood filter shows dark romance only",
+      "status": "PASS",
+      "detail": "1 story available"
+    },
+    {
+      "name": "Story search narrows results",
+      "status": "PASS",
+      "detail": "1 story available"
+    },
+    {
+      "name": "Read-story button opens story dialog",
+      "status": "PASS",
+      "detail": "Slow Burn · 3 min read · All characters are adults"
+    },
+    {
+      "name": "Story dialog moves keyboard focus inside",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Story dialog closes",
+      "status": "PASS",
+      "detail": "Closed via close button"
+    },
+    {
+      "name": "Story dialog restores focus to opener",
+      "status": "PASS",
+      "detail": "<button class=\"btn secondary full\" type=\"button\" data-story-open=\"last-train\">Read story ↗</button>"
+    },
+    {
+      "name": "Image archive Load more preserves collection",
+      "status": "PASS",
+      "detail": "{'before': 24, 'after': 48, 'manifest': 151}"
+    },
+    {
+      "name": "Original Dildo wheel produces result",
+      "status": "PASS",
+      "detail": "Regular · 10–13 cm\nOverall length and insertable length can differ. Verify the product dimensions before deciding.\nREFER"
+    },
+    {
+      "name": "Original Dildo wheel reset works",
+      "status": "PASS",
+      "detail": "Select a range to start."
+    },
+    {
+      "name": "Original Butt Plug wheel produces result",
+      "status": "PASS",
+      "detail": "Medium · 2.5–3.5 cm widest diameter · alternate prompt\nFor medium · 2.5–3.5 cm widest diameter, verify widest diameter, "
+    },
+    {
+      "name": "Original Boyfriend wheel produces result",
+      "status": "PASS",
+      "detail": "Compact-range conversation\nAsk your partner what feels comfortable; never assume a preference from a measurement.\nPLAYFU"
+    },
+    {
+      "name": "Dirty/Wild wheel produces category-linked result",
+      "status": "PASS",
+      "detail": "Dirty Double Meanings\n“Aaj seedhi baat kam… aankhon se hints zyada?” Only if you both enjoy the joke.\nOPTIONAL · CONSENT FIRST · SKIP ANY TIME\nSpin again"
+    },
+    {
+      "name": "Centimetre/inch converter returns result",
+      "status": "PASS",
+      "detail": "10 cm = 3.94 in"
+    },
+    {
+      "name": "Cancel privacy deletion preserves app data",
+      "status": "PASS",
+      "detail": "[\"x\"]"
+    },
+    {
+      "name": "Privacy deletion removes app key only",
+      "status": "PASS",
+      "detail": "{'appKey': None, 'otherKey': 'keep'}"
+    },
+    {
+      "name": "No horizontal overflow at 320px",
+      "status": "PASS",
+      "detail": "{'scrollWidth': 320, 'clientWidth': 320}"
+    },
+    {
+      "name": "No horizontal overflow at 360px",
+      "status": "PASS",
+      "detail": "{'scrollWidth': 360, 'clientWidth': 360}"
+    },
+    {
+      "name": "No horizontal overflow at 390px",
+      "status": "PASS",
+      "detail": "{'scrollWidth': 390, 'clientWidth': 390}"
+    },
+    {
+      "name": "No horizontal overflow at 430px",
+      "status": "PASS",
+      "detail": "{'scrollWidth': 430, 'clientWidth': 430}"
+    },
+    {
+      "name": "No horizontal overflow at 1440px",
+      "status": "PASS",
+      "detail": "{'scrollWidth': 1440, 'clientWidth': 1440}"
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "No local HTTP request failures",
+      "status": "PASS",
+      "detail": "[]"
+    }
+  ],
+  "console_errors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    }
+  ],
+  "page_errors": [],
+  "local_request_failures": [],
+  "external_asset_http_testing": "NOT TESTED (network DNS disabled; local browser explicitly blocked raw.githubusercontent.com to exercise fallbacks)",
+  "live_github_pages": "NOT TESTED",
+  "physical_android_chrome": "NOT TESTED",
+  "note": "Local Chromium / Playwright run. Does not prove live upstream image availability or physical Android behavior.",
+  "expected_console_resource_errors_due_to_intentionally_blocked_external_images": 22,
+  "console_errors_excluding_expected_blocked_image_failures": [],
+  "resource_console_error_explanation": "These ERR_FAILED messages arise because raw.githubusercontent.com image requests were deliberately blocked in the local fallback test. There were no uncaught JavaScript page exceptions; this does not test real upstream image availability.",
+  "execution_environment": "Chromium DOM with packaged HTML/CSS/JS injected from local files; innerwear-image-library.json fetch mocked because local HTTP/file navigation is blocked by the managed runtime.",
+  "local_functional_summary": {
+    "passed": 37,
+    "failed": 0,
+    "total": 37
+  }
+}

@@ -1,0 +1,17 @@
+Requirement,Test method,Status,Evidence,Remaining action
+Existing views/navigation,Local Chromium functional regression,PASS,7 views present; story view added,Live GitHub Pages check still needed
+Innerwear image library,Manifest/static checks,PASS,151 records preserved; 24-card initial rendering; Load more gives 48,Original image HTTP loading NOT TESTED
+Story feature age gate,Local Chromium click-through,PASS,Self-attestation modal appears before stories view,Not formal age verification
+Story search and mood filters,Local Chromium click-through,PASS,4 stories; search and category filters verified,Not applicable
+Story reader modal,Local Chromium click-through,PASS,Read button opens; close button closes,Not applicable
+Three original wheels,Local Chromium click-through,PASS,"Dildo, Butt Plug, Boyfriend each produced result; Dildo reset passed",Physical Android NOT TESTED
+Dirty/Wild wheel,Local Chromium click-through,PASS,Selected double-meaning category produced a result,Physical Android NOT TESTED
+Wellness converter,Local Chromium interaction,PASS,10 cm → 3.94 in,No BLACKED verified size chart configured
+Privacy deletion,Local Chromium interaction,PASS,Cancel preserved app data; accept removed app-owned key only,Browser storage is not encrypted
+Responsive layout,Local Chromium widths,PASS,"320, 360, 390, 430, 1440 px; no horizontal overflow",Physical Android NOT TESTED
+JavaScript syntax,node --check,PASS,"app.js, fallback.js, sw.js",Not a substitute for live test
+HTML IDs / local source refs,Static validation,PASS,No duplicate IDs; local refs resolved,Live network refs tested separately
+Live GitHub Pages,Browser open,NOT TESTED,Repository currently lacked Phase 6/7 source files at last audit,Upload ZIP then run phase7-diagnostics.html
+External raw image URLs,HTTP/network test,NOT TESTED,Network/DNS blocked in this runtime; requests deliberately blocked in local fallback tests,Use live image URL checker after upload
+Physical Android Chrome,Real device,NOT TESTED,No real-device interaction performed here,User should check on Android after deploy
+Next-update roadmap,Document review,PASS,"MORE DIRTY FOR HORNY GIRLS idea included as roadmap, not shipped functionality",Longer chapters etc. remain future scope

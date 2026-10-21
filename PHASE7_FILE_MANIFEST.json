@@ -1,0 +1,241 @@
+{
+  "release": "BLACKED V1 Phase 7 Release Candidate 1",
+  "file_count": 47,
+  "files": [
+    {
+      "path": "00_MASTER_RULES_PHASE_MAP.md",
+      "bytes": 5194,
+      "sha256": "dcb1c64486a6aa380b00dad4fa86b12df20da0e67dd5c6e59f7ad7c5869ca763"
+    },
+    {
+      "path": "EXTERNAL_ASSET_MANIFEST.csv",
+      "bytes": 43195,
+      "sha256": "59a31c3b298882078d30d66dee2e499088d187ab658b35a3131da2c83598904c"
+    },
+    {
+      "path": "INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv",
+      "bytes": 43195,
+      "sha256": "59a31c3b298882078d30d66dee2e499088d187ab658b35a3131da2c83598904c"
+    },
+    {
+      "path": "NEXT_BIG_UPDATE_IDEAS.md",
+      "bytes": 2152,
+      "sha256": "f95fcbbd1384b9460dc874c5cfde388899ed990f33ec8eadac061bbecd91bc5e"
+    },
+    {
+      "path": "PHASE4_IMPLEMENTATION_REPORT.md",
+      "bytes": 5435,
+      "sha256": "e7b62a5b01ad05a8a51c19075a5765776af14f71f5d3a8bdb2dd14a70cba99ab"
+    },
+    {
+      "path": "PHASE4_LOCAL_BROWSER_TESTS.json",
+      "bytes": 6419,
+      "sha256": "5ce3854517bea8845b4c16cf3b2c551733857ca633037c7a52a82511ebe0a681"
+    },
+    {
+      "path": "PHASE4_MEMORY_NOTE_COPY_PASTE.txt",
+      "bytes": 3123,
+      "sha256": "32d4c2cc8bef8376acf3490d1d53c11f01f43c36793c35f81101a281ea41a8f6"
+    },
+    {
+      "path": "PHASE4_QA_RESULTS.json",
+      "bytes": 3347,
+      "sha256": "f7003fa494f526a9969738f5bcd52d5f03fc7daae5a14a89e5839c52fa1f9d30"
+    },
+    {
+      "path": "PHASE5_IMPLEMENTATION_REPORT.md",
+      "bytes": 3922,
+      "sha256": "705912e6f8b39735e54a0407e89a74651ca80fc5c7f6910cb25ec6343b07c150"
+    },
+    {
+      "path": "PHASE5_LOCAL_BROWSER_TESTS.json",
+      "bytes": 5849,
+      "sha256": "e8b87044a71335e767179faceb3d452d168a608110613dd0227ed72f218573ed"
+    },
+    {
+      "path": "PHASE5_MEMORY_NOTE_COPY_PASTE.txt",
+      "bytes": 2692,
+      "sha256": "0be3d2774d8a15bb64d25f683f5a5be269f99b608db9866b30a4270a5aca66c9"
+    },
+    {
+      "path": "PHASE5_QA_RESULTS.json",
+      "bytes": 3814,
+      "sha256": "70022867425021f011b681de8c84b749ea44321d88a50ddd9cec9e4c86cb73c8"
+    },
+    {
+      "path": "PHASE6_FILE_MANIFEST.json",
+      "bytes": 5534,
+      "sha256": "c3d5f992b6ac660ce3c98858ee2fbc88126c225b2865af68c2ceddaf42681c45"
+    },
+    {
+      "path": "PHASE6_IMPLEMENTATION_REPORT.md",
+      "bytes": 2971,
+      "sha256": "69c829b6f4d9e98f031c3a4fea3185d2e059e38b5392f36252fb06757505af7d"
+    },
+    {
+      "path": "PHASE6_LOCAL_BROWSER_TESTS.json",
+      "bytes": 4426,
+      "sha256": "f87f692f48a4f0fda43b080c17810d3ed1fbd06ac25cb1b23a87928b4c8bb862"
+    },
+    {
+      "path": "PHASE6_MEMORY_NOTE_COPY_PASTE.txt",
+      "bytes": 1683,
+      "sha256": "2340fde8cecf468ca489d2579fda0618acab28617b71a40338dceb29aacc16f4"
+    },
+    {
+      "path": "PHASE6_QA_RESULTS.json",
+      "bytes": 2115,
+      "sha256": "0ce03492162591b0c066be96d91e7b9bf75b984cb428099aa91bd0c8077a7bba"
+    },
+    {
+      "path": "PHASE7_FINAL_RELEASE_CHECKLIST.csv",
+      "bytes": 2260,
+      "sha256": "64135cdd965994576f38692e30fb13f4389fd02049c8ec1e91116d62b1995afa"
+    },
+    {
+      "path": "PHASE7_IMPLEMENTATION_REPORT.md",
+      "bytes": 4095,
+      "sha256": "f012ff7ab781f7dbb572f135d6b20aa9ae401d5cf4830de7867d1cb6828ee6b1"
+    },
+    {
+      "path": "PHASE7_LOCAL_BROWSER_TESTS.json",
+      "bytes": 9234,
+      "sha256": "6e49ef8ffd87f2b268d026cb78e61fc6e08173f7b2bfab91d6efd5d3db7bacdd"
+    },
+    {
+      "path": "PHASE7_MEMORY_NOTE_COPY_PASTE.txt",
+      "bytes": 1474,
+      "sha256": "e9d7f87876a9ee436538c71e1534990703e33802eb8c587f22be100a99660982"
+    },
+    {
+      "path": "PHASE7_QA_RESULTS.json",
+      "bytes": 3554,
+      "sha256": "eecb2c6eaab0d49f3a1f330e2da840a623894eb96e80edd21b80ccc7928820c8"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1431,
+      "sha256": "1a78da03790749da6372bf042539c5f2b84d9669aba7e410ef03fb436c02d9be"
+    },
+    {
+      "path": "README_PHASE4_UPLOAD_HINGLISH.md",
+      "bytes": 2667,
+      "sha256": "08590be9976af456822a5471102eecd5f1391d8da91c6c5b3dd5e1c0a2865789"
+    },
+    {
+      "path": "README_PHASE5_UPLOAD_HINGLISH.md",
+      "bytes": 2383,
+      "sha256": "b14a69b5cdbec4bbdf8f05ae8557bc7996de67d9370a13ab2338b5bf2fda01fd"
+    },
+    {
+      "path": "README_PHASE6_UPLOAD_HINGLISH.md",
+      "bytes": 2367,
+      "sha256": "0a53e58ac3681f4c163ef0e5101bb73c140d4bd785c682b0ff40a91da92a477a"
+    },
+    {
+      "path": "README_PHASE7_UPLOAD_HINGLISH.md",
+      "bytes": 1675,
+      "sha256": "83fa838119aeb76a34cb4ea84b7104a8e2eaf5784119e828728abecdc0a0b50f"
+    },
+    {
+      "path": "RESEARCH_NOTES_PHASE4.md",
+      "bytes": 1711,
+      "sha256": "c9db69b0ec67ae158c37cf28a1cbb63568ff5acb3db90dd8c16b304afcecee18"
+    },
+    {
+      "path": "RESEARCH_NOTES_PHASE5.md",
+      "bytes": 2490,
+      "sha256": "00295dcbe43aef7abf4a28d5b041f056f755697a47a19d8aaba3034087699546"
+    },
+    {
+      "path": "ROOT_CAUSE_IMAGE_COLLECTION_PHASE5.md",
+      "bytes": 1836,
+      "sha256": "64c5d07e64eb847631cb562d0c2ad799b068dfe71740339a6fbcf54515ce9905"
+    },
+    {
+      "path": "ROOT_CAUSE_PHASE2_PHASE3_BUG.md",
+      "bytes": 2171,
+      "sha256": "ccb50947b2dd18db9be14e71dfe43689bc0240fe1b17d4696d57841e938b6303"
+    },
+    {
+      "path": "UPLOAD_FILE_LIST.txt",
+      "bytes": 671,
+      "sha256": "61d839c25beaa8cbc5f982e86b06045ea3166d72172f2d0f545fc1eca02fcd96"
+    },
+    {
+      "path": "UPLOAD_FILE_LIST_PHASE6.txt",
+      "bytes": 661,
+      "sha256": "3cb190effe4197ff10dbd9e1d774c885da83819695cc015ad9604b606aa5c436"
+    },
+    {
+      "path": "UPLOAD_FILE_LIST_PHASE7.txt",
+      "bytes": 631,
+      "sha256": "f2661ceeb687ecdc8ce6dcb194de9ad9b59ea1712a3b12c6b55ae25f1227352b"
+    },
+    {
+      "path": "app-icon.svg",
+      "bytes": 364,
+      "sha256": "a8c9d99df8b09ef30491401c50c4cfd7f8981a50f667c9347b152dfbb0bc4403"
+    },
+    {
+      "path": "app.js",
+      "bytes": 75061,
+      "sha256": "cf94260987fa8d05f1f0799c7d0c20e695b332878ebf0d03e59782d1884b9ba9"
+    },
+    {
+      "path": "fallback.js",
+      "bytes": 1696,
+      "sha256": "0024d2acf55f963b58927f15bf36384ae6657818c8c60ef5806a4c53eada6c35"
+    },
+    {
+      "path": "index.html",
+      "bytes": 48224,
+      "sha256": "d3a1385bfe4b46faca9fd0304bd51be628c9e5a0230d4970597d794f2f3e9eac"
+    },
+    {
+      "path": "innerwear-image-library.json",
+      "bytes": 62145,
+      "sha256": "dfecab03052a1dd539c5f8eb398215f72b4f1c88048a25f5aa617865f79b70e3"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 488,
+      "sha256": "7aa13c6e3eceedcd0b721de7e9adfa4ece1dec533a796f3949ef27c9d14c649f"
+    },
+    {
+      "path": "phase4-diagnostics.html",
+      "bytes": 11409,
+      "sha256": "a06c179672c8737c4d5658b0b192e66075a969367f54a63e2657e751ea2ac290"
+    },
+    {
+      "path": "phase5-diagnostics.html",
+      "bytes": 6993,
+      "sha256": "b600a59b128a99935d9d61a267ebb4fca36b189395e87ebe2c017f3c9cd6840b"
+    },
+    {
+      "path": "phase6-diagnostics.html",
+      "bytes": 7237,
+      "sha256": "66c4168f00895d51a14cc74b9202213520a014ee1851ff061540cd882fd5289b"
+    },
+    {
+      "path": "phase7-diagnostics.html",
+      "bytes": 7647,
+      "sha256": "5e6f5450635f6bdb5b1d01cac69340f2952ff10807a4630bd7100b0fe65001a8"
+    },
+    {
+      "path": "size-chart-template.json",
+      "bytes": 516,
+      "sha256": "646da71404968a27007c483f838a30f3135f5c2dc34e0d19d2c7c33e346836b5"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 36200,
+      "sha256": "52b0970e1a4b659e86206d44bc0be33fd6367a99bc56da091bccd492348a332a"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 2048,
+      "sha256": "da87248261b7d6cda1b0d4be326effcf3fc1868aa5bf95412bca3d1a0a79014c"
+    }
+  ]
+}

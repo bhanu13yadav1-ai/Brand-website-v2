@@ -83,8 +83,8 @@
     return `<img class="${esc(className)}" src="${esc(safeSrc)}" alt="${esc(alt)}" loading="lazy" decoding="async" fetchpriority="low" width="600" height="720" data-asset-image>`;
   }
   function setView(name) {
-    if (!['home','innerwear','sanskari','wellness','boyfriend','fit'].includes(name)) return;
-    if (['wellness','boyfriend'].includes(name) && !state.adultAllowed) {
+    if (!['home','stories','innerwear','sanskari','wellness','boyfriend','fit'].includes(name)) return;
+    if (['wellness','boyfriend','stories'].includes(name) && !state.adultAllowed) {
       state.pendingView = name; $('#ageConfirm').checked = false; $('#ageError').classList.add('hidden'); $('#ageModal').classList.remove('hidden'); return;
     }
     state.view = name;
@@ -95,6 +95,7 @@
     if (name === 'innerwear') renderCatalog();
     if (name === 'sanskari') renderCampaigns();
     if (name === 'home') renderHomeCampaigns();
+    if (name === 'stories') renderStories();
   }
   $$('[data-view-link]').forEach(b => b.addEventListener('click', () => setView(b.dataset.viewLink)));
   $('#menuToggle').addEventListener('click', () => {
@@ -109,6 +110,57 @@
   });
   $('#cancelAge').addEventListener('click', () => { state.pendingView = null; $('#ageModal').classList.add('hidden'); });
   try { state.adultAllowed = sessionStorage.getItem(STORAGE.adult) === 'yes'; } catch { state.adultAllowed = false; }
+
+
+  // Phase 7: original, suggestive/non-graphic fiction starter library. All characters are adults.
+  const storyLibrary = [
+    {id:'last-train',title:'The Last Train Wasn’t the Plan',mood:'slow-burn',moodLabel:'Slow Burn',readingTime:'3 min read',teaser:'A missed connection, a nearly empty platform, and a conversation that neither adult wants to end too soon.',content:[
+      'Ananya, 27, had already checked the train board twice when Dev, 29, offered to share the bench beneath the station clock. They had met at a friend’s dinner weeks ago and traded exactly three messages since. Tonight, the city had given them an unexpected extra hour.',
+      'They talked about terrible first dates, the songs they pretended not to love, and the small brave things people rarely say out loud. Each time the announcement echoed overhead, neither moved. The silence between their sentences felt less awkward than the words they were choosing.',
+      '“Would you like to get chai while we wait?” Dev asked. “No pressure. I can stay right here if you’d rather.” Ananya smiled, relieved by the question instead of pushed by it. “Chai, yes. And maybe one more honest question.”',
+      'Outside the station kiosk, the rain softened the streetlights into gold. Their hands brushed around the paper cups; both noticed, neither assumed. Ananya offered her hand, palm up. Dev met it gently, waiting until she laced their fingers together. The train finally arrived, but the evening had already changed direction.'
+    ]},
+    {id:'velvet-key',title:'The Key Behind the Velvet Frame',mood:'dark-romance',moodLabel:'Dark Romance & Mystery',readingTime:'4 min read',teaser:'At a private art opening, Rhea finds a brass key and a note that turns a mysterious evening into a game of mutual curiosity.',content:[
+      'Rhea, 30, found the brass key tucked behind a velvet frame at the gallery’s final room. Beside it was a card in neat handwriting: “Only if you choose. Ask me about the blue door.” Across the room, Kabir, 32, lifted his glass in a question rather than a demand.',
+      'The blue door opened onto a quiet reading room, not a secret trap or a grand reveal. One lamp, two chairs, a stack of old letters, and a city view made the space feel like a scene waiting for its own rules. Kabir explained the little mystery he had built for the guests, then offered to end the game whenever she wished.',
+      'Rhea chose another clue. The next card asked what made her feel safe enough to be adventurous. Her answer surprised them both: clear choices, honest intentions, and the freedom to laugh when a plan got ridiculous. Kabir wrote it down as the best clue of the night.',
+      'They left the gallery together when the staff began stacking chairs. Outside, Rhea asked if he wanted to meet again without riddles. “Absolutely,” he said. “And you choose the place.” The mystery had not been about control; it had been about discovering how good curiosity feels when everyone has the key.'
+    ]},
+    {id:'shareef-nazar',title:'Shareef Si Nazar',mood:'desi-tease',moodLabel:'Desi Double Meaning',readingTime:'3 min read',teaser:'A gold scarf, a cheeky compliment, and two adults who discover that playful banter works best when both write the punchline.',content:[
+      'At a rooftop celebration, Sana, 26, adjusted the gold scarf over her shoulder while Rahul, 28, tried to remember the clever line he had rehearsed on the way there. He abandoned it. “You look like you know a secret,” he said instead.',
+      '“Maybe I do,” Sana replied. “Maybe I’m waiting to see whether you can ask a good question.” The answer made him laugh. He asked what music she would choose if the rooftop belonged to her for one night. She chose an old romantic track and insisted he sing the first line.',
+      'His singing was terrible. Her laughter was immediate. When the song slowed, Rahul offered his hand for a dance but kept enough distance for her to decide. Sana stepped closer and set the pace herself. They moved beneath the string lights, exchanging playful double meanings that left both smiling and neither guessing about the other’s comfort.',
+      'Later, Sana typed her number into his phone, then looked him in the eye. “You can message tomorrow. Tonight, just enjoy the song.” Rahul promised to do exactly that. The best line of the evening, he realised, was the one that let her choose the next chapter.'
+    ]},
+    {id:'one-honest-question',title:'One Honest Question',mood:'couple-vibes',moodLabel:'Couple Vibes',readingTime:'3 min read',teaser:'Isha and Meera turn a quiet date into a game where every answer can be skipped—and every honest answer earns trust.',content:[
+      'Isha, 29, brought a small deck of question cards to the café where Meera, 30, had planned their anniversary dessert. The first card said: “What makes you feel wanted without feeling pressured?” It was a bigger question than either expected, but the warm lights and familiar table made room for it.',
+      'Meera answered first: thoughtful messages, a little anticipation, and being asked rather than having someone guess. Isha listened without interrupting. Then she admitted she loved surprises but needed the option to change her mind if a day had been difficult.',
+      'They made three house rules for the game: either person could pass, a pass needed no explanation, and nothing shared tonight became a joke tomorrow. With the rules clear, the questions became lighter—an ideal weekend, a secret comfort film, the kind of compliment that stays with you after the room goes quiet.',
+      'When dessert arrived, Meera slipped the last card into Isha’s palm. It read: “What should we try next, together?” Isha wrote “a dance class” and drew a tiny star. They left with a plan, not a promise they could not keep. Their best kind of bold was making honesty feel exciting.'
+    ]}
+  ];
+  let activeStoryFilter='all';
+  function renderStories(){
+    const host=$('#storyGrid'); if(!host)return;
+    const q=($('#storySearch')?.value||'').trim().toLowerCase();
+    const cat=$('#storyCategory')?.value||'all';
+    const effective=cat!=='all'?cat:activeStoryFilter;
+    const list=storyLibrary.filter(s=>(effective==='all'||s.mood===effective)&&`${s.title} ${s.moodLabel} ${s.teaser} ${s.content.join(' ')}`.toLowerCase().includes(q));
+    host.innerHTML=list.map(s=>`<article class="story-card" data-story-card="${esc(s.id)}" data-story-category="${esc(s.mood)}"><div class="story-topline"><span class="story-mood">${esc(s.moodLabel)}</span><span class="story-meta">${esc(s.readingTime)} · 18+</span></div><h2>${esc(s.title)}</h2><p>${esc(s.teaser)}</p><div class="story-card-actions"><button class="btn secondary full" type="button" data-story-open="${esc(s.id)}">Read story ↗</button></div></article>`).join('');
+    $('#storyCount').textContent=`${list.length} ${list.length===1?'story':'stories'} available`;
+    $('#storyStatus').textContent=`${list.length} stories shown.`;
+  }
+  $('#storySearch').addEventListener('input',renderStories);
+  $('#storyCategory').addEventListener('change',()=>{activeStoryFilter=$('#storyCategory').value;$$('[data-story-filter]').forEach(b=>{const on=b.dataset.storyFilter===activeStoryFilter;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});renderStories();});
+  $$('[data-story-filter]').forEach(b=>b.addEventListener('click',()=>{activeStoryFilter=b.dataset.storyFilter;$('#storyCategory').value=activeStoryFilter;$$('[data-story-filter]').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});renderStories();}));
+  document.addEventListener('click',event=>{
+    const btn=event.target instanceof Element?event.target.closest('[data-story-open]'):null;
+    if(!btn)return;
+    const story=storyLibrary.find(s=>s.id===btn.dataset.storyOpen);if(!story)return;
+    $('#storyModalTitle').textContent=story.title;$('#storyModalMeta').textContent=`${story.moodLabel} · ${story.readingTime} · All characters are adults`;
+    $('#storyModalBody').innerHTML=story.content.map((paragraph,i)=>`<p${i===story.content.length-1?' class="story-consent-note"':''}>${esc(paragraph)}</p>`).join('');
+    $('#storyModal').classList.remove('hidden');
+  });
 
   function renderHomeCampaigns() {
     const host = $('#homeCampaigns');
@@ -579,9 +631,14 @@
   }
   function getDiagnostics() {
     return {
-      version:'V1 Phase 6 quality hardening',
+      version:'V1 Phase 7 Release Candidate 1',
       loaded:document.readyState==='complete'||document.readyState==='interactive',
       views:$$('.view').map(v=>({name:v.dataset.view,exists:true,visible:!v.hidden})),
+      sexStoriesView:!!$('#view-stories'),
+      sexStoriesCount:storyLibrary.length,
+      sexStoriesFilters:!!$('#storySearch')&&!!$('#storyCategory')&&$$('[data-story-filter]').length===5,
+      storyModal:!!$('#storyModal')&&!!$('#storyModalTitle')&&!!$('#storyModalBody'),
+      nextUpdateSpotlight:document.body.textContent.includes('MORE DIRTY')&&document.body.textContent.includes('HORNY GIRLS'),
       navButtons:$$('[data-view-link]').length,
       productCount:products.length,
       campaignCount:campaigns.length,
@@ -610,7 +667,7 @@
       errors:state.diagnostic.errors
     };
   }
-  window.BLACKED_V1 = {version:'phase6-quality-hardening-1.0.0',getDiagnostics,getState:()=>({view:state.view,wishlistCount:state.wishlist.size,bagCount:state.bag.reduce((n,p)=>n+p.qty,0),adultAllowed:state.adultAllowed}),getImageLibrary:()=>imageLibrary.map(x=>({id:x.id,category:x.category,filename:x.filename,source_repo:x.source_repo,src:x.src})),setView};
+  window.BLACKED_V1 = {version:'phase7-release-candidate-1.0.0',getStoryLibrary:()=>storyLibrary.map(s=>({id:s.id,title:s.title,mood:s.mood,moodLabel:s.moodLabel,contentLength:s.content.length})),getDiagnostics,getState:()=>({view:state.view,wishlistCount:state.wishlist.size,bagCount:state.bag.reduce((n,p)=>n+p.qty,0),adultAllowed:state.adultAllowed}),getImageLibrary:()=>imageLibrary.map(x=>({id:x.id,category:x.category,filename:x.filename,source_repo:x.source_repo,src:x.src})),setView};
 
   state.wishlist = new Set((Array.isArray(safeRead(STORAGE.wishlist,[]))?safeRead(STORAGE.wishlist,[]):[]).filter(x=>typeof x==='string'));
   const rawBag=safeRead(STORAGE.bag,[]);
@@ -664,7 +721,7 @@
   // Release local object URLs for selected photos when the document is discarded.
   window.addEventListener('pagehide',()=>{if(state.currentPhotoUrl){URL.revokeObjectURL(state.currentPhotoUrl);state.currentPhotoUrl=null;}});
 
-  renderHomeCampaigns();renderCampaigns();renderCatalog();initImageLibrary();initMeasurementTools();renderHeaderCounts();renderWishlist();renderBag();updateMeasureConversion();showSpinFrame(0);
+  renderHomeCampaigns();renderCampaigns();renderCatalog();renderStories();initImageLibrary();initMeasurementTools();renderHeaderCounts();renderWishlist();renderBag();updateMeasureConversion();showSpinFrame(0);
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
     window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(err=>{state.diagnostic.errors.push('Service worker: '+String(err));console.warn('[BLACKED V1] Service worker registration failed',err);}));
   }

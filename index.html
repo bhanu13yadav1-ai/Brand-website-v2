@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://raw.githubusercontent.com; connect-src 'self'">
   <meta name="referrer" content="no-referrer">
   <meta name="theme-color" content="#100c10">
-  <meta name="description" content="BLACKED — complete innerwear reference library, wellness education, verified-source sizing guidance and consensual couple tools.">
-  <title>BLACKED · V1 Phase 5</title>
+  <meta name="description" content="BLACKED — innerwear reference library, wellness education, consensual couple tools and 18+ fictional after-dark stories.">
+  <title>BLACKED · V1 Release Candidate 1</title>
   <link rel="icon" href="./app-icon.svg" type="image/svg+xml">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./styles.css">
@@ -27,6 +27,7 @@
     </div>
     <nav class="main-nav wrap" id="mainNav" aria-label="Main sections">
       <button class="nav-link active" type="button" data-view-link="home">Home</button>
+      <button class="nav-link" type="button" data-view-link="stories">Sex Stories 18+</button>
       <button class="nav-link" type="button" data-view-link="innerwear">Innerwear</button>
       <button class="nav-link" type="button" data-view-link="sanskari">Sanskari Edit</button>
       <button class="nav-link" type="button" data-view-link="wellness">Wellness 18+</button>
@@ -35,6 +36,7 @@
     </nav>
     <div class="mobile-nav hidden" id="mobileMenu" aria-label="Mobile navigation">
       <button type="button" data-view-link="home">Home</button>
+      <button type="button" data-view-link="stories">Sex Stories 18+</button>
       <button type="button" data-view-link="innerwear">Innerwear</button>
       <button type="button" data-view-link="sanskari">Sanskari Edit</button>
       <button type="button" data-view-link="wellness">Wellness 18+</button>
@@ -47,7 +49,7 @@
     <section class="view active" id="view-home" data-view="home" aria-labelledby="homeTitle">
       <div class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">BLACKED · V1 PHASE 4</p>
+          <p class="eyebrow">BLACKED · V1 RELEASE CANDIDATE 1</p>
           <h1 id="homeTitle">Premium style.<br><em>Personal confidence.</em></h1>
           <p>A calmer, clearer home for innerwear concepts, the Sanskari edit, wellness education and playful tools for consenting adults.</p>
           <div class="button-row"><button class="btn primary" type="button" data-view-link="innerwear">Explore Innerwear ↗</button><button class="btn secondary" type="button" data-view-link="sanskari">Discover Sanskari</button></div>
@@ -69,10 +71,46 @@
         <div class="section-heading"><div><p class="eyebrow">A first look</p><h2>Campaign gallery</h2><p class="muted">These visuals are references/concepts—not proof of physical stock.</p></div><button class="text-btn" type="button" data-view-link="sanskari">View all ↗</button></div>
         <div class="campaign-grid mini-grid" id="homeCampaigns"></div>
       </section>
+      <section class="section-block story-spotlight" aria-labelledby="storySpotlightTitle">
+        <div class="story-spotlight-copy">
+          <p class="eyebrow">18+ Fiction · Featured on BLACKED</p>
+          <h2 id="storySpotlightTitle">Sex Stories,<br><em>After Dark.</em></h2>
+          <p>Slow-burn attraction, dark-romance mystery, desi double meanings and honest couple moments. Original fiction for consenting adults; previews stay suggestive, non-graphic and easy to skip.</p>
+          <div class="story-tag-row"><span>Slow Burn</span><span>Dark Romance</span><span>Desi Tease</span><span>Couple Vibes</span></div>
+          <div class="button-row"><button class="btn primary" type="button" data-view-link="stories">Explore Sex Stories ↗</button><span class="story-age-note">18+ · Fiction only</span></div>
+        </div>
+        <aside class="next-update-card" aria-labelledby="nextUpdateTitle">
+          <p class="eyebrow">Next big update · concept preview</p>
+          <h3 id="nextUpdateTitle">MORE DIRTY<br><em>FOR HORNY GIRLS</em></h3>
+          <p>Planned next: longer chapters, mood-based story discovery, clear content warnings, consensual fantasy prompts and optional on-device reading progress.</p>
+          <span class="pill">COMING IN THE NEXT MAJOR UPDATE</span>
+        </aside>
+      </section>
       <section class="section-block collection-preview">
         <div><p class="eyebrow">Coming soon</p><h2>Future collections, clearly labelled.</h2><p class="muted">Respectful creative previews, not live catalogues.</p><button class="btn secondary" type="button" data-view-link="sanskari">Explore collection previews ↗</button></div>
         <div class="future-mini-grid"><article class="future-mini muslim"><span>☾</span><small>COMING SOON</small><b>Muslim-Inspired · Noor Edit</b></article><article class="future-mini christian"><span>✧</span><small>COMING SOON</small><b>Christian-Inspired · Grace Edit</b></article></div>
       </section>
+    </section>
+
+
+    <section class="view" id="view-stories" data-view="stories" aria-labelledby="storiesTitle" hidden>
+      <div class="page-intro story-page-intro"><p class="eyebrow">18+ · Original fictional stories</p><h1 id="storiesTitle">Sex Stories.<br><em>After Dark.</em></h1><p class="muted">A curated starter collection for adult readers: tension, mystery, confident flirting and honest couple conversations. Characters are adults. Consent and personal boundaries stay central; these stories are suggestive rather than graphic.</p></div>
+      <section class="story-next-banner" aria-labelledby="storyNextBannerTitle"><div><p class="eyebrow">Next major update</p><h2 id="storyNextBannerTitle">MORE DIRTY FOR HORNY GIRLS</h2><p>More daring fiction concepts are planned for the next major update. This release contains short starter stories and previews only.</p></div><span class="pill">ROADMAP · NOT YET RELEASED</span></section>
+      <div class="story-tools">
+        <label class="field field-search">Search stories<input id="storySearch" type="search" placeholder="Train, mystery, desi tease…" autocomplete="off"></label>
+        <label class="field">Mood<select id="storyCategory"><option value="all">All moods</option><option value="slow-burn">Slow burn</option><option value="dark-romance">Dark romance & mystery</option><option value="desi-tease">Desi double meaning</option><option value="couple-vibes">Couple conversations</option></select></label>
+      </div>
+      <div class="story-filter-row" role="group" aria-label="Filter stories by mood">
+        <button class="story-filter active" type="button" data-story-filter="all" aria-pressed="true">All</button>
+        <button class="story-filter" type="button" data-story-filter="slow-burn" aria-pressed="false">Slow Burn</button>
+        <button class="story-filter" type="button" data-story-filter="dark-romance" aria-pressed="false">Dark Romance</button>
+        <button class="story-filter" type="button" data-story-filter="desi-tease" aria-pressed="false">Desi Tease</button>
+        <button class="story-filter" type="button" data-story-filter="couple-vibes" aria-pressed="false">Couple Vibes</button>
+      </div>
+      <p class="result-line"><span id="storyCount" aria-live="polite">Loading stories…</span><span class="muted">Adult fiction · voluntary reading · skip any story</span></p>
+      <div id="storyGrid" class="story-grid"></div>
+      <p id="storyStatus" class="visually-hidden" role="status" aria-live="polite">Stories ready.</p>
+      <p class="notice">All names and storylines are fictional. This is a static reading prototype, not a private account service. It does not upload reading activity or promise encrypted storage. The 18+ prompt is self-attestation, not formal age verification.</p>
     </section>
 
     <section class="view" id="view-innerwear" data-view="innerwear" aria-labelledby="innerwearTitle" hidden>
@@ -178,7 +216,7 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="wrap footer-inner"><div><b>BLACKED</b><p>V1 Phase 6 · Performance, privacy & accessibility hardening</p></div><div><a href="./phase5-diagnostics.html">Phase 5 diagnostics</a><a href="./phase6-diagnostics.html">Phase 6 diagnostics</a><button class="text-btn footer-privacy-btn" id="privacyOpen" type="button">Privacy & data controls</button><a href="https://github.com/bhanu13yadav1-ai/Brand-website-4f" target="_blank" rel="noopener noreferrer">Reference repository</a></div></div><p class="wrap footer-note">This is a front-end concept prototype. There is no real inventory, checkout, payment, account system or companion booking. The image archive points to public source repositories, not locally bundled binaries. Use the source status and manifest to identify any unavailable original images.</p></footer>
+  <footer class="site-footer"><div class="wrap footer-inner"><div><b>BLACKED</b><p>V1 Release Candidate 1 · Final QA & 18+ fiction spotlight</p></div><div><a href="./phase5-diagnostics.html">Phase 5 diagnostics</a><a href="./phase6-diagnostics.html">Phase 6 diagnostics</a><a href="./phase7-diagnostics.html">Phase 7 final QA</a><button class="text-btn footer-privacy-btn" id="privacyOpen" type="button">Privacy & data controls</button><a href="https://github.com/bhanu13yadav1-ai/Brand-website-4f" target="_blank" rel="noopener noreferrer">Reference repository</a></div></div><p class="wrap footer-note">This is a front-end concept prototype. There is no real inventory, checkout, payment, account system or companion booking. The image archive points to public source repositories, not locally bundled binaries. Use the source status and manifest to identify any unavailable original images.</p></footer>
 
   <div class="overlay hidden" id="ageModal" role="dialog" aria-modal="true" aria-labelledby="ageTitle" aria-describedby="ageDescription"><div class="modal-card"><p class="eyebrow">Adults only</p><h2 id="ageTitle">Before entering</h2><p id="ageDescription">This section is intended for adults 18+. This is self-attestation, not formal age verification.</p><label class="check-label"><input id="ageConfirm" type="checkbox"> I confirm that I am 18 or older.</label><p id="ageError" class="error-text hidden">Please confirm before continuing.</p><button class="btn primary full" id="confirmAge" type="button">Enter section</button><button class="text-btn" id="cancelAge" type="button">Go back</button></div></div>
   <div class="overlay hidden" id="wishlistModal" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle"><div class="modal-card modal-wide"><button class="modal-close" type="button" data-close="wishlistModal" aria-label="Close">×</button><p class="eyebrow">Saved on this device</p><h2 id="wishlistTitle">Saved styles</h2><div id="wishlistItems"><p class="muted">No saved styles yet.</p></div><button class="btn ghost full" id="clearWishlist" type="button">Clear saved styles</button></div></div>
@@ -186,6 +224,8 @@
   <div class="overlay hidden" id="campaignModal" role="dialog" aria-modal="true" aria-labelledby="campaignModalTitle"><div class="modal-card modal-wide"><button class="modal-close" type="button" data-close="campaignModal" aria-label="Close">×</button><p class="eyebrow">Campaign reference</p><h2 id="campaignModalTitle">Campaign preview</h2><img id="campaignModalImage" class="modal-image" src="https://raw.githubusercontent.com/bhanu13yadav1-ai/Brand-website-4f/main/campaign-aankhein.webp" alt="Campaign preview"><p id="campaignModalDescription" class="muted"></p></div></div>
   <div class="overlay hidden" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideModalTitle"><div class="modal-card modal-wide"><button class="modal-close" type="button" data-close="guideModal" aria-label="Close">×</button><p class="eyebrow">Wellness education</p><h2 id="guideModalTitle">Guide</h2><div id="guideModalBody" class="guide-copy"></div></div></div>
 
+
+  <div class="overlay hidden" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="storyModalTitle" aria-describedby="storyModalBody"><div class="modal-card modal-wide story-modal-card"><button class="modal-close" type="button" data-close="storyModal" aria-label="Close story preview">×</button><p class="eyebrow">18+ · Fiction preview</p><h2 id="storyModalTitle">Story preview</h2><div id="storyModalMeta" class="story-modal-meta"></div><div id="storyModalBody" class="guide-copy story-reading-copy"></div><p class="micro">Fiction only. Keep your own boundaries; skip or close any content at any time.</p></div></div>
   <div class="overlay hidden" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" aria-describedby="privacyDescription"><div class="modal-card modal-wide"><button class="modal-close" type="button" data-close="privacyModal" aria-label="Close privacy and data controls">×</button><p class="eyebrow">Privacy & local storage</p><h2 id="privacyTitle">Your data, explained</h2><div id="privacyDescription" class="guide-copy"><p><b>This is a front-end prototype.</b> It has no login, backend account, analytics endpoint, real checkout or server-side profile in this version.</p><ul><li>Wishlist, demo bag and fit notes can be stored in this browser’s local storage. They are not encrypted; other people using this browser profile may be able to see them.</li><li>Measurements are saved only after you opt in. They remain in this browser and are not synced or encrypted.</li><li>The optional photo preview uses a temporary browser object URL and is not uploaded by this page.</li><li>Campaign images are loaded from public raw-GitHub URLs. The image host receives a normal image request, not your saved notes.</li><li>The 18+ prompt is self-attestation, not formal age verification.</li></ul><p>Use the clear-data button only when you are ready to remove this app’s saved values from this browser. Other websites’ storage is not touched.</p></div><button class="btn danger full" id="clearAppData" type="button">Clear BLACKED data on this device</button><p id="privacyClearStatus" class="micro" role="status" aria-live="polite">No action taken.</p></div></div>
   <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
 </body>
