@@ -1,0 +1,153 @@
+--- a/index.html
++++ b/index.html
+@@ -12,9 +12,11 @@
+   <link rel="manifest" href="./manifest.webmanifest">
+   <link rel="stylesheet" href="./styles.css">
+   <link rel="stylesheet" href="./part-c-enhancements.css">
++  <link rel="stylesheet" href="./phase2-photo-collections.css">
+   <script src="./fallback.js" defer></script>
+   <script src="./app.js" defer></script>
+   <script src="./part-c-enhancements.js" defer></script>
++  <script src="./phase2-photo-collections.js" defer></script>
+ </head>
+ <body>
+   <a class="skip-link" href="#main">Skip to content</a>
+@@ -57,7 +59,7 @@
+           <div class="button-row"><button class="btn primary" type="button" data-view-link="innerwear">Explore Innerwear ↗</button><button class="btn secondary" type="button" data-view-link="sanskari">Discover Sanskari</button></div>
+           <div class="hero-points"><span>✦ Clear sections</span><span>♡ Comfort-led guidance</span><span>⌁ Mobile-first</span></div>
+         </div>
+-        <div class="hero-media"><img src="./assets/sanskari/sanskari-outside-bold-within.webp" alt="Sanskari navy and gold campaign reference" fetchpriority="high"><div class="hero-caption"><span>THE SANSKARI EDIT</span><b>Grace in the details.</b></div></div>
++        <div class="hero-media"><img src="./sanskari-outside-bold-within.webp" alt="Sanskari navy and gold campaign reference" fetchpriority="high"><div class="hero-caption"><span>THE SANSKARI EDIT</span><b>Grace in the details.</b></div></div>
+       </div>
+       <section class="section-block" aria-labelledby="spacesTitle">
+         <div class="section-heading"><div><p class="eyebrow">Choose your space</p><h2 id="spacesTitle">One brand world. Clear destinations.</h2><p class="muted">Go directly to the feature you came for.</p></div></div>
+@@ -162,7 +164,7 @@
+     </section>
+ 
+     <section class="view" id="view-sanskari" data-view="sanskari" aria-labelledby="sanskariTitle" hidden>
+-      <div class="sanskari-hero"><img src="./assets/sanskari/shaam-se-raat-tak.webp" alt="Sanskari Raat navy-and-gold campaign art"><div class="sanskari-hero-copy"><p class="eyebrow">02 · BLACKED special edit</p><h1 id="sanskariTitle">Sanskari outside.<br><em>Bold in your own way.</em></h1><p>Elegant drapes, soft glamour and playful campaign storytelling—with respectful cultural inspiration.</p><button class="btn light" type="button" id="saveSanskariBanner">♡ Save this edit</button></div></div>
++      <div class="sanskari-hero"><img src="./shaam-se-raat-tak.webp" alt="Sanskari Raat navy-and-gold campaign art"><div class="sanskari-hero-copy"><p class="eyebrow">02 · BLACKED special edit</p><h1 id="sanskariTitle">Sanskari outside.<br><em>Bold in your own way.</em></h1><p>Elegant drapes, soft glamour and playful campaign storytelling—with respectful cultural inspiration.</p><button class="btn light" type="button" id="saveSanskariBanner">♡ Save this edit</button></div></div>
+       <section class="section-block"><div class="section-heading"><div><p class="eyebrow">Campaign gallery</p><h2>Looks, moods and stories</h2><p class="muted">Tap a card for a larger preview.</p></div><span class="pill" id="sanskariCount">5 concepts</span></div><div class="campaign-grid" id="sanskariGallery"></div></section>
+       <section class="section-block"><div class="section-heading"><div><p class="eyebrow">Future capsules</p><h2>More edits. More personal style.</h2><p class="muted">The following previews are design concepts, not available collections.</p></div></div>
+         <div class="coming-grid">
+@@ -249,7 +251,7 @@
+     </section>
+   </main>
+ 
+-  <footer class="site-footer"><div class="wrap footer-inner"><div><b>BLACKED</b><p>V2 Phase 4 · integrated wheel hub, local campaign collections, boyfriend and gated fantasy galleries</p></div><div><a href="./phase5-diagnostics.html">Phase 5 diagnostics</a><a href="./phase6-diagnostics.html">Phase 6 diagnostics</a><a href="./phase7-diagnostics.html">Phase 7 final QA</a><a href="./phase23-diagnostics.html">V2 Phase 2+3 diagnostics</a><button class="text-btn footer-privacy-btn" id="privacyOpen" type="button">Privacy & data controls</button><a href="https://github.com/bhanu13yadav1-ai/Brand-website-4f" target="_blank" rel="noopener noreferrer">Reference repository</a></div></div><p class="wrap footer-note">This is a front-end concept prototype. There is no real inventory, checkout, payment, account system or companion booking. New campaign, wheel-poster, Sanskari and boyfriend-reference assets are bundled locally. The broader 151-record archive still uses public source URLs and must be verified with Phase 2+3 diagnostics.</p></footer>
++  <footer class="site-footer"><div class="wrap footer-inner"><div><b>BLACKED</b><p>V2 Phase 4 · integrated wheel hub, local campaign collections, boyfriend and gated fantasy galleries</p></div><div><a href="./phase5-diagnostics.html">Phase 5 diagnostics</a><a href="./phase6-diagnostics.html">Phase 6 diagnostics</a><a href="./phase7-diagnostics.html">Phase 7 final QA</a><a href="./phase23-diagnostics.html">V2 Phase 2+3 diagnostics</a><a href="./phase2-image-diagnostics.html">Phase 1–2 image diagnostics</a><button class="text-btn footer-privacy-btn" id="privacyOpen" type="button">Privacy & data controls</button><a href="https://github.com/bhanu13yadav1-ai/Brand-website-4f" target="_blank" rel="noopener noreferrer">Reference repository</a></div></div><p class="wrap footer-note">This is a front-end concept prototype. There is no real inventory, checkout, payment, account system or companion booking. New campaign, wheel-poster, Sanskari and boyfriend-reference assets are bundled locally. The broader 151-record archive still uses public source URLs and must be verified with Phase 2+3 diagnostics.</p></footer>
+ 
+   <div class="overlay hidden" id="ageModal" role="dialog" aria-modal="true" aria-labelledby="ageTitle" aria-describedby="ageDescription"><div class="modal-card"><p class="eyebrow">Adults only</p><h2 id="ageTitle">Before entering</h2><p id="ageDescription">This section is intended for adults 18+. This is self-attestation, not formal age verification.</p><label class="check-label"><input id="ageConfirm" type="checkbox"> I confirm that I am 18 or older.</label><p id="ageError" class="error-text hidden">Please confirm before continuing.</p><button class="btn primary full" id="confirmAge" type="button">Enter section</button><button class="text-btn" id="cancelAge" type="button">Go back</button></div></div>
+   <div class="overlay hidden" id="wishlistModal" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle"><div class="modal-card modal-wide"><button class="modal-close" type="button" data-close="wishlistModal" aria-label="Close">×</button><p class="eyebrow">Saved on this device</p><h2 id="wishlistTitle">Saved styles</h2><div id="wishlistItems"><p class="muted">No saved styles yet.</p></div><button class="btn ghost full" id="clearWishlist" type="button">Clear saved styles</button></div></div>
+--- a/part-c-enhancements.js
++++ b/part-c-enhancements.js
+@@ -6,7 +6,8 @@
+   const $ = (selector, root = document) => root.querySelector(selector);
+   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+   const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+-  const asset = (path) => `./assets/${path}`;
++  // Phase 2 root-cause fix: approved campaign images are bundled at repository root, not ./assets/<folder>/.
++  const asset = (path) => './' + String(path).split('/').pop();
+   const state = { version: 'V2 Phase 4 integration 1.0.0', wheels: {}, spinCount: 0, errors: [], gateAccepted: false };
+ 
+   const wheelItems = {
+--- a/sw.js
++++ b/sw.js
+@@ -1,36 +1,36 @@
+ /* BLACKED V2 Phase 2+3 repair service worker. */
+ 'use strict';
+-const CACHE_NAME = 'blacked-v2-phase4-integration-1';
++const CACHE_NAME = 'blacked-v2-phase2-image-repair-2';
+ const CORE = [
+   './','./index.html','./styles.css','./app.js','./fallback.js','./part-c-enhancements.css','./part-c-enhancements.js',
+   './manifest.webmanifest','./app-icon.svg','./innerwear-image-library.json','./size-chart-template.json',
+   './phase23-diagnostics.html','./part-a-diagnostics.html','./part-b-diagnostics.html',
+   './phase4-diagnostics.html','./phase5-diagnostics.html','./phase6-diagnostics.html','./phase7-diagnostics.html',
+   './part-c-diagnostics.html',
+-  './assets/fantasy-gallery/male-reference-01.webp','./assets/fantasy-gallery/male-reference-02.webp',
+-  './assets/fantasy-gallery/male-reference-03.webp','./assets/fantasy-gallery/male-reference-04.webp',
+-  './assets/fantasy-gallery/threesome-fantasy-cover.webp',
+-  './assets/wheel-posters/tease-guess-wheel.webp','./assets/wheel-posters/after-dark-questions.webp',
+-  './assets/campaigns/blacked-red-lace-campaign.webp',
+-  './assets/sanskari/sanskari-outside-bold-within.webp','./assets/sanskari/shaam-se-raat-tak.webp',
+-  './assets/sanskari/shaam-ki-roshni.webp','./assets/sanskari/shaam-e-noor.webp','./assets/sanskari/noor-ka-nasha.webp',
+-  './assets/sanskari/sanskari-outside-bold-within-high-res.webp','./assets/sanskari/sanskari-outside-bold-within-web-optimized.webp',
+-  './assets/triad-gallery/innerwere-luxury-trio.webp',
+-  './assets/innerwear-gallery/soft-rose-rest-restore.webp',
+-  './assets/innerwear-gallery/black-gold-styling-01.webp',
+-  './assets/innerwear-gallery/comfort-styling.webp',
+-  './assets/innerwear-gallery/rose-lace-back-detail.webp',
+-  './assets/innerwear-gallery/rose-lace-lifestyle.webp',
+-  './assets/innerwear-gallery/black-veil-editorial.webp',
+-  './assets/innerwear-gallery/black-gold-confidence.webp',
+-  './assets/innerwear-gallery/sacred-elegance-editorial.webp',
+-  './assets/innerwear-gallery/black-lace-confidence.webp',
+-  './assets/triad-gallery/night-light-confidence.webp',
+-  './assets/couples-gallery/active-couple-concept.webp',
+-  './assets/triad-gallery/same-girl-different-stories.webp',
+-  './assets/triad-gallery/same-room-different-feelings.webp',
+-  './assets/innerwear-gallery/feel-confident-everyday.webp',
+-  './assets/couples-gallery/couple-confidence.webp'
++  './male-reference-01.webp','./male-reference-02.webp',
++  './male-reference-03.webp','./male-reference-04.webp',
++  './threesome-fantasy-cover.webp',
++  './tease-guess-wheel.webp','./after-dark-questions.webp',
++  './blacked-red-lace-campaign.webp',
++  './sanskari-outside-bold-within.webp','./shaam-se-raat-tak.webp',
++  './shaam-ki-roshni.webp','./shaam-e-noor.webp','./noor-ka-nasha.webp',
++  './sanskari-outside-bold-within-high-res.webp','./sanskari-outside-bold-within-web-optimized.webp',
++  './innerwere-luxury-trio.webp',
++  './soft-rose-rest-restore.webp',
++  './black-gold-styling-01.webp',
++  './comfort-styling.webp',
++  './rose-lace-back-detail.webp',
++  './rose-lace-lifestyle.webp',
++  './black-veil-editorial.webp',
++  './black-gold-confidence.webp',
++  './sacred-elegance-editorial.webp',
++  './black-lace-confidence.webp',
++  './night-light-confidence.webp',
++  './active-couple-concept.webp',
++  './same-girl-different-stories.webp',
++  './same-room-different-feelings.webp',
++  './feel-confident-everyday.webp',
++  './couple-confidence.webp'
+ ];
+ self.addEventListener('install', event => event.waitUntil((async () => {
+   const cache = await caches.open(CACHE_NAME);
+--- a/manifest.webmanifest
++++ b/manifest.webmanifest
+@@ -1,7 +1,7 @@
+ {
+   "name": "BLACKED — V2 Phase 4 Collections & Wheels",
+   "short_name": "BLACKED V2.4",
+-  "description": "Repaired interactive wheels, local campaign references, innerwear archive and wellness education.",
++  "description": "BLACKED V2 Phase 4 review build with Phase 2 local campaign-image path repair and image diagnostics.",
+   "start_url": "./index.html",
+   "scope": "./",
+   "display": "standalone",
+--- a/phase23-diagnostics.html
++++ b/phase23-diagnostics.html
+@@ -46,9 +46,9 @@
+   $('#checkImages').addEventListener('click',async()=>{
+     rows.length=0;status.replaceChildren();$('#checkImages').disabled=true;
+     const list=[
+-      'assets/fantasy-gallery/male-reference-01.webp','assets/fantasy-gallery/male-reference-02.webp','assets/fantasy-gallery/male-reference-03.webp','assets/fantasy-gallery/male-reference-04.webp','assets/fantasy-gallery/threesome-fantasy-cover.webp',
+-      'assets/wheel-posters/tease-guess-wheel.webp','assets/wheel-posters/after-dark-questions.webp','assets/campaigns/blacked-red-lace-campaign.webp',
+-      'assets/sanskari/sanskari-outside-bold-within.webp','assets/sanskari/shaam-se-raat-tak.webp','assets/sanskari/shaam-ki-roshni.webp','assets/sanskari/shaam-e-noor.webp','assets/sanskari/noor-ka-nasha.webp','assets/sanskari/sanskari-outside-bold-within-high-res.webp','assets/sanskari/sanskari-outside-bold-within-web-optimized.webp'
++      'male-reference-01.webp','male-reference-02.webp','male-reference-03.webp','male-reference-04.webp','threesome-fantasy-cover.webp',
++      'tease-guess-wheel.webp','after-dark-questions.webp','blacked-red-lace-campaign.webp',
++      'sanskari-outside-bold-within.webp','shaam-se-raat-tak.webp','shaam-ki-roshni.webp','shaam-e-noor.webp','noor-ka-nasha.webp','sanskari-outside-bold-within-high-res.webp','sanskari-outside-bold-within-web-optimized.webp'
+     ];
+     for(const path of list){const ok=await imageLoaded('./'+path);row(path,ok);}
+     $('#checkImages').disabled=false;show();
+--- a/phase4-diagnostics.html
++++ b/phase4-diagnostics.html
+@@ -7,6 +7,6 @@
+ (()=>{'use strict';const $=s=>document.querySelector(s);const rows=[];function row(name,ok,detail=''){rows.push({name,status:ok?'PASS':'FAIL',detail:String(detail)});render()}function render(){$('#results').innerHTML=rows.map(r=>`<div class="row"><b class="${r.status}">${r.status}</b> · ${esc(r.name)}${r.detail?`<div class="small">${esc(r.detail)}</div>`:''}</div>`).join('');const fail=rows.filter(r=>r.status==='FAIL').length;$('#status').textContent=rows.length+` checks · ${fail} failed · `+(fail?'Review failed items':'No failures so far')}function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+ function basic(){rows.length=0;const d=window.BLACKED_V2_P23?.getDiagnostics?.();row('Part C/Phase 4 add-on initialized',!!d?.addonLoaded,d?.version||'API missing');row('Four separate wheels exist',Object.keys(d?.wheels||{}).length===4,Object.keys(d?.wheels||{}).join(', '));for(const k of ['boy','dildo','plug','wild'])row(k+' has 8 visible labelled segments',d?.wheels?.[k]?.segments===8,d?.wheels?.[k]?.segments);row('Wheel hub has both supplied poster cards',d?.wheelPosterCards===2,d?.wheelPosterCards);row('Boyfriend gallery has 4 original reference cards',d?.boyfriendGalleryCards===4,d?.boyfriendGalleryCards);row('Couples style gallery has 2 new cards',d?.coupleEditorialCards===2,d?.coupleEditorialCards);row('Innerwear gallery has 10 new campaign cards',d?.phase4InnerwearCards===10,d?.phase4InnerwearCards);row('Threesome gallery has 4 gated visual cards',d?.threesomeGalleryCards===4,d?.threesomeGalleryCards);row('Threesome protected content starts hidden',!!document.querySelector('#v23ThreesomeProtected[hidden]'));row('Original seven app views are intact',['home','stories','innerwear','sanskari','wellness','boyfriend','fit'].every(v=>document.querySelector(`[data-view="${v}"]`)));row('Review-hold images are not in site galleries',!document.querySelector('[data-v24-asset*="review-hold"]'));row('No runtime errors in add-on state',(d?.errors||[]).length===0,(d?.errors||[]).join('; '));}
+ async function testWheels(){for(const k of ['boy','dildo','plug','wild']){const selector={boy:'#boyPreference',dildo:'#dildoPreference',plug:'#plugPreference',wild:'#wildCategory'}[k];const select=$(selector);if(select&&k!=='wild'&&!select.value)select.selectedIndex=1;select?.dispatchEvent(new Event('change',{bubbles:true}));const b=$(`[data-spin-wheel="${k}"]`);if(!b){row(k+' spin button found',false);continue;}b.click();await new Promise(r=>setTimeout(r,2850));const d=window.BLACKED_V2_P23?.getDiagnostics?.()?.wheels?.[k];row(k+' wheel result aligns to pointer segment',!!d&&d.selectedIndex!==null&&d.selectedLabel===d.labels[d.selectedIndex]&&d.alignmentErrorDegrees!==null&&d.alignmentErrorDegrees<0.5,d?`index=${d.selectedIndex}; label=${d.selectedLabel}; alignment=${d.alignmentErrorDegrees}°`:'no diagnostics');}}
+-async function checkAssets(){const paths=window.BLACKED_V2_P23?.getDiagnostics?.()?.phase4Assets||[];row('Phase 4 asset list exposed',paths.length>=16,paths.length+' asset references');for(const p of paths){const ok=await new Promise(resolve=>{const i=new Image();const t=setTimeout(()=>resolve(false),7000);i.onload=()=>{clearTimeout(t);resolve(i.naturalWidth>0)};i.onerror=()=>{clearTimeout(t);resolve(false)};i.src='./assets/'+p;});row('Asset loads: '+p,ok);}}
++async function checkAssets(){const paths=window.BLACKED_V2_P23?.getDiagnostics?.()?.phase4Assets||[];row('Phase 4 asset list exposed',paths.length>=16,paths.length+' asset references');for(const p of paths){const ok=await new Promise(resolve=>{const i=new Image();const t=setTimeout(()=>resolve(false),7000);i.onload=()=>{clearTimeout(t);resolve(i.naturalWidth>0)};i.onerror=()=>{clearTimeout(t);resolve(false)};i.src='./'+String(p).split('/').pop();});row('Asset loads: '+p,ok);}}
+ $('#runBasic').addEventListener('click',basic);$('#runWheels').addEventListener('click',testWheels);$('#checkLocalAssets').addEventListener('click',checkAssets);document.addEventListener('DOMContentLoaded',()=>{});
+ })();</script></body></html>

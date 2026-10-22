@@ -1,3 +1,14 @@
-HISTORICAL HANDOFF — PHASES 1–2 ONLY; superseded by PHASE3_4_HANDOFF.txt
-Repo: https://github.com/bhanu13yadav1-ai/Brand-website-v2
-The V3 package has now progressed to local Phase 3/4 preparation too. Read V3_MASTER_PROJECT_NOTES.md first, then PHASE3_4_UPLOAD_INSTRUCTIONS_HINGLISH.md and PHASE3_4_HANDOFF.txt for the current combined integration order. Keep the existing website/data and all core app files. The original Phase 1–2 implementation introduced four Noor photos, two Pink editorials, one Grace concept and one gated multi-adult concept. Phase 3/4 later adds a third pink editorial photo and two more gated multi-adult photos. All additions remain local and un-deployed until the repository receives the overlay files, index.html links and sw.js cache entries. GitHub safe branch creation returned HTTP 403, so no remote writes or live updates were made.
+BLACKED V3 HANDOFF — PHASE 1 AND PHASE 2 REVIEW ZIP
+
+Current review baseline: 12ae0b208d056b39bba4c4b5b981d08f59ba30f0
+Phase 1: baseline audit and backup COMPLETE.
+Phase 2: root-path repairs and local photo overlay integrated in the review ZIP.
+
+Runtime source files changed: index.html, part-c-enhancements.js, sw.js, manifest.webmanifest, phase23-diagnostics.html, and phase4-diagnostics.html. The existing Phase 2 photo collection CSS/JS are now linked from index.html.
+Added Phase 2 link only: phase2-photo-collections.css/js. Later Phase 3–15 loaders remain inactive.
+
+Run phase2-image-diagnostics.html. First check local images, then run all 151 remote URLs on the target network. Export the CSV before reporting failures. A browser LOAD FAILED result is not automatically a 404; distinguish unavailable source, network/CDN issue, CSP/policy block and temporary timeout.
+
+Not verified in this environment: actual browser interactions (local navigation was blocked by environment policy), live GitHub Pages after repair, real Android Chrome, and runtime HTTP availability of the 151 external records.
+
+No GitHub write/commit/push performed. Review this ZIP and send requested corrections before Phase 3.

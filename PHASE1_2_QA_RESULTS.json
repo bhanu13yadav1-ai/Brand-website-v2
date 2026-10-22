@@ -1,0 +1,255 @@
+{
+  "suite": "BLACKED Phase 1–2 review ZIP static QA",
+  "tested_at_utc": "2026-10-22",
+  "repository": "https://github.com/bhanu13yadav1-ai/Brand-website-v2",
+  "baseline_commit": "12ae0b208d056b39bba4c4b5b981d08f59ba30f0",
+  "checks": [
+    {
+      "name": "node --check app.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "node --check fallback.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "node --check part-c-enhancements.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "node --check phase2-photo-collections.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "node --check sw.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "JSON parse innerwear-image-library.json",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "JSON parse size-chart-template.json",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "JSON parse manifest.webmanifest",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "JSON parse phase5-6-asset-manifest.json",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "151 image library records",
+      "status": "PASS",
+      "detail": "151"
+    },
+    {
+      "name": "Image-library IDs unique",
+      "status": "PASS",
+      "detail": "151"
+    },
+    {
+      "name": "All 151 source paths present in upstream main trees",
+      "status": "PASS",
+      "detail": "151"
+    },
+    {
+      "name": "HTML parse / unique IDs index.html",
+      "status": "PASS",
+      "detail": "{'ids': 158, 'duplicates': []}"
+    },
+    {
+      "name": "HTML parse / unique IDs phase2-image-diagnostics.html",
+      "status": "PASS",
+      "detail": "{'ids': 11, 'duplicates': []}"
+    },
+    {
+      "name": "All seven existing views preserved",
+      "status": "PASS",
+      "detail": "['home', 'stories', 'innerwear', 'sanskari', 'wellness', 'boyfriend', 'fit']"
+    },
+    {
+      "name": "Phase 2 script wired after Part C",
+      "status": "PASS",
+      "detail": "['./fallback.js', './app.js', './part-c-enhancements.js', './phase2-photo-collections.js']"
+    },
+    {
+      "name": "Phase 3–15 loader not activated",
+      "status": "PASS",
+      "detail": "['./fallback.js', './app.js', './part-c-enhancements.js', './phase2-photo-collections.js']"
+    },
+    {
+      "name": "Part C uses root-level image resolver",
+      "status": "PASS",
+      "detail": "root basename path"
+    },
+    {
+      "name": "All root-level image files decode",
+      "status": "PASS",
+      "detail": "75/75"
+    },
+    {
+      "name": "Image asset manifest covers all root images",
+      "status": "PASS",
+      "detail": "75 images"
+    },
+    {
+      "name": "Homepage local image references exist",
+      "status": "PASS",
+      "detail": "direct root paths updated"
+    },
+    {
+      "name": "All service-worker image pre-cache paths exist",
+      "status": "PASS",
+      "detail": "{'listed': 31, 'missing': []}"
+    },
+    {
+      "name": "All service-worker CORE entries exist",
+      "status": "PASS",
+      "detail": "{'listed': 49, 'missing': []}"
+    },
+    {
+      "name": "All Part C image asset basenames exist",
+      "status": "PASS",
+      "detail": "{'refs': 31, 'missing': []}"
+    },
+    {
+      "name": "All four wheel controls retained",
+      "status": "PASS",
+      "detail": "['boy', 'dildo', 'plug', 'wild']"
+    },
+    {
+      "name": "Multi-adult Phase 2 gallery remains inside 18+ gate",
+      "status": "PASS",
+      "detail": "gallery insertion is rooted at protected container"
+    },
+    {
+      "name": "Phase 2 CSS braces balanced",
+      "status": "PASS",
+      "detail": "{'open': 43, 'close': 43}"
+    },
+    {
+      "name": "Service worker cache version bumped",
+      "status": "PASS",
+      "detail": "blacked-v2-phase2-image-repair-2"
+    },
+    {
+      "name": "Phase 2 collection local photo paths resolve",
+      "status": "PASS",
+      "detail": "Phase 2 photo record paths"
+    },
+    {
+      "name": "Existing diagnostics local asset paths normalized",
+      "status": "PASS",
+      "detail": "Phase 23/4 diagnostics use root image paths"
+    },
+    {
+      "name": "Core/data files unchanged from baseline",
+      "status": "PASS",
+      "detail": "{'app.js': True, 'styles.css': True, 'fallback.js': True, 'innerwear-image-library.json': True, 'size-chart-template.json': True}"
+    },
+    {
+      "name": "Baseline snapshot commit recorded",
+      "status": "PASS",
+      "detail": "12ae0b208d056b39bba4c4b5b981d08f59ba30f0"
+    },
+    {
+      "name": "Current report HTML parses: PHASE1_BASELINE_AUDIT.html",
+      "status": "PASS",
+      "detail": "PHASE1_BASELINE_AUDIT.html"
+    },
+    {
+      "name": "Current report HTML parses: PHASE1_AUDIT_REPORT.html",
+      "status": "PASS",
+      "detail": "PHASE1_AUDIT_REPORT.html"
+    },
+    {
+      "name": "Current report HTML parses: PHASE2_IMAGE_AUDIT.html",
+      "status": "PASS",
+      "detail": "PHASE2_IMAGE_AUDIT.html"
+    },
+    {
+      "name": "Current report HTML parses: PHASE2_IMPLEMENTATION_REPORT.html",
+      "status": "PASS",
+      "detail": "PHASE2_IMPLEMENTATION_REPORT.html"
+    },
+    {
+      "name": "Current report HTML parses: PHASE1_2_CHANGELOG.html",
+      "status": "PASS",
+      "detail": "PHASE1_2_CHANGELOG.html"
+    },
+    {
+      "name": "Current report HTML parses: PHASE1_2_TEST_CHECKLIST.html",
+      "status": "PASS",
+      "detail": "PHASE1_2_TEST_CHECKLIST.html"
+    },
+    {
+      "name": "Current report HTML parses: PHASE2_UPLOAD_INSTRUCTIONS_HINGLISH.html",
+      "status": "PASS",
+      "detail": "PHASE2_UPLOAD_INSTRUCTIONS_HINGLISH.html"
+    },
+    {
+      "name": "Top-level README points to current Phase 1–2 guide",
+      "status": "PASS",
+      "detail": "current review entry point"
+    },
+    {
+      "name": "Older Phase 9–15 instructions explicitly marked historical",
+      "status": "PASS",
+      "detail": "historical install steps are not run"
+    },
+    {
+      "name": "Current Phase 2 upload note warns not to overwrite main",
+      "status": "PASS",
+      "detail": "review-first instruction"
+    },
+    {
+      "name": "All protected core/data files still match baseline",
+      "status": "PASS",
+      "detail": "no destructive core replacement"
+    }
+  ],
+  "passed": 43,
+  "failed": 0,
+  "total": 43,
+  "local_root_images": 75,
+  "root_images_decoded": 75,
+  "external_archive_records": 151,
+  "external_source_tree_status": "151/151 paths exist in upstream GitHub main trees; runtime browser requests NOT TESTED",
+  "browser_functional_tests": "NOT TESTED: file:// and localhost navigation blocked by execution environment with ERR_BLOCKED_BY_ADMINISTRATOR",
+  "live_github_pages_after_repair": "NOT TESTED — not pushed",
+  "physical_android_chrome": "NOT TESTED",
+  "changed_runtime_files": [
+    "index.html",
+    "part-c-enhancements.js",
+    "sw.js",
+    "manifest.webmanifest",
+    "phase23-diagnostics.html",
+    "phase4-diagnostics.html"
+  ],
+  "phase2_modules_wired": [
+    "phase2-photo-collections.css",
+    "phase2-photo-collections.js"
+  ],
+  "preserved_core_files": [
+    "app.js",
+    "styles.css",
+    "fallback.js",
+    "innerwear-image-library.json",
+    "size-chart-template.json"
+  ],
+  "current_status": "STATIC QA COMPLETE; BROWSER/LIVE/ANDROID VALIDATION PENDING",
+  "change_manifest_entry_count": 37,
+  "remote_path_tree_check": "151/151 filenames found in upstream GitHub main trees; runtime HTTP remains NOT TESTED"
+}

@@ -1,69 +1,37 @@
-# V2 Phase 1 — Repository Audit & Asset Mapping
+# Phase 1 — Baseline Audit & Backup
 
-## 1. Scope
-- Target repository checked: `https://github.com/bhanu13yadav1-ai/Brand-website-v2`
-- Branch: `main`
-- Current tree at audit time: 76 tracked files; the core files (`index.html`, `app.js`, `styles.css`, `sw.js`, `manifest.webmanifest`) and Part A/B/C reports/add-on assets are present.
-- The uploaded files are user-provided references included in this audit package. No repository commit or live deployment was made in Phase 1.
+**Audit date:** 22 October 2026 (UTC)  
+**Repository:** https://github.com/bhanu13yadav1-ai/Brand-website-v2  
+**Branch:** `main`  
+**Snapshot commit:** `12ae0b208d056b39bba4c4b5b981d08f59ba30f0`  
+**GitHub Pages workflow run:** [#17](https://github.com/bhanu13yadav1-ai/Brand-website-v2/actions/runs/39769566213) — reported successful by GitHub Actions.  
+**Scope:** read-only audit of the captured Pages build before making Phase 2 image-path fixes.
 
-## 2. Primary root cause: Boyfriend photos are not visible
-Observed in current source:
-1. `index.html` references `./fallback.js` and `./app.js`, and `./styles.css`.
-2. It does **not** load `./part-c-enhancements.js` or `./part-c-enhancements.css`.
-3. The intended gallery and wheel implementation are inside `part-c-enhancements.js`, including `addBoyfriendGallery()`, `buildWheel()`, and the Threesome view. Since that script is not loaded, those enhancement functions do not run and their styles do not apply.
-4. Even if the script were linked, it requests `./assets/fantasy-gallery/male-reference-01.webp` etc. The actual `male-reference-01.webp` through `male-reference-04.webp` and `threesome-fantasy-cover.webp` are at repository root, not under `assets/fantasy-gallery/`. The existing references therefore do not match the current file paths.
-5. The existing app's legacy `spinWheel(kind)` selects its result separately from its rotation angle. That means a wheel can visually stop at a sector that does not correspond to the reported result. The Part C wheel implementation is intended to solve this, but it is not integrated.
+## Backup captured
+- Original deployed Pages artifact downloaded from GitHub Actions artifact `github-pages` (ID `12421657440`).
+- Inner deployment tar extracted and preserved unchanged as a separate baseline backup ZIP.
+- The archived Pages payload contained **321 files** after extraction.
+- Repo API tree at the same commit reported **262 entries**. These are different views of source vs Pages output; the backup is the exact captured Pages artifact, not a claim that every artifact file maps one-to-one to a tracked source path.
+- No changes were pushed to GitHub by this task. All fixes in the review ZIP are local and reversible.
 
-**Required fix in implementation phase:** integrate Part C CSS/JS safely after the core files, correct all photo paths (or move/copy files with a deliberate path plan), update `sw.js` cache entries/version, then test the 4 wheels and all five local assets independently. Don't replace the core app before testing for duplicate event listeners and duplicate nav handlers.
+## Existing feature inventory
+The baseline HTML contains seven primary views: `home`, `stories`, `innerwear`, `sanskari`, `wellness`, `boyfriend`, and `fit`. Existing areas include story search/filters/series/bookmarks, innerwear search/filter/sort, image library, wishlist, comparison, sample bag, Sanskari/Coming Soon previews, wellness/measurement education, the three original wheel locations plus Dirty/Wild, Boyfriend/Couples content, Fit Studio/local photo preview, privacy/data controls, PWA manifest, and service worker.
 
-## 3. Uploaded images — proposed destinations
-- `1000201720.png`: “Tease & Guess Wheel” poster reference. Use as the Wheel section's promotional/hero art. Do not use it as the actual interactive wheel: poster text is a flat image and cannot rotate or report the actual selected sector.
-- `1000201714.png`: “After-Dark Questions” wheel poster reference. Use as a second Wheel idea/card or alternate section art. The real wheel should remain a functional labelled wheel.
-- `1000201721.png`: red-lace BLACKED campaign art with a supplied suggestive tagline. Put in the Innerwear Campaigns/Red Lace collection, with 18+ content labelling as appropriate. Treat marketing claims written on the image as creative copy, not verified product facts.
-- `1000201284.webp`: “Sanskari Outside, Bold Within” hero/campaign option.
-- `1000201295.png` and `1000201287.webp`: alternate renders of a similar “Sanskari Outside, Bold Within” idea. Review quality/rights, select one main card and preserve the other as an alternate rather than showing duplicate campaign cards.
-- `1000201281.webp`: “Shaam Se Raat Tak” campaign.
-- `1000201280.webp`: “Shaam Ki Roshni” campaign.
-- `1000201277.webp`: “Shaam-e-Noor” campaign.
-- `1000201279.webp`: “Noor Ka Nasha” campaign.
-- `1000201200(1).webp`, `1000201201(1).webp`, `1000201199(1).webp`, `1000201203(1).webp`: exact byte-for-byte duplicates of 1000201281.webp, 1000201280.webp, 1000201277.webp, and 1000201279.webp respectively. Keep them in the source archive, but don't render duplicates as separate gallery cards.
+The Phase 1/2 additions must be additive. Core files preserved: `app.js`, `styles.css`, `fallback.js`, `innerwear-image-library.json`, `size-chart-template.json`, and existing wheel/game logic. No storage keys or saved data have been deliberately deleted or migrated.
 
-The exact file hashes, sizes and dimensions are in `PHASE1_ASSET_MANIFEST.csv`; a visual contact sheet is `ASSET_CONTACT_SHEET.jpg`.
+## Baseline integration findings
+1. `index.html` loaded `fallback.js`, `app.js`, `part-c-enhancements.js` and its CSS; the already-present Phase 2 photo collection CSS/JS were not linked.
+2. `part-c-enhancements.js` constructed local campaign URLs as `./assets/<folder>/<filename>`, but the 31 matching local image files were at repository root.
+3. The homepage directly referenced two images under `./assets/sanskari/` even though matching root-level images existed.
+4. `sw.js` pre-cache list contained 31 nested `./assets/...` image entries. Those paths did not exist; all 31 file basenames were available at root. Since install uses `Promise.allSettled`, pre-cache path errors could be hidden rather than fail visibly.
+5. `phase12-15-final-loader.js` and Phase 3–15 modules existed in the snapshot but were not referenced by `index.html`. This Phase 1/2 deliverable intentionally does **not** activate the later UI/design/features. They remain for later review and separate integration.
+6. `manifest.webmanifest` still labelled this app “V2 Phase 4”. It is updated only with a review-build description in the working copy; the main design remains Phase 4.
 
-## 4. Existing feature inventory
-Preserve these existing sections and capabilities unless a reviewed test proves a fix is required:
-- Home, 18+ story library and Part B chapter/ending features.
-- Innerwear catalogue, image library, search/filter/sort, product detail, wishlist, compare and demo bag.
-- Sanskari/Noor/Grace previews.
-- Wellness & Size Guide, measurement input and fit-cue education.
-- Boyfriend/Couples section and Fit Studio.
-- Original Boyfriend/Land wheel, Dildo wheel, Butt Plug wheel, Dirty/Wild wheel.
-- Part B story filters, reading progress/bookmarks where already present.
-- Phase C's intended labelled-wheel layer, boyfriend reference gallery and separate Threesome Fantasy view (currently not wired into the core HTML).
-- Privacy controls, image fallback, diagnostics, PWA/service worker.
+## Test status
+- GitHub Pages artifact ZIP/TAR integrity: **PASS**.
+- Local root image decodability: **75 PASS / 0 needing review** across **75 root-level image files**.
+- Seven-view, script-reference and duplicate-ID static checks are recorded in `PHASE1_2_QA_RESULTS.json`.
+- Browser automation could not navigate even to a local `127.0.0.1` HTTP server or `file://` page in this environment (`ERR_BLOCKED_BY_ADMINISTRATOR`). Therefore browser interaction, real network image responses, live Pages after repair, and physical Android Chrome remain **NOT TESTED** here. The included diagnostics page is designed for the user to run after extracting/serving this ZIP.
 
-## 5. Names and measurement claims
-- Do not identify real people from these photographs.
-- Do not infer or publish a person's penis size from a photo, physique, role or rumor.
-- In the implementation, use neutral cards such as “Reference 01 — Classic Editorial” unless the owner supplies an authorized public display name and verifiable license-safe content.
-- Provide a product size/measurement guide for dildo and butt-plug dimensions (overall length, insertable length, widest diameter, flared base), clearly labelled as product measurement—not a measurement of a person.
-- Don't claim a product is available, medical-size advice is verified, or a model's body details are factual unless sourced and checked.
-
-## 6. Wheel implementation acceptance checklist
-- Four separate wheel instances and result areas: Boyfriend/Land, Dildo, Butt Plug, Dirty/Wild.
-- Eight visible labels per wheel (category-specific).
-- The animation's final pointer sector must be the exact item shown in the result.
-- Category change refreshes the visible labels as well as result data.
-- Disable repeat spins while in motion; reset cancels pending timers/animation safely.
-- Result text is accessible to screen readers and keyboard users.
-- Respect reduced-motion and touch interactions.
-- Verify all 4 wheels separately at narrow mobile widths, not only by checking that the buttons exist.
-- Use uploaded poster images as promotional references; never pretend a static poster is a working wheel.
-
-## 7. Findings status
-- Repository source inspected: **PASS**
-- Part C CSS/JS linkage mismatch identified: **PASS**
-- Boyfriend/Threesome nested asset-path mismatch identified: **PASS**
-- New uploads classified and exact duplicates found: **PASS**
-- Live GitHub Pages runtime and physical Android testing: **NOT TESTED**
-- Code changes or repository commit made: **NO — Phase 1 only**
+## Exit status
+**Phase 1 audit and backup: COMPLETE.** Baseline copy is separate from the repaired working copy. No remote repository write was performed.

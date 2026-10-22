@@ -1,33 +1,35 @@
-# Phase 2 — Image and Asset Audit
+# Phase 2 — Image Audit & Root-Cause Repair
 
-**Audit date:** 22 October 2026  
-**Source:** ten user-uploaded WebP files mounted for this task.
+**Base commit:** `12ae0b208d056b39bba4c4b5b981d08f59ba30f0`  
+**Repair scope:** correct current root-image path mismatch, activate only the already-authored Phase 2 photo collection module, and make the service-worker cache address the files that actually exist.
 
-## Findings
+## Root cause (not just symptoms)
 
-- All ten supplied files could be opened as images and their dimensions were inspected.
-- `1000202036.webp` and `1000202039.webp` are visually near-identical duplicate uploads (mean RGB difference 0.48 after the same 64×96 resize). Do not render both in the same collection.
-- `1000202036.webp` also visually matches the existing Sanskari campaign direction and is held for verification against the exact repository asset before being re-added; no existing campaign is overwritten.
-- Eight distinct image assets are prepared for new placement. Original 1024-ish pixel width and portrait framing are retained; each asset is re-encoded as WebP quality 82. The CSV manifest records original/published hashes, byte size, dimensions and reduction.
-- Four hijab-inspired black-and-gold campaign images are assigned to **Sanskari → Noor Edit — Campaign Gallery**. The label identifies the requested creative direction only; it does not infer the models' faith or represent all Muslim women.
-- Two pink-toned editorial images are assigned to **Innerwear → New Innerwear Editorials**.
-- The cross-necklace styling image is a preview inside the existing **Grace Edit** `COMING SOON` card, explicitly labelled as theatrical/editorial concept rather than an official Christian/church collection.
-- The multi-adult campaign image is assigned inside the existing **18+ self-attestation-gated** Threesome Fantasy content area; it is not placed in an un-gated gallery.
+The project bundles its campaign images in the repository root. The active Part C helper created URLs below `./assets/` instead. Only `assets/css/style.css` was present beneath `assets/`; the expected image subfolders were absent. The requested image names themselves were not missing: their root-level counterparts existed. This mismatch affected the homepage hero, wheel posters, editorial/campaign images, the Threesome cover, and the service-worker image pre-cache entries.
 
-## Prepared implementation
+## Changes made in the working copy
+1. `index.html`: corrected the two direct homepage image paths to `./sanskari-outside-bold-within.webp` and `./shaam-se-raat-tak.webp`.
+2. `index.html`: added only `phase2-photo-collections.css` and `phase2-photo-collections.js` after the existing Part C files. Later Phase 3–15 modules remain unloaded. This enables the prepared Phase 2 galleries without activating the full future roadmap.
+3. `part-c-enhancements.js`: changed the asset helper to resolve bundled image basenames from repository root.
+4. `sw.js`: normalized all 31 pre-cache image entries from non-existent `./assets/<folder>/<file>` paths to the corresponding existing root-level `./<file>` paths and bumped cache name to `blacked-v2-phase2-image-repair-2`.
+5. `manifest.webmanifest`: updated the description to identify the Phase 2 image repair review build.
+6. Added `phase2-image-diagnostics.html` for local-image decoding and optional browser-side checks of all 151 external archive URLs. Added an external asset source-tree audit CSV and local asset hash/dimension manifest.
 
-- `phase2-photo-collections.js`: add-on script; does not overwrite legacy code. Creates photo cards, Noor and innerwear galleries, Grace preview and gated multi-adult reference; reports visible image failures; provides an accessible enlarged preview with close button, Escape and backdrop handling.
-- `phase2-photo-collections.css`: responsive 2-column mobile / 3-column wider-screen gallery, consistent portrait image framing, readable text and visible image-failure status.
-- New assets are under `assets/noor-edit/`, `assets/innerwear-gallery-v3/`, `assets/grace-edit/`, and `assets/triad-gallery-v3/`.
-- `PHASE2_UPLOAD_INSTRUCTIONS_HINGLISH.md` explains exact insertion points for `index.html` and `sw.js`.
+## 151-record remote archive review
+- Archive JSON records: **151**; all record IDs are unique: **True**.
+- Source repos and counts: `Brand-website-4f` **42**, `Brand-website-3` **83**, `Brand-website-full-finally-` **26**.
+- Every referenced filename exists in the corresponding upstream GitHub `main` tree against the upstream `main` tree SHAs documented in `PHASE2_EXTERNAL_ASSET_SOURCE_AUDIT.csv`; no missing tree paths were identified.
+- **Important limitation:** this validates path existence in GitHub repository trees, not the actual HTTP/CDN response on the user's device. Runtime availability is deliberately marked **NOT TESTED** until the included browser diagnostic is run.
+- `phase23-diagnostics.html` and `phase4-diagnostics.html` were also updated to test root-level paths.
+- The local hash manifest documents four pairs of exact duplicate source images. Originals are preserved in the archive; the current collection additions do not intentionally render duplicate cards from those pairs.
 
-## Not yet completed
+## Phase 2 acceptance criteria
+- All current active local images resolve to root paths where their source files exist.
+- The Phase 2 gallery images have correct local root paths and visible load/error status.
+- Protected multi-adult gallery cards remain inside the existing 18+ self-attestation protected container.
+- Existing views, story/product data, original wheels and browser-storage logic are not replaced.
+- Service worker points at existing root assets and uses a new cache namespace.
+- No statement claims live deployment or Android testing has passed.
 
-- This local overlay is not committed to the remote repository because branch creation was blocked by the GitHub connector's HTTP 403 integration permission error.
-- Live hosted image load, current Android Chrome, cache invalidation after publish, and the legacy 151-record URL list still require a real deployment/browser pass.
-- The new gallery assumes the existing `part-c-enhancements.js` has created `#v24InnerwearCollection` and `#v24TriadGrid`; the script is included **after** that enhancement script, and a pre-deploy check should confirm those selectors on `main`.
-
-
-## Phase 3–4 addendum (22 October 2026)
-
-The combined local package now has **11 unique local gallery references** in total: the original eight selected in Phase 2 plus three new photos supplied after that package. The new solo pink editorial is assigned to Innerwear. The other two new multi-adult campaign photos remain under the existing `#v23ThreesomeProtected` element behind the existing 18+ self-attestation. New optimised files and source/output checksums are recorded in `PHASE3_4_IMAGE_MANIFEST.csv`. This is still a local overlay only; no remote files were changed.
+## Validation status
+See `PHASE1_2_QA_RESULTS.json`, `PHASE2_LOCAL_ASSET_MANIFEST.csv`, and `PHASE2_EXTERNAL_ASSET_SOURCE_AUDIT.csv`. Static syntax/path/manifest checks are run during packaging. Browser navigation is blocked by this execution environment, so live interaction and Android verification remain **NOT TESTED**.

@@ -6,7 +6,8 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
-  const asset = (path) => `./assets/${path}`;
+  // Phase 2 root-cause fix: approved campaign images are bundled at repository root, not ./assets/<folder>/.
+  const asset = (path) => './' + String(path).split('/').pop();
   const state = { version: 'V2 Phase 4 integration 1.0.0', wheels: {}, spinCount: 0, errors: [], gateAccepted: false };
 
   const wheelItems = {

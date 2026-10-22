@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Phase 3 — Implementation &amp; QA Report | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Phase 3 — Implementation &amp; QA Report" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE3_IMPLEMENTATION_REPORT.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE3_IMPLEMENTATION_REPORT.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Phase 3 — Implementation &amp; QA Report" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Phase 3 — Implementation &amp; QA Report","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE3_IMPLEMENTATION_REPORT.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-phase-3--implementation--qa-report">V1 Phase 3 — Implementation &amp; QA Report</h1>
+
+<h2 id="scope">Scope</h2>
+<p>Phase 3: information architecture and collection previews for <code class="language-plaintext highlighter-rouge">bhanu13yadav1-ai/Brand-website-4f</code>, using an additive enhancement layer. The package also bundles the Phase 2 compatibility overlay so it can be uploaded as one set.</p>
+
+<h2 id="what-is-implemented-in-source-files">What is implemented in source files</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">phase3.js</code>: adds a compact Collections directory to Home after the existing destination grid; keeps the existing Sanskari page/gallery; updates the existing Noor and Grace teaser cards to the explicit Muslim-Inspired and Christian-Inspired Coming Soon labels; adds current-view <code class="language-plaintext highlighter-rouge">aria-current</code> sync; uses one delegated click listener and an initialization guard.</li>
+  <li><code class="language-plaintext highlighter-rouge">phase3.css</code>: responsive card/grid designs, non-interactive Coming Soon preview art, visible keyboard focus, reduced-motion handling, and small-screen layouts.</li>
+  <li><code class="language-plaintext highlighter-rouge">css/styles.css</code>: imports the original root stylesheet first, then the Phase 3 enhancement CSS.</li>
+  <li><code class="language-plaintext highlighter-rouge">js/app.js</code>: repairs the existing legacy path mismatch and loads original <code class="language-plaintext highlighter-rouge">app.js</code> first, then <code class="language-plaintext highlighter-rouge">phase3.js</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">sw.js</code>: versioned Phase 3 cache, verified root image paths, Phase 3 CSS/JS and diagnostics paths, and the existing single-level <code class="language-plaintext highlighter-rouge">assets/&lt;filename&gt;</code> fallback.</li>
+  <li><code class="language-plaintext highlighter-rouge">manifest.webmanifest</code>: correct root icon paths.</li>
+  <li><code class="language-plaintext highlighter-rouge">phase3-diagnostics.html</code>: live same-origin iframe checks for file routes, collection insertion, collection navigation, preview labels, image loads, and presence of the three original wheel controls.</li>
+</ul>
+
+<h2 id="preservation">Preservation</h2>
+<p>No full root <code class="language-plaintext highlighter-rouge">index.html</code>, root <code class="language-plaintext highlighter-rouge">app.js</code>, root <code class="language-plaintext highlighter-rouge">styles.css</code>, original asset binary, or catalogue source is included for replacement. The six current views remain the canonical navigation destinations. No new controls are attached to the three original wheel buttons, and no wheel code is changed in Phase 3.</p>
+
+<h2 id="validation-performed-on-package-files">Validation performed on package files</h2>
+<ul>
+  <li>Node syntax check: <code class="language-plaintext highlighter-rouge">phase3.js</code>, <code class="language-plaintext highlighter-rouge">js/app.js</code>, and <code class="language-plaintext highlighter-rouge">sw.js</code>.</li>
+  <li>JSON parse: <code class="language-plaintext highlighter-rouge">manifest.webmanifest</code>.</li>
+  <li>HTML parser: <code class="language-plaintext highlighter-rouge">phase2-diagnostics.html</code> and <code class="language-plaintext highlighter-rouge">phase3-diagnostics.html</code>.</li>
+  <li>Static contract checks: required Phase 3 file names, section IDs, preview labels, navigation action, and original wheel IDs are present.</li>
+  <li>Archive structure check: one top-level folder, nested <code class="language-plaintext highlighter-rouge">css/</code> and <code class="language-plaintext highlighter-rouge">js/</code> paths preserved.</li>
+</ul>
+
+<h2 id="results-not-claimed">Results not claimed</h2>
+<ul>
+  <li>NOT TESTED: GitHub Pages upload/build, production image loading, console/network errors on the hosted page, Android physical device, keyboard/touch navigation on-device, and full regression.</li>
+  <li>NOT TESTED: whether the user has successfully uploaded Phase 2. This ZIP includes the relevant Phase 2 compatibility overlay either way.</li>
+  <li>BLOCKED: direct commit into the supplied repositories because the available GitHub connection reports read-only (<code class="language-plaintext highlighter-rouge">push=false</code>).</li>
+</ul>
+
+<h2 id="phase-3-exit-criteria">Phase 3 exit criteria</h2>
+<p>Keep Phase 3 <code class="language-plaintext highlighter-rouge">PARTIAL / LIVE VERIFICATION PENDING</code> until <code class="language-plaintext highlighter-rouge">phase3-diagnostics.html</code> is run after upload and manual checks confirm that Home, all original views, catalog interactions, wishlist/bag, Sanskari gallery and three wheel experiences still work. Do not call the release complete just because the new cards appear.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

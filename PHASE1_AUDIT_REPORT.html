@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100c10"><title>BLACKED Phase 1 Audit Report</title><style>:root{color-scheme:dark;--bg:#100c10;--panel:#191219;--line:#493344;--text:#fff5fa;--muted:#c0b2bd;--gold:#eacb8c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:980px;margin:auto;padding:24px}h1,h2,h3{line-height:1.2}h1{font-size:clamp(28px,5vw,40px)}h2{margin-top:30px;border-top:1px solid var(--line);padding-top:14px}p,li{max-width:82ch}a{color:#f6bfd9}code,pre{background:#241925;border-radius:5px;padding:2px 5px;overflow-wrap:anywhere}pre{padding:12px;overflow:auto}table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}th,td{border:1px solid var(--line);padding:8px;text-align:left}th{background:#251825}blockquote{border-left:3px solid var(--gold);margin-left:0;padding:8px 14px;color:var(--muted)}.top{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-bottom:20px}.top a{margin-right:16px}</style></head><body><main><nav class="top"><a href="./README.md">Current README</a><a href="./README_PHASE1_2_REVIEW_HINGLISH.md">Hinglish guide</a><a href="./phase2-image-diagnostics.html">Run image diagnostics</a><a href="./PHASE1_2_QA_RESULTS.md">QA results</a></nav><h1>Phase 1 — Baseline Audit &amp; Backup</h1>
+<p><strong>Audit date:</strong> 22 October 2026 (UTC)<br />
+<strong>Repository:</strong> https://github.com/bhanu13yadav1-ai/Brand-website-v2<br />
+<strong>Branch:</strong> <code>main</code><br />
+<strong>Snapshot commit:</strong> <code>12ae0b208d056b39bba4c4b5b981d08f59ba30f0</code><br />
+<strong>GitHub Pages workflow run:</strong> <a href="https://github.com/bhanu13yadav1-ai/Brand-website-v2/actions/runs/39769566213">#17</a> — reported successful by GitHub Actions.<br />
+<strong>Scope:</strong> read-only audit of the captured Pages build before making Phase 2 image-path fixes.</p>
+<h2>Backup captured</h2>
+<ul>
+<li>Original deployed Pages artifact downloaded from GitHub Actions artifact <code>github-pages</code> (ID <code>12421657440</code>).</li>
+<li>Inner deployment tar extracted and preserved unchanged as a separate baseline backup ZIP.</li>
+<li>The archived Pages payload contained <strong>321 files</strong> after extraction.</li>
+<li>Repo API tree at the same commit reported <strong>262 entries</strong>. These are different views of source vs Pages output; the backup is the exact captured Pages artifact, not a claim that every artifact file maps one-to-one to a tracked source path.</li>
+<li>No changes were pushed to GitHub by this task. All fixes in the review ZIP are local and reversible.</li>
+</ul>
+<h2>Existing feature inventory</h2>
+<p>The baseline HTML contains seven primary views: <code>home</code>, <code>stories</code>, <code>innerwear</code>, <code>sanskari</code>, <code>wellness</code>, <code>boyfriend</code>, and <code>fit</code>. Existing areas include story search/filters/series/bookmarks, innerwear search/filter/sort, image library, wishlist, comparison, sample bag, Sanskari/Coming Soon previews, wellness/measurement education, the three original wheel locations plus Dirty/Wild, Boyfriend/Couples content, Fit Studio/local photo preview, privacy/data controls, PWA manifest, and service worker.</p>
+<p>The Phase 1/2 additions must be additive. Core files preserved: <code>app.js</code>, <code>styles.css</code>, <code>fallback.js</code>, <code>innerwear-image-library.json</code>, <code>size-chart-template.json</code>, and existing wheel/game logic. No storage keys or saved data have been deliberately deleted or migrated.</p>
+<h2>Baseline integration findings</h2>
+<ol>
+<li><code>index.html</code> loaded <code>fallback.js</code>, <code>app.js</code>, <code>part-c-enhancements.js</code> and its CSS; the already-present Phase 2 photo collection CSS/JS were not linked.</li>
+<li><code>part-c-enhancements.js</code> constructed local campaign URLs as <code>./assets/&lt;folder&gt;/&lt;filename&gt;</code>, but the 31 matching local image files were at repository root.</li>
+<li>The homepage directly referenced two images under <code>./assets/sanskari/</code> even though matching root-level images existed.</li>
+<li><code>sw.js</code> pre-cache list contained 31 nested <code>./assets/...</code> image entries. Those paths did not exist; all 31 file basenames were available at root. Since install uses <code>Promise.allSettled</code>, pre-cache path errors could be hidden rather than fail visibly.</li>
+<li><code>phase12-15-final-loader.js</code> and Phase 3–15 modules existed in the snapshot but were not referenced by <code>index.html</code>. This Phase 1/2 deliverable intentionally does <strong>not</strong> activate the later UI/design/features. They remain for later review and separate integration.</li>
+<li><code>manifest.webmanifest</code> still labelled this app “V2 Phase 4”. It is updated only with a review-build description in the working copy; the main design remains Phase 4.</li>
+</ol>
+<h2>Test status</h2>
+<ul>
+<li>GitHub Pages artifact ZIP/TAR integrity: <strong>PASS</strong>.</li>
+<li>Local root image decodability: <strong>75 PASS / 0 needing review</strong> across <strong>75 root-level image files</strong>.</li>
+<li>Seven-view, script-reference and duplicate-ID static checks are recorded in <code>PHASE1_2_QA_RESULTS.json</code>.</li>
+<li>Browser automation could not navigate even to a local <code>127.0.0.1</code> HTTP server or <code>file://</code> page in this environment (<code>ERR_BLOCKED_BY_ADMINISTRATOR</code>). Therefore browser interaction, real network image responses, live Pages after repair, and physical Android Chrome remain <strong>NOT TESTED</strong> here. The included diagnostics page is designed for the user to run after extracting/serving this ZIP.</li>
+</ul>
+<h2>Exit status</h2>
+<p><strong>Phase 1 audit and backup: COMPLETE.</strong> Baseline copy is separate from the repaired working copy. No remote repository write was performed.</p>
+<hr><p><small>Current Phase 1–2 review copy · baseline `12ae0b208d056b39bba4c4b5b981d08f59ba30f0` · No remote GitHub write or deployment was performed.</small></p></main></body></html>

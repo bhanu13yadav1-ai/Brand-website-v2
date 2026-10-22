@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>BLACKED V3 — Phase 12–15 Changelog | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="BLACKED V3 — Phase 12–15 Changelog" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE12_15_CHANGELOG.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE12_15_CHANGELOG.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="BLACKED V3 — Phase 12–15 Changelog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"BLACKED V3 — Phase 12–15 Changelog","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE12_15_CHANGELOG.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="blacked-v3--phase-1215-changelog">BLACKED V3 — Phase 12–15 Changelog</h1>
+
+<h2 id="phase-12--wheels">Phase 12 — Wheels</h2>
+<ul>
+  <li>Added an image-free, responsive directory for the three original wheels and separate Wild Wheel.</li>
+  <li>Route actions navigate to the original view/selector rather than duplicating wheel state.</li>
+  <li>Added runtime checks for the four existing wheel nodes and all shortcut buttons.</li>
+  <li>Preserved existing wheel segments, gates, reset logic and result alignment code.</li>
+</ul>
+
+<h2 id="phase-13--couples-studio">Phase 13 — Couples Studio</h2>
+<ul>
+  <li>Added six gallery cards using already-bundled root-level campaign images.</li>
+  <li>Added All / Couples / Romantic / Fiction filters and accessible large-image preview dialog.</li>
+  <li>Added route actions for existing date, message, fictional story and match tools.</li>
+  <li>Describes images as campaign references; no real-person marketplace, booking or body measurement is introduced.</li>
+</ul>
+
+<h2 id="phase-14--privacy-access-and-pwa-reliability">Phase 14 — Privacy, access and PWA reliability</h2>
+<ul>
+  <li>Added explicit, user-triggered JSON export for a short allow-list of app-owned localStorage keys; no automatic export/upload.</li>
+  <li>Added root-path normalization for older <code class="language-plaintext highlighter-rouge">./assets/&lt;folder&gt;/&lt;file&gt;</code> image references when the image is bundled at the repository root.</li>
+  <li>Adds readable error status in newly added galleries when an image truly fails.</li>
+  <li>Adds clear focus-visible outlines, mobile touch targets and reduced-motion CSS.</li>
+  <li>Added a patcher to bump <code class="language-plaintext highlighter-rouge">sw.js</code> cache and normalize cached image paths that would otherwise fail <code class="language-plaintext highlighter-rouge">cache.addAll</code>.</li>
+</ul>
+
+<h2 id="phase-15--release-highlights-and-qa">Phase 15 — Release highlights and QA</h2>
+<ul>
+  <li>Adds a “BLACKED V3 · WHAT’S NEW” panel before the Home hero, with seven routes to key updated areas.</li>
+  <li>Adds one same-origin diagnostics page that reads actual loader/module diagnostics from the deployed site.</li>
+  <li>Final loader reports stylesheet/script errors rather than silently swallowing missing files.</li>
+</ul>
+
+<h2 id="integration-assumptions-that-must-be-verified-against-the-checkout">Integration assumptions that must be verified against the checkout</h2>
+<ul>
+  <li>Existing repo has Phase 2–8 modules and campaign photos at the root; the final loader loads them in order.</li>
+  <li>Phase 9–11 modules are included here because they were not found on the target branch during audit.</li>
+  <li>Service-worker paths must be normalized before deployment; old cache entries are versioned rather than browser localStorage being cleared.</li>
+</ul>
+
+<h2 id="status">Status</h2>
+<ul>
+  <li>Package is prepared for merge into the original repository. Static/patch validation: 26/26 passed. A synthetic inline-DOM Playwright smoke test exercised After Dark prompt generation, wheel navigation, Couples Studio filter, and CM/inch conversion with no JS/page errors; its image/network and service-worker results are not representative of live GitHub Pages.</li>
+  <li>No live GitHub commit/deployment is claimed; integration write requests were previously rejected by GitHub with HTTP 403.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

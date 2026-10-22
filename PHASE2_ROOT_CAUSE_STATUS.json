@@ -1,0 +1,21 @@
+{
+  "baseline_commit": "12ae0b208d056b39bba4c4b5b981d08f59ba30f0",
+  "repo_tree_count": 262,
+  "pages_artifact_file_count": 321,
+  "root_local_images": 75,
+  "expected_nested_asset_paths_in_sw": 31,
+  "nested_assets_directory_observation": "assets/ directory contains assets/css/style.css; expected image subdirectories are absent",
+  "homepage_paths_fixed": [
+    "./assets/sanskari/sanskari-outside-bold-within.webp",
+    "./assets/sanskari/shaam-se-raat-tak.webp"
+  ],
+  "remote_asset_records": 151,
+  "remote_paths_missing_in_source_trees": 0,
+  "remote_runtime_http_status": "NOT TESTED",
+  "phase2_only_module_added": [
+    "phase2-photo-collections.css",
+    "phase2-photo-collections.js"
+  ],
+  "phase3_15_activated": false,
+  "status": "PHASE 1 COMPLETE; PHASE 2 STATIC ROOT-CAUSE FIX COMPLETE; BROWSER/LIVE/ANDROID TESTS PENDING"
+}

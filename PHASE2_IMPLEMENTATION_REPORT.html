@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100c10"><title>BLACKED Phase 2 Implementation Report</title><style>:root{color-scheme:dark;--bg:#100c10;--panel:#191219;--line:#493344;--text:#fff5fa;--muted:#c0b2bd;--gold:#eacb8c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:980px;margin:auto;padding:24px}h1,h2,h3{line-height:1.2}h1{font-size:clamp(28px,5vw,40px)}h2{margin-top:30px;border-top:1px solid var(--line);padding-top:14px}p,li{max-width:82ch}a{color:#f6bfd9}code,pre{background:#241925;border-radius:5px;padding:2px 5px;overflow-wrap:anywhere}pre{padding:12px;overflow:auto}table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}th,td{border:1px solid var(--line);padding:8px;text-align:left}th{background:#251825}blockquote{border-left:3px solid var(--gold);margin-left:0;padding:8px 14px;color:var(--muted)}.top{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-bottom:20px}.top a{margin-right:16px}</style></head><body><main><nav class="top"><a href="./README.md">Current README</a><a href="./README_PHASE1_2_REVIEW_HINGLISH.md">Hinglish guide</a><a href="./phase2-image-diagnostics.html">Run image diagnostics</a><a href="./PHASE1_2_QA_RESULTS.md">QA results</a></nav><h1>Phase 2 — Image Audit &amp; Root-Cause Repair</h1>
+<p><strong>Base commit:</strong> <code>12ae0b208d056b39bba4c4b5b981d08f59ba30f0</code><br />
+<strong>Repair scope:</strong> correct current root-image path mismatch, activate only the already-authored Phase 2 photo collection module, and make the service-worker cache address the files that actually exist.</p>
+<h2>Root cause (not just symptoms)</h2>
+<p>The project bundles its campaign images in the repository root. The active Part C helper created URLs below <code>./assets/</code> instead. Only <code>assets/css/style.css</code> was present beneath <code>assets/</code>; the expected image subfolders were absent. The requested image names themselves were not missing: their root-level counterparts existed. This mismatch affected the homepage hero, wheel posters, editorial/campaign images, the Threesome cover, and the service-worker image pre-cache entries.</p>
+<h2>Changes made in the working copy</h2>
+<ol>
+<li><code>index.html</code>: corrected the two direct homepage image paths to <code>./sanskari-outside-bold-within.webp</code> and <code>./shaam-se-raat-tak.webp</code>.</li>
+<li><code>index.html</code>: added only <code>phase2-photo-collections.css</code> and <code>phase2-photo-collections.js</code> after the existing Part C files. Later Phase 3–15 modules remain unloaded. This enables the prepared Phase 2 galleries without activating the full future roadmap.</li>
+<li><code>part-c-enhancements.js</code>: changed the asset helper to resolve bundled image basenames from repository root.</li>
+<li><code>sw.js</code>: normalized all 31 pre-cache image entries from non-existent <code>./assets/&lt;folder&gt;/&lt;file&gt;</code> paths to the corresponding existing root-level <code>./&lt;file&gt;</code> paths and bumped cache name to <code>blacked-v2-phase2-image-repair-2</code>.</li>
+<li><code>manifest.webmanifest</code>: updated the description to identify the Phase 2 image repair review build.</li>
+<li>Added <code>phase2-image-diagnostics.html</code> for local-image decoding and optional browser-side checks of all 151 external archive URLs. Added an external asset source-tree audit CSV and local asset hash/dimension manifest.</li>
+</ol>
+<h2>151-record remote archive review</h2>
+<ul>
+<li>Archive JSON records: <strong>151</strong>; all record IDs are unique: <strong>True</strong>.</li>
+<li>Source repos and counts: <code>Brand-website-4f</code> <strong>42</strong>, <code>Brand-website-3</code> <strong>83</strong>, <code>Brand-website-full-finally-</code> <strong>26</strong>.</li>
+<li>Every referenced filename exists in the corresponding upstream GitHub <code>main</code> tree against the upstream <code>main</code> tree SHAs documented in <code>PHASE2_EXTERNAL_ASSET_SOURCE_AUDIT.csv</code>; no missing tree paths were identified.</li>
+<li><strong>Important limitation:</strong> this validates path existence in GitHub repository trees, not the actual HTTP/CDN response on the user's device. Runtime availability is deliberately marked <strong>NOT TESTED</strong> until the included browser diagnostic is run.</li>
+<li><code>phase23-diagnostics.html</code> and <code>phase4-diagnostics.html</code> were also updated to test root-level paths.</li>
+<li>The local hash manifest documents four pairs of exact duplicate source images. Originals are preserved in the archive; the current collection additions do not intentionally render duplicate cards from those pairs.</li>
+</ul>
+<h2>Phase 2 acceptance criteria</h2>
+<ul>
+<li>All current active local images resolve to root paths where their source files exist.</li>
+<li>The Phase 2 gallery images have correct local root paths and visible load/error status.</li>
+<li>Protected multi-adult gallery cards remain inside the existing 18+ self-attestation protected container.</li>
+<li>Existing views, story/product data, original wheels and browser-storage logic are not replaced.</li>
+<li>Service worker points at existing root assets and uses a new cache namespace.</li>
+<li>No statement claims live deployment or Android testing has passed.</li>
+</ul>
+<h2>Validation status</h2>
+<p>See <code>PHASE1_2_QA_RESULTS.json</code>, <code>PHASE2_LOCAL_ASSET_MANIFEST.csv</code>, and <code>PHASE2_EXTERNAL_ASSET_SOURCE_AUDIT.csv</code>. Static syntax/path/manifest checks are run during packaging. Browser navigation is blocked by this execution environment, so live interaction and Android verification remain <strong>NOT TESTED</strong>.</p>
+<h2>Files changed in this review copy</h2>
+<ul>
+<li><code>index.html</code> — root image URLs corrected; Phase 2 collection CSS/JS linked after the current Part C files; diagnostics link added.</li>
+<li><code>part-c-enhancements.js</code> — asset helper resolves root-level image basenames.</li>
+<li><code>sw.js</code> — all 31 image precache paths corrected; cache namespace bumped to <code>blacked-v2-phase2-image-repair-2</code>.</li>
+<li><code>manifest.webmanifest</code> — description marks the Phase 2 review build.</li>
+<li><code>phase23-diagnostics.html</code>, <code>phase4-diagnostics.html</code> — checks updated to use real root-level image paths.</li>
+<li><code>phase2-photo-collections.css/js</code> — existing modules integrated, not rewritten.</li>
+<li><code>phase2-image-diagnostics.html</code>, the local/external asset manifests and reports — added for review/testing.</li>
+</ul>
+<h2>Current quality gate</h2>
+<ul>
+<li>Static/syntax/path checks: see <code>PHASE1_2_QA_RESULTS.json</code>.</li>
+<li>Browser automation: <strong>NOT TESTED</strong> because this execution environment blocked local browser navigation.</li>
+<li>Runtime checks of the 151 external archive URLs, live GitHub Pages after repair and physical Android Chrome: <strong>NOT TESTED</strong>.</li>
+<li>No remote branch, commit, PR or Pages deployment was changed by this task.</li>
+</ul>
+<hr><p><small>Current Phase 1–2 review copy · baseline `12ae0b208d056b39bba4c4b5b981d08f59ba30f0` · No remote GitHub write or deployment was performed.</small></p></main></body></html>

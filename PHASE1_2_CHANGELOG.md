@@ -1,23 +1,21 @@
-# Phase 1–2 changelog (review checklist)
+# Phase 1–2 Changelog — Current Review Copy
 
-## Prepared in this package
-- [x] Read the live-repository source files and current documented diagnostics.
-- [x] Record the seven existing views, feature systems and preservation constraints.
-- [x] Inspect all 10 uploads, check dimensions, find the duplicate upload pair and create a SHA-256 manifest.
-- [x] Optimize and package eight selected new photos without changing their portrait framing.
-- [x] Assign four hijab-inspired photos to the existing Noor section; two pink editorial photos to Innerwear; one cross-style editorial concept to Grace; one multi-adult image to the existing gated 18+ collection.
-- [x] Create an additive JS/CSS gallery layer, visible image load errors, search/filter on Noor, and accessible image preview.
-- [x] Write master notes with all 15 phases and handoff instructions.
+## Phase 1 — complete
+- Captured the current GitHub Pages artifact for source head `12ae0b208d056b39bba4c4b5b981d08f59ba30f0` and made a separate untouched baseline backup ZIP.
+- Inventoried the seven views, feature systems, root image files, service worker and prepared-but-not-loaded later phase modules.
+- Compared protected core/data file hashes against the baseline; they are unchanged.
 
-## Blocked / not yet live
-- [ ] GitHub safe branch creation — connector returned HTTP 403 (resource not accessible by integration).
-- [ ] Commit assets and new scripts into the remote repo.
-- [ ] Integrate two `<link>/<script>` lines and bump service-worker cache in hosted source.
-- [ ] Check live GitHub Pages and Android Chrome.
-- [ ] Run all pre-existing wheel, image-archive, story, storage and PWA regressions post-deploy.
+## Phase 2 — static repair complete; runtime check pending
+- Fixed two direct homepage image paths.
+- Corrected the active Part C image resolver so nested asset labels map to real root-level image files.
+- Corrected 31 service-worker image precache paths and bumped cache version.
+- Wired the already-prepared Phase 2 photo CSS/JS; no later phase modules are activated.
+- Updated the older Phase 23/4 diagnostics so they test root-level image paths.
+- Added current asset manifests, a local HTTP preview server and a diagnostic page with separate local/151-URL checks.
 
-## Review sources
-- https://github.com/bhanu13yadav1-ai/Brand-website-v2/blob/main/README.md
-- https://github.com/bhanu13yadav1-ai/Brand-website-v2/blob/main/PHASE4_IMPLEMENTATION_REPORT.md
-- https://github.com/bhanu13yadav1-ai/Brand-website-v2/blob/main/PHASE4_QA_RESULTS.json
-- https://github.com/bhanu13yadav1-ai/Brand-website-v2/blob/main/PHASE4_STATIC_CHECKS.json
+## Evidence / limitations
+- Static QA: see `PHASE1_2_QA_RESULTS.json` and `.md`.
+- 75/75 root image assets decode and all service-worker core paths exist.
+- 151/151 external archive filenames exist in the matching upstream `main` trees; actual URL delivery remains **NOT TESTED**.
+- Browser automation was blocked by the execution environment; live Pages after repair and Android Chrome are **NOT TESTED**.
+- No GitHub branch, commit, PR or deployment was changed.

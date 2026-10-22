@@ -46,9 +46,9 @@
   $('#checkImages').addEventListener('click',async()=>{
     rows.length=0;status.replaceChildren();$('#checkImages').disabled=true;
     const list=[
-      'assets/fantasy-gallery/male-reference-01.webp','assets/fantasy-gallery/male-reference-02.webp','assets/fantasy-gallery/male-reference-03.webp','assets/fantasy-gallery/male-reference-04.webp','assets/fantasy-gallery/threesome-fantasy-cover.webp',
-      'assets/wheel-posters/tease-guess-wheel.webp','assets/wheel-posters/after-dark-questions.webp','assets/campaigns/blacked-red-lace-campaign.webp',
-      'assets/sanskari/sanskari-outside-bold-within.webp','assets/sanskari/shaam-se-raat-tak.webp','assets/sanskari/shaam-ki-roshni.webp','assets/sanskari/shaam-e-noor.webp','assets/sanskari/noor-ka-nasha.webp','assets/sanskari/sanskari-outside-bold-within-high-res.webp','assets/sanskari/sanskari-outside-bold-within-web-optimized.webp'
+      'male-reference-01.webp','male-reference-02.webp','male-reference-03.webp','male-reference-04.webp','threesome-fantasy-cover.webp',
+      'tease-guess-wheel.webp','after-dark-questions.webp','blacked-red-lace-campaign.webp',
+      'sanskari-outside-bold-within.webp','shaam-se-raat-tak.webp','shaam-ki-roshni.webp','shaam-e-noor.webp','noor-ka-nasha.webp','sanskari-outside-bold-within-high-res.webp','sanskari-outside-bold-within-web-optimized.webp'
     ];
     for(const path of list){const ok=await imageLoaded('./'+path);row(path,ok);}
     $('#checkImages').disabled=false;show();

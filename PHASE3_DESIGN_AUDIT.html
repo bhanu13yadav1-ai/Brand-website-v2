@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Phase 3 — Design tokens, responsive layout and visual hierarchy | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Phase 3 — Design tokens, responsive layout and visual hierarchy" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE3_DESIGN_AUDIT.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE3_DESIGN_AUDIT.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Phase 3 — Design tokens, responsive layout and visual hierarchy" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Phase 3 — Design tokens, responsive layout and visual hierarchy","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE3_DESIGN_AUDIT.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="phase-3--design-tokens-responsive-layout-and-visual-hierarchy">Phase 3 — Design tokens, responsive layout and visual hierarchy</h1>
+
+<p>Status: <strong>prepared locally; not deployed or visually verified against live GitHub Pages</strong>.</p>
+
+<h2 id="scope">Scope</h2>
+<ul>
+  <li>Added <code class="language-plaintext highlighter-rouge">phase3-design-system.css</code> as an additive layer after existing core and Phase 1–2 styles.</li>
+  <li>Reuses the site’s existing dark palette and sets consistent spacing, readable body text and card radii rather than replacing the theme.</li>
+  <li>Makes form controls and primary touch controls at least 44 CSS pixels high where the overlay can safely target them.</li>
+  <li>Fixes campaign/reference images to use contained framing inside reserved-aspect-ratio cards so poster headlines, bottom labels and branding are not cropped off.</li>
+  <li>Adds 320–390 px single-column fallbacks and 391–760 px two-column destinations, then wider editorial grids.</li>
+  <li>Adds clear focus rings and reduced-motion behavior.</li>
+  <li>Keeps the existing view IDs, DOM structure, original feature stylesheets and controls intact.</li>
+</ul>
+
+<h2 id="research-basis">Research basis</h2>
+<ul>
+  <li>WCAG 2.2 Reflow calls for preserving content/functionality at a 320 CSS-pixel viewport without two-dimensional scrolling where the content does not inherently require it: https://www.w3.org/TR/WCAG22/#reflow</li>
+  <li>MDN explains that intrinsic width/height or aspect-ratio reserves space and reduces image layout shifts, and <code class="language-plaintext highlighter-rouge">object-fit: contain</code> preserves the full image rather than clipping it: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img and https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/object-fit</li>
+</ul>
+
+<h2 id="test-boundary">Test boundary</h2>
+<p>Static CSS structure was checked. Live viewport, contrast, focus, screen-reader and Android Chrome verification still require the new overlays to be deployed and tested using <code class="language-plaintext highlighter-rouge">phase34-diagnostics.html</code> plus manual browser checks.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

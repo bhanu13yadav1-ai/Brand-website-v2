@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100c10"><title>BLACKED Phase 1–2 Changelog</title><style>:root{color-scheme:dark;--bg:#100c10;--panel:#191219;--line:#493344;--text:#fff5fa;--muted:#c0b2bd;--gold:#eacb8c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:980px;margin:auto;padding:24px}h1,h2,h3{line-height:1.2}h1{font-size:clamp(28px,5vw,40px)}h2{margin-top:30px;border-top:1px solid var(--line);padding-top:14px}p,li{max-width:82ch}a{color:#f6bfd9}code,pre{background:#241925;border-radius:5px;padding:2px 5px;overflow-wrap:anywhere}pre{padding:12px;overflow:auto}table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}th,td{border:1px solid var(--line);padding:8px;text-align:left}th{background:#251825}blockquote{border-left:3px solid var(--gold);margin-left:0;padding:8px 14px;color:var(--muted)}.top{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-bottom:20px}.top a{margin-right:16px}</style></head><body><main><nav class="top"><a href="./README.md">Current README</a><a href="./README_PHASE1_2_REVIEW_HINGLISH.md">Hinglish guide</a><a href="./phase2-image-diagnostics.html">Run image diagnostics</a><a href="./PHASE1_2_QA_RESULTS.md">QA results</a></nav><h1>Phase 1–2 Changelog — Current Review Copy</h1>
+<h2>Phase 1 — complete</h2>
+<ul>
+<li>Captured the current GitHub Pages artifact for source head <code>12ae0b208d056b39bba4c4b5b981d08f59ba30f0</code> and made a separate untouched baseline backup ZIP.</li>
+<li>Inventoried the seven views, feature systems, root image files, service worker and prepared-but-not-loaded later phase modules.</li>
+<li>Compared protected core/data file hashes against the baseline; they are unchanged.</li>
+</ul>
+<h2>Phase 2 — static repair complete; runtime check pending</h2>
+<ul>
+<li>Fixed two direct homepage image paths.</li>
+<li>Corrected the active Part C image resolver so nested asset labels map to real root-level image files.</li>
+<li>Corrected 31 service-worker image precache paths and bumped cache version.</li>
+<li>Wired the already-prepared Phase 2 photo CSS/JS; no later phase modules are activated.</li>
+<li>Updated the older Phase 23/4 diagnostics so they test root-level image paths.</li>
+<li>Added current asset manifests, a local HTTP preview server and a diagnostic page with separate local/151-URL checks.</li>
+</ul>
+<h2>Evidence / limitations</h2>
+<ul>
+<li>Static QA: see <code>PHASE1_2_QA_RESULTS.json</code> and <code>.md</code>.</li>
+<li>75/75 root image assets decode and all service-worker core paths exist.</li>
+<li>151/151 external archive filenames exist in the matching upstream <code>main</code> trees; actual URL delivery remains <strong>NOT TESTED</strong>.</li>
+<li>Browser automation was blocked by the execution environment; live Pages after repair and Android Chrome are <strong>NOT TESTED</strong>.</li>
+<li>No GitHub branch, commit, PR or deployment was changed.</li>
+</ul>
+<hr><p><small>Current Phase 1–2 review copy · baseline `12ae0b208d056b39bba4c4b5b981d08f59ba30f0` · No remote GitHub write or deployment was performed.</small></p></main></body></html>

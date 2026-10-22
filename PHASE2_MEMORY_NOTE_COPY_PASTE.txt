@@ -1,21 +1,14 @@
-V1 PHASE 2 MEMORY NOTE — COPY/PASTE
+BLACKED PHASE 2 HANDOFF — ROOT IMAGE PATH REPAIR
 
-Phase: 2 — Foundation & image-path compatibility patch.
-Target repo: bhanu13yadav1-ai/Brand-website-4f (existing repo only).
-Package: V1_PHASE2_UPLOAD_PACKAGE.zip.
+Target: bhanu13yadav1-ai/Brand-website-v2, snapshot 12ae0b208d056b39bba4c4b5b981d08f59ba30f0.
 
-Added in patch:
-- css/styles.css imports existing root styles.css.
-- js/app.js is a compatibility loader: normalizes direct assets/<filename> references to existing root images and loads existing root app.js without replacing it.
-- sw.js uses corrected root paths, versioned cache, and same-scope fallback for legacy assets/<filename> URLs.
-- manifest.webmanifest points icons at existing root icon files.
-- phase2-diagnostics.html checks file routes, image previews and markup for all three existing wheels.
-- README_PHASE2_UPLOAD_HINGLISH.md and PHASE2_IMPLEMENTATION_REPORT.md document how to upload/test.
+Repair in the local review ZIP:
+1. Corrected the homepage's two nested Sanskari image paths to existing root-level files.
+2. Changed the active Part C image resolver from ./assets/<folder>/<filename> to the existing root-level basename.
+3. Corrected all 31 service-worker image precache entries and bumped the cache name to blacked-v2-phase2-image-repair-2.
+4. Wired only phase2-photo-collections.css/js after Part C. The extra multi-adult gallery stays under the existing 18+ self-attestation gate. Phase 3–15 scripts/final loader are deliberately not activated.
+5. Updated Phase 23/4 image diagnostics; added phase2-image-diagnostics.html, 75-file local asset manifest and 151-record external source-tree audit.
 
-Preservation: do not delete/replace existing index.html, root app.js, root styles.css, catalogue content, or original root image files.
-Upload: extract ZIP; upload contents into the root of existing Brand-website-4f main branch; preserve css/ and js/ folders. This is an overlay patch, not a standalone website ZIP.
+Evidence: PHASE1_2_QA_RESULTS.json (static checks); PHASE2_LOCAL_ASSET_MANIFEST.csv; PHASE2_EXTERNAL_ASSET_SOURCE_AUDIT.csv. All 75 root image files passed local decode checks. All 151 external filenames exist in upstream GitHub main trees; real runtime HTTP delivery is NOT TESTED.
 
-Tests run: Node syntax checks for shim and service worker, manifest JSON parse, diagnostics HTML parse and ZIP content audit passed.
-Not tested: live Pages deployment, real Android device, full wheel click/animation tests, complete regression testing. Current GitHub connector has read-only access to the supplied repositories. Do not claim live fixes until diagnostics and manual tests pass.
-
-Next: user uploads patch; run phase2-diagnostics.html; collect PASS/FAIL screenshot/result; then start Phase 3 only after reviewing output. Keep all 14 master rules active.
+Before Phase 3: run local preview, click through all seven views and four wheels, run local image diagnostics, check all 151 URLs on the target network, then test real Android Chrome. Send corrections before the next phase. No GitHub push/deploy has been made.

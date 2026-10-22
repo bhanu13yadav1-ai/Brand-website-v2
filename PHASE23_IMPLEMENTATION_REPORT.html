@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V2 Phase 2+3 Combined Repair — Implementation Report | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V2 Phase 2+3 Combined Repair — Implementation Report" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE23_IMPLEMENTATION_REPORT.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE23_IMPLEMENTATION_REPORT.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V2 Phase 2+3 Combined Repair — Implementation Report" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V2 Phase 2+3 Combined Repair — Implementation Report","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE23_IMPLEMENTATION_REPORT.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v2-phase-23-combined-repair--implementation-report">V2 Phase 2+3 Combined Repair — Implementation Report</h1>
+
+<h2 id="baseline-findings-from-current-main">Baseline findings from current <code class="language-plaintext highlighter-rouge">main</code></h2>
+
+<ul>
+  <li>Current root <code class="language-plaintext highlighter-rouge">index.html</code> contained the Part B app references but did not reference <code class="language-plaintext highlighter-rouge">part-c-enhancements.js</code> or <code class="language-plaintext highlighter-rouge">part-c-enhancements.css</code>.</li>
+  <li>Those Part C files existed in the repository, but were not executed/rendered from the actual page.</li>
+  <li>The Part C enhancement code referenced <code class="language-plaintext highlighter-rouge">./assets/fantasy-gallery/...</code> paths while the earlier images were stored at root-level names. The expected folder paths were missing.</li>
+  <li>The old core wheel logic selected a random result and animated a separate random rotation. The visible stop could therefore disagree with the result, and sectors did not have labels.</li>
+  <li>New user-supplied wheel posters and campaign assets were present in the audit bundle but not yet mapped to visible website sections.</li>
+</ul>
+
+<h2 id="implemented-in-this-package">Implemented in this package</h2>
+
+<ol>
+  <li>Added references from <code class="language-plaintext highlighter-rouge">index.html</code> to the Part C enhancement CSS/JS; core app files are preserved.</li>
+  <li>Replaced the enhancement layer with one that uses bundled local assets, so the four supplied male reference images and the separate cover resolve through the exact package paths.</li>
+  <li>Added two home-wheel poster cards, a local red-lace campaign card, a seven-card Sanskari local image collection, the Boyfriend reference gallery and a separate 18+ Threesome Fantasy section with a self-attestation gate.</li>
+  <li>Rebuilt the four wheel overlays with eight visible labels, a stationary pointer/centre control, selected-index-derived result, reset, repeat-spin angle correction and reduced-motion handling.</li>
+  <li>Updated service-worker cache version and core cache list to include the integration files and locally bundled assets.</li>
+  <li>Added a diagnostics page that tests actual loaded assets, section presence and the four wheel geometry/results after deployment.</li>
+  <li>Fixed a narrow-phone overflow found in the test fixture: on 320px screens, <code class="language-plaintext highlighter-rouge">.hero-media</code> used <code class="language-plaintext highlighter-rouge">min-height:220px</code> with a <code class="language-plaintext highlighter-rouge">16/11</code> aspect ratio, forcing a 320px card into a narrower content column. Mobile styling now uses responsive fixed height and <code class="language-plaintext highlighter-rouge">aspect-ratio:auto</code>.</li>
+  <li>Corrected the wheel’s conic-gradient origin to <code class="language-plaintext highlighter-rouge">0deg</code> so the eight initial colour sectors and the labels centred at <code class="language-plaintext highlighter-rouge">(index + 0.5) * 45deg</code> share the same visible geometry; the pointer/result calculation now aligns with that sector layout.</li>
+  <li>Updated the PWA manifest app name to V2 Phase 2+3 and extended diagnostics to check all 151 archived external image URLs in batches, in addition to the locally bundled assets.</li>
+</ol>
+
+<h2 id="asset-handling">Asset handling</h2>
+
+<p>15 distinct display assets are bundled as optimized WebP files under <code class="language-plaintext highlighter-rouge">assets/</code>. Exact duplicate image files from the upload audit are not rendered as duplicate cards. Original uploads remain in the earlier Phase 1 audit ZIP; this package includes compressed display variants for a lighter mobile upload. Source filename and SHA-256 for each bundled output are in <code class="language-plaintext highlighter-rouge">PHASE23_ASSET_MANIFEST.csv</code>.</p>
+
+<h2 id="test-status">Test status</h2>
+
+<ul>
+  <li>Static validation: 11/11 PASS — JS syntax for the enhancement and service worker, diagnostics inline JS syntax, CSS brace balance, all 15 bundled WebP image decodes, unique main HTML IDs, expected bundled assets and no dangling bundled JS asset references.</li>
+  <li>Browser fixture: the current root HTML structure and real add-on run in a local Chromium fixture with a test-only core-app shim, because the current repository core source is not present as a local filesystem checkout. The fixture specifically tests add-on interactions: four wheels, sector/result index, repeat spin/reset, category refresh, bundled image cards, 18+ gate and responsive overflow (320, 360, 390, 430 and 1440px). All 35 checks passed after correcting the 320px hero-card overflow. The suite now also checks the wheel’s visual gradient origin and the actual centre Spin button, and confirms the capture-phase handler prevents a duplicate core wheel click.</li>
+  <li>NOT TESTED: live GitHub Pages, actual raw image-library endpoints, and a physical Android Chrome device. After upload, use <code class="language-plaintext highlighter-rouge">phase23-diagnostics.html</code>, run all four wheel tests, run bundled-image checks, and then run the 151-record archive URL check. Report any failures before calling the release complete.</li>
+</ul>
+
+<h2 id="safety-and-privacy-limitations">Safety and privacy limitations</h2>
+
+<ul>
+  <li>The age gate is self-attestation, not formal age verification.</li>
+  <li>Male references use generic labels; no real identity or penis size is inferred from images.</li>
+  <li>The threesome section uses a user-supplied cover and fictional, consent-first prompts. Check image rights/permissions before public use.</li>
+  <li>The red-lace copy is marked draft creative and is not a claim of stock, fit, medical outcome or sexual performance.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

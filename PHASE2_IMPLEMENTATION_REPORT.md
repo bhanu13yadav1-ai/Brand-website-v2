@@ -1,43 +1,52 @@
-# V1 Phase 2 — Implementation & QA Report
+# Phase 2 — Image Audit & Root-Cause Repair
 
-## Scope
-Target: existing `bhanu13yadav1-ai/Brand-website-4f` repository. Phase 2 scope is a conservative additive runtime path/loader repair; this package does not merge the other two repos or implement new feature sections yet.
+**Base commit:** `12ae0b208d056b39bba4c4b5b981d08f59ba30f0`  
+**Repair scope:** correct current root-image path mismatch, activate only the already-authored Phase 2 photo collection module, and make the service-worker cache address the files that actually exist.
 
-## Source findings carried forward from Phase 1
-- Current `index.html` expects `css/styles.css` and `js/app.js`, but the inspected current repository tree held `styles.css` and `app.js` at the root, with no `css/` or `js/` folders.
-- Root image files exist, while some page/app references use `assets/<filename>`.
-- The prior `sw.js` precache list used `assets/...` paths although the inspected files are at the root; a wrong precache path can prevent installation.
-- PWA manifest icon paths pointed to `assets/icon-192.png` and `assets/icon-512.png`, while the icons exist at the root.
+## Root cause (not just symptoms)
 
-## Implemented in this patch
-1. Added `css/styles.css` wrapper that imports the existing root stylesheet.
-2. Added `js/app.js` compatibility loader that sets up a path normalizer before loading the original `../app.js`, so the original feature code is not overwritten.
-3. Added proactive rewriting for static/dynamic HTML `src`, `href`, `poster`, `srcset`, and same-origin CSS `url(...)` references when they use the broken one-level `assets/<root-filename>` form.
-4. Added capture-phase image retry for remaining path failures.
-5. Replaced the service worker with a new versioned cache, correct root-level precache files, network-first navigation, and a fallback resolver for direct `assets/<filename>` URLs.
-6. Corrected PWA manifest icon paths and dynamically connects the manifest when absent from the page.
-7. Added `phase2-diagnostics.html` for route checks, image preview and original wheel-markup checks.
+The project bundles its campaign images in the repository root. The active Part C helper created URLs below `./assets/` instead. Only `assets/css/style.css` was present beneath `assets/`; the expected image subfolders were absent. The requested image names themselves were not missing: their root-level counterparts existed. This mismatch affected the homepage hero, wheel posters, editorial/campaign images, the Threesome cover, and the service-worker image pre-cache entries.
 
-## Preservation guarantees / boundaries
-- Existing `index.html`, root `app.js`, root `styles.css`, catalogue data, user browser storage and original images are not part of this overlay and should remain untouched during upload.
-- No new product prices, stock, medical claims, external image content or user accounts are introduced.
-- The shim intentionally does not flatten nested folders, so future `assets/new-gallery/...` additions remain distinct.
+## Changes made in the working copy
+1. `index.html`: corrected the two direct homepage image paths to `./sanskari-outside-bold-within.webp` and `./shaam-se-raat-tak.webp`.
+2. `index.html`: added only `phase2-photo-collections.css` and `phase2-photo-collections.js` after the existing Part C files. Later Phase 3–15 modules remain unloaded. This enables the prepared Phase 2 galleries without activating the full future roadmap.
+3. `part-c-enhancements.js`: changed the asset helper to resolve bundled image basenames from repository root.
+4. `sw.js`: normalized all 31 pre-cache image entries from non-existent `./assets/<folder>/<file>` paths to the corresponding existing root-level `./<file>` paths and bumped cache name to `blacked-v2-phase2-image-repair-2`.
+5. `manifest.webmanifest`: updated the description to identify the Phase 2 image repair review build.
+6. Added `phase2-image-diagnostics.html` for local-image decoding and optional browser-side checks of all 151 external archive URLs. Added an external asset source-tree audit CSV and local asset hash/dimension manifest.
 
-## Test status
-- PASS: generated JavaScript shim syntax checked with Node.js.
-- PASS: generated service-worker syntax checked with Node.js.
-- PASS: manifest parses as JSON.
-- PASS: diagnostics HTML parses and required CSS/JS loader routes are represented in package.
-- PASS: ZIP package contains the expected single folder and nested upload paths.
-- NOT TESTED: actual GitHub Pages deployment after upload.
-- NOT TESTED: real Android physical-device image loads and taps.
-- NOT TESTED: end-to-end wheel animation, bag/wishlist persistence and every feature after this patch; these require a deployed browser run.
-- BLOCKED: direct repository write/deployment through the available GitHub connection; it is read-only for the three supplied repositories.
+## 151-record remote archive review
+- Archive JSON records: **151**; all record IDs are unique: **True**.
+- Source repos and counts: `Brand-website-4f` **42**, `Brand-website-3` **83**, `Brand-website-full-finally-` **26**.
+- Every referenced filename exists in the corresponding upstream GitHub `main` tree against the upstream `main` tree SHAs documented in `PHASE2_EXTERNAL_ASSET_SOURCE_AUDIT.csv`; no missing tree paths were identified.
+- **Important limitation:** this validates path existence in GitHub repository trees, not the actual HTTP/CDN response on the user's device. Runtime availability is deliberately marked **NOT TESTED** until the included browser diagnostic is run.
+- `phase23-diagnostics.html` and `phase4-diagnostics.html` were also updated to test root-level paths.
+- The local hash manifest documents four pairs of exact duplicate source images. Originals are preserved in the archive; the current collection additions do not intentionally render duplicate cards from those pairs.
 
-## Phase 2 exit criteria
-Phase 2 is packaged for user upload but must remain **PARTIAL / NOT VERIFIED LIVE** until:
-1. The overlay has been committed to the intended repository.
-2. `phase2-diagnostics.html` passes on the deployed site.
-3. Main website images load after a fresh visit and refresh.
-4. The three original wheel experiences are manually tested.
-5. No regression or console/network errors are observed.
+## Phase 2 acceptance criteria
+- All current active local images resolve to root paths where their source files exist.
+- The Phase 2 gallery images have correct local root paths and visible load/error status.
+- Protected multi-adult gallery cards remain inside the existing 18+ self-attestation protected container.
+- Existing views, story/product data, original wheels and browser-storage logic are not replaced.
+- Service worker points at existing root assets and uses a new cache namespace.
+- No statement claims live deployment or Android testing has passed.
+
+## Validation status
+See `PHASE1_2_QA_RESULTS.json`, `PHASE2_LOCAL_ASSET_MANIFEST.csv`, and `PHASE2_EXTERNAL_ASSET_SOURCE_AUDIT.csv`. Static syntax/path/manifest checks are run during packaging. Browser navigation is blocked by this execution environment, so live interaction and Android verification remain **NOT TESTED**.
+
+## Files changed in this review copy
+
+- `index.html` — root image URLs corrected; Phase 2 collection CSS/JS linked after the current Part C files; diagnostics link added.
+- `part-c-enhancements.js` — asset helper resolves root-level image basenames.
+- `sw.js` — all 31 image precache paths corrected; cache namespace bumped to `blacked-v2-phase2-image-repair-2`.
+- `manifest.webmanifest` — description marks the Phase 2 review build.
+- `phase23-diagnostics.html`, `phase4-diagnostics.html` — checks updated to use real root-level image paths.
+- `phase2-photo-collections.css/js` — existing modules integrated, not rewritten.
+- `phase2-image-diagnostics.html`, the local/external asset manifests and reports — added for review/testing.
+
+## Current quality gate
+
+- Static/syntax/path checks: see `PHASE1_2_QA_RESULTS.json`.
+- Browser automation: **NOT TESTED** because this execution environment blocked local browser navigation.
+- Runtime checks of the 151 external archive URLs, live GitHub Pages after repair and physical Android Chrome: **NOT TESTED**.
+- No remote branch, commit, PR or Pages deployment was changed by this task.

@@ -1,19 +1,41 @@
 {
-  "phase": "V2 Phase 1",
-  "target_repository": "https://github.com/bhanu13yadav1-ai/Brand-website-v2",
+  "phase_1": "COMPLETE — baseline audit and untouched snapshot backup captured",
+  "phase_2": "STATIC ROOT-CAUSE REPAIR COMPLETE IN LOCAL REVIEW ZIP; BROWSER/LIVE/ANDROID VERIFICATION PENDING",
+  "repository": "https://github.com/bhanu13yadav1-ai/Brand-website-v2",
   "branch": "main",
-  "observed_tracked_file_count": 76,
-  "source_audit": "PASS",
-  "asset_audit": "PASS",
-  "root_cause_boyfriend_gallery": [
-    "part-c-enhancements.js not linked from index.html",
-    "Part C references nested assets/fantasy-gallery paths but image binaries are at root"
+  "baseline_head_commit": "12ae0b208d056b39bba4c4b5b981d08f59ba30f0",
+  "github_pages_workflow_run_id": 39769566213,
+  "github_pages_workflow_url": "https://github.com/bhanu13yadav1-ai/Brand-website-v2/actions/runs/39769566213",
+  "captured_pages_artifact_file_count": 321,
+  "repository_tree_entry_count": 262,
+  "local_root_image_files": 75,
+  "local_root_images_decoded": 75,
+  "service_worker_image_paths_corrected": 31,
+  "homepage_image_paths_corrected": 2,
+  "remote_archive_records": 151,
+  "remote_paths_missing_in_upstream_main_tree": 0,
+  "remote_http_runtime_status": "NOT TESTED — browser-side diagnostic included",
+  "all_seven_original_views_preserved": true,
+  "all_four_wheel_controls_preserved": true,
+  "phase_2_photo_collection_css_js_linked": true,
+  "phase_3_to_15_loader_activated": false,
+  "protected_core_files_unchanged": [
+    "app.js",
+    "styles.css",
+    "fallback.js",
+    "innerwear-image-library.json",
+    "size-chart-template.json"
   ],
-  "wheel_root_cause": "legacy app spin logic selects result independently of rotation; Part C visual wheel logic exists but is not linked",
-  "uploaded_files": 14,
-  "unique_uploaded_image_binaries": 10,
-  "exact_duplicate_files": 4,
-  "live_github_pages": "NOT TESTED",
-  "physical_android": "NOT TESTED",
-  "git_changes_made": false
+  "remote_repository_modified": false,
+  "live_pages_after_repair": "NOT TESTED — not pushed",
+  "physical_android_chrome": "NOT TESTED",
+  "browser_automation": "NOT TESTED — sandbox browser navigation blocked with ERR_BLOCKED_BY_ADMINISTRATOR",
+  "current_source_of_truth": [
+    "README.md",
+    "README_PHASE1_2_REVIEW_HINGLISH.md",
+    "PHASE1_BASELINE_AUDIT.md",
+    "PHASE2_IMAGE_AUDIT.md",
+    "PHASE1_2_QA_RESULTS.json",
+    "PHASE1_2_HANDOFF.txt"
+  ]
 }
