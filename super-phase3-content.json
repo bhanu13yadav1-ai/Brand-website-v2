@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "BLACKED Super Update — Phase 3",
+  "phase": 3,
+  "base": {
+    "repository": "https://github.com/bhanu13yadav1-ai/Brand-website-v2",
+    "branch": "main",
+    "commit": "7c3b008f3da6511a3437839d9d42c343d2e35bfc",
+    "indexHtmlBlobSha": "007b8e7d59486b5ba93c6534aa9dcc91066d040b",
+    "serviceWorkerBlobSha": "675093dcd5bb4d9975c40dd07d65a5cac9018ee4",
+    "rule": "Before applying the patch, compare current index.html and sw.js blob SHAs; if either has changed, reconcile instead of force applying."
+  },
+  "preservation": {
+    "existingSiteFilesIncluded": false,
+    "existingPhotosDuplicatedInZip": false,
+    "existingStorageKeysChanged": false,
+    "existingViewsReplaced": false,
+    "preferencesSentToServer": false,
+    "realCommerceAdded": false
+  },
+  "routes": [
+    {
+      "id": "home",
+      "selector": "#view-home",
+      "title": "Home / Discover"
+    },
+    {
+      "id": "innerwear",
+      "selector": "#view-innerwear",
+      "title": "Innerwear"
+    },
+    {
+      "id": "sanskari",
+      "selector": "#view-sanskari",
+      "title": "Collections / Sanskari"
+    },
+    {
+      "id": "wellness",
+      "selector": "#view-wellness",
+      "title": "Wellness 18+",
+      "gate": "existing adult self-attestation"
+    },
+    {
+      "id": "boyfriend",
+      "selector": "#view-boyfriend",
+      "title": "Boyfriend & Couples",
+      "gate": "existing adult self-attestation"
+    }
+  ],
+  "media": [
+    {
+      "source": "1000202916.png",
+      "file": "blxcked-personal-wellness-triptych.webp",
+      "id": "asset.p3.personal-wellness.triptych",
+      "title": "BLXCKED Personal Wellness — Triptych Concept",
+      "route": "wellness",
+      "group": "personal-wellness-concepts",
+      "placement": "Wellness 18+ → Personal Wellness Concept Gallery",
+      "role": "Adult product/campaign concept reference",
+      "brand": "BLXCKED (wordmark visible)",
+      "brandStatus": "brand spelling/ownership requires confirmation",
+      "alt": "Black-and-gold BLXCKED personal-wellness campaign triptych with adult fashion editorial imagery and a product concept box.",
+      "tags": [
+        "adult-editorial",
+        "personal-wellness",
+        "concept-only"
+      ],
+      "note": "The poster is a campaign concept, not verified stock. Product identity, materials, dimensions, safety, claims, seller and public-use rights are unverified.",
+      "relatedRoutes": [
+        "boyfriend",
+        "innerwear"
+      ],
+      "width": 1254,
+      "height": 1254,
+      "sourceBytes": 2940513,
+      "webpBytes": 215008,
+      "sourceSha256": "2aaba0c4ec756a555605368327ebe72a8333c1ccadc6366dc2d490cd6472aeee",
+      "webpSha256": "8eeaf242dbaf265a795374131b0a59ed9c466dd8a8ecadf7afaacc26627dd034",
+      "relativePath": "phase3-assets/blxcked-personal-wellness-triptych.webp",
+      "rightsStatus": "user-supplied; commercial/public distribution permission not independently verified",
+      "publicationStatus": "review-only; confirm rights, brand relationship and host policy before production publication",
+      "claimStatus": "concept artwork; all product/health/performance claims unverified"
+    },
+    {
+      "source": "1000202915.png",
+      "file": "blxcked-t-string-collection-study.webp",
+      "id": "asset.p3.t-string.collection-study",
+      "title": "BLXCKED T-String Collection — Brand Study",
+      "route": "innerwear",
+      "group": "t-string-brand-studies",
+      "placement": "Innerwear → Editorial Concepts → T-String Collection Studies",
+      "role": "Campaign / collection concept reference",
+      "brand": "BLXCKED (wordmark visible)",
+      "brandStatus": "brand spelling/ownership requires confirmation",
+      "alt": "Black-and-gold BLXCKED T-string collection editorial poster with an adult model in black styling and product concept packaging.",
+      "tags": [
+        "innerwear",
+        "t-string",
+        "campaign-study",
+        "concept-only"
+      ],
+      "note": "The image does not confirm a sellable SKU, fabric, sizes, fit, availability, price or product specifications. Keep separate from verified catalogue products.",
+      "relatedRoutes": [
+        "sanskari",
+        "wellness"
+      ],
+      "width": 1024,
+      "height": 1536,
+      "sourceBytes": 2951542,
+      "webpBytes": 227040,
+      "sourceSha256": "3fa5d850fe59f5212865ad72ac8f17976d13a83373ac151e2a9581c791550ca3",
+      "webpSha256": "cfe291094172df6c938ea42ce4ae28f6fc94d3c24e1ceb6c7c9e8550d6f81299",
+      "relativePath": "phase3-assets/blxcked-t-string-collection-study.webp",
+      "rightsStatus": "user-supplied; commercial/public distribution permission not independently verified",
+      "publicationStatus": "review-only; confirm rights, brand relationship and host policy before production publication",
+      "claimStatus": "concept artwork; all product/health/performance claims unverified"
+    },
+    {
+      "source": "1000202914.png",
+      "file": "blxcked-modest-style-grace-study.webp",
+      "id": "asset.p3.modest-style.grace-study",
+      "title": "BLXCKED “Grace Outside” — Modest-Styling Concept",
+      "route": "sanskari",
+      "group": "modest-editorial-concepts",
+      "placement": "Collections → Modest-Styling Editorial Concepts",
+      "role": "Campaign art-direction reference",
+      "brand": "BLXCKED (wordmark visible)",
+      "brandStatus": "brand spelling/ownership requires confirmation",
+      "alt": "Black-and-gold BLXCKED campaign concept with an adult model wearing a black embroidered wrap and rose-toned lingerie.",
+      "tags": [
+        "modest-styling",
+        "campaign-study",
+        "concept-only"
+      ],
+      "note": "Style reference only. Do not infer a model’s religion from clothing, crescent imagery or appearance; campaign rights and product claims are not verified.",
+      "relatedRoutes": [
+        "innerwear",
+        "wellness"
+      ],
+      "width": 1024,
+      "height": 1536,
+      "sourceBytes": 2818746,
+      "webpBytes": 197706,
+      "sourceSha256": "c6358806fec5f05c2ab72c32d59a6e65873bd7f408739d7c58f8a6f40ecf5409",
+      "webpSha256": "e7b10a42ab21702743ee7162218ada4bbbc90f67ae7881d0fa00d1e27396e8d0",
+      "relativePath": "phase3-assets/blxcked-modest-style-grace-study.webp",
+      "rightsStatus": "user-supplied; commercial/public distribution permission not independently verified",
+      "publicationStatus": "review-only; confirm rights, brand relationship and host policy before production publication",
+      "claimStatus": "concept artwork; all product/health/performance claims unverified"
+    },
+    {
+      "source": "1000202917.png",
+      "file": "blxcked-noor-faith-comfort-study.webp",
+      "id": "asset.p3.noor-faith-comfort-study",
+      "title": "BLXCKED “Faith & Comfort” — Noor Direction Study",
+      "route": "sanskari",
+      "group": "noor-editorial-concepts",
+      "placement": "Collections → Noor / Modest Editorial Concepts",
+      "role": "Campaign concept reference",
+      "brand": "BLXCKED (wordmark visible)",
+      "brandStatus": "brand spelling/ownership requires confirmation",
+      "alt": "Black-and-gold BLXCKED campaign poster with an adult model in a black head covering and the artwork wording “Muslim Girl”.",
+      "tags": [
+        "noor-direction",
+        "modest-editorial",
+        "campaign-study",
+        "concept-only"
+      ],
+      "note": "The words “Muslim Girl” are present in the supplied artwork; the page does not infer faith from appearance. Treat this as an unapproved concept until representation, image rights and brand ownership are reviewed.",
+      "relatedRoutes": [
+        "innerwear",
+        "wellness"
+      ],
+      "width": 1024,
+      "height": 1536,
+      "sourceBytes": 3082258,
+      "webpBytes": 254794,
+      "sourceSha256": "2b59277c32f4df6196b01a2a0a3bbe8f9d3fc125ce67a5ef18aa9ba1ad119b75",
+      "webpSha256": "29f4a3205e486556731f7147ebef1444b130a66b1cc4da2af5abd9de9f30ea2d",
+      "relativePath": "phase3-assets/blxcked-noor-faith-comfort-study.webp",
+      "rightsStatus": "user-supplied; commercial/public distribution permission not independently verified",
+      "publicationStatus": "review-only; confirm rights, brand relationship and host policy before production publication",
+      "claimStatus": "concept artwork; all product/health/performance claims unverified"
+    }
+  ],
+  "preferencePicker": {
+    "mountSelector": "#view-boyfriend .page-intro",
+    "purpose": "Optional, in-memory fictional adult-partner story-vibe selection shown near the top of Boyfriend & Couples.",
+    "fields": [
+      {
+        "id": "height",
+        "label": "Height vibe",
+        "options": [
+          "Taller than me",
+          "Around my height",
+          "Shorter than me",
+          "Surprise me"
+        ]
+      },
+      {
+        "id": "build",
+        "label": "Build",
+        "options": [
+          "Lean",
+          "Athletic",
+          "Broad",
+          "Any build"
+        ]
+      },
+      {
+        "id": "appearance",
+        "label": "Appearance / complexion",
+        "options": [
+          "Dark-skinned / Black adult man",
+          "Brown / Desi look",
+          "Mixed / varied look",
+          "No preference"
+        ]
+      },
+      {
+        "id": "personality",
+        "label": "Personality",
+        "options": [
+          "Confident",
+          "Caring",
+          "Funny",
+          "Quiet & mysterious"
+        ]
+      },
+      {
+        "id": "style",
+        "label": "Style",
+        "options": [
+          "Black luxury",
+          "Streetwear",
+          "Classic / elegant",
+          "Any style"
+        ]
+      },
+      {
+        "id": "sizeTrope",
+        "label": "Size trope (fiction only)",
+        "options": [
+          "Longer-size fantasy",
+          "No size focus",
+          "Leave anatomy unspecified",
+          "Skip this detail"
+        ]
+      },
+      {
+        "id": "pigmentation",
+        "label": "Natural pigmentation detail (fiction only)",
+        "options": [
+          "Darker natural pigmentation",
+          "Natural variation",
+          "Leave unspecified",
+          "Skip this detail"
+        ]
+      }
+    ],
+    "rules": [
+      "Appearance is independent from anatomy; do not infer genital characteristics from race or complexion.",
+      "No real-person measurements, body prediction or compatibility claims.",
+      "Consent remains separate and mandatory; a preference does not imply consent.",
+      "Choices stay in JavaScript memory only; they are not written to localStorage/sessionStorage or sent to a server.",
+      "Skip, change and clear remain available."
+    ]
+  },
+  "storyLinks": [
+    {
+      "from": "preference-picker",
+      "to": "#view-boyfriend [data-spin-wheel=\"wild\"]",
+      "label": "Explore optional couple prompts"
+    },
+    {
+      "from": "innerwear-t-string-concepts",
+      "to": "#view-sanskari",
+      "label": "Explore collections"
+    },
+    {
+      "from": "wellness-personal-concept",
+      "to": "#view-boyfriend",
+      "label": "Explore couples content"
+    },
+    {
+      "from": "noor-modest-concepts",
+      "to": "#view-innerwear",
+      "label": "Explore innerwear references"
+    }
+  ]
+}

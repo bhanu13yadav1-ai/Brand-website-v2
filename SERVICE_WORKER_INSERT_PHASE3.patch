@@ -1,0 +1,16 @@
+diff --git a/sw.js b/sw.js
+--- a/sw.js
++++ b/sw.js
+@@ -2,5 +2,11 @@
+ 'use strict';
+-const CACHE_NAME = 'blacked-v2-phase2-image-repair-2';
++const CACHE_NAME = 'blacked-v3-super-phase3-1';
+ const CORE = [
+   './','./index.html','./styles.css','./app.js','./fallback.js','./part-c-enhancements.css','./part-c-enhancements.js',
++  './phase2-photo-collections.css','./phase2-photo-collections.js',
++  './super-phase3-experience.css','./super-phase3-experience.js','./super-phase3-content.json','./super-phase3-diagnostics.html',
++  './phase3-assets/blxcked-personal-wellness-triptych.webp',
++  './phase3-assets/blxcked-t-string-collection-study.webp',
++  './phase3-assets/blxcked-modest-style-grace-study.webp',
++  './phase3-assets/blxcked-noor-faith-comfort-study.webp',
+   './manifest.webmanifest','./app-icon.svg','./innerwear-image-library.json','./size-chart-template.json',

@@ -1,0 +1,117 @@
+[
+  {
+    "path": "HANDOFF_PHASE3_TO_PHASE4.md",
+    "bytes": 2022,
+    "sha256": "70da94f3b9c8b672a9163272ecc1cd95c092472dcb118437f0bbc7d61a13e876"
+  },
+  {
+    "path": "IDEA_BACKLOG_UPDATED.md",
+    "bytes": 1309,
+    "sha256": "42a0a7e1689d74941311494e0fe1e6e01e357ea4fab6078d0b884e7274d457ed"
+  },
+  {
+    "path": "PHASE3_CHANGELOG.md",
+    "bytes": 1204,
+    "sha256": "a05d313c63f77a5e564fdf37c4809f997dd80a0e22f1a5afbe6a6cf9b8f6a35b"
+  },
+  {
+    "path": "PHASE3_DATA_MODEL_NOTES.md",
+    "bytes": 1416,
+    "sha256": "423d608b77b306a609323210b09f1471c296cb40ff197d6596d997bff87a5074"
+  },
+  {
+    "path": "PHASE3_NEW_ASSET_MANIFEST.csv",
+    "bytes": 4506,
+    "sha256": "23e4e1ec11229e23304482cf0e1d426304371fec20756c70d87705ac118ce618"
+  },
+  {
+    "path": "PHASE3_TEST_REPORT.md",
+    "bytes": 2871,
+    "sha256": "65cfb1d499fe38acd5ec64751527fef1ee59b88a11adae02701b4c7c424c7635"
+  },
+  {
+    "path": "PHASE_TRACKER_UPDATED.csv",
+    "bytes": 1800,
+    "sha256": "bae7f83686da744ffb67c52af6d93d63e42f254f9c5f0a061b18a9c052d3504b"
+  },
+  {
+    "path": "README_PHASE3_HINGLISH.md",
+    "bytes": 3995,
+    "sha256": "dc74df907253c23c0eb0e082b93215ae4caa202be1678fa251c5ed7e906d4e3a"
+  },
+  {
+    "path": "patches/INDEX_INSERT_PHASE3.patch",
+    "bytes": 662,
+    "sha256": "62d7de37e1c7c731a21e30483bb3f8efe64ae679f28c5da66e55375e75116322"
+  },
+  {
+    "path": "patches/PATCH_INTEGRATION_NOTES.md",
+    "bytes": 1677,
+    "sha256": "a8635a6c759131c56fa83f0d9cf8bf2085c21215101ff7167a1c7c9ef026cbc7"
+  },
+  {
+    "path": "patches/SERVICE_WORKER_INSERT_PHASE3.patch",
+    "bytes": 876,
+    "sha256": "fee980b42c6be3f109b5b38124f59cbb3763a09fe9c318babc81bca238fd8156"
+  },
+  {
+    "path": "phase3-assets/blxcked-modest-style-grace-study.webp",
+    "bytes": 197706,
+    "sha256": "e7b10a42ab21702743ee7162218ada4bbbc90f67ae7881d0fa00d1e27396e8d0"
+  },
+  {
+    "path": "phase3-assets/blxcked-noor-faith-comfort-study.webp",
+    "bytes": 254794,
+    "sha256": "29f4a3205e486556731f7147ebef1444b130a66b1cc4da2af5abd9de9f30ea2d"
+  },
+  {
+    "path": "phase3-assets/blxcked-personal-wellness-triptych.webp",
+    "bytes": 215008,
+    "sha256": "8eeaf242dbaf265a795374131b0a59ed9c466dd8a8ecadf7afaacc26627dd034"
+  },
+  {
+    "path": "phase3-assets/blxcked-t-string-collection-study.webp",
+    "bytes": 227040,
+    "sha256": "cfe291094172df6c938ea42ce4ae28f6fc94d3c24e1ceb6c7c9e8550d6f81299"
+  },
+  {
+    "path": "previews/PHASE3_NEW_PHOTO_CONTACT_SHEET.jpg",
+    "bytes": 139950,
+    "sha256": "87698ae9622bff99fb1a041ee1e5b73893ae99f2bf61eb21e925ffbb2b81ad15"
+  },
+  {
+    "path": "previews/PHASE3_PHOTO_PLACEMENT_PREVIEW.html",
+    "bytes": 3744,
+    "sha256": "cb7ef50ae4103630f07a2515838c0e30944b1deab558bef9f4ea7b215a5615a1"
+  },
+  {
+    "path": "previews/PHASE3_RUNTIME_SMOKE_PREVIEW.html",
+    "bytes": 3017,
+    "sha256": "0282dd7652e4303acccea30c76d0c4c947db1e4b654817c7c42e6a394a764144"
+  },
+  {
+    "path": "super-phase3-content.json",
+    "bytes": 11205,
+    "sha256": "4bf24e9e1bae1e97c36168b798b3d3ffcd456125063707ec6a0c8b70ec8b1fe8"
+  },
+  {
+    "path": "super-phase3-diagnostics.html",
+    "bytes": 7808,
+    "sha256": "e23186c3d5ffb1bf2c2ce7e9a9fd00ffb039bdb7c2de748da3d793fdcaf7ca7b"
+  },
+  {
+    "path": "super-phase3-experience.css",
+    "bytes": 7493,
+    "sha256": "95258a1083e05b3067410300fd101c686429eeee8154c6211d59380a073517c3"
+  },
+  {
+    "path": "super-phase3-experience.js",
+    "bytes": 20284,
+    "sha256": "db1fd44738a4be9b70d863f2da540447f06be55c0f9c22ba8cb2f0465b4ed3c9"
+  },
+  {
+    "path": "tools/validate_phase3.py",
+    "bytes": 2493,
+    "sha256": "cf2cda766d7572d677b51a31f3fe71956a5a6ac1b06a07401a2f2ef86c681028"
+  }
+]

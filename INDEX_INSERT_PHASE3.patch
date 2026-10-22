@@ -1,0 +1,15 @@
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -12,9 +12,11 @@
+   <link rel="manifest" href="./manifest.webmanifest">
+   <link rel="stylesheet" href="./styles.css">
+   <link rel="stylesheet" href="./part-c-enhancements.css">
+   <link rel="stylesheet" href="./phase2-photo-collections.css">
++  <link rel="stylesheet" href="./super-phase3-experience.css">
+   <script src="./fallback.js" defer></script>
+   <script src="./app.js" defer></script>
+   <script src="./part-c-enhancements.js" defer></script>
+   <script src="./phase2-photo-collections.js" defer></script>
++  <script src="./super-phase3-experience.js" defer></script>
+ </head>
