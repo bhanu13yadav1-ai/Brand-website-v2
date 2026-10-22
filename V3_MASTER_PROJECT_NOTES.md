@@ -1,6 +1,6 @@
 # BLACKED Website — V3 Master Project Notes / Source of Truth
 
-Last updated: 22 October 2026  
+Last updated: 22 October 2026 · Phase 3–4 package preparation  
 Repository: https://github.com/bhanu13yadav1-ai/Brand-website-v2  
 Live site: https://bhanu13yadav1-ai.github.io/Brand-website-v2/
 
@@ -39,21 +39,26 @@ Seven existing views: Home, Sex Stories 18+, Innerwear, Sanskari Edit, Wellness 
 14. **Privacy/security/accessibility/PWA** — safe migration, explicit local-save choice, storage clear controls, keyboard/focus, cache version and offline behaviour.
 15. **Full regression/deployment** — static checks, live host checks, Android layout, all images, all seven views, all four wheels, modals, filters, forms, saved data and post-cache-refresh verification.
 
-## Current phase status
+## Current phase status (latest source of truth)
 
-- Phase 1: **Audit report prepared**. Source read and existing Phase 4 test reports inspected. Remote branch creation was attempted but blocked by GitHub connector HTTP 403. No remote commit was made.
-- Phase 2: **Photo audit and additive gallery overlay prepared locally**. Eight new photos selected and optimized; exact duplicate pair excluded; Noor/Grace/innerwear/gated-group placements prepared. Remote deploy is pending repository write access or manual upload.
-- Phases 3–15: pending. Do not claim they are complete.
+- Phase 1: **Baseline audit prepared locally**. Source files, seven views, storage keys, original wheel locations and existing Phase 4 reports were inspected. GitHub safe-branch creation returned HTTP 403; no remote commit was made.
+- Phase 2: **Image/source audit and additive gallery layer prepared locally**. The first eight selected images remain documented; one near-duplicate pair was withheld from duplicate display.
+- Phase 3: **Design-system and mobile readability overlay prepared locally** in `phase3-design-system.css`. This tunes spacing, readable text, target sizes, full-image framing and small-screen reflow without replacing `styles.css`.
+- Phase 4: **Home shortcuts and fictional preference-router overlay prepared locally** in `phase4-home-and-fantasy.js`. Three compact links point to existing views. A fictional adult archetype selector supports romance, flirty/dark fiction, non-graphic multi-partner fantasy/boundaries and wellness/toy-safety guidance. Size labels are clearly fictional/educational; it does not sell/book people, claim real measurements, or bypass the current 18+ gate.
+- Current overlay contains **11 unique local collection assets** (eight from original Phase 2 plus three newly supplied Phase 3–4 photos). The new solo pink photo goes to Innerwear; two new multi-adult campaign photos are held inside the existing `#v23ThreesomeProtected` gated gallery.
+- Phases 1–4 are **prepared locally but not deployed**. Static package validation: **15/15 checks passed**. That does not imply that live GitHub Pages or Android browser testing passed.
+- Phases 5–15 remain pending. Begin them after the overlay is uploaded and Phase 1–4 regressions pass on the deployed site.
 
-## Phase 1–2 package files
+## Current package files
 
-- `notes/PHASE1_BASELINE_AUDIT.md`
-- `notes/PHASE2_IMAGE_AUDIT.md`
-- `notes/PHASE2_IMAGE_MANIFEST.csv`
-- `phase2-photo-collections.js`
-- `phase2-photo-collections.css`
-- `PHASE2_UPLOAD_INSTRUCTIONS_HINGLISH.md`
+- `phase2-photo-collections.js` / `phase2-photo-collections.css` — original V3 photo overlay, now including Phase 3–4 photo additions.
+- `phase3-design-system.css` — additive responsive design layer.
+- `phase4-home-and-fantasy.js` — Home links and adult preference router.
+- `phase34-diagnostics.html` — hosted same-origin diagnostics page.
+- `notes/PHASE1_BASELINE_AUDIT.md`, `notes/PHASE2_IMAGE_AUDIT.md`, `notes/PHASE3_DESIGN_AUDIT.md`, `notes/PHASE4_FEATURE_NOTES.md`.
+- `notes/PHASE2_IMAGE_MANIFEST.csv` and `notes/PHASE3_4_IMAGE_MANIFEST.csv`.
+- `PHASE3_4_UPLOAD_INSTRUCTIONS_HINGLISH.md`, `PHASE3_4_HANDOFF.txt`, `tests/PHASE3_4_STATIC_CHECKS.json` and test checklist.
 
-## Resume instruction for the next session
+## Resume instruction for next session
 
-Read this note and the Phase 1/2 reports first. Start by reconnecting GitHub with write/ref permissions or upload the Phase 1–2 overlay. Do not restart planning from scratch, do not push unverified changes to `main`, and do not proceed to Phase 3 until the new image paths/gallery test on the actual hosted site passes. After upload, run `phase2-diagnostics.html`; then run the existing `phase23-diagnostics.html` and `phase4-diagnostics.html` for regression evidence. Verify on Android Chrome at 320–430 CSS-pixel widths and after a clean service-worker/cache refresh.
+Read this master note and `PHASE3_4_HANDOFF.txt`. The combined local package is not deployed. First restore GitHub write/ref permission or upload the overlay to a safe branch/manually; do not push unverified files directly to `main`. Follow `PHASE3_4_UPLOAD_INSTRUCTIONS_HINGLISH.md` to merge assets, add the CSS/deferred JS links and bump `sw.js` cache entries. Run `phase2-diagnostics.html`, `phase34-diagnostics.html`, `phase23-diagnostics.html` and `phase4-diagnostics.html`, plus manual Android Chrome checks at 320, 360, 390 and 430 CSS px. Test all seven views, four wheels, modal gates, saved data, image archive, story tools, wishlist/bag, Fit Studio and cache refresh. Keep all phase notes and report any pre-existing external-image failures separately from the new local assets.

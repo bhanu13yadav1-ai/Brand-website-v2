@@ -17,10 +17,15 @@
     ],
     innerwear: [
       {path:'./assets/innerwear-gallery-v3/made-for-quiet-moments.webp', title:'Made for Your Quiet Moments', tag:'PINK EDITORIAL', category:'pink', alt:'Adult model wearing a pink lingerie set in a warm luxury editorial scene'},
-      {path:'./assets/innerwear-gallery-v3/rest-restore-rise.webp', title:'Rest. Restore. Rise.', tag:'PINK EDITORIAL', category:'pink', alt:'Adult model in a pink lingerie editorial in a candlelit, warm-toned room'}
+      {path:'./assets/innerwear-gallery-v3/rest-restore-rise.webp', title:'Rest. Restore. Rise.', tag:'PINK EDITORIAL', category:'pink', alt:'Adult model in a pink lingerie editorial in a candlelit, warm-toned room'},
+      {path:'./assets/innerwear-gallery-v3/soft-rose-evening-edit.webp', title:'Soft Rose · Evening Editorial', tag:'NEW OWNER-SUPPLIED PHOTO', category:'pink', alt:'Adult model in a rose-toned innerwear fashion campaign in warm low lighting'}
     ],
     grace: {path:'./assets/grace-edit/sacred-elegance.webp', title:'Sacred Elegance', tag:'THEATRICAL CONCEPT', category:'grace', alt:'Adult model in black editorial lingerie styling and a cross necklace; supplied theatrical fashion concept'},
-    group: {path:'./assets/triad-gallery-v3/innerwere-campaign-trio.webp', title:'Multi-Adult Innerwear Campaign', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign reference in a warm luxury set'}
+    group: [
+      {path:'./assets/triad-gallery-v3/innerwere-campaign-trio.webp', title:'Multi-Adult Innerwear Campaign · Reference 01', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign reference in a warm luxury set'},
+      {path:'./assets/triad-gallery-v3/innerwere-campaign-trio-two.webp', title:'Multi-Adult Innerwear Campaign · Reference 02', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign in a burgundy and black editorial setting'},
+      {path:'./assets/triad-gallery-v3/innerwere-campaign-trio-three.webp', title:'Multi-Adult Innerwear Campaign · Reference 03', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign in a warm bedroom editorial setting'}
+    ]
   };
   function make(tag, cls, text) {
     const el = document.createElement(tag);
@@ -130,7 +135,7 @@
   function addInnerwear() {
     const view=$('#view-innerwear'); if(!view) return;
     const entries=records.innerwear.map(r=>({...r,caption:r.title==='Rest. Restore. Rise.'?'Owner-supplied warm-toned pink campaign reference.':'Owner-supplied pink innerwear campaign concept.'}));
-    makeGallery({id:'v3InnerwearEditorialGallery',view,anchor:'#v24InnerwearCollection',eyebrow:'NEW · OWNER-SUPPLIED PHOTOS',title:'New Innerwear Editorials',description:'Two newly supplied photo concepts, placed after the existing catalogue rather than replacing any previous product or archive cards.',entries,filters:false,privacyNote:'Campaign references only. The website does not confirm retail stock, SKU, price, garment sizing or usage rights.'});
+    makeGallery({id:'v3InnerwearEditorialGallery',view,anchor:'#v24InnerwearCollection',eyebrow:'NEW · OWNER-SUPPLIED PHOTOS',title:'New Innerwear Editorials',description:'Three supplied photo concepts, placed after the existing catalogue rather than replacing any previous product or archive cards.',entries,filters:false,privacyNote:'Campaign references only. The website does not confirm retail stock, SKU, price, garment sizing or usage rights.'});
   }
   function addGracePreview() {
     const host=$('.coming-card.grace'); if(!host || $('#v3GracePreview')) return;
@@ -143,18 +148,22 @@
   }
   function addGroupPreview() {
     const protectedBox=$('#v23ThreesomeProtected'); if(!protectedBox || $('#v3GroupCampaignGallery')) return;
-    const entries=[{...records.group,caption:'Owner-supplied multi-adult campaign reference. It remains inside the existing 18+ self-attestation-gated section.'}];
+    const entries=records.group.map((r,i)=>({...r,caption:[
+      'Existing owner-supplied multi-adult campaign reference. Kept behind the current 18+ gate.',
+      'New photo from this update. Editorial reference only; remains behind the existing 18+ gate.',
+      'New photo from this update. Editorial reference only; remains behind the existing 18+ gate.'
+    ][i]}));
     const after=$('#v24ThreesomeEditorials',protectedBox);
     const section=make('section','v3-photo-gallery v3-group-gallery'); section.id='v3GroupCampaignGallery'; section.setAttribute('aria-labelledby','v3GroupCampaignTitle');
-    const heading=make('div','section-heading'); const inner=make('div'); const h=make('h3','', 'Additional Multi-Adult Campaign Reference'); h.id='v3GroupCampaignTitle'; inner.append(make('p','eyebrow','18+ GATED · SUPPLIED CAMPAIGN'),h,make('p','muted','A separate supplied reference. It stays protected by the existing gate.')); heading.append(inner); section.append(heading);
-    const grid=make('div','v3-photo-grid'); grid.append(createCard(entries[0],'Visible only after the existing Threesome Fantasy 18+ self-attestation gate.')); section.append(grid);
+    const heading=make('div','section-heading'); const inner=make('div'); const h=make('h3','', 'Additional Multi-Adult Campaign References'); h.id='v3GroupCampaignTitle'; inner.append(make('p','eyebrow','18+ GATED · SUPPLIED CAMPAIGNS'),h,make('p','muted','Three distinct campaign references. Every image stays inside the existing self-attestation gate.')); heading.append(inner); section.append(heading);
+    const grid=make('div','v3-photo-grid'); entries.forEach(record=>grid.append(createCard(record,'Visible only after the existing Threesome Fantasy 18+ self-attestation gate. This is an editorial reference, not a real-person listing.'))); section.append(grid);
     if(after) after.insertAdjacentElement('afterend',section); else protectedBox.append(section);
     state.inserted.push('v3GroupCampaignGallery');
   }
   function boot() {
     initPreviewModal();
     addNoor(); addInnerwear(); addGracePreview(); addGroupPreview();
-    window.BLACKED_V3_PHASE12={version:'1.0.0', getDiagnostics:()=>({inserted:[...state.inserted],imageErrors:[...new Set(state.imageErrors)],noorCards:$('#v3NoorEditGalleryGrid')?.querySelectorAll('.v3-photo-card').length||0,innerwearNewCards:$('#v3InnerwearEditorialGalleryGrid')?.querySelectorAll('.v3-photo-card').length||0,gracePreview:!!$('#v3GracePreview'),groupGallery:!!$('#v3GroupCampaignGallery'),gateContainsGroupPhoto:!!$('#v3GroupCampaignGallery')?.closest('#v23ThreesomeProtected'),loadedPhotos:$$('[data-v3-photo-asset]').filter(img=>img.complete&&img.naturalWidth>0).length})};
+    window.BLACKED_V3_PHASE12={version:'1.0.0', getDiagnostics:()=>({inserted:[...state.inserted],imageErrors:[...new Set(state.imageErrors)],noorCards:$('#v3NoorEditGalleryGrid')?.querySelectorAll('.v3-photo-card').length||0,innerwearNewCards:$('#v3InnerwearEditorialGalleryGrid')?.querySelectorAll('.v3-photo-card').length||0,groupNewCards:$('#v3GroupCampaignGalleryGrid')?.querySelectorAll('.v3-photo-card').length||$('#v3GroupCampaignGallery')?.querySelectorAll('.v3-photo-card').length||0,gracePreview:!!$('#v3GracePreview'),groupGallery:!!$('#v3GroupCampaignGallery'),gateContainsGroupPhoto:!!$('#v3GroupCampaignGallery')?.closest('#v23ThreesomeProtected'),loadedPhotos:$$('[data-v3-photo-asset]').filter(img=>img.complete&&img.naturalWidth>0).length})};
     document.documentElement.dataset.blackedV3Phase12='loaded';
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot,{once:true}); else boot();

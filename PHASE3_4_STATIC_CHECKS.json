@@ -1,0 +1,85 @@
+{
+  "suite": "BLACKED V3 Phase 3\u20134 static package validation",
+  "date": "2026-10-22",
+  "passed": 15,
+  "failed": 0,
+  "total": 15,
+  "checks": [
+    {
+      "name": "JavaScript syntax: phase2-photo-collections.js",
+      "result": "PASS",
+      "detail": "node --check passed"
+    },
+    {
+      "name": "JavaScript syntax: phase4-home-and-fantasy.js",
+      "result": "PASS",
+      "detail": "node --check passed"
+    },
+    {
+      "name": "JavaScript syntax: tests/phase2-browser-check.js",
+      "result": "PASS",
+      "detail": "node --check passed"
+    },
+    {
+      "name": "CSS braces balanced: phase2-photo-collections.css",
+      "result": "PASS",
+      "detail": "43 opening / 43 closing"
+    },
+    {
+      "name": "CSS braces balanced: phase3-design-system.css",
+      "result": "PASS",
+      "detail": "68 opening / 68 closing"
+    },
+    {
+      "name": "All local gallery image paths exist and decode",
+      "result": "PASS",
+      "detail": "11 unique referenced paths; missing=[]; invalid=[]"
+    },
+    {
+      "name": "Required phase 3/4 notes, integration and diagnostic files exist",
+      "result": "PASS",
+      "detail": "all present"
+    },
+    {
+      "name": "Three newly uploaded photos optimized and decodable",
+      "result": "PASS",
+      "detail": "[{\"path\": \"assets/triad-gallery-v3/innerwere-campaign-trio-two.webp\", \"exists_and_webp\": true, \"dims\": [1024, 1536], \"bytes\": 222224}, {\"path\": \"assets/triad-gallery-v3/innerwere-campaign-trio-three.webp\", \"exists_and_webp\": true, \"dims\": [1152, 1536], \"bytes\": 158488}, {\"path\": \"assets/innerwear-gallery-v3/soft-rose-evening-edit.webp\", \"exists_and_webp\": true, \"dims\": [1024, 1536], \"bytes\": 158544}]"
+    },
+    {
+      "name": "Two new group photos mapped to gated gallery records",
+      "result": "PASS",
+      "detail": "group gallery function explicitly requires existing protected box"
+    },
+    {
+      "name": "New solo pink photo mapped to Innerwear records",
+      "result": "PASS",
+      "detail": "innerwear campaign collection"
+    },
+    {
+      "name": "Phase 4 preserves existing gate and routes to it instead of bypassing",
+      "result": "PASS",
+      "detail": "gate uses existing data-v23-open-threesome action"
+    },
+    {
+      "name": "No changes to protected core-app filenames in package",
+      "result": "PASS",
+      "detail": "core app assets are absent from overlay ZIP; no wholesale replacement"
+    },
+    {
+      "name": "Diagnostics page parses as HTML",
+      "result": "PASS",
+      "detail": "basic HTML boundary check"
+    },
+    {
+      "name": "No byte-identical duplicate asset files in overlay",
+      "result": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Three distinct records referenced for gated multi-adult collection",
+      "result": "PASS",
+      "detail": "original ref + two new unique refs"
+    }
+  ],
+  "note": "Static package checks only. No GitHub remote write or live Android/GitHub Pages test was completed."
+}

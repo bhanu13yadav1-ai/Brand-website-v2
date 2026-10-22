@@ -1,0 +1,73 @@
+/* BLACKED V3 Phase 3 — additive layout and readability layer.
+   It intentionally keeps the existing V2 components and feature CSS loaded first. */
+:root{--v3-space-1:6px;--v3-space-2:10px;--v3-space-3:14px;--v3-space-4:20px;--v3-space-5:28px;--v3-space-6:38px;--v3-card-radius:18px}
+html{scroll-padding-top:clamp(84px,12vh,132px);overflow-x:clip}
+body{overflow-x:clip;font-size:14px;line-height:1.55;text-size-adjust:100%;-webkit-text-size-adjust:100%}
+.main-content{padding-top:clamp(14px,2.6vw,26px)}
+.view,.section-block,.hero,.page-intro,.panel,.campaign-card,.product-card,.story-card{min-width:0}
+.section-block{margin-block:clamp(24px,3.6vw,36px)}
+.section-heading{align-items:flex-start;flex-wrap:wrap;gap:10px 16px;margin-bottom:14px}
+.section-heading>div{min-width:0;flex:1 1 220px}
+.section-heading h2,.section-block h2{line-height:1.18;overflow-wrap:anywhere}
+.page-intro{padding-block:clamp(16px,2.6vw,24px)}
+.page-intro p,.muted{overflow-wrap:anywhere}
+.main-nav{gap:5px;padding-bottom:9px}
+.nav-link,.mobile-nav button,.icon-btn,.bag-btn,.btn,.small-btn,.text-btn{min-height:44px}
+.nav-link{padding-inline:clamp(10px,1.5vw,14px)}
+.destination-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.destination{min-width:0;min-height:92px;gap:10px;padding:13px}
+.destination b,.destination small{overflow-wrap:anywhere}
+.campaign-grid,.product-grid,.story-grid,.coming-grid,.v24-campaign-grid,.v24-couple-grid,.v24-triad-grid{align-items:stretch}
+.campaign-card,.product-card,.story-card{height:100%}
+.campaign-image-btn{background:#100d12}
+.campaign-image-btn img{aspect-ratio:3/4;object-fit:contain;object-position:center;background:#100d12}
+.v23-local-image-card img,.v23-reference-card img,.v24-image-card>img,.v3-photo-image{object-fit:contain;object-position:center;background:#100d12}
+.v23-local-image-card img,.v23-reference-card img,.v24-image-card>img{aspect-ratio:3/4;height:auto}
+.v3-photo-open{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;background:#100d12}
+.v3-photo-image{width:100%;height:100%;aspect-ratio:auto;object-fit:contain}
+.v3-photo-card-copy{gap:7px;padding:12px}
+.v3-photo-card-copy h3{font-size:14px;line-height:1.35}
+.v3-photo-tag,.v3-photo-status,.coming-pill,.story-meta{font-size:11px}
+.v3-photo-caption,.v3-photo-disclaimer{font-size:12px;line-height:1.5}
+.v3-home-quicklinks{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.v3-home-quicklinks-label{color:var(--muted,#c0b2bd);font-size:12px;font-weight:700;margin-right:2px}
+.v3-home-quicklink{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 12px;border:1px solid var(--line,#3b2a39);border-radius:999px;background:#171119;color:var(--cream,#fff5fa);font:inherit;font-size:12px;font-weight:750;text-decoration:none}
+.v3-home-quicklink:hover{border-color:var(--gold,#eacb8c);background:#241824}
+.v3-fantasy-studio{padding:clamp(16px,3vw,24px);border:1px solid #654754;border-radius:20px;background:linear-gradient(145deg,#1d151d,#100d12 74%);margin-block:clamp(22px,3.5vw,34px)}
+.v3-fantasy-studio .section-heading{margin-bottom:12px}
+.v3-fantasy-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.v3-fantasy-form .field{min-width:0}
+.v3-fantasy-form select{min-height:46px}
+.v3-fantasy-note{font-size:12px;line-height:1.55;color:var(--muted,#c0b2bd);margin:10px 0 0}
+.v3-fantasy-result{margin-top:14px;padding:14px;border-radius:14px;border:1px solid #493448;background:#100d12}
+.v3-fantasy-result[hidden]{display:none!important}
+.v3-fantasy-result h3{margin:0 0 7px;font-size:17px}
+.v3-fantasy-result p{margin:7px 0;font-size:13px;line-height:1.55;color:#e5d9e2}
+.v3-fantasy-result .button-row{margin-top:12px}
+.v3-fantasy-result .small-print{font-size:11px;color:var(--muted,#c0b2bd)}
+.v3-fantasy-studio :focus-visible,.v3-home-quicklink:focus-visible{outline:3px solid var(--pink,#f4a0c1);outline-offset:3px}
+.v3-phase34-status{font-size:12px;color:var(--muted,#c0b2bd);margin-top:10px}
+@media(max-width:760px){
+  .destination-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .destination{grid-template-columns:34px minmax(0,1fr) 14px;padding:11px;min-height:88px}
+  .dest-icon{width:34px;height:34px;font-size:18px}
+  .destination b{font-size:13px}
+  .destination small{font-size:12px}
+  .v3-fantasy-form{grid-template-columns:1fr}
+  .v3-fantasy-studio{padding:15px}
+  .hero{gap:16px}
+}
+@media(max-width:390px){
+  .wrap{width:calc(100% - 24px)}
+  .destination-grid{grid-template-columns:1fr}
+  .destination{grid-template-columns:38px minmax(0,1fr) 16px}
+  .dest-icon{width:38px;height:38px}
+  .v3-photo-grid{grid-template-columns:1fr}
+  .v3-group-gallery .v3-photo-grid{max-width:none}
+  .v3-photo-open{aspect-ratio:3/4}
+  .v3-home-quicklink{flex:1 1 auto}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}

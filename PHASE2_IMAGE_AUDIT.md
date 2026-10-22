@@ -26,3 +26,8 @@
 - This local overlay is not committed to the remote repository because branch creation was blocked by the GitHub connector's HTTP 403 integration permission error.
 - Live hosted image load, current Android Chrome, cache invalidation after publish, and the legacy 151-record URL list still require a real deployment/browser pass.
 - The new gallery assumes the existing `part-c-enhancements.js` has created `#v24InnerwearCollection` and `#v24TriadGrid`; the script is included **after** that enhancement script, and a pre-deploy check should confirm those selectors on `main`.
+
+
+## Phase 3–4 addendum (22 October 2026)
+
+The combined local package now has **11 unique local gallery references** in total: the original eight selected in Phase 2 plus three new photos supplied after that package. The new solo pink editorial is assigned to Innerwear. The other two new multi-adult campaign photos remain under the existing `#v23ThreesomeProtected` element behind the existing 18+ self-attestation. New optimised files and source/output checksums are recorded in `PHASE3_4_IMAGE_MANIFEST.csv`. This is still a local overlay only; no remote files were changed.

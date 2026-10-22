@@ -6,7 +6,7 @@
 - [ ] Noor search and category filter update result count correctly.
 - [ ] Preview opens with accessible title/alt and closes via close button, Escape and backdrop.
 - [ ] Focus returns to the image card that opened preview.
-- [ ] Innerwear still has all old cards plus exactly two new editorial cards.
+- [ ] Innerwear still has all old cards plus exactly three new editorial cards.
 - [ ] Grace preview does not remove `COMING SOON` or the existing description.
 - [ ] Group reference is nested within `#v23ThreesomeProtected` and stays hidden before gate confirmation.
 - [ ] All seven existing views and all four wheels still work.

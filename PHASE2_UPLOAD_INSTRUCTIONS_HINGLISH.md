@@ -1,3 +1,5 @@
+> **Historical Phase 1–2-only instructions.** The combined package now includes Phase 3 and Phase 4 files too. For the complete V3 overlay, follow `PHASE3_4_UPLOAD_INSTRUCTIONS_HINGLISH.md` rather than using this older file alone.
+
 # Phase 1–2 Package Upload — Hinglish (Android-friendly)
 
 **Important:** yeh package GitHub `main` par automatically upload nahi hua. GitHub connector ne safe branch create karte waqt HTTP 403 diya. Yeh files local ready hain, live website tab tak change nahi hogi jab tak inhe repository root mein upload aur do small integration changes nahi kiye jaate.

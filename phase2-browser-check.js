@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const d=window.BLACKED_V3_PHASE12?.getDiagnostics?.();
     add('Addon initialized',!!d,d?.version||'diagnostics unavailable');
     add('Noor gallery has four cards',d?.noorCards===4,d?.noorCards);
-    add('Innerwear gallery has two cards',d?.innerwearNewCards===2,d?.innerwearNewCards);
+    add('Innerwear gallery has three cards',d?.innerwearNewCards===3,d?.innerwearNewCards);
     add('Grace preview inserted',d?.gracePreview===true,d?.gracePreview);
     add('Additional group campaign gallery inserted',d?.groupGallery===true,d?.groupGallery);
-    add('Group photo remains inside hidden gate',d?.gateContainsGroupPhoto===true,`gate hidden=${document.querySelector('#v23ThreesomeProtected')?.hidden}`);
+    add('All three group references stay inside the existing gate',d?.gateContainsGroupPhoto===true&&d?.groupNewCards===3,`cards=${d?.groupNewCards}; gate hidden=${document.querySelector('#v23ThreesomeProtected')?.hidden}`);
     const search=document.querySelector('#v3NoorEditGallerySearch');
     if(search){search.value='Noor Ka Nasha';search.dispatchEvent(new Event('input',{bubbles:true}));add('Noor search filters to one card',[...document.querySelectorAll('#v3NoorEditGalleryGrid .v3-photo-card')].filter(x=>!x.hidden).length===1,[...document.querySelectorAll('#v3NoorEditGalleryGrid .v3-photo-card')].filter(x=>!x.hidden).length)} else add('Noor search exists',false);
     const card=document.querySelector('#v3NoorEditGalleryGrid button[data-v3-open-photo]');
