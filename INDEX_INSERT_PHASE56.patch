@@ -1,0 +1,7 @@
+*** Begin Patch
+*** Update File: index.html
+@@
+   <script src="./app.js" defer></script>
+   <script src="./part-c-enhancements.js" defer></script>
++  <script src="./phase5-6-loader.js?v=5.6.0" defer></script>
+*** End Patch

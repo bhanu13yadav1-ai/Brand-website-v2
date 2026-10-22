@@ -1,0 +1,13 @@
+BLACKED V3 HANDOFF — PHASES 5–6 PREPARED LOCALLY, NOT DEPLOYED
+
+Read V3_MASTER_PROJECT_NOTES.md, then PHASE5_6_CHANGELOG.md and PHASE5_6_UPLOAD_INSTRUCTIONS_HINGLISH.md.
+
+Important confirmed cause of “Phase 3/4 looks the same”: phase2-photo-collections.js, phase2-photo-collections.css, phase3-design-system.css and phase4-home-and-fantasy.js exist on GitHub main, but index.html only loads fallback.js, app.js and part-c-enhancements.js. The 11 image assets referenced by the previous overlays were also missing from main. The new phase5-6-loader.js restores correct load order; add the one script line documented in INDEX_INSERT_PHASE56.patch.
+
+Current package contains only new Phase 5/6 runtime files, diagnostics/notes, the 10 new-upload photos optimized to WebP plus six avatar crops, and 11 old-but-missing assets needed for prior overlays. Unchanged core files are not included.
+
+Run phase5-6-diagnostics.html after deployment. Check integration; check all bundled images; test the older 151-record archive; verify the Boyfriend Studio from a fresh browser load; then test 320, 360, 390 and 430 CSS-pixel widths. Confirm four wheels, all seven views, data persistence, modal gates, and existing forms remain functional. Only claim images fixed when the deployed diagnostic confirms loads or the actual missing source is repaired.
+
+Boyfriend preference flow is fictional archetypes only. It is not a real-person marketplace and has no purchase/booking backend. Multi-adult campaign assets remain inside #v23ThreesomeProtected, the second existing self-attestation gate.
+
+GitHub branch creation previously returned 403. No remote changes were made from this package. Continue with safe branch/PR or the documented manual upload, not a destructive overwrite of main.

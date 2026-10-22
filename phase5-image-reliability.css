@@ -1,0 +1,9 @@
+/* Phase 5: keep image failures visible and recoverable without hiding the original record. */
+.v5-image-recovery-controls{display:grid;gap:7px;margin:8px 10px 12px;padding:10px;border:1px solid #8b6464;border-radius:12px;background:#241519;color:#fff4f4;font:12px/1.45 system-ui,sans-serif;overflow-wrap:anywhere}
+.v5-image-recovery-status{margin:0;color:#ffd5d5;font-size:12px}
+.v5-image-recovery-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.v5-image-retry,.v5-image-source-link{display:inline-flex;min-height:40px;align-items:center;justify-content:center;border:1px solid #eacb8c;border-radius:9px;padding:8px 11px;background:#1a1117;color:#ffe5ad;font:700 12px/1.2 system-ui,sans-serif;text-decoration:none;cursor:pointer}
+.v5-image-retry:disabled{opacity:.55;cursor:wait}
+.v5-image-failed{outline:1px solid #b96f76;outline-offset:-1px}
+.v5-image-recovery-controls :focus-visible{outline:3px solid #f4a0c1;outline-offset:2px}
+@media(max-width:420px){.v5-image-recovery-actions>*{flex:1 1 130px}}

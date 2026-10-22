@@ -1,0 +1,116 @@
+{
+  "suite": "BLACKED V3 Phase 5\u20136 static validation",
+  "tested_at": "2026-10-22",
+  "total": 20,
+  "passed": 20,
+  "failed": 0,
+  "asset_count": 27,
+  "asset_bytes": 3009748,
+  "checks": [
+    {
+      "name": "All new JavaScript files exist",
+      "result": "PASS",
+      "detail": "phase5-6-loader.js, phase5-image-reliability.js, phase6-boyfriend-studio.js"
+    },
+    {
+      "name": "JavaScript syntax passes (node --check)",
+      "result": "PASS",
+      "detail": "phase5-6-loader.js, phase5-image-reliability.js, phase6-boyfriend-studio.js"
+    },
+    {
+      "name": "phase5-image-reliability.css braces balanced",
+      "result": "PASS",
+      "detail": "open=9 close=9"
+    },
+    {
+      "name": "phase6-boyfriend-studio.css braces balanced",
+      "result": "PASS",
+      "detail": "open=88 close=88"
+    },
+    {
+      "name": "phase5-6-diagnostics.html parses without duplicate IDs",
+      "result": "PASS",
+      "detail": "duplicate_ids=[]; main=True"
+    },
+    {
+      "name": "phase6-boyfriend-preview.html parses without duplicate IDs",
+      "result": "PASS",
+      "detail": "duplicate_ids=[]; main=True"
+    },
+    {
+      "name": "All manifest assets exist",
+      "result": "PASS",
+      "detail": "27 listed; missing=[]"
+    },
+    {
+      "name": "All manifest SHA-256 values match",
+      "result": "PASS",
+      "detail": "27 checked; invalid=[]"
+    },
+    {
+      "name": "All manifest images decode as WebP",
+      "result": "PASS",
+      "detail": "27 inspected; asset bytes=3009748"
+    },
+    {
+      "name": "Manifest count matches asset files",
+      "result": "PASS",
+      "detail": "manifest=27; webp_files=27"
+    },
+    {
+      "name": "Loader imports prior and new overlays in correct order",
+      "result": "PASS",
+      "detail": "./phase2-photo-collections.css, ./phase3-design-system.css, ./phase5-image-reliability.css, ./phase6-boyfriend-studio.css, ./phase2-photo-collections.js, ./phase4-home-and-fantasy.js, ./phase5-image-reliability.js, ./phase6-boyfriend-studio.js"
+    },
+    {
+      "name": "Index patch contains exactly one loader line",
+      "result": "PASS",
+      "detail": "one script tag beneath part-c-enhancements.js"
+    },
+    {
+      "name": "Six fictional archetypes defined",
+      "result": "PASS",
+      "detail": "archetype definitions visible=14"
+    },
+    {
+      "name": "New multi-adult images remain under current gate",
+      "result": "PASS",
+      "detail": "gallery attaches to #v23ThreesomeProtected"
+    },
+    {
+      "name": "Existing Phase 4 preference router is retained",
+      "result": "PASS",
+      "detail": "wrapped in an expandable details panel rather than removed"
+    },
+    {
+      "name": "No purchase/booking backend or network send added",
+      "result": "PASS",
+      "detail": "client-side fictional preference selector only"
+    },
+    {
+      "name": "New match board creates six usable portrait crops",
+      "result": "PASS",
+      "detail": "one moodboard + six derived portrait crops"
+    },
+    {
+      "name": "Mobile reflow breakpoints exist",
+      "result": "PASS",
+      "detail": "tablet and narrow-phone layouts"
+    },
+    {
+      "name": "All 11 earlier overlay assets missing from GitHub main are restored",
+      "result": "PASS",
+      "detail": "11 files restored"
+    },
+    {
+      "name": "Image placement manifest maps every bundled WebP",
+      "result": "PASS",
+      "detail": "27 rows for 27 assets"
+    }
+  ],
+  "limitations": [
+    "Live GitHub Pages was not modified by this package.",
+    "Run phase5-6-diagnostics.html after merge to verify live asset responses and test the 151-record remote archive.",
+    "A browser fixture could not be run in the isolated environment; Node syntax checks and static asset decoding completed."
+  ]
+}

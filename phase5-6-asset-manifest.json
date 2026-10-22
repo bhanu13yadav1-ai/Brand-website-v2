@@ -1,0 +1,169 @@
+{
+  "version": "5.6.0",
+  "purpose": "Restore Phase 1-4 assets missing from GitHub main and add Phase 5-6 user-supplied campaign assets.",
+  "count": 27,
+  "assets": [
+    {
+      "path": "./assets/boyfriend-studio-v3/choose-your-match-board.webp",
+      "file": "choose-your-match-board.webp",
+      "bytes": 129368,
+      "sha256": "29f4be351914b0b46c7ff6e4f50f8fe1db620529264173fe0cdec7c32972976c"
+    },
+    {
+      "path": "./assets/boyfriend-studio-v3/match-active.webp",
+      "file": "match-active.webp",
+      "bytes": 13488,
+      "sha256": "ef255ebdafbc01c425163bf6b133370f12d8ad76cd59b93fbc4401a8aa02c093"
+    },
+    {
+      "path": "./assets/boyfriend-studio-v3/match-confident.webp",
+      "file": "match-confident.webp",
+      "bytes": 12114,
+      "sha256": "ad3add8e13012d8185d7b3aa63da099254781eeb2a1e1d71fdaff5a0a0c9b920"
+    },
+    {
+      "path": "./assets/boyfriend-studio-v3/match-couple-plus-one.webp",
+      "file": "match-couple-plus-one.webp",
+      "bytes": 10218,
+      "sha256": "ec5eb7bf21b492ce10002e1d67cea608ec0f1953b6772d366f280f666f607059"
+    },
+    {
+      "path": "./assets/boyfriend-studio-v3/match-multi-adult.webp",
+      "file": "match-multi-adult.webp",
+      "bytes": 11252,
+      "sha256": "21c0d393d8edff0cdba8af2e7bf754454fd5d91609977c74e7b0dd42f85570b6"
+    },
+    {
+      "path": "./assets/boyfriend-studio-v3/match-romantic.webp",
+      "file": "match-romantic.webp",
+      "bytes": 12292,
+      "sha256": "73e8aa049d5ce0277f450f6bee4579016ab0127b9ca25149b9889ad7e916412d"
+    },
+    {
+      "path": "./assets/boyfriend-studio-v3/match-sturdy.webp",
+      "file": "match-sturdy.webp",
+      "bytes": 9986,
+      "sha256": "1b9bdffe3eaab48c7f3d5f5d7daa3efa4b15a32944ae3d8237ec40fc1baa2e15"
+    },
+    {
+      "path": "./assets/couples-gallery-v3/own-your-balance.webp",
+      "file": "own-your-balance.webp",
+      "bytes": 110030,
+      "sha256": "f5dc357f0e33f7879d21c4ed5bd87dd057b9febae3de60484a925bd4d98f4584"
+    },
+    {
+      "path": "./assets/grace-edit/sacred-elegance.webp",
+      "file": "sacred-elegance.webp",
+      "bytes": 115394,
+      "sha256": "ccb46d1489e5cc4c20bf23553fea7a4dc7db77ffc81954800c69f26d8b20fc3c"
+    },
+    {
+      "path": "./assets/innerwear-gallery-v3/made-for-quiet-moments.webp",
+      "file": "made-for-quiet-moments.webp",
+      "bytes": 148538,
+      "sha256": "433d14c8a58a56f90048ccb240e04571a51ed75b6d7787d795cb4a0532403703"
+    },
+    {
+      "path": "./assets/innerwear-gallery-v3/mirror-burgundy-set.webp",
+      "file": "mirror-burgundy-set.webp",
+      "bytes": 106520,
+      "sha256": "6cbd2641a52e41cf7527c9e659d6bf6f32ccb9dc90e0fcb893724b37f4f8b4b2"
+    },
+    {
+      "path": "./assets/innerwear-gallery-v3/rest-restore-rise.webp",
+      "file": "rest-restore-rise.webp",
+      "bytes": 106752,
+      "sha256": "b88b3d73326cdd7503723cb272c5ff1cf2f3e1ecb67124d70950cf46a3a71c45"
+    },
+    {
+      "path": "./assets/innerwear-gallery-v3/soft-rose-evening-edit.webp",
+      "file": "soft-rose-evening-edit.webp",
+      "bytes": 158544,
+      "sha256": "fd7e4bb24d28f89fc93d845dcd5e61567de5a55f8c9b3ce590077bd2c76c082e"
+    },
+    {
+      "path": "./assets/noor-edit/noor-ka-nasha.webp",
+      "file": "noor-ka-nasha.webp",
+      "bytes": 112342,
+      "sha256": "66b7b12b6857c477a74df9c20484973ebbbe17457751ea401a0e4621c0aebe90"
+    },
+    {
+      "path": "./assets/noor-edit/shaam-e-noor.webp",
+      "file": "shaam-e-noor.webp",
+      "bytes": 114598,
+      "sha256": "acd7796042de1a8193bd89547996887230b49fe190edb457f663a128f9bb2164"
+    },
+    {
+      "path": "./assets/noor-edit/shaam-se-raat-tak.webp",
+      "file": "shaam-se-raat-tak.webp",
+      "bytes": 109700,
+      "sha256": "dcef75def73e7c6fce9f4fd8f17e84aa28a573a084d96e99e778c8c95fadf76e"
+    },
+    {
+      "path": "./assets/noor-edit/tradition-outside-desire-inside.webp",
+      "file": "tradition-outside-desire-inside.webp",
+      "bytes": 143618,
+      "sha256": "d30a815636a5d26739e16be6f70b78a51f2453600988f1aa28b2fb312f1a4d7a"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/burgundy-drape-editorial.webp",
+      "file": "burgundy-drape-editorial.webp",
+      "bytes": 145856,
+      "sha256": "1118ad1f59ea9e90131e517e62d2a92dae9f2da9e5e6b2a2141642504f907649"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/garden-lace-trio.webp",
+      "file": "garden-lace-trio.webp",
+      "bytes": 194962,
+      "sha256": "090adfa4b2635f7625413ce5d625ec497d61275567dfbcc19ed89f1175d47174"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/innerwere-campaign-trio-three.webp",
+      "file": "innerwere-campaign-trio-three.webp",
+      "bytes": 158488,
+      "sha256": "c4e433d4c7ae26aa8e009ef588b431d1234ff6cb530d36f6aed4fa25289d6e21"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/innerwere-campaign-trio-two.webp",
+      "file": "innerwere-campaign-trio-two.webp",
+      "bytes": 222224,
+      "sha256": "3c105945b700af24c7e92ebbdef658a22ea9c230f8b4339684cb4cdd1312d12d"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/innerwere-campaign-trio.webp",
+      "file": "innerwere-campaign-trio.webp",
+      "bytes": 179838,
+      "sha256": "96b57c4834d24b1b6939a81efb0ce63038ec5b2d24bf95b0f210831c96368731"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/maroon-room-chemistry.webp",
+      "file": "maroon-room-chemistry.webp",
+      "bytes": 122330,
+      "sha256": "88cf5171e24e320bd504d5334fe1d787e5fc65a854567d94fe845b603ed98dad"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/noor-burgundy-editorial.webp",
+      "file": "noor-burgundy-editorial.webp",
+      "bytes": 146558,
+      "sha256": "43001e96e41bf2c9b9c2d7e14ffcb1793f2543c5a130552520335257069ba050"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/noor-seated-editorial.webp",
+      "file": "noor-seated-editorial.webp",
+      "bytes": 130472,
+      "sha256": "4beb0e2362f3cebe5b255fc8f6160a5459c5e8c55062e7f84fb86540039f9013"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/poolside-trio-alt.webp",
+      "file": "poolside-trio-alt.webp",
+      "bytes": 139992,
+      "sha256": "8bb8030ca6b90268328c3c0cc421f3aa2794e2202b74b3a740a8bb4531416c73"
+    },
+    {
+      "path": "./assets/triad-gallery-v3/poolside-trio-editorial.webp",
+      "file": "poolside-trio-editorial.webp",
+      "bytes": 144274,
+      "sha256": "9c0bc4006ba355e59a292b4c32cb5d72b5ec1764a123b161aa18c4a91489dac2"
+    }
+  ]
+}

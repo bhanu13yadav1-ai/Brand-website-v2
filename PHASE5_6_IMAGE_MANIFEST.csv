@@ -1,0 +1,28 @@
+source_upload_or_origin,output_path,intended_section,visibility_or_gate,notes
+1000202136.png,assets/boyfriend-studio-v3/choose-your-match-board.webp,Boyfriend Studio,Linkable reference board,New upload optimized to WebP; card layouts use portrait crops instead of reproducing the dense poster as the page UI.
+1000202136.png,assets/boyfriend-studio-v3/match-romantic.webp,Boyfriend Studio,Fictional archetype card,Crop from first male portrait panel; no real identity or measurements implied.
+1000202136.png,assets/boyfriend-studio-v3/match-confident.webp,Boyfriend Studio,Fictional archetype card,Crop from second male portrait panel; no real identity or measurements implied.
+1000202136.png,assets/boyfriend-studio-v3/match-active.webp,Boyfriend Studio,Fictional archetype card,Crop from third male portrait panel; no real identity or measurements implied.
+1000202136.png,assets/boyfriend-studio-v3/match-sturdy.webp,Boyfriend Studio,Fictional archetype card,Crop from fourth male portrait panel; not a size claim.
+1000202136.png,assets/boyfriend-studio-v3/match-couple-plus-one.webp,Boyfriend Studio,Fictional archetype card,Crop from fifth male portrait panel; fictional adult story category.
+1000202136.png,assets/boyfriend-studio-v3/match-multi-adult.webp,Boyfriend Studio,Fictional archetype card,Crop from sixth male portrait panel; fictional adult story category.
+1000202137.png,assets/triad-gallery-v3/maroon-room-chemistry.webp,Boyfriend / group campaign,Second 18+ gate,Multi-adult fashion campaign reference; no real-person listing.
+1000202138.png,assets/triad-gallery-v3/burgundy-drape-editorial.webp,Boyfriend / group campaign,Second 18+ gate,Burgundy drape campaign; no identity/religion claim.
+1000202139.png,assets/triad-gallery-v3/noor-burgundy-editorial.webp,Boyfriend / group campaign,Second 18+ gate,Hijab-inspired costume/editorial concept only; not an official religious collection.
+1000202140.png,assets/triad-gallery-v3/poolside-trio-editorial.webp,Boyfriend / group campaign,Second 18+ gate,Poolside multi-adult campaign reference.
+1000202098.png,assets/triad-gallery-v3/noor-seated-editorial.webp,Boyfriend / group campaign,Second 18+ gate,Burgundy head-covering editorial styling; no model faith inferred.
+1000202102.png,assets/innerwear-gallery-v3/mirror-burgundy-set.webp,Innerwear,Innerwear editorial gallery,Solo mirror campaign reference; SKU/stock not confirmed.
+1000202103.png,assets/couples-gallery-v3/own-your-balance.webp,Boyfriend & Couples,Visible after existing Boyfriend 18+ access gate,"Active/balance campaign concept, not a real trainer profile or booking."
+1000202104.png,assets/triad-gallery-v3/garden-lace-trio.webp,Boyfriend / group campaign,Second 18+ gate,Garden-light multi-adult campaign reference.
+1000202101.png,assets/triad-gallery-v3/poolside-trio-alt.webp,Boyfriend / group campaign,Second 18+ gate,Alternate crop/version retained as a separate image record.
+Previous Phase 1–4 package,assets/noor-edit/noor-ka-nasha.webp,Noor Edit,Previously referenced; missing from GitHub main,Restore missing local asset so existing gallery code can show it.
+Previous Phase 1–4 package,assets/noor-edit/tradition-outside-desire-inside.webp,Noor Edit,Previously referenced; missing from GitHub main,Restore missing local asset so existing gallery code can show it.
+Previous Phase 1–4 package,assets/noor-edit/shaam-e-noor.webp,Noor Edit,Previously referenced; missing from GitHub main,Restore missing local asset so existing gallery code can show it.
+Previous Phase 1–4 package,assets/noor-edit/shaam-se-raat-tak.webp,Noor Edit,Previously referenced; missing from GitHub main,Restore missing local asset so existing gallery code can show it.
+Previous Phase 1–4 package,assets/innerwear-gallery-v3/made-for-quiet-moments.webp,Innerwear,Previously referenced; missing from GitHub main,Restore missing local asset so existing gallery code can show it.
+Previous Phase 1–4 package,assets/innerwear-gallery-v3/rest-restore-rise.webp,Innerwear,Previously referenced; missing from GitHub main,Restore missing local asset so existing gallery code can show it.
+Previous Phase 1–4 package,assets/innerwear-gallery-v3/soft-rose-evening-edit.webp,Innerwear,Previously referenced; missing from GitHub main,Restore missing local asset so existing gallery code can show it.
+Previous Phase 1–4 package,assets/grace-edit/sacred-elegance.webp,Grace Edit,Previously referenced; missing from GitHub main,Restore missing local asset so existing preview can show it.
+Previous Phase 1–4 package,assets/triad-gallery-v3/innerwere-campaign-trio.webp,Multi-adult references,Previously referenced; missing from GitHub main,"Restore missing local asset, displayed only inside existing second 18+ gate."
+Previous Phase 1–4 package,assets/triad-gallery-v3/innerwere-campaign-trio-two.webp,Multi-adult references,Previously referenced; missing from GitHub main,"Restore missing local asset, displayed only inside existing second 18+ gate."
+Previous Phase 1–4 package,assets/triad-gallery-v3/innerwere-campaign-trio-three.webp,Multi-adult references,Previously referenced; missing from GitHub main,"Restore missing local asset, displayed only inside existing second 18+ gate."

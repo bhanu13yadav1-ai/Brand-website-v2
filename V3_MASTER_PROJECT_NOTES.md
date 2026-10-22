@@ -1,6 +1,6 @@
 # BLACKED Website — V3 Master Project Notes / Source of Truth
 
-Last updated: 22 October 2026 · Phase 3–4 package preparation  
+Last updated: 22 October 2026 · Phase 5–6 package preparation  
 Repository: https://github.com/bhanu13yadav1-ai/Brand-website-v2  
 Live site: https://bhanu13yadav1-ai.github.io/Brand-website-v2/
 
@@ -42,23 +42,31 @@ Seven existing views: Home, Sex Stories 18+, Innerwear, Sanskari Edit, Wellness 
 ## Current phase status (latest source of truth)
 
 - Phase 1: **Baseline audit prepared locally**. Source files, seven views, storage keys, original wheel locations and existing Phase 4 reports were inspected. GitHub safe-branch creation returned HTTP 403; no remote commit was made.
-- Phase 2: **Image/source audit and additive gallery layer prepared locally**. The first eight selected images remain documented; one near-duplicate pair was withheld from duplicate display.
-- Phase 3: **Design-system and mobile readability overlay prepared locally** in `phase3-design-system.css`. This tunes spacing, readable text, target sizes, full-image framing and small-screen reflow without replacing `styles.css`.
-- Phase 4: **Home shortcuts and fictional preference-router overlay prepared locally** in `phase4-home-and-fantasy.js`. Three compact links point to existing views. A fictional adult archetype selector supports romance, flirty/dark fiction, non-graphic multi-partner fantasy/boundaries and wellness/toy-safety guidance. Size labels are clearly fictional/educational; it does not sell/book people, claim real measurements, or bypass the current 18+ gate.
-- Current overlay contains **11 unique local collection assets** (eight from original Phase 2 plus three newly supplied Phase 3–4 photos). The new solo pink photo goes to Innerwear; two new multi-adult campaign photos are held inside the existing `#v23ThreesomeProtected` gated gallery.
-- Phases 1–4 are **prepared locally but not deployed**. Static package validation: **15/15 checks passed**. That does not imply that live GitHub Pages or Android browser testing passed.
-- Phases 5–15 remain pending. Begin them after the overlay is uploaded and Phase 1–4 regressions pass on the deployed site.
+- Phase 2: **Image/source audit and additive gallery layer prepared locally**. Image paths, source references and selected uploads were mapped; a near-duplicate pair remains documented so duplicates do not get displayed twice.
+- Phase 3: **Design-system CSS exists on GitHub main but is not linked by `index.html`**. This was the concrete reason the visual overlay was not visible on the live site.
+- Phase 4: **Home shortcuts and fictional preference-router JS exists on GitHub main but is not linked by `index.html`**. The actual main `index.html` currently loads only `fallback.js`, `app.js` and `part-c-enhancements.js`.
+- Image path check: all **11 local WebP assets referenced by Phase 1–4 overlay code** were missing (GitHub API returned 404). The new Phase 5–6 delta restores those missing files; it does not re-copy the existing JS/CSS files.
+- Phase 5: **Prepared locally** — one-line loader patch restores correct old-overlay load order, image failure recovery controls, asset checksum manifest and deployed diagnostic page for both local images and the 151-record external archive.
+- Phase 6: **Prepared locally** — a redesigned Boyfriend Studio with six selectable fictional archetype cards, local-only preference flow, optional educational size-reference filter, and seven new group images within the existing second 18+ gate. Existing couple tools and wheels remain in the base code.
+- The Phase 5–6 delta contains **27 WebP assets**: 11 missing images referenced by earlier overlay files, plus 16 outputs derived from the current 10 uploaded photos (the Choose Your Match board is used to create six clean archetype portrait crops).
+- Phases 1–6 are **prepared locally but not verified on deployed GitHub Pages**. The previous Phase 3–4 code had not been wired into `index.html`, so it had no visible effect. The new bootstrap adds the single required script line; after upload, run the deployed diagnostics.
+- Phases 7–15 remain pending.
 
-## Current package files
+## Phase 5–6 delta files
 
-- `phase2-photo-collections.js` / `phase2-photo-collections.css` — original V3 photo overlay, now including Phase 3–4 photo additions.
-- `phase3-design-system.css` — additive responsive design layer.
-- `phase4-home-and-fantasy.js` — Home links and adult preference router.
-- `phase34-diagnostics.html` — hosted same-origin diagnostics page.
-- `notes/PHASE1_BASELINE_AUDIT.md`, `notes/PHASE2_IMAGE_AUDIT.md`, `notes/PHASE3_DESIGN_AUDIT.md`, `notes/PHASE4_FEATURE_NOTES.md`.
-- `notes/PHASE2_IMAGE_MANIFEST.csv` and `notes/PHASE3_4_IMAGE_MANIFEST.csv`.
-- `PHASE3_4_UPLOAD_INSTRUCTIONS_HINGLISH.md`, `PHASE3_4_HANDOFF.txt`, `tests/PHASE3_4_STATIC_CHECKS.json` and test checklist.
+The delta package is `BLACKED_V3_PHASE5_6_CHANGED_FILES/` and its ZIP. It deliberately does **not** include full copies of unchanged `app.js`, `styles.css`, `fallback.js`, `index.html`, `sw.js`, `phase2-photo-collections.js`, `phase2-photo-collections.css`, `phase3-design-system.css`, or `phase4-home-and-fantasy.js`.
+
+- `phase5-6-loader.js` — dynamic, versioned importer for the old phase overlays in the correct order.
+- `phase5-image-reliability.js` / `.css` — original-source retry/open controls for image failures recorded by the existing fallback.
+- `phase6-boyfriend-studio.js` / `.css` — six-card fictional match UI and the existing gated gallery additions.
+- `phase5-6-asset-manifest.json` — exact local assets, byte sizes and SHA-256.
+- `phase5-6-diagnostics.html` — deployed checks for integration, local assets and remote archive URLs.
+- `INDEX_INSERT_PHASE56.patch` — single changed line required in `index.html`; without that line the loader is never executed.
+- `PHASE5_6_UPLOAD_INSTRUCTIONS_HINGLISH.md`, `PHASE5_6_CHANGELOG.md`, `PHASE5_6_HANDOFF.txt`, `phase6-boyfriend-preview.html` and the photo preview.
+- 27 required WebP assets: 11 absent from GitHub main but already referenced by old JS, and 16 new outputs from the recent user uploads/crops.
 
 ## Resume instruction for next session
 
-Read this master note and `PHASE3_4_HANDOFF.txt`. The combined local package is not deployed. First restore GitHub write/ref permission or upload the overlay to a safe branch/manually; do not push unverified files directly to `main`. Follow `PHASE3_4_UPLOAD_INSTRUCTIONS_HINGLISH.md` to merge assets, add the CSS/deferred JS links and bump `sw.js` cache entries. Run `phase2-diagnostics.html`, `phase34-diagnostics.html`, `phase23-diagnostics.html` and `phase4-diagnostics.html`, plus manual Android Chrome checks at 320, 360, 390 and 430 CSS px. Test all seven views, four wheels, modal gates, saved data, image archive, story tools, wishlist/bag, Fit Studio and cache refresh. Keep all phase notes and report any pre-existing external-image failures separately from the new local assets.
+Read this master note and `PHASE5_6_HANDOFF.txt`. The delta package is not deployed. GitHub safe-branch creation returned 403, so use a safe write path or manual merge rather than overwrite `main` blindly. Upload the ZIP contents into the repo root, then add the one line in `INDEX_INSERT_PHASE56.patch` beneath the existing `part-c-enhancements.js` script. The loader restores the previous Phase 2–4 overlays and loads the new Phase 5–6 modules in sequence.
+
+Run `phase5-6-diagnostics.html`: first integration, then local bundle images, then the 151-record remote image archive. Report exact failed paths rather than assuming all external archive failures have the same cause. Review Boyfriend Studio on Android Chrome at 320, 360, 390 and 430 CSS px; test all seven original views, all four wheels, age gates, gallery filters, story tools, wishlist/bag, Fit Studio and storage preservation. Do not claim a live fix until the deployed diagnostics pass.
