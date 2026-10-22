@@ -1,0 +1,63 @@
+{
+  "suite": "BLACKED V3 Phase 1\u20132 static package checks",
+  "checked_at": "2026-10-22",
+  "passed": 10,
+  "failed": 0,
+  "total": 10,
+  "checks": [
+    {
+      "name": "Main add-on JavaScript syntax",
+      "result": "PASS",
+      "detail": "node --check"
+    },
+    {
+      "name": "Browser-check script syntax",
+      "result": "PASS",
+      "detail": "node --check"
+    },
+    {
+      "name": "CSS braces balanced",
+      "result": "PASS",
+      "detail": "open=43; close=43"
+    },
+    {
+      "name": "All 8 manifest assets exist and are valid WebP",
+      "result": "PASS",
+      "detail": "8/8 valid; SHA-256 and byte size match manifest"
+    },
+    {
+      "name": "All JavaScript asset paths exist",
+      "result": "PASS",
+      "detail": "paths=8; missing=[]"
+    },
+    {
+      "name": "Responsive gallery and reduced-motion rules exist",
+      "result": "PASS",
+      "detail": "desktop, narrow-mobile and reduced-motion rules present"
+    },
+    {
+      "name": "Diagnostic fixture has unique IDs",
+      "result": "PASS",
+      "detail": "IDs=8; duplicates=[]"
+    },
+    {
+      "name": "No protected core file is replaced by this overlay",
+      "result": "PASS",
+      "detail": "overlay-only; no legacy app/style/archive replacement included"
+    },
+    {
+      "name": "ZIP archive integrity",
+      "result": "PASS",
+      "detail": "all packaged files pass CRC validation"
+    },
+    {
+      "name": "Selected image payload reduced",
+      "result": "PASS",
+      "detail": "2,352,800 B \u2192 1,030,780 B (56.2% smaller for these 8 images)"
+    }
+  ],
+  "not_run": [
+    "Standalone browser fixture could not be completed in this container environment.",
+    "Live GitHub Pages, physical Android Chrome and the 151-record legacy external image archive are not verified. GitHub branch creation returned HTTP 403."
+  ]
+}

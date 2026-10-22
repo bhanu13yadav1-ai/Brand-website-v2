@@ -1,52 +1,7 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#100d10">
-<title>BLACKED V1 — Phase 2 Diagnostics</title>
-<style>
-:root{color-scheme:dark;--bg:#100d10;--panel:#1b151b;--line:#3a2a37;--pink:#f6a4c2;--muted:#c7b9c5;--ok:#96e6b2;--bad:#ff9b9b;--warn:#f7d28b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff7fb;font:15px/1.5 system-ui,sans-serif;padding:20px;max-width:980px;margin-inline:auto}h1,h2{line-height:1.2}h1{font-size:clamp(24px,5vw,36px)}h2{font-size:20px}.muted{color:var(--muted)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-block;border:1px solid var(--pink);border-radius:12px;padding:10px 14px;color:#170d14;background:var(--pink);font-weight:700;text-decoration:none}.btn.alt{background:transparent;color:var(--pink)}.status{border-top:1px solid var(--line);padding:10px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}.tag{font-size:12px;letter-spacing:.03em;white-space:nowrap}.PASS{color:var(--ok)}.FAIL{color:var(--bad)}.BLOCKED,.NOTTESTED{color:var(--warn)}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.tile{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0b090c;min-width:0}.tile img{display:block;width:100%;height:170px;object-fit:contain;background:#0b090c}.tile div{padding:8px;font-size:12px;overflow-wrap:anywhere}.small{font-size:13px}.status-list{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;overflow-wrap:anywhere}@media(max-width:360px){body{padding:12px}.status{grid-template-columns:1fr;gap:2px}}
-</style>
-</head>
-<body>
-<h1>V1 Phase 2 — Website Path Diagnostics</h1>
-<p class="muted">Upload this file into the existing <b>Brand-website-4f</b> repository root. Open it after commit. This page checks file routes and wheel markup; it does not change the original site.</p>
-<div class="panel"><h2>Quick status</h2><p id="controllerStatus" class="muted">Checking service worker…</p><div class="actions"><a class="btn" href="./index.html">Open main website</a><button class="btn alt" id="runAgain" type="button">Run checks again</button></div><p class="small muted">If this is your first visit after upload, open this diagnostics page once, return here after the service worker installs, or refresh this page once before judging the legacy assets/ path tests.</p></div>
-<div class="panel"><h2>File and route checks</h2><div id="routes" class="status-list">Running…</div></div>
-<div class="panel"><h2>Original wheel structure</h2><p class="muted small">PASS here means the expected controls exist in index.html, not that every animation/button has been manually tested.</p><div id="wheels" class="status-list">Checking…</div></div>
-<div class="panel"><h2>Real root image preview</h2><div id="gallery" class="gallery"></div></div>
-<div class="panel"><h2>Legacy assets/ path behaviour</h2><div id="legacy" class="status-list">Checking…</div></div>
-<div class="panel"><h2>How to read results</h2><p class="small"><b class="PASS">PASS</b> means the check ran and passed. <b class="FAIL">FAIL</b> means the check ran and failed. <b class="BLOCKED">NOT TESTED</b> means the browser has not yet been controlled by the new service worker or the test could not run. This diagnostic does not claim physical Android testing or prove every feature is bug-free.</p></div>
-<script>
-(() => {
-'use strict';
-const $=s=>document.querySelector(s);
-const root=new URL('./',location.href);
-const files=['hero-model-crop.webp','sanskari-ankhein.webp','sanskari-mirror.webp','sanskari-raat.webp','look-black-lace.webp','wellness-app-reference.webp','icon-192.png','icon-512.png'];
-function addRow(host,label,status,detail=''){const row=document.createElement('div');row.className='status';const l=document.createElement('div');l.textContent=label+(detail?' — '+detail:'');const r=document.createElement('strong');r.className='tag '+status;r.textContent=status;row.append(l,r);host.append(row)}
-async function checkFetch(path){try{const r=await fetch(path,{cache:'no-store'});return {ok:r.ok,status:r.status,contentType:r.headers.get('content-type')||''}}catch(e){return {ok:false,status:'ERR',error:String(e)}}}
-function imageLoad(url){return new Promise(resolve=>{const im=new Image();im.onload=()=>resolve({ok:true,width:im.naturalWidth,height:im.naturalHeight});im.onerror=()=>resolve({ok:false});im.src=url;})}
-async function run(){
- const routes=$('#routes'),wheels=$('#wheels'),gallery=$('#gallery'),legacy=$('#legacy');routes.replaceChildren();wheels.replaceChildren();gallery.replaceChildren();legacy.replaceChildren();
- const pathTests=[['Main HTML','./index.html'],['Original root JavaScript','./app.js'],['Original root stylesheet','./styles.css'],['CSS compatibility wrapper','./css/styles.css'],['JavaScript compatibility loader','./js/app.js'],['Corrected service worker','./sw.js'],['Updated manifest','./manifest.webmanifest']];
- for(const [name,path] of pathTests){const r=await checkFetch(path);addRow(routes,name,r.ok?'PASS':'FAIL',r.ok?`${r.status} · ${r.contentType||'response'}`:`HTTP/network ${r.status}`)}
- let markup=null;try{const response=await fetch('./index.html',{cache:'no-store'});if(response.ok){const txt=await response.text();markup=new DOMParser().parseFromString(txt,'text/html')}}catch(_){}
- const required=[['Boyfriend wheel','boyPreference','boyResult','boy'],['Dildo size wheel','dildoPreference','dildoResult','dildo'],['Butt plug size wheel','plugPreference','plugResult','plug']];
- for(const [name,selectId,resultId,kind] of required){const ok=!!markup&&!!markup.getElementById(selectId)&&!!markup.getElementById(resultId)&&!!markup.querySelector(`[data-spin-wheel="${kind}"]`)&&!!markup.querySelector(`[data-wheel-disc="${kind}"]`);addRow(wheels,name,ok?'PASS':'FAIL',ok?'controls found in current index.html':'one or more expected IDs/controls missing')}
- for(const file of files){const tile=document.createElement('div');tile.className='tile';const im=document.createElement('img');im.alt=file;im.loading='lazy';im.src=new URL(file,root).href;const label=document.createElement('div');label.textContent=file;tile.append(im,label);gallery.append(tile);im.onload=()=>{label.textContent=`PASS · ${file} · ${im.naturalWidth}×${im.naturalHeight}`;label.className='PASS'};im.onerror=()=>{label.textContent=`FAIL · ${file} could not be decoded/loaded`;label.className='FAIL'};}
- const controlled=!!(navigator.serviceWorker&&navigator.serviceWorker.controller);
- for(const file of ['hero-model-crop.webp','sanskari-ankhein.webp','wellness-app-reference.webp']){
-   const alias=`./assets/${file}`;const result=await imageLoad(new URL(alias,location.href).href);
-   if(result.ok)addRow(legacy,alias,'PASS','loaded through browser/service-worker fallback');
-   else addRow(legacy,alias,controlled?'FAIL':'NOT TESTED',controlled?'still failed with service worker active':'service worker not controlling this first page load; refresh after install');
- }
- $('#controllerStatus').textContent=controlled?'Service worker controls this page. Legacy path fallback can be tested.':'Service worker is not controlling this first page load yet. Open the site once or refresh this page after installation, then re-run checks.';
-}
-$('#runAgain').addEventListener('click',run);
-if('serviceWorker' in navigator){navigator.serviceWorker.register(new URL('./sw.js',location.href).href,{scope:root.pathname}).catch(e=>{$('#controllerStatus').textContent='Service worker registration failed: '+String(e)})}
-run();
-})();
-</script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Phase 1–2 Additive Gallery Diagnostics</title><link rel="stylesheet" href="./phase2-photo-collections.css"><style>body{margin:0 auto;max-width:1100px;padding:18px;background:#100c10;color:#fff5fa;font:15px/1.5 system-ui} .view{margin:22px 0;padding:14px;border:1px solid #493448;border-radius:16px}.coming-grid{padding:14px;background:#201620}.coming-card{padding:12px;border:1px solid #493448;max-width:500px}.muted{color:#c0b2bd}.ok{color:#9fe3b2}.fail{color:#ff9da6}</style><script defer src="./phase2-photo-collections.js"></script><script defer src="./tests/phase2-browser-check.js"></script></head>
+<body><main><h1>Phase 1–2 photo collection diagnostics</h1><p>Standalone fixture for the additive gallery script. This does not replace live-site/Android regression tests.</p><div id="phase2CheckResults" aria-live="polite">Running checks…</div>
+<section class="view" id="view-sanskari" data-view="sanskari"><h2>Sanskari fixture</h2><section><h3>Future capsules</h3><div class="coming-grid"><article class="coming-card noor"><span>COMING SOON · Noor</span></article><article class="coming-card grace"><span class="coming-pill">COMING SOON</span><h3>Gracefully covered</h3><p>A quiet editorial preview.</p><small>Preview concept only. Not a claim to represent a community.</small></article></div></section></section>
+<section class="view" id="view-innerwear" data-view="innerwear"><h2>Innerwear fixture</h2><section id="v24InnerwearCollection"><h3>Existing catalogue anchor</h3></section></section>
+<section class="view" id="view-boyfriend" data-view="boyfriend"><h2>Boyfriend fixture</h2><div id="v23ThreesomeProtected" hidden><section id="v24ThreesomeEditorials"><h3>Existing gated gallery anchor</h3><div id="v24TriadGrid"></div></section></div></section>
+</main></body></html>
