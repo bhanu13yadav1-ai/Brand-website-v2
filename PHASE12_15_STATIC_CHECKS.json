@@ -1,0 +1,138 @@
+{
+  "suite": "BLACKED V3 Final Phases 12\u201315 static / patch validation",
+  "total": 26,
+  "passed": 26,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "node --check phase10-wellness-education.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "node --check phase11-fit-studio.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "node --check phase12-15-final-loader.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "node --check phase12-wheels-hub.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "node --check phase13-couples-studio.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "node --check phase14-hardening.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "node --check phase15-whats-new.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "node --check phase9-after-dark.js",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Ordered Phase 2\u201315 loader",
+      "pass": true,
+      "detail": "Requires all 12 module scripts in the final ordered loader."
+    },
+    {
+      "check": "Root-level bundled image repair",
+      "pass": true,
+      "detail": "Normalizes old nested asset URLs only for root-level bundled references."
+    },
+    {
+      "check": "Unique wheel diagnostics namespace",
+      "pass": true,
+      "detail": "Does not clobber the pre-existing Phase 2 photo-collection diagnostics object."
+    },
+    {
+      "check": "Home top highlight",
+      "pass": true,
+      "detail": "New features are inserted before the existing Home hero."
+    },
+    {
+      "check": "Privacy export is opt-in",
+      "pass": true,
+      "detail": "Exports are only triggered by user click and use an allow-list of app-owned keys."
+    },
+    {
+      "check": "No external data upload in new modules",
+      "pass": true,
+      "detail": "No network upload API is used by the Phase 12\u201315 modules."
+    },
+    {
+      "check": "No destructive storage clearing in new modules",
+      "pass": true,
+      "detail": "No global browser-storage clear operation appears in the new modules."
+    },
+    {
+      "check": "Consent-first phrasing in Couples Studio",
+      "pass": true,
+      "detail": "Gallery routes are fictional/reference-only and explicitly consent-first."
+    },
+    {
+      "check": "Wellness source links present",
+      "pass": true,
+      "detail": "Wellness module retains trusted further-reading links."
+    },
+    {
+      "check": "Mobile and reduced-motion CSS",
+      "pass": true,
+      "detail": "Responsive breakpoints and reduced-motion rules are present in each new CSS file."
+    },
+    {
+      "check": "Focus CSS diagnostics inspect loaded stylesheet",
+      "pass": true,
+      "detail": "Reports focus styling only when the real release stylesheet/rules are present, not via a dummy selector."
+    },
+    {
+      "check": "Patch script compiles",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Patch script executes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Patch script idempotent",
+      "pass": true,
+      "detail": "Double run does not duplicate loader or new CORE entries."
+    },
+    {
+      "check": "Patch script normalizes nested cached image path",
+      "pass": true,
+      "detail": "Only normalized a referenced filename that exists in repo root."
+    },
+    {
+      "check": "Patch script bumps PWA cache",
+      "pass": true,
+      "detail": "Uses a new app-specific cache name; does not wipe localStorage."
+    },
+    {
+      "check": "Live diagnostics page present",
+      "pass": true,
+      "detail": "Same-origin iframe-based diagnostics are included."
+    },
+    {
+      "check": "Install instructions present",
+      "pass": true,
+      "detail": "Documents merge order and honest live-test status."
+    }
+  ]
+}

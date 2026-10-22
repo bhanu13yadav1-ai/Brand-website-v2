@@ -1,0 +1,5 @@
+/* Phase 14 — accessible focus, mobile touch targets, clear image failure states. */
+:where(button,a,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #f0c776!important;outline-offset:3px!important}
+@media(max-width:700px){:where(button,.btn,.small-btn,.icon-btn,.story-filter,.v13-filter){min-height:44px}}
+.v14-privacy-export{margin:14px 0;padding:15px;border:1px solid #59464f;border-radius:14px;background:#171218}.v14-privacy-export h3{font-size:16px;margin:0 0 8px}.v14-privacy-export p{font-size:12px;line-height:1.65;color:#d4c5cf;margin:0 0 10px}.v14-privacy-export .btn{min-height:44px}.v14-image-failed{outline:2px dashed #cf8e74;outline-offset:2px}.v14-image-status{margin:0;padding:10px;background:#28191a;color:#ffe1ce;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

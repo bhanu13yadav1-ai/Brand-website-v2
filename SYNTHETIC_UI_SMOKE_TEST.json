@@ -1,0 +1,49 @@
+{
+  "test_suite": "BLACKED V3 Final Release synthetic UI smoke test",
+  "environment": "Playwright + Chromium, inline mock DOM fixture; not the deployed GitHub Pages site",
+  "result": "PASS_WITH_ENVIRONMENT_LIMITATIONS",
+  "features_observed": {
+    "whats_new_is_first_home_element": true,
+    "whats_new_feature_buttons": 7,
+    "wheel_hub_cards": 4,
+    "original_wheels_present": {
+      "dildo": true,
+      "plug": true,
+      "boy": true
+    },
+    "wild_wheel_present": true,
+    "couples_studio_cards": 6,
+    "phase9_after_dark_built": true,
+    "phase10_wellness_built": true,
+    "phase11_fit_studio_built": true,
+    "phase12_errors": [],
+    "phase13_errors": [],
+    "phase14_privacy_export_present": true,
+    "phase14_focus_css_detected_in_fixture": true,
+    "phase15_built": true,
+    "romantic_filter_visible_cards": 2,
+    "after_dark_prompt_generated": true,
+    "couples_route_to_boyfriend_view": true,
+    "wheel_route_to_wellness_view": true,
+    "cm_to_inches": {
+      "bust": "35.4",
+      "underbust": "29.5",
+      "waist": "27.6",
+      "hips": "37.4"
+    },
+    "inches_back_to_cm_rounded_to_0_1": {
+      "bust": "89.9",
+      "underbust": "74.9",
+      "waist": "70.1",
+      "hips": "95.0"
+    }
+  },
+  "js_page_errors": [],
+  "console_errors": [],
+  "limitations": [
+    "This was an inline mock DOM; it does not prove deployment on GitHub Pages or Android Chrome.",
+    "Image URLs fail inside the about:blank fixture because it has no repository origin; live bundled-image loading remains unverified.",
+    "Service-worker installation/controller state was unavailable in the mock fixture.",
+    "Measurement conversion is rounded to one decimal place, so converting cm\u2192in\u2192cm can differ by \u00b10.1 cm."
+  ]
+}

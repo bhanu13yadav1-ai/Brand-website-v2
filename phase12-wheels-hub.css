@@ -1,0 +1,8 @@
+/* Phase 12 — four-wheel directory; no existing wheel styles are overridden. */
+.v12-wheel-hub{margin:clamp(24px,4vw,42px) 0;padding:clamp(16px,3vw,26px);border:1px solid #5a433e;border-radius:22px;background:radial-gradient(ellipse at top right,#8c59282c,transparent 55%),linear-gradient(145deg,#1c1517,#100c10);scroll-margin-top:16px}
+.v12-wheel-hub h2{margin:5px 0 9px;font-size:clamp(23px,4vw,32px);line-height:1.15}.v12-wheel-hub .section-heading{align-items:flex-start}
+.v12-wheel-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}.v12-wheel-card{display:flex;flex-direction:column;gap:10px;min-width:0;padding:16px;border:1px solid #4b3840;border-radius:16px;background:linear-gradient(155deg,#221a1c,#151014)}
+.v12-wheel-tag{font-size:10px;letter-spacing:.09em;color:#efc889;line-height:1.5}.v12-wheel-card h3{margin:0;font-size:16px;line-height:1.25}.v12-wheel-card p{margin:0;color:#d4c7cc;font-size:12px;line-height:1.65;flex:1}.v12-wheel-kind{align-self:flex-start;padding:5px 8px;border:1px solid #544049;border-radius:999px;font-size:10px;color:#edd8da}.v12-wheel-card .btn{min-height:44px;margin-top:3px}.v12-wheel-status{font-size:12px;color:#d9c6ce;margin:14px 0 0;line-height:1.5}
+@media(max-width:900px){.v12-wheel-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.v12-wheel-grid{grid-template-columns:1fr}.v12-wheel-card{padding:14px}}
+@media(prefers-reduced-motion:reduce){.v12-wheel-hub *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}

@@ -1,0 +1,16 @@
+BLACKED V3 FINAL HANDOFF — PHASE 12–15
+
+Source of truth: V3_MASTER_PROJECT_NOTES.md
+Target repo: https://github.com/bhanu13yadav1-ai/Brand-website-v2
+
+Next session must:
+1. Check whether this overlay has been merged/deployed; do not assume it has.
+2. If not deployed, run apply_final_release_patches.py on a fresh repo checkout and inspect git diff.
+3. Deploy, then open phase12-15-diagnostics.html and use Android Chrome to run the listed smoke tests.
+4. Resolve loader 404s, service-worker CORE failures or root image-path errors before any visual polish.
+5. Verify the three original wheel locations + Wild Wheel individually.
+6. Verify all seven existing views and confirm localStorage values were preserved.
+7. Review Phase 9–11 (fiction / wellness / measurement) for correct labels, unit conversion and source links.
+8. Only mark final release done after live diagnostics and manual tests pass.
+
+New files are additive. Existing image archive, story data, profile-less local notes, wishlist, demo bag and 18+ self-attestation gates must not be silently deleted.
