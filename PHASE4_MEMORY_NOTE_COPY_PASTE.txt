@@ -1,31 +1,7 @@
-V1 MASTER EXECUTION — PHASE 4 HANDOFF NOTE
+V2 PHASE 4 MEMORY NOTE
 
-Target repository: https://github.com/bhanu13yadav1-ai/Brand-website-v2
-Target branch: main
-Package: V1_PHASE4_RECOVERY_UPLOAD.zip
-
-ROOT-CAUSE CONFIRMED FROM REPO TREE:
-- No root index.html existed, so GitHub Pages showed the README heading “Brand-website-v2”.
-- Root app.js was a compatibility loader, not the original application; root styles.css was an @import wrapper.
-- css/ and js/ folders and original image binaries were absent. Phase 2/3 overlay-only patch files were uploaded without the full website entry point/source/assets they expected.
-
-PHASE 4 PACKAGE CONTENTS:
-- A complete root index.html, actual app.js and styles.css, project-scoped sw.js, manifest.webmanifest, fallback.js, app-icon.svg and phase4-diagnostics.html.
-- Core features: Home, Innerwear search/filter/sort, product reference details, wishlist, compare up to 3, demo bag, Sanskari gallery, Muslim-Inspired Noor Coming Soon, Christian-Inspired Grace Coming Soon, Wellness guides, cm/in converter, Fit Studio local notes/photo preview, date planner/message generator.
-- The three original wheel locations from the audited source: Boyfriend size/fantasy, Dildo size reference and Butt Plug size reference.
-- New separate Dirty/Wild Wheel with 10 selectable categories, optional prompts, reset and spin-again; connected in Boyfriend/Couples section.
-- Hosted diagnostics to test the actual deployed package.
-
-IMAGE LIMITATION:
-The V2 repository did not include original image binaries. This recovery package references known public image paths in Brand-website-4f and Brand-website-3 and uses a fallback image if they fail. They are external dependencies, not bundled originals. A future local asset bundle requires source binaries/ZIP access.
-
-UPLOAD RULE:
-Extract ZIP on Android and upload the CONTENTS of V1_PHASE4_RECOVERY_UPLOAD folder to the root of Brand-website-v2. Do NOT upload only the ZIP or create a nested folder. Replace root app.js, styles.css, sw.js, manifest.webmanifest and README.md; add root index.html, fallback.js, app-icon.svg and phase4-diagnostics.html. Keep all paths at repository root.
-
-AFTER UPLOAD:
-Open https://bhanu13yadav1-ai.github.io/Brand-website-v2/phase4-diagnostics.html and press Run full checks. Upload results/screenshot. Until this is done, live deployment and physical Android checks remain NOT TESTED.
-
-NEXT PHASE:
-Do not start Phase 5 until the recovery site works in GitHub Pages. First resolve diagnostics FAILs and run regression tests on all four wheels. Follow the user's 14-rule MASTER PROMPT as the governing requirements; no unsupported PASS claims, no unrelated images, no feature removal without documented reason.
-
-PENDING LEGACY FEATURE RESTORATION BEFORE FINAL V1: product-specific transparent-overlay manual Try-On/download, Fit Passport with verified chart, Fit Detective, Style Quiz, moodboard/style board, Build-a-Set, and full legacy content/detail inventory. These are NOT marked PASS and must be restored/tested in later planned phases. Phase 4 is a recovery + wheel/Couples checkpoint, not the complete 14-rule final release.
+Base repo: https://github.com/bhanu13yadav1-ai/Brand-website-v2
+Current phase: Phase 4 integration package prepared; not committed to GitHub by assistant.
+Changes: retain four aligned interactive wheels and two wheel poster cards; add 10 local innerwear/editorial cards with search/category filters; add 2 boyfriend/couples style cards; add 4 local adult campaign images behind the Threesome Fantasy self-attestation gate; add local asset-load diagnostics; bump service-worker cache.
+Image handling: 19 user-uploaded files inspected; one exact duplicate omitted from duplicate rendering; two family-theme assets held out; 16 new image files used in visible galleries.
+Test caveats: local QA only. Live GitHub Pages, real Android Chrome, and older 151-image external URL archive are NOT TESTED. After upload run phase4-diagnostics.html and phase23-diagnostics.html.

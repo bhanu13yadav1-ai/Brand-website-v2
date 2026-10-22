@@ -1,47 +1,180 @@
 {
-  "version": "V1 Phase 4 recovery build",
-  "target_repository": "bhanu13yadav1-ai/Brand-website-v2",
-  "checks": {
-    "root_index_html_included": "PASS",
-    "main_app_js_included": "PASS",
-    "real_stylesheet_included": "PASS",
-    "project_scoped_service_worker_included": "PASS",
-    "three_original_wheel_locations_present_in_source": "PASS",
-    "dedicated_dirty_wild_wheel_present_in_source": "PASS",
-    "boyfriend_couples_section_present_in_source": "PASS",
-    "sanskari_and_two_coming_soon_previews_present_in_source": "PASS",
-    "raw_image_references_verified_in_public_repository_trees": "PASS",
-    "external_image_live_load": "NOT TESTED",
-    "live_pages_deployment": "NOT TESTED",
-    "physical_android_chrome": "NOT TESTED",
-    "local_headless_browser_functional_tests": "PASS: 43/43 tests passed; see PHASE4_LOCAL_BROWSER_TESTS.json",
-    "responsive_overflow_320_360_390_430_1440": "PASS: no horizontal overflow found in local headless viewports",
-    "wheel_nonrepeat_behavior": "PASS: repeated same-range spins tested for all three original size wheels; category-based Dirty/Wild selection tested",
-    "eight_frame_concept_viewer": "PASS: previous/next/slider locally tested",
-    "early_image_fallback": "PASS: fallback was tested with public image requests deliberately blocked",
-    "image_fallback_script_loads_before_body": "PASS: fallback.js is loaded early in head before body images; fallback behavior exercised by local headless browser tests",
-    "sanskari_gallery_count_and_unique_urls": "PASS: 10 distinct campaign URLs from audited public source repositories",
-    "service_worker_runtime": "NOT TESTED in local browser test; check with hosted diagnostics after upload",
-    "advanced_legacy_feature_regression_complete": "NOT TESTED / PENDING: manual Try-On overlay canvas, Fit Passport, Fit Detective, Style Quiz, Style Board, Build-a-Set and full original content inventory remain to be restored before final V1 release"
-  },
-  "root_cause": "Brand-website-v2 main branch had no root index.html and included only compatibility/overlay files, so Pages rendered the README.",
-  "limitations": [
-    "The original image binaries were not present in Brand-website-v2; image sources are public raw.githubusercontent.com URLs listed in EXTERNAL_ASSET_MANIFEST.csv.",
-    "Live Pages image requests were not tested; local browser test deliberately blocked external image requests to test fallback behavior.",
-    "Local browser test ran in an isolated about:blank document because local web navigation was blocked; a localStorage API shim was used for functional tests.",
-    "Live Pages deployment and physical Android Chrome remain NOT TESTED.",
-    "No real inventory, checkout, payment, user account or formal age verification."
-  ],
-  "research_sources": [
+  "suite": "V2 Phase 4 local Chromium fixture",
+  "tested_at": "2026-10-21",
+  "note": "The fixture uses the repair page and actual Phase 4 enhancement code with a test-only shim for the pre-existing core app API. New user-provided images are loaded from locally bundled WebP files. This does not verify live GitHub Pages or a physical Android device. The 151-record legacy external archive is not tested by this suite.",
+  "total": 34,
+  "passed": 34,
+  "failed": 0,
+  "results": [
     {
-      "title": "Planned Parenthood \u2014 Sexual Consent",
-      "url": "https://www.plannedparenthood.org/learn/relationships/sexual-consent",
-      "use": "Consent is freely given and reversible; informs optional prompts and skip/stop language."
+      "name": "Phase 4 add-on loads",
+      "result": "PASS",
+      "detail": "V2 Phase 4 integration 1.0.0"
     },
     {
-      "title": "Joyal, Cossette & Lapierre (2015) \u2014 What Exactly Is an Unusual Sexual Fantasy?",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/25359122/",
-      "use": "Caution against simplistic claims about fantasies; survey was online and not India-specific."
+      "name": "All original app views remain",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Wheel hub has both promotional poster cards",
+      "result": "PASS",
+      "detail": "2"
+    },
+    {
+      "name": "Four interactive wheels present",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Every wheel has eight visible labels",
+      "result": "PASS",
+      "detail": "{'boy': 8, 'dildo': 8, 'plug': 8, 'wild': 8}"
+    },
+    {
+      "name": "Boyfriend has four original reference cards",
+      "result": "PASS",
+      "detail": "4"
+    },
+    {
+      "name": "Boyfriend/Couples gallery has two new concept cards",
+      "result": "PASS",
+      "detail": "2"
+    },
+    {
+      "name": "Innerwear gallery has ten new campaign cards",
+      "result": "PASS",
+      "detail": "10"
+    },
+    {
+      "name": "Threesome gallery has four new gated cards",
+      "result": "PASS",
+      "detail": "4"
+    },
+    {
+      "name": "Original Threesome content is hidden before gate",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Review-held sibling/family files are not published into UI",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "16 unique new display assets mapped",
+      "result": "PASS",
+      "detail": "16"
+    },
+    {
+      "name": "Exact duplicate upload is not rendered twice",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Family-themed review holds documented",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Campaign search narrows collection",
+      "result": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "Editorial category filter returns two cards",
+      "result": "PASS",
+      "detail": "2"
+    },
+    {
+      "name": "All 16 Phase 4 image references decode locally",
+      "result": "PASS",
+      "detail": "[{'src': 'innerwear-gallery/soft-rose-rest-restore.webp', 'w': 1122, 'h': 1402}, {'src': 'innerwear-gallery/black-gold-styling-01.webp', 'w': 1024, 'h': 1536}, {'src': 'innerwear-gallery/comfort-styling.webp', 'w': 1024, 'h': 1536}, {'src': 'innerwear-gallery/rose-lace-back-detail.webp', 'w': 1024, 'h': 1536}, {'src': 'innerwear-gallery/rose-lace-lifestyle.webp', 'w': 1024, 'h': 1536}, {'src': 'innerwear-gallery/black-veil-editorial.webp', 'w': 1024, 'h': 1536}, {'src': 'innerwear-gallery/black-gold-confidence.webp', 'w': 1024, 'h': 1536}, {'src': 'innerwear-gallery/sacred-elegance-editorial.webp', 'w': 1024, 'h': 1536}, {'src': 'innerwear-gallery/black-lace-confidence.webp', 'w': 1200, 'h': 1500}, {'src': 'innerwear-gallery/feel-confident-everyday.webp', 'w': 1200, 'h': 1500}, {'src': 'couples-gallery/active-couple-concept.webp', 'w': 1024, 'h': 1536}, {'src': 'couples-gallery/couple-confidence.webp', 'w': 1024, 'h': 1536}, {'src': 'triad-gallery/innerwere-luxury-trio.webp', 'w': 1024, 'h': 1536}, {'src': 'triad-gallery/night-light-confidence.webp', 'w': 1024, 'h': 1536}, {'src': 'triad-gallery/same-girl-different-stories.webp', 'w': 1024, 'h': 1536}, {'src': 'triad-gallery/same-room-different-feelings.webp', 'w': 1024, 'h': 1536}]"
+    },
+    {
+      "name": "No previously bundled asset has a completed failed request",
+      "result": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Age gate appears before reveal",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Gate refuses continue until checkbox is selected",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Age self-attestation reveals four new triad cards",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "All four gated group campaign images decode",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Hide action re-hides gated gallery",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "boy result matches pointer segment",
+      "result": "PASS",
+      "detail": "{'selectedIndex': 6, 'selectedLabel': 'Privacy', 'alignmentErrorDegrees': 0, 'rotationDegrees': 1507.5}"
+    },
+    {
+      "name": "dildo result matches pointer segment",
+      "result": "PASS",
+      "detail": "{'selectedIndex': 5, 'selectedLabel': 'Comfort', 'alignmentErrorDegrees': 0, 'rotationDegrees': 1552.5}"
+    },
+    {
+      "name": "plug result matches pointer segment",
+      "result": "PASS",
+      "detail": "{'selectedIndex': 6, 'selectedLabel': 'Cleaning', 'alignmentErrorDegrees': 0, 'rotationDegrees': 1507.5}"
+    },
+    {
+      "name": "wild result matches pointer segment",
+      "result": "PASS",
+      "detail": "{'selectedIndex': 0, 'selectedLabel': 'Secret note', 'alignmentErrorDegrees': 0, 'rotationDegrees': 1777.5}"
+    },
+    {
+      "name": "Wheel poster button selects correct category and view",
+      "result": "PASS",
+      "detail": "confession"
+    },
+    {
+      "name": "No horizontal overflow at 320px",
+      "result": "PASS",
+      "detail": "{'doc': 320, 'body': 320, 'win': 320}"
+    },
+    {
+      "name": "No horizontal overflow at 360px",
+      "result": "PASS",
+      "detail": "{'doc': 360, 'body': 360, 'win': 360}"
+    },
+    {
+      "name": "No horizontal overflow at 390px",
+      "result": "PASS",
+      "detail": "{'doc': 390, 'body': 390, 'win': 390}"
+    },
+    {
+      "name": "No horizontal overflow at 430px",
+      "result": "PASS",
+      "detail": "{'doc': 430, 'body': 430, 'win': 430}"
+    },
+    {
+      "name": "No horizontal overflow at 1440px",
+      "result": "PASS",
+      "detail": "{'doc': 1440, 'body': 1440, 'win': 1440}"
+    },
+    {
+      "name": "No uncaught JavaScript errors",
+      "result": "PASS",
+      "detail": "[]"
     }
   ]
 }

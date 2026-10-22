@@ -1,6 +1,6 @@
 /* BLACKED V2 Phase 2+3 repair service worker. */
 'use strict';
-const CACHE_NAME = 'blacked-v2-phase23-repair-1';
+const CACHE_NAME = 'blacked-v2-phase4-integration-1';
 const CORE = [
   './','./index.html','./styles.css','./app.js','./fallback.js','./part-c-enhancements.css','./part-c-enhancements.js',
   './manifest.webmanifest','./app-icon.svg','./innerwear-image-library.json','./size-chart-template.json',
@@ -14,7 +14,23 @@ const CORE = [
   './assets/campaigns/blacked-red-lace-campaign.webp',
   './assets/sanskari/sanskari-outside-bold-within.webp','./assets/sanskari/shaam-se-raat-tak.webp',
   './assets/sanskari/shaam-ki-roshni.webp','./assets/sanskari/shaam-e-noor.webp','./assets/sanskari/noor-ka-nasha.webp',
-  './assets/sanskari/sanskari-outside-bold-within-high-res.webp','./assets/sanskari/sanskari-outside-bold-within-web-optimized.webp'
+  './assets/sanskari/sanskari-outside-bold-within-high-res.webp','./assets/sanskari/sanskari-outside-bold-within-web-optimized.webp',
+  './assets/triad-gallery/innerwere-luxury-trio.webp',
+  './assets/innerwear-gallery/soft-rose-rest-restore.webp',
+  './assets/innerwear-gallery/black-gold-styling-01.webp',
+  './assets/innerwear-gallery/comfort-styling.webp',
+  './assets/innerwear-gallery/rose-lace-back-detail.webp',
+  './assets/innerwear-gallery/rose-lace-lifestyle.webp',
+  './assets/innerwear-gallery/black-veil-editorial.webp',
+  './assets/innerwear-gallery/black-gold-confidence.webp',
+  './assets/innerwear-gallery/sacred-elegance-editorial.webp',
+  './assets/innerwear-gallery/black-lace-confidence.webp',
+  './assets/triad-gallery/night-light-confidence.webp',
+  './assets/couples-gallery/active-couple-concept.webp',
+  './assets/triad-gallery/same-girl-different-stories.webp',
+  './assets/triad-gallery/same-room-different-feelings.webp',
+  './assets/innerwear-gallery/feel-confident-everyday.webp',
+  './assets/couples-gallery/couple-confidence.webp'
 ];
 self.addEventListener('install', event => event.waitUntil((async () => {
   const cache = await caches.open(CACHE_NAME);

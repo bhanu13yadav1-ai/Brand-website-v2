@@ -7,7 +7,7 @@
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
   const asset = (path) => `./assets/${path}`;
-  const state = { version: 'V2 Phase 2+3 repair 1.0.0', wheels: {}, spinCount: 0, errors: [], gateAccepted: false };
+  const state = { version: 'V2 Phase 4 integration 1.0.0', wheels: {}, spinCount: 0, errors: [], gateAccepted: false };
 
   const wheelItems = {
     boy: [
@@ -246,6 +246,65 @@
     gate.innerHTML=`<div class="v23-gate-card"><p class="eyebrow">ADULTS ONLY</p><h2 id="v23GateTitle">Before opening this collection</h2><p>This section is intended for adults 18+. This checkbox is self-attestation, not formal age verification.</p><label class="v23-age-check"><input id="v23AgeCheck" type="checkbox"> I confirm that I am 18 or older.</label><p id="v23AgeError" class="v23-gate-error" aria-live="polite"></p><div class="button-row"><button class="btn primary" type="button" data-v23-confirm-age>Continue</button><button class="btn ghost" type="button" data-v23-cancel-age>Go back</button></div></div>`;
     document.body.append(gate);
   }
+
+  function createPhase4ImageCard(path,title,caption,kind='v24-image-card') {
+    const card=document.createElement('article');card.className=kind;card.dataset.v24Category=kind;
+    const img=document.createElement('img');img.src=asset(path);img.alt=title;img.loading='lazy';img.decoding='async';img.dataset.v24Asset=path;img.dataset.v23Asset=path;
+    const body=document.createElement('div');body.className='v24-image-card-copy';
+    const h=document.createElement('h3');h.textContent=title;
+    const p=document.createElement('p');p.textContent=caption;
+    const status=document.createElement('small');status.className='v23-image-status';status.textContent='Loading image…';
+    img.addEventListener('load',()=>{status.textContent='Image loaded';card.classList.remove('v23-image-error');});
+    img.addEventListener('error',()=>{status.textContent='Image failed: '+path;card.classList.add('v23-image-error');});
+    body.append(h,p,status);card.append(img,body);return card;
+  }
+  function addPhase4InnerwearCollection() {
+    const view=$('#view-innerwear');if(!view||$('#v24InnerwearCollection'))return;
+    const section=document.createElement('section');section.id='v24InnerwearCollection';section.className='section-block v24-campaign-collection';section.setAttribute('aria-labelledby','v24InnerwearCollectionTitle');
+    section.innerHTML=`<div class="section-heading"><div><p class="eyebrow">V2 PHASE 4 · LOCAL ASSET COLLECTION</p><h2 id="v24InnerwearCollectionTitle">New Innerwear & Editorial Collection</h2><p class="muted">Tumhari nayi supplied campaign images local WebP assets ke roop mein bundle hain. “Editorial concept” ka matlab confirmed stock, official religious collection ya product specification nahi.</p></div><span class="pill" id="v24CampaignCount">10 local images</span></div><div class="v24-gallery-tools"><label class="field">Search collection<input id="v24CampaignSearch" type="search" maxlength="80" placeholder="Search title ya style…"></label><label class="field">Category<select id="v24CampaignFilter"><option value="all">All campaign concepts</option><option value="innerwear">Innerwear</option><option value="editorial">Editorial concepts</option><option value="noor">Black & gold / modest styling</option></select></label></div><div class="v24-campaign-grid" id="v24CampaignGrid"></div><p class="micro muted" id="v24CampaignEmpty" hidden>No matching campaign images. Search ya category change karo.</p>`;
+    const cards=[
+      ['innerwear-gallery/soft-rose-rest-restore.webp','Soft Rose · Rest, Restore, Rise','Rose-tone innerwear campaign concept.','innerwear'],
+      ['innerwear-gallery/black-gold-styling-01.webp','Black & Gold · Styling Study','Styling reference; model ki religion ya identity infer nahi ki jaati.','noor'],
+      ['innerwear-gallery/comfort-styling.webp','Comfort Styling','Layered lounge styling concept.','innerwear'],
+      ['innerwear-gallery/rose-lace-back-detail.webp','Rose Lace · Detail View','Lace campaign detail; actual product SKU/size verify nahi kiya gaya.','innerwear'],
+      ['innerwear-gallery/rose-lace-lifestyle.webp','Rose Lace · Lifestyle','Rose lace editorial concept.','innerwear'],
+      ['innerwear-gallery/black-veil-editorial.webp','Black Veil · Costume Editorial','Theatrical styling reference; official clergy/religious collection nahi.','editorial'],
+      ['innerwear-gallery/black-gold-confidence.webp','Black & Gold · Confidence','Black-and-gold campaign concept; cultural identity not inferred.','noor'],
+      ['innerwear-gallery/sacred-elegance-editorial.webp','Sacred Elegance · Editorial Concept','Costume/editorial styling only; not mapped to an official Christian collection.','editorial'],
+      ['innerwear-gallery/black-lace-confidence.webp','Black Lace · Confidence','Black-lace innerwear campaign image.','innerwear'],
+      ['innerwear-gallery/feel-confident-everyday.webp','Feel Confident Everyday','Pink-toned campaign concept; no product stock claim.','innerwear']
+    ];
+    const grid=$('#v24CampaignGrid',section);
+    cards.forEach(([path,title,caption,category])=>{const card=createPhase4ImageCard(path,title,caption);card.dataset.category=category;card.dataset.search=(title+' '+caption+' '+category).toLowerCase();grid.append(card);});
+    const filter=()=>{const q=($('#v24CampaignSearch')?.value||'').trim().toLowerCase();const category=$('#v24CampaignFilter')?.value||'all';let visible=0;$$('.v24-campaign-grid .v24-image-card',section).forEach(card=>{const okText=!q||card.dataset.search.includes(q);const okCat=category==='all'||card.dataset.category===category;card.hidden=!(okText&&okCat);if(!card.hidden)visible++;});$('#v24CampaignEmpty',section).hidden=visible>0;$('#v24CampaignCount',section).textContent=`${visible} of ${cards.length} images`;};
+    $('#v24CampaignSearch',section).addEventListener('input',filter);$('#v24CampaignFilter',section).addEventListener('change',filter);
+    const campaign=$('#v23InnerwearCampaign');if(campaign)campaign.insertAdjacentElement('afterend',section);else{const intro=view.querySelector('.page-intro');if(intro)intro.insertAdjacentElement('afterend',section);else view.prepend(section);}
+  }
+  function addPhase4CoupleEditorials() {
+    const gallery=$('#v23BoyfriendGallery');if(!gallery||$('#v24CoupleEditorials'))return;
+    const section=document.createElement('section');section.id='v24CoupleEditorials';section.className='section-block v24-campaign-collection';section.setAttribute('aria-labelledby','v24CoupleEditorialsTitle');
+    section.innerHTML=`<div class="section-heading"><div><p class="eyebrow">BOYFRIEND & COUPLES · CAMPAIGN ART</p><h2 id="v24CoupleEditorialsTitle">Couples Style References</h2><p class="muted">These are campaign visuals, not verified profiles or claims about the people shown. Body size/identity are not inferred.</p></div><span class="pill">2 concepts</span></div><div class="v24-couple-grid" id="v24CoupleGrid"></div>`;
+    const grid=$('#v24CoupleGrid',section);
+    [
+      ['couples-gallery/active-couple-concept.webp','Active Lifestyle · Couple','Sporty styling and partner confidence concept.'],
+      ['couples-gallery/couple-confidence.webp','Feel Confident · Couple','Two-adult couple editorial; no identity claim.']
+    ].forEach(([p,t,c])=>grid.append(createPhase4ImageCard(p,t,c,'v24-image-card')));
+    gallery.insertAdjacentElement('afterend',section);
+  }
+  function addPhase4ThreesomeEditorials() {
+    const protectedBox=$('#v23ThreesomeProtected');if(!protectedBox||$('#v24ThreesomeEditorials'))return;
+    const section=document.createElement('section');section.id='v24ThreesomeEditorials';section.className='v24-threesome-gallery';section.setAttribute('aria-labelledby','v24ThreesomeEditorialsTitle');
+    section.innerHTML=`<div class="section-heading"><div><p class="eyebrow">GATED VISUAL REFERENCES · 18+</p><h3 id="v24ThreesomeEditorialsTitle">Three-Person Fantasy · Campaign Art</h3><p class="muted">Adult editorial imagery only. These are fictional/campaign visuals, not evidence of any real person's relationships. All prompts remain optional.</p></div><span class="pill">4 local assets</span></div><div class="v24-triad-grid" id="v24TriadGrid"></div>`;
+    const grid=$('#v24TriadGrid',section);
+    [
+      ['triad-gallery/innerwere-luxury-trio.webp','Luxury Innerwear Trio','Three-adult fashion campaign cover.'],
+      ['triad-gallery/night-light-confidence.webp','Night-Light Confidence','Multi-adult campaign styling concept.'],
+      ['triad-gallery/same-girl-different-stories.webp','Same Girl, Different Stories','Multi-adult visual story concept.'],
+      ['triad-gallery/same-room-different-feelings.webp','Same Room, Different Feelings','Multi-adult visual story concept.']
+    ].forEach(([p,t,c])=>grid.append(createPhase4ImageCard(p,t,c,'v24-image-card')));
+    const prompts=protectedBox.querySelector('.v23-threesome-prompts');if(prompts)prompts.insertAdjacentElement('afterend',section);else protectedBox.append(section);
+  }
+
   function addNavLinks() {
     const navs=[$('#mainNav'),$('#mobileMenu')].filter(Boolean);
     navs.forEach(nav=>{
@@ -312,15 +371,15 @@
       wheelState[kind]={segments:w.layer.querySelectorAll('.v23-wheel-label').length,labels:[...w.layer.querySelectorAll('.v23-wheel-label')].map(x=>x.textContent),selectedIndex:selected,selectedLabel:$(resultSelectors[kind])?.dataset.v23SelectedLabel||null,rotationDegrees:w.rotation,alignmentErrorDegrees:alignment,busy:w.busy};
     });
     const images=$$('[data-v23-asset]');
-    return {version:state.version,addonLoaded:true,views:$$('.view').map(v=>({id:v.id,view:v.dataset.view})),wheels:wheelState,wheelHub:!!$('#v23WheelHub'),wheelPosterCards:$('#v23WheelHub')?.querySelectorAll('.v23-poster-card').length||0,boyfriendGalleryCards:$('#v23BoyfriendGallery')?.querySelectorAll('.v23-reference-card').length||0,threesomeSection:!!$('#v23ThreesomeSection'),threesomeGateVisible:!!$('#v23ThreesomeGate')&&!$('#v23ThreesomeGate').hidden,sanskariLocalCards:$('#v23SanskariLocalGallery')?.querySelectorAll('.v23-local-image-card').length||0,innerwearCampaign:!!$('#v23InnerwearCampaign'),localAssets:images.map(img=>({path:img.dataset.v23Asset,loaded:img.complete&&img.naturalWidth>0,naturalWidth:img.naturalWidth})),spinCount:state.spinCount,errors:[...state.errors]};
+    return {version:state.version,addonLoaded:true,views:$$('.view').map(v=>({id:v.id,view:v.dataset.view})),wheels:wheelState,wheelHub:!!$('#v23WheelHub'),wheelPosterCards:$('#v23WheelHub')?.querySelectorAll('.v23-poster-card').length||0,boyfriendGalleryCards:$('#v23BoyfriendGallery')?.querySelectorAll('.v23-reference-card').length||0,coupleEditorialCards:$('#v24CoupleEditorials')?.querySelectorAll('.v24-image-card').length||0,threesomeSection:!!$('#v23ThreesomeSection'),threesomeGalleryCards:$('#v24ThreesomeEditorials')?.querySelectorAll('.v24-image-card').length||0,threesomeGateVisible:!!$('#v23ThreesomeGate')&&!$('#v23ThreesomeGate').hidden,sanskariLocalCards:$('#v23SanskariLocalGallery')?.querySelectorAll('.v23-local-image-card').length||0,innerwearCampaign:!!$('#v23InnerwearCampaign'),phase4InnerwearCards:$('#v24CampaignGrid')?.querySelectorAll('.v24-image-card').length||0,phase4Assets:[...new Set($$('[data-v24-asset]').map(img=>img.dataset.v24Asset))],localAssets:images.map(img=>({path:img.dataset.v23Asset,loaded:img.complete&&img.naturalWidth>0,naturalWidth:img.naturalWidth})),spinCount:state.spinCount,errors:[...state.errors]};
   }
   function boot() {
     try {
       ['boy','dildo','plug','wild'].forEach(buildWheel);
-      addWheelHub();addInnerwearCampaign();addSanskariGallery();addBoyfriendGallery();addThreesomeSection();addNavLinks();bindEvents();
+      addWheelHub();addInnerwearCampaign();addSanskariGallery();addBoyfriendGallery();addThreesomeSection();addPhase4InnerwearCollection();addPhase4CoupleEditorials();addPhase4ThreesomeEditorials();addNavLinks();bindEvents();
       window.BLACKED_V2_P23={getDiagnostics:diagnostics,getState:()=>({...state}),spin,resetWheel,refreshWheel,openThreesome};
       document.documentElement.dataset.v2p23='loaded';
-    } catch(error) { state.errors.push(String(error)); console.error('[V2 Phase 2+3 repair]',error); }
+    } catch(error) { state.errors.push(String(error)); console.error('[V2 Phase 4 integration]',error); }
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();

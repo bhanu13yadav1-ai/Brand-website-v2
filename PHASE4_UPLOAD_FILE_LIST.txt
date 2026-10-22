@@ -1,0 +1,20 @@
+REPLACE EXISTING OVERLAY FILES:
+- README.md
+- index.html
+- part-c-enhancements.js
+- part-c-enhancements.css
+- sw.js
+- manifest.webmanifest
+
+ADD/UPDATE:
+- phase4-diagnostics.html
+- all supplied assets under assets/ (retain the directory structure)
+- PHASE4_ASSET_MANIFEST.csv
+- PHASE4_IMPLEMENTATION_REPORT.md
+- PHASE4_QA_RESULTS.json
+- PHASE4_MEMORY_NOTE_COPY_PASTE.txt
+- README_PHASE4_UPLOAD_HINGLISH.md
+- README_START_HERE.md
+- PHASE4_UPLOAD_FILE_LIST.txt
+
+DO NOT REPLACE/DELETE: app.js, styles.css, fallback.js, innerwear-image-library.json, size-chart-template.json.

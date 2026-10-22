@@ -26,3 +26,23 @@
 @media(max-width:360px){
   .hero-media{height:190px;}
 }
+
+
+/* V2 Phase 4 — supplied image collections, visible filters, and gated group-campaign gallery. */
+.v24-campaign-collection{border:1px solid var(--line,#3b2a39);border-radius:20px;padding:clamp(14px,2.8vw,22px);background:linear-gradient(145deg,#1b141e,#110c12)}
+.v24-gallery-tools{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(180px,1fr);gap:12px;margin:12px 0 16px}
+.v24-campaign-grid,.v24-couple-grid,.v24-triad-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.v24-image-card{min-width:0;overflow:hidden;border:1px solid #50364c;border-radius:16px;background:#171119;display:flex;flex-direction:column;box-shadow:0 8px 20px #0002}
+.v24-image-card[hidden]{display:none!important}
+.v24-image-card>img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;background:#201620}
+.v24-image-card-copy{padding:11px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.v24-image-card-copy h3{font-size:15px;line-height:1.25;margin:0;color:var(--cream,#fff5fa);overflow-wrap:anywhere}
+.v24-image-card-copy p{font-size:12px;color:var(--muted,#c0b2bd);margin:0;line-height:1.45}
+.v24-image-card-copy small{margin-top:auto;color:var(--muted,#c0b2bd);font-size:11px;overflow-wrap:anywhere}
+.v24-threesome-gallery{margin-top:20px;padding-top:14px;border-top:1px solid #4d3548}
+.v24-threesome-gallery .v24-triad-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.v24-couple-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.v24-image-card .v23-image-error{outline:2px solid #ff9da6}
+@media(max-width:900px){.v24-campaign-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.v24-gallery-tools{grid-template-columns:1fr}.v24-campaign-grid,.v24-couple-grid,.v24-threesome-gallery .v24-triad-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.v24-image-card-copy{padding:9px}.v24-image-card-copy h3{font-size:13px}.v24-image-card-copy p{font-size:11px}.v24-image-card-copy small{font-size:10px}}
+@media(max-width:360px){.v24-campaign-grid,.v24-couple-grid,.v24-threesome-gallery .v24-triad-grid{grid-template-columns:1fr}.v24-image-card>img{aspect-ratio:4/5}}
