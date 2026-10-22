@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Part A — Implementation &amp; QA Report | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Part A — Implementation &amp; QA Report" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PART_A_IMPLEMENTATION_REPORT.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PART_A_IMPLEMENTATION_REPORT.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Part A — Implementation &amp; QA Report" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Part A — Implementation &amp; QA Report","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PART_A_IMPLEMENTATION_REPORT.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-part-a--implementation--qa-report">V1 Part A — Implementation &amp; QA Report</h1>
+
+<h2 id="scope">Scope</h2>
+<p>Story Foundation Part A: homepage Sex Stories spotlight, expanded original story library, search, mood/language filters, sorting and a blunt Hinglish fictional-vibe poll. Existing V1 core sections are preserved in the full replacement package.</p>
+
+<h2 id="content-update">Content update</h2>
+<ul>
+  <li>Original English stories retained: 4.</li>
+  <li>New Hinglish stories added: 6.</li>
+  <li>Total story cards: 10.</li>
+  <li>Added filter options: Dirty Hinglish &amp; gaali banter; Hindi/Hinglish vs English; title/reading-time sort.</li>
+  <li>Added poll copy: “Aaj chut mein kya lena hai—land ya dildo?” with Land fantasy / Dildo fantasy / Skip choices. The poll does not write to storage or send a request.</li>
+  <li>Story preview language remains suggestive/non-graphic. All new story characters are explicitly adult; personal boundaries and permission are part of the stories.</li>
+</ul>
+
+<h2 id="existing-feature-preservation">Existing feature preservation</h2>
+<p>Kept the 7 main views, old product/cart/wishlist functions, the complete 151-record source image manifest, Sanskari, Noor/Grace cards, Wellness tools, 3 original wheels, Dirty/Wild wheel, Boyfriend/Couples, Fit Studio, privacy controls and diagnostics. Existing binary images are not replaced with unrelated assets.</p>
+
+<h2 id="test-results">Test results</h2>
+<p>The package was validated by script after edits: JavaScript syntax, JSON parse, HTML parsing, unique IDs, static local-file references, source story count, mood/language/sort controls, poll controls, original wheel controls and file inventory. Static checks: 20/20 PASS in <code class="language-plaintext highlighter-rouge">PART_A_QA_RESULTS.json</code>.</p>
+
+<p>A local Chromium DOM interaction suite also passed <strong>24/24 checks</strong> for app boot (with the local image manifest mocked), the 10 story cards, search, category and language filters, sorting, poll responses, story reader open/close, the three original wheels, the Dirty/Wild wheel, and responsive overflow at 320/360/390/430/1440 px. The test used <code class="language-plaintext highlighter-rouge">page.set_content</code> because direct local HTTP navigation was blocked by the managed browser environment. Raw GitHub image requests were deliberately aborted, which produced expected resource console errors; there were no uncaught page exceptions. See <code class="language-plaintext highlighter-rouge">PART_A_LOCAL_BROWSER_TESTS.json</code>.</p>
+
+<h2 id="not-tested--limitations">Not tested / limitations</h2>
+<ul>
+  <li>Live GitHub Pages deployment: NOT TESTED.</li>
+  <li>Per-image upstream URL availability: NOT TESTED; use <code class="language-plaintext highlighter-rouge">part-a-diagnostics.html</code> from the published site.</li>
+  <li>Physical Android Chrome: NOT TESTED.</li>
+  <li>Formal age verification: not implemented.</li>
+  <li>Stories and poll do not use a backend and do not store poll answers.</li>
+</ul>
+
+<h2 id="upload-safety">Upload safety</h2>
+<p>Back up <code class="language-plaintext highlighter-rouge">Brand-website-v2</code> first. Upload this package’s root contents to the repository root and replace matching source files. Do not upload the ZIP as a file and do not delete unrelated repository files.</p>
+
+<h2 id="static-validation-summary">Static validation summary</h2>
+<ul>
+  <li>Passed: 20/20 checks.</li>
+  <li>Failed: 0.</li>
+  <li>External images: NOT TESTED in this packaging pass.</li>
+  <li>Live deployment and physical Android: NOT TESTED.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

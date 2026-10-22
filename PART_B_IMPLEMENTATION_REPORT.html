@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Part B — Implementation Report | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Part B — Implementation Report" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PART_B_IMPLEMENTATION_REPORT.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PART_B_IMPLEMENTATION_REPORT.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Part B — Implementation Report" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Part B — Implementation Report","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PART_B_IMPLEMENTATION_REPORT.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-part-b--implementation-report">V1 Part B — Implementation Report</h1>
+
+<h2 id="scope-and-baseline">Scope and baseline</h2>
+
+<p>Part B is based on the Part A source tree that is currently present in <code class="language-plaintext highlighter-rouge">bhanu13yadav1-ai/Brand-website-v2</code> (root-level <code class="language-plaintext highlighter-rouge">index.html</code>, <code class="language-plaintext highlighter-rouge">app.js</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>, <code class="language-plaintext highlighter-rouge">fallback.js</code>, <code class="language-plaintext highlighter-rouge">sw.js</code>, <code class="language-plaintext highlighter-rouge">manifest.webmanifest</code>, 151-record image library). The package is an incremental replacement for those matching root files; it is not a blank-site template.</p>
+
+<h2 id="implemented">Implemented</h2>
+
+<ol>
+  <li><strong>Story library expanded:</strong> preserved all 10 Part A starter stories and added 3 Hinglish adult-fiction stories.</li>
+  <li><strong>Three continuing series:</strong> <code class="language-plaintext highlighter-rouge">The Key Behind the Velvet Frame</code>, <code class="language-plaintext highlighter-rouge">Boss Lady Ka Secret Rule</code>, and <code class="language-plaintext highlighter-rouge">Kaali Raat, Seedha Sawaal</code>. Each has two additional parts, navigation controls, and two different endings. Both endings are valid user choices; no outcome is mandatory.</li>
+  <li><strong>Reading Vault:</strong> opt-in checkbox, bookmarks, last-read progress and series chapter state. New app-owned key: <code class="language-plaintext highlighter-rouge">blackedV1PartBStoryVault</code>. A clear button and the overall app-data clear control both remove it. When opt-in is off, no new reading progress/bookmarks are recorded. Local data is not encrypted or synced.</li>
+  <li><strong>Hinglish body/toy size guide:</strong> explains “chut” as slang versus vulva/vagina anatomy, “land” as slang for penis, “gand” versus anus, overall/insertable dildo length and widest diameter, and butt-plug flared-base/retrieval-stop safety. It deliberately avoids a universal “normal size” or a “best size” recommendation.</li>
+  <li><strong>Wheel language upgrade:</strong> Dildo, Butt Plug and Land/Boyfriend wheel labels, range descriptions, result actions, reset text and safety explainers use desi Hinglish. “Chut”, “land”, “gand”, overall length, insertable length and widest diameter are explained in plain words. Wheel values remain demo-only, not personal sizing advice. Dark Romance wheel prompts now use colloquial Hindi/Hinglish gaali-banter without graphic descriptions; all prompts stay optional and consent-first.</li>
+  <li><strong>18+ navigation:</strong> Sex Stories now uses the existing age self-attestation overlay, just like the designated adult zones. This is not formal identity/age verification.</li>
+  <li><strong>Cache/diagnostics:</strong> updated the service-worker cache version, added the Part B diagnostic page and updated the app diagnostic API version.</li>
+</ol>
+
+<h2 id="preserved-areas">Preserved areas</h2>
+
+<p>Home, original 10 stories, filters, original three wheels, Dirty/Wild wheel, Boyfriend/Couples, innerwear catalogue, wishlist, demo bag, compare, the 151-record archive, Sanskari and future collection previews, Wellness/body education, Fit Studio/local photo preview, privacy panel, image fallbacks and previous phase reports/diagnostics are still present in the root-ready package.</p>
+
+<h2 id="tests-and-results">Tests and results</h2>
+
+<ul>
+  <li>JavaScript syntax: PASS (<code class="language-plaintext highlighter-rouge">node --check app.js</code>, <code class="language-plaintext highlighter-rouge">node --check sw.js</code>).</li>
+  <li>HTML parser / duplicate IDs: PASS, no duplicate IDs.</li>
+  <li>JSON manifests: PASS (<code class="language-plaintext highlighter-rouge">manifest.webmanifest</code>, <code class="language-plaintext highlighter-rouge">innerwear-image-library.json</code>, <code class="language-plaintext highlighter-rouge">size-chart-template.json</code>).</li>
+  <li>In-memory Chromium interactions: <strong>36/36 PASS</strong>. It used the exact source files and exact image-library JSON with isolated/mock localStorage. It tested story/series counts, search/language/mood filters, chapter transitions, both branch actions, explicit vault opt-in, bookmark/progress persistence in the mocked local storage, size guide presence, both wellness wheels, Dirty/Wild wheel, and no horizontal overflow at 320/360/390/430/1440 px.</li>
+  <li>External raw-GitHub image requests were deliberately blocked during the functional test so fallbacks could be exercised; the console logged the expected failed image resource requests. There were <strong>0 uncaught JavaScript exceptions</strong>.</li>
+</ul>
+
+<h2 id="not-tested--remaining-limitations">NOT TESTED / remaining limitations</h2>
+
+<ul>
+  <li>Live GitHub Pages after this package is uploaded.</li>
+  <li>Availability of every one of the 151 upstream image URLs from the visitor’s network.</li>
+  <li>Physical Android Chrome touch, scroll, keyboard and service-worker update behavior.</li>
+  <li>Formal age verification, encryption, server-side profiles, synced/bookmark accounts or analytics; these are not present in this static prototype.</li>
+  <li>Verified product-specific BLACKED sizing chart; therefore, wheels retain clearly labelled demo filters and the guide does not produce a personalized size recommendation.</li>
+  <li>Existing advanced features noted during earlier audit—product-specific manual Try-On overlays, Fit Passport/Fit Detective, Style Quiz/Style Board and complete original large catalogue merge—still need separate source-by-source restoration/review if those were part of the intended live baseline.</li>
+</ul>
+
+<h2 id="release-decision">Release decision</h2>
+
+<p><strong>Part B package is ready for upload and local component validation. It is not a fully verified production release.</strong> After upload, run <code class="language-plaintext highlighter-rouge">part-b-diagnostics.html</code>, check all original image URLs, and test the live site on a physical Android device before marking production PASS.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

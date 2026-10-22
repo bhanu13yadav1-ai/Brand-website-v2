@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Part C — Implementation &amp; QA Report | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Part C — Implementation &amp; QA Report" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PART_C_IMPLEMENTATION_REPORT.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PART_C_IMPLEMENTATION_REPORT.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Part C — Implementation &amp; QA Report" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Part C — Implementation &amp; QA Report","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PART_C_IMPLEMENTATION_REPORT.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-part-c--implementation--qa-report">V1 Part C — Implementation &amp; QA Report</h1>
+
+<h2 id="scope">Scope</h2>
+
+<p>Part C fixes the four wheel experiences at runtime through a small add-on loaded after the current Part B <code class="language-plaintext highlighter-rouge">app.js</code>. It adds the supplied photos as locally bundled WebP images, inserts a Boyfriend Fantasy Gallery and adds a separate self-attested Threesome Fantasy 18+ view. The patch does not overwrite the current root JavaScript, CSS, service worker, manifest, product/story data or existing image archive.</p>
+
+<h2 id="repository-preservation-decision">Repository preservation decision</h2>
+
+<p>The actual <code class="language-plaintext highlighter-rouge">Brand-website-v2/main</code> tree was rechecked before preparing this package. The live root HTML/CSS/JS snapshots did not match the retained local Part B working-copy byte-for-byte. To avoid overwriting possible user-side edits or reintroducing old source, this release is an additive patch: it adds new files and asks for only two script/style tags in <code class="language-plaintext highlighter-rouge">index.html</code>. The live deployment must still run the supplied diagnostics after upload.</p>
+
+<h2 id="important-changes">Important changes</h2>
+
+<ul>
+  <li>The root cause of the previous wheel bug was independently random outcome and wheel rotation, plus the absence of visible sectors. The new logic makes the displayed sector index determine both the final wheel rotation and its result text.</li>
+  <li>All four wheels now have eight visible, labelled sectors. The pointer is fixed, the centre stays still, labels remain upright, and controls lock during spins.</li>
+  <li>Reset cancels active animation timing. Changing Wild category refreshes its sector labels. “Spin again” follows the patched handler. Existing demo add-to-bag hooks are retained for non-boyfriend wheel outcomes.</li>
+  <li>Four user images are included locally with descriptive, non-identifying captions. The fifth image is used in a distinct Threesome Fantasy 18+ section with three non-graphic consent-first fictional story prompts.</li>
+  <li>Original stories, image library, three core wheels, Dirty/Wild wheel, wellness, catalogue, Fit Studio and existing save flows remain sourced from the current root app.</li>
+</ul>
+
+<h2 id="identity-anatomy-and-rights-limitation">Identity, anatomy and rights limitation</h2>
+
+<p>The images are displayed as generic Reference 01–04 cards. The website does not infer real-person identities, famous performer names or penis size from a photo. Publish only when image permissions/licences are suitable. Demo wheel ranges are not personal recommendations or measurements.</p>
+
+<h2 id="test-method">Test method</h2>
+
+<p>The attached <code class="language-plaintext highlighter-rouge">PART_C_LOCAL_BROWSER_TESTS.json</code> reports automated tests in local Chromium using the current Part B working-copy source, with the add-on inserted after <code class="language-plaintext highlighter-rouge">app.js</code>. The five user images were decoded locally. The tests verify sector labels, alignment math, outcome linkage, reset, category switching, age self-attestation UI, prompt cards, existing story/catalogue/wellness views, and responsive widths 320/360/390/430/1440.</p>
+
+<h2 id="status">Status</h2>
+
+<ul>
+  <li>Static package checks: 21/21 PASS.</li>
+  <li>Local Chromium interaction checks: 46/46 PASS, 0 FAIL.</li>
+  <li>Source/package details: see <code class="language-plaintext highlighter-rouge">PART_C_QA_RESULTS.json</code>.</li>
+  <li>Local Chromium tests: see <code class="language-plaintext highlighter-rouge">PART_C_LOCAL_BROWSER_TESTS.json</code>.</li>
+  <li>Live GitHub Pages deployment: NOT TESTED in this turn.</li>
+  <li>Physical Android browser: NOT TESTED in this turn.</li>
+  <li>Original external image archive URLs: NOT TESTED in this turn (only the five bundled Part C assets are local).</li>
+</ul>
+
+<p>The target repository was inspected but not changed directly; this is an additive ZIP for manual upload. Final release remains pending live diagnostics and Android regression results.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
