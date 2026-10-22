@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Phase 5 — Implementation &amp; QA Report | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Phase 5 — Implementation &amp; QA Report" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE5_IMPLEMENTATION_REPORT.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE5_IMPLEMENTATION_REPORT.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Phase 5 — Implementation &amp; QA Report" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Phase 5 — Implementation &amp; QA Report","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE5_IMPLEMENTATION_REPORT.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-phase-5--implementation--qa-report">V1 Phase 5 — Implementation &amp; QA Report</h1>
+
+<h2 id="scope">Scope</h2>
+<p>Complete innerwear visual reference collection + Wellness &amp; Size Guide. Existing Phase 4 recovery app is the base; this package is intended to replace its complete root-level files in <code class="language-plaintext highlighter-rouge">Brand-website-v2</code>.</p>
+
+<h2 id="image-collection-source-code-root-cause">Image collection: source-code root cause</h2>
+<p>The Phase 4 catalogue data listed only 8 records, including two wellness references. The wider supplied repositories contain many additional image files that were not mapped into a single page-level collection. Therefore “some images load” did not mean “all image assets were represented.” Phase 5 adds 151 image-file records from 3 known public source repos into one searchable/filterable gallery.</p>
+
+<p>Every manifest entry contains exact source repo, filename, public raw URL, category and usage warning. External <code class="language-plaintext highlighter-rouge">external-ref-syrn-*</code> are labelled as external inspiration; cutouts and 360 frames are concept visuals; Sanskari artwork remains campaign reference; no entry represents confirmed stock by default.</p>
+
+<h2 id="wellness-and-sizing-work">Wellness and sizing work</h2>
+<ul>
+  <li>Measurement worksheet for bra, briefs and bodysuit/set with input range checks, required measurements by garment type and cm/in summary.</li>
+  <li>Local persistence is explicit opt-in and can be deleted; no measurements are sent to a server by this code.</li>
+  <li>BLACKED chart JSON template is deliberately <code class="language-plaintext highlighter-rouge">not-configured</code>; calculator does not guess a size.</li>
+  <li>General fit cue guidance for band riding up, cup spill/gap, slipping/digging straps, underwire discomfort and briefs/bodysuit fit.</li>
+  <li>Body education text on vulva versus vagina, normal variation, external hygiene, virginity/hymen myths and symptoms that may require clinical guidance.</li>
+  <li>Research references and review date included.</li>
+</ul>
+
+<h2 id="files">Files</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">index.html</code>, <code class="language-plaintext highlighter-rouge">app.js</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>, <code class="language-plaintext highlighter-rouge">fallback.js</code>, <code class="language-plaintext highlighter-rouge">sw.js</code>, <code class="language-plaintext highlighter-rouge">manifest.webmanifest</code> — updated full app files.</li>
+  <li><code class="language-plaintext highlighter-rouge">innerwear-image-library.json</code>, <code class="language-plaintext highlighter-rouge">INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv</code> — 151 asset records.</li>
+  <li><code class="language-plaintext highlighter-rouge">size-chart-template.json</code> — no invented chart values.</li>
+  <li><code class="language-plaintext highlighter-rouge">phase5-diagnostics.html</code> — hosted source image test runner.</li>
+  <li><code class="language-plaintext highlighter-rouge">PHASE5_QA_RESULTS.json</code>, <code class="language-plaintext highlighter-rouge">PHASE5_LOCAL_BROWSER_TESTS.json</code> — results of performed checks.</li>
+  <li><code class="language-plaintext highlighter-rouge">ROOT_CAUSE_IMAGE_COLLECTION_PHASE5.md</code>, <code class="language-plaintext highlighter-rouge">RESEARCH_NOTES_PHASE5.md</code>, <code class="language-plaintext highlighter-rouge">README_PHASE5_UPLOAD_HINGLISH.md</code>, <code class="language-plaintext highlighter-rouge">PHASE5_MEMORY_NOTE_COPY_PASTE.txt</code> — handoff and documentation.</li>
+</ul>
+
+<h2 id="qa-truth-status">QA truth status</h2>
+
+<ul>
+  <li>Local Chromium browser testing: <strong>32/32 PASS, 0 FAIL</strong> across image-library cards/search/groups, 18+ gate, measurement worksheet, no-fake-size behaviour, local opt-in/delete, symptom/fit guidance, original wheel presence/function and mobile overflow. See <code class="language-plaintext highlighter-rouge">PHASE5_LOCAL_BROWSER_TESTS.json</code>.</li>
+  <li>Source image requests were deliberately blocked in the local test to exercise the fallback/status path; this is <strong>not</strong> evidence that the original photos load live.</li>
+  <li>JavaScript syntax, JSON/CSV validity, duplicate IDs, reference uniqueness and local browser functional tests are recorded in QA output.</li>
+  <li>The 151 image entries are present as searchable collection cards and exact source URLs, but the original binary photo files are not bundled in this ZIP. Live Pages image loading is NOT TESTED until upload; the <code class="language-plaintext highlighter-rouge">Brand-website-v2</code> repo did not contain the binary source photos. Raw images depend on the public source repositories and network availability. The diagnostic checker now loads URLs in batches of 12 with a 7-second timeout and reports failing filenames, repositories and exact URLs.</li>
+  <li>Physical Android Chrome: NOT TESTED. Please run <code class="language-plaintext highlighter-rouge">phase5-diagnostics.html</code> after upload and provide the counts/failures.</li>
+  <li>No “zero bugs” claim; Phase 6 remains for security, accessibility, performance, and cross-device regression. Some advanced Phase 3 features listed in the Phase 4 report (manual Try-On canvas, Fit Passport calculator, Style Quiz/Style Board/Build-a-Set) are still not restored in this recovery tree and must not be described as complete.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

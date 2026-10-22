@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Phase 7 — Final Regression &amp; Release Candidate Report | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Phase 7 — Final Regression &amp; Release Candidate Report" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE7_IMPLEMENTATION_REPORT.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE7_IMPLEMENTATION_REPORT.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Phase 7 — Final Regression &amp; Release Candidate Report" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Phase 7 — Final Regression &amp; Release Candidate Report","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE7_IMPLEMENTATION_REPORT.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-phase-7--final-regression--release-candidate-report">V1 Phase 7 — Final Regression &amp; Release Candidate Report</h1>
+
+<h2 id="scope-and-repository-state">Scope and repository state</h2>
+<p>This is a full root-ready release candidate based on the Phase 6 hardened working copy. At the start of Phase 7, the actual <code class="language-plaintext highlighter-rouge">Brand-website-v2</code> <code class="language-plaintext highlighter-rouge">main</code> branch still exposed Phase 5-era root source files and did not contain the Phase 6 source/report set. Therefore, the package includes the complete root files plus Phase 7 changes; back up the current branch before upload.</p>
+
+<h2 id="new-feature-highlighted-sex-stories">New feature: highlighted Sex Stories</h2>
+<ul>
+  <li>Home spotlight: <strong>Sex Stories · After Dark · 18+</strong>, plus a dedicated navigation entry and view.</li>
+  <li>Four original short fictional stories, all characters adults, using suggestive/non-graphic language with consent and agency.</li>
+  <li>Search, mood filters, story-reading dialog, close button, live result status, and modal focus-in/focus-restore behavior.</li>
+  <li>Roadmap teaser: <strong>MORE DIRTY FOR HORNY GIRLS</strong>. Longer chapters, series, richer filters and optional reading history are next-update ideas—not features claimed as shipped in this release.</li>
+</ul>
+
+<h2 id="preserved-functionality-in-the-working-copy">Preserved functionality in the working copy</h2>
+<p>Innerwear catalogue/search/filter/sort, all 151 image-library records, 24-card progressive image rendering, product compare, wishlist, demo bag, Sanskari gallery, Noor/Grace Coming Soon previews, Wellness measurement/anatomy guidance, the three original wheel controls, Dirty/Wild wheel, Boyfriend/Couples tools, Fit Studio, opt-in measurements, privacy data deletion, image fallback, PWA manifest and versioned service-worker cache.</p>
+
+<h2 id="research-and-content-basis">Research and content basis</h2>
+<ul>
+  <li>The four new stories are original creative fiction, not claims about what women or any demographic generally desires. They use adult characters, optional reading and clear agency/consent.</li>
+  <li>Consent-language principles are documented in <code class="language-plaintext highlighter-rouge">RESEARCH_NOTES_PHASE4.md</code>, based on Planned Parenthood’s Sexual Consent resource: https://www.plannedparenthood.org/learn/relationships/sexual-consent</li>
+  <li>Fantasy-content caveats are documented there using Joyal, Cossette &amp; Lapierre (2015), “What Exactly Is an Unusual Sexual Fantasy?” (DOI 10.1111/jsm.12734; PubMed: https://pubmed.ncbi.nlm.nih.gov/25359122/). This is not an India-representative prevalence claim.</li>
+  <li>Wellness sources remain in <code class="language-plaintext highlighter-rouge">RESEARCH_NOTES_PHASE5.md</code> (Frimley Health NHS Foundation Trust, Planned Parenthood, WHO, NHS and ACOG). The site does not claim these sources verify products, stock or a BLACKED size chart.</li>
+</ul>
+
+<h2 id="actual-test-status">Actual test status</h2>
+<ul>
+  <li><strong>Local Chromium functional regression: 37/37 passed.</strong> Stories age-gate, search/filter, story dialog and focus restore, all three original wheels, Dirty/Wild wheel, 151-image manifest and progressive archive rendering, wellness converter, privacy clear/cancel and viewport overflow were exercised.</li>
+  <li><strong>Static QA: 24/24 passed.</strong> See <code class="language-plaintext highlighter-rouge">PHASE7_QA_RESULTS.json</code> for JavaScript syntax, JSON parsing, duplicate-ID, alt-text, local-reference, image-manifest and source allowlist checks.</li>
+  <li>Local HTTP navigation was blocked by the managed browser. Tests ran in an isolated Chromium DOM with packaged HTML/CSS/JS injected from the generated package and a mocked same-origin image-manifest response. Raw GitHub image requests were deliberately blocked to exercise fallback behavior, producing expected <code class="language-plaintext highlighter-rouge">ERR_FAILED</code> resource messages. There were no uncaught page exceptions.</li>
+  <li><strong>Live GitHub Pages: NOT TESTED.</strong></li>
+  <li><strong>All external image URLs: NOT TESTED.</strong> DNS/network access to the upstream image host is unavailable in this environment. Original image binaries remain remote dependencies, not embedded in the ZIP. After upload, use <code class="language-plaintext highlighter-rouge">phase7-diagnostics.html</code> to check the source URLs from the user’s browser.</li>
+  <li><strong>Physical Android Chrome: NOT TESTED.</strong> Responsive layout was checked at 320, 360, 390, 430 and 1440 CSS-pixel viewports in local Chromium.</li>
+</ul>
+
+<h2 id="limitations">Limitations</h2>
+<p>No backend account, encrypted storage, real inventory, payments or checkout is configured. Browser-local saved data is not encrypted. The 18+ gate is self-attestation, not formal age verification. The 151 image count means source-file records, not 151 unique photographs.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

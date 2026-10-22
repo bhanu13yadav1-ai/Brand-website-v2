@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Phase 5 — Root cause of missing innerwear collection images | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Phase 5 — Root cause of missing innerwear collection images" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/ROOT_CAUSE_IMAGE_COLLECTION_PHASE5.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/ROOT_CAUSE_IMAGE_COLLECTION_PHASE5.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Phase 5 — Root cause of missing innerwear collection images" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Phase 5 — Root cause of missing innerwear collection images","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/ROOT_CAUSE_IMAGE_COLLECTION_PHASE5.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="phase-5--root-cause-of-missing-innerwear-collection-images">Phase 5 — Root cause of missing innerwear collection images</h1>
+
+<h2 id="observed-source-code-cause">Observed source-code cause</h2>
+<p>The Phase 4 <code class="language-plaintext highlighter-rouge">products</code> array contains only 8 catalogue records. Six are innerwear/Sanskari references and two are wellness references. The source repositories contain many additional visual files (model/editorial photos, owner references, separate design concepts, cutout concept layers, Sanskari campaign art, and the 8-frame concept series), but those additional files were not represented as cards in the product data. Thus some photos can exist and load by URL while still not appearing in the on-page collection: the issue is also missing catalogue/gallery records, not only image loading.</p>
+
+<h2 id="phase-5-action">Phase 5 action</h2>
+<ul>
+  <li>Add a separate searchable <code class="language-plaintext highlighter-rouge">All innerwear &amp; campaign images</code> collection with 151 indexed image-file records across 3 public source repositories.</li>
+  <li>Keep each card in the collection even if the original image request fails. A fallback marks the original as unavailable and the card exposes the exact source link and retry button.</li>
+  <li>Label external SYRN references as a separate external brand, not BLACKED products or a partnership.</li>
+  <li>Label generated 360 frames and cutouts as concepts, not verified products.</li>
+  <li>Keep the original Phase 4 catalogue, saved styles, demo bag, compare, Sanskari section, three original wheels and Dirty/Wild Wheel.</li>
+</ul>
+
+<h2 id="limitation">Limitation</h2>
+<p>Image binary files could not be bundled from the source repositories in this execution environment; the gallery requests the exact public raw-GitHub URLs in <code class="language-plaintext highlighter-rouge">INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv</code>. A live check is required to know which image requests succeed from your phone/network. <code class="language-plaintext highlighter-rouge">phase5-diagnostics.html</code> includes a button to request every source image and count success/failure. No external image is represented as a success until that runtime check is performed.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

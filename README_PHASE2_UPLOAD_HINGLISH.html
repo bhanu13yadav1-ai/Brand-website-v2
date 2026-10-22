@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Phase 2 — Upload Guide (Hindi/Hinglish) | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Phase 2 — Upload Guide (Hindi/Hinglish)" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_PHASE2_UPLOAD_HINGLISH.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_PHASE2_UPLOAD_HINGLISH.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Phase 2 — Upload Guide (Hindi/Hinglish)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Phase 2 — Upload Guide (Hindi/Hinglish)","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_PHASE2_UPLOAD_HINGLISH.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-phase-2--upload-guide-hindihinglish">V1 Phase 2 — Upload Guide (Hindi/Hinglish)</h1>
+
+<h2 id="ye-package-kya-hai">Ye package kya hai?</h2>
+<p>Ye <strong>overlay patch</strong> hai jo current public repository <code class="language-plaintext highlighter-rouge">bhanu13yadav1-ai/Brand-website-4f</code> ke liye bana hai. Ye poori website source/assets ka ZIP nahi hai. Iska kaam current root-level <code class="language-plaintext highlighter-rouge">app.js</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>, aur image files ko preserve karte hue broken nested paths ko resolve karna hai.</p>
+
+<h2 id="kya-change-hota-hai">Kya change hota hai?</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">css/styles.css</code>: existing root <code class="language-plaintext highlighter-rouge">styles.css</code> ka compatibility wrapper.</li>
+  <li><code class="language-plaintext highlighter-rouge">js/app.js</code>: existing root <code class="language-plaintext highlighter-rouge">app.js</code> load karta hai, legacy <code class="language-plaintext highlighter-rouge">assets/&lt;root-file&gt;</code> paths ko root file par map karta hai, aur corrected service worker register karta hai.</li>
+  <li><code class="language-plaintext highlighter-rouge">sw.js</code>: incorrect old precache paths ko correct root paths se replace karta hai; old <code class="language-plaintext highlighter-rouge">assets/&lt;filename&gt;</code> requests ke liye same-scope fallback deta hai; cache version update karta hai.</li>
+  <li><code class="language-plaintext highlighter-rouge">manifest.webmanifest</code>: app icon paths root files ke saath match karta hai.</li>
+  <li><code class="language-plaintext highlighter-rouge">phase2-diagnostics.html</code>: upload ke baad file routes, image previews aur original wheel markup check karne ke liye.</li>
+</ul>
+
+<h2 id="android-se-github-par-upload">Android se GitHub par upload</h2>
+<ol>
+  <li>ZIP download karke extract karo.</li>
+  <li>GitHub par <code class="language-plaintext highlighter-rouge">Brand-website-4f</code> kholo aur confirm karo ki branch <code class="language-plaintext highlighter-rouge">main</code> hai.</li>
+  <li><code class="language-plaintext highlighter-rouge">Add file</code> → <code class="language-plaintext highlighter-rouge">Upload files</code> kholo.</li>
+  <li>Extracted folder ke <strong>andar ke contents</strong> upload karo, folder ko ek extra nested directory ke andar upload mat karna.</li>
+  <li>Paths ko isi tarah preserve karo: <code class="language-plaintext highlighter-rouge">css/styles.css</code>, <code class="language-plaintext highlighter-rouge">js/app.js</code>, <code class="language-plaintext highlighter-rouge">sw.js</code>, <code class="language-plaintext highlighter-rouge">manifest.webmanifest</code>, <code class="language-plaintext highlighter-rouge">phase2-diagnostics.html</code>, aur ye README.</li>
+  <li>Existing <code class="language-plaintext highlighter-rouge">sw.js</code> aur <code class="language-plaintext highlighter-rouge">manifest.webmanifest</code> replace honge. Existing <code class="language-plaintext highlighter-rouge">index.html</code>, root <code class="language-plaintext highlighter-rouge">app.js</code>, root <code class="language-plaintext highlighter-rouge">styles.css</code>, aur saare original root image files ko delete/replace mat karna.</li>
+  <li>Commit message: <code class="language-plaintext highlighter-rouge">Phase 2: repair asset paths and app loading compatibility</code>.</li>
+  <li>Upload ke baad <code class="language-plaintext highlighter-rouge">phase2-diagnostics.html</code> ko GitHub Pages URL par open karo. Current Pages URL agar <code class="language-plaintext highlighter-rouge">https://bhanu13yadav1-ai.github.io/Brand-website-4f/</code> hai, toh diagnostics URL hoga <code class="language-plaintext highlighter-rouge">https://bhanu13yadav1-ai.github.io/Brand-website-4f/phase2-diagnostics.html</code>. Agar GitHub Pages ka actual URL alag ho, usi URL mein filename add karna.</li>
+  <li>First visit par service worker install hone do. Diagnostics ko ek baar refresh karke legacy <code class="language-plaintext highlighter-rouge">assets/</code> path tests dobara chalao.</li>
+  <li><code class="language-plaintext highlighter-rouge">Open main website</code> par click karke navigation, images, search/filter, wishlist/bag, Boyfriend, aur original 3 wheels manually test karo.</li>
+</ol>
+
+<h2 id="limitations-please-read">Limitations (please read)</h2>
+<ul>
+  <li>Ye package existing <code class="language-plaintext highlighter-rouge">Brand-website-4f</code> repo mein upload karne ke liye hai; blank/new repo mein standalone website nahi hai.</li>
+  <li>Patch existing source files aur image binaries ko ZIP ke andar duplicate nahi karta. Original files repository mein maujood rehne chahiye.</li>
+  <li>Path rewriting is repository ke current root-asset layout ko target karta hai. Nested future paths jaise <code class="language-plaintext highlighter-rouge">assets/new-gallery/photo.webp</code> ko root mein flatten nahi karega.</li>
+  <li>Diagnostics page wheel controls ka source markup verify karta hai; complete real-browser wheel interaction manual testing phir bhi zaroori hai.</li>
+  <li>Live GitHub Pages upload / Android device test assistant ne nahi kiya. Isliye deployment ko PASS tabhi mark karna jab tum apne live page par verify kar lo.</li>
+  <li>Agar tumhare repo mein file structure is audit ke baad badal chuka hai, pehle <code class="language-plaintext highlighter-rouge">main</code> ka current structure dobara check karo.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

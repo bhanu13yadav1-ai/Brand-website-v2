@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Phase 6 — Performance, accessibility, privacy and security hardening | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Phase 6 — Performance, accessibility, privacy and security hardening" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE6_IMPLEMENTATION_REPORT.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE6_IMPLEMENTATION_REPORT.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Phase 6 — Performance, accessibility, privacy and security hardening" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Phase 6 — Performance, accessibility, privacy and security hardening","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE6_IMPLEMENTATION_REPORT.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-phase-6--performance-accessibility-privacy-and-security-hardening">V1 Phase 6 — Performance, accessibility, privacy and security hardening</h1>
+
+<h2 id="scope">Scope</h2>
+<p>Incremental hardening of the Phase 5 root-ready website. Existing screens and features are retained. No framework migration is introduced.</p>
+
+<h2 id="changes">Changes</h2>
+<ol>
+  <li><strong>Performance:</strong> extracted 151 image records from the 111KB application script into the existing same-origin JSON manifest; the image gallery now renders up to 24 cards per batch and exposes Load more. Images stay lazy-loaded and get intrinsic width/height to reduce layout shift.</li>
+  <li><strong>Accessibility:</strong> added skip link, visible focus ring, screen-reader loading/status text, larger minimum touch targets, reduced-motion CSS, dialog focus trapping/restoration and page focus continuity.</li>
+  <li><strong>Privacy &amp; data integrity:</strong> added a dedicated privacy/data controls dialog. Explicit confirmation removes only known BLACKED local/session storage keys (not other websites’ data). Measurements remain opt-in and are disclosed as non-encrypted browser storage. Local photo preview uses an object URL and revokes it on pagehide.</li>
+  <li><strong>Security:</strong> same-origin image-manifest fetch with a source-host allowlist; storage JSON has a size bound; stored bag fields are bounded/sanitized; persisted image URLs are restricted to HTTPS raw.githubusercontent.com paths under the three approved repositories; CSP and no-referrer metadata added.</li>
+  <li><strong>Service worker:</strong> versioned cache namespace, tolerant install pre-cache, old Phase 4/5 cache cleanup, same-origin-only caching, network-first navigation, and cache fallback. External source images are not copied into the service-worker cache.</li>
+  <li><strong>Diagnostics:</strong> Phase 6 diagnostics check app assets, manifest, runtime features, progressive image rendering, privacy controls and provide a batched external-image URL test.</li>
+</ol>
+
+<h2 id="data-preservation">Data preservation</h2>
+<p>The existing current storage keys remain the primary keys. The new clear-data action is opt-in and confirmed. No automatic storage wipe or destructive migration occurs.</p>
+
+<h2 id="status">Status</h2>
+<ul>
+  <li>Source edits generated from the current Phase 5 root-ready package in this workspace.</li>
+  <li>Local Chromium/Playwright tests: <strong>32/32 PASS</strong>, 0 FAIL; no uncaught page errors. External image requests were blocked deliberately during this run.</li>
+  <li>Node syntax checks, JSON validation, HTML parse, package reference checks and local browser tests are performed separately and recorded in <code class="language-plaintext highlighter-rouge">PHASE6_QA_RESULTS.json</code>.</li>
+  <li>Public source-image HTTP tests and live GitHub Pages deployment remain <strong>NOT TESTED</strong> until Phase 6 files are uploaded and diagnostics run against the deployed site.</li>
+  <li>Physical Android Chrome testing remains <strong>NOT TESTED</strong> by the local harness.</li>
+</ul>
+
+<h2 id="known-limitations">Known limitations</h2>
+<ul>
+  <li>Image binaries are not bundled; the 151-record library is retained with public raw-GitHub paths.</li>
+  <li>Browser local storage is not encryption and should not be described as a private vault.</li>
+  <li>The site is a front-end prototype; no accounts, server, analytics endpoint, real inventory or checkout is added.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

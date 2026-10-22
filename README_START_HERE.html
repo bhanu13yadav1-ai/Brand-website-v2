@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>BLACKED V3 Final Release Overlay — Phases 9–15 | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="BLACKED V3 Final Release Overlay — Phases 9–15" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_START_HERE.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_START_HERE.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="BLACKED V3 Final Release Overlay — Phases 9–15" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"BLACKED V3 Final Release Overlay — Phases 9–15","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_START_HERE.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="blacked-v3-final-release-overlay--phases-915">BLACKED V3 Final Release Overlay — Phases 9–15</h1>
+
+<p><strong>Target repository:</strong> <code class="language-plaintext highlighter-rouge">bhanu13yadav1-ai/Brand-website-v2</code><br />
+<strong>Release:</strong> <code class="language-plaintext highlighter-rouge">V3 Final · Phase 9–15</code><br />
+<strong>This is an additive deployment overlay, not a copy of the full repository.</strong> It reuses the existing app files, collections, story data, and bundled images.</p>
+
+<h2 id="new-features-in-this-release">New features in this release</h2>
+
+<ul>
+  <li><strong>Phase 12 — Wheel Hub:</strong> one directory for all three original wheel locations plus the separate Wild Wheel; existing wheel code/results remain the source of truth.</li>
+  <li><strong>Phase 13 — Couples Studio:</strong> organized campaign cards, filters and a large preview dialog using images already at the repository root. It does not sell or book real people.</li>
+  <li><strong>Phase 14 — Privacy / reliability:</strong> optional local-data JSON export, visible failure status for gallery images, root-path repair for assets incorrectly referenced under <code class="language-plaintext highlighter-rouge">./assets/</code>, reduced-motion support and clearer keyboard focus.</li>
+  <li><strong>Phase 15 — What’s New at the top:</strong> seven quick feature cards on the first screen, plus same-origin live diagnostics.</li>
+  <li><strong>Final loader:</strong> loads the already-present Phase 2–8 overlays plus Phase 9–15 in a single ordered chain and reports exact failed file names.</li>
+  <li><strong>PWA repair script:</strong> changes the service-worker cache version and corrects root-level image paths inside <code class="language-plaintext highlighter-rouge">CORE</code> before adding the new files to the cache list.</li>
+</ul>
+
+<h2 id="install-against-the-existing-repo">Install against the existing repo</h2>
+
+<ol>
+  <li>Download and extract this ZIP.</li>
+  <li>Merge its files into the root of a fresh checkout of <code class="language-plaintext highlighter-rouge">Brand-website-v2</code>. Do not delete existing files or folders.</li>
+  <li>
+    <p>From the extracted folder run:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python apply_final_release_patches.py /path/to/Brand-website-v2
+</code></pre></div>    </div>
+
+    <p>This idempotently patches only <code class="language-plaintext highlighter-rouge">index.html</code> and <code class="language-plaintext highlighter-rouge">sw.js</code>: one final-loader script tag, release title/meta, <code class="language-plaintext highlighter-rouge">CACHE_NAME</code>, the nested image paths whose basenames exist at repository root, and the additive list of overlay assets.</p>
+  </li>
+  <li>Review the git diff. Commit the overlay files and the two patched core files together. The helper never clears browser storage or removes old features.</li>
+  <li>Publish with the repo’s existing GitHub Pages workflow.</li>
+  <li>Open <code class="language-plaintext highlighter-rouge">phase12-15-diagnostics.html</code> on the deployed site. Check all four wheels, the story grid, Fit Studio, Wellness, Couples Studio, loader file status and image failures.</li>
+  <li>On Android Chrome, test every navigation view, the adult self-attestation gates, a wheel spin, a story filter, a couple gallery filter and preview, the measurement unit switch, privacy export, and a fresh reload after the service worker updates.</li>
+</ol>
+
+<h3 id="manual-integration-if-python-is-not-available">Manual integration if Python is not available</h3>
+
+<ul>
+  <li>Add <code class="language-plaintext highlighter-rouge">&lt;script src="./phase12-15-final-loader.js?v=12.15.0" defer&gt;&lt;/script&gt;</code> in <code class="language-plaintext highlighter-rouge">index.html</code> immediately after <code class="language-plaintext highlighter-rouge">part-c-enhancements.js</code>.</li>
+  <li>In <code class="language-plaintext highlighter-rouge">sw.js</code>, rename <code class="language-plaintext highlighter-rouge">CACHE_NAME</code> to <code class="language-plaintext highlighter-rouge">blacked-v3-final-15-1</code>.</li>
+  <li>Replace each <code class="language-plaintext highlighter-rouge">./assets/&lt;folder&gt;/&lt;filename&gt;</code> CORE path with <code class="language-plaintext highlighter-rouge">./&lt;filename&gt;</code> <strong>only when that filename exists in the repository root</strong>; this repo stores those images in the root.</li>
+  <li>Add every file listed in <code class="language-plaintext highlighter-rouge">CORE_FILES</code> inside <code class="language-plaintext highlighter-rouge">apply_final_release_patches.py</code> to <code class="language-plaintext highlighter-rouge">CORE</code>, keeping all prior valid entries too.</li>
+</ul>
+
+<h2 id="what-is-included--not-included">What is included / not included</h2>
+
+<p>This ZIP contains the new Phase 9–15 modules required by the final loader, the final release loader, diagnostics, a patching script, static and synthetic UI smoke-test reports, and handoff notes. It deliberately does not duplicate the site’s existing images, <code class="language-plaintext highlighter-rouge">app.js</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>, <code class="language-plaintext highlighter-rouge">fallback.js</code>, <code class="language-plaintext highlighter-rouge">index.html</code>, or <code class="language-plaintext highlighter-rouge">sw.js</code>.</p>
+
+<h2 id="honest-verification-status">Honest verification status</h2>
+
+<ul>
+  <li>Static/patch verification: 26/26 checks passed, including JavaScript syntax, installer idempotence, loader ordering, cache-path repairs, data-preservation constraints and required source links. See <code class="language-plaintext highlighter-rouge">PHASE12_15_STATIC_CHECKS.md</code>.</li>
+  <li>A synthetic Playwright DOM smoke test exercised the top-of-home highlights, After Dark prompt generation, wheel navigation, Couples Studio filtering, and CM↔inch conversion with no JavaScript/page errors. This was an inline mock fixture, not the deployed site. Image loading failed in that <code class="language-plaintext highlighter-rouge">about:blank</code> fixture (no same-origin bundled assets), and its service-worker/focus-styles diagnostics are not a live result. See <code class="language-plaintext highlighter-rouge">tests/SYNTHETIC_UI_SMOKE_TEST.json</code>.</li>
+  <li>The live repository write API previously returned HTTP 403, so this package does <strong>not</strong> claim that a remote commit or GitHub Pages deployment has happened. Live Android/browser and image-path verification can only be confirmed after merge and publication; use the same-origin diagnostic page then.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

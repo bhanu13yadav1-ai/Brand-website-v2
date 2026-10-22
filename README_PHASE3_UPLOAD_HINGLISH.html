@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Phase 3 — Upload Guide (Hinglish) | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Phase 3 — Upload Guide (Hinglish)" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_PHASE3_UPLOAD_HINGLISH.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_PHASE3_UPLOAD_HINGLISH.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Phase 3 — Upload Guide (Hinglish)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Phase 3 — Upload Guide (Hinglish)","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_PHASE3_UPLOAD_HINGLISH.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-phase-3--upload-guide-hinglish">V1 Phase 3 — Upload Guide (Hinglish)</h1>
+
+<h2 id="is-zip-mein-kya-hai">Is ZIP mein kya hai?</h2>
+<p>Ye <strong>Phase 2 + Phase 3 combined overlay</strong> hai. Agar Phase 2 pehle upload nahi kiya tha, toh ye ZIP Phase 2 compatibility files bhi include karta hai. Agar Phase 2 pehle upload kar chuke ho, toh ye same paths ko Phase 3 version se update karega.</p>
+
+<p>Phase 3 mein Home par clear Collections directory add hota hai, existing Sanskari gallery ko retain karta hai, aur current Noor/Grace previews ko clearly <code class="language-plaintext highlighter-rouge">Muslim-Inspired Collection — Coming Soon</code> aur <code class="language-plaintext highlighter-rouge">Christian-Inspired Collection — Coming Soon</code> labels deta hai. Coming Soon cards jaan-boojhkar non-clickable hain; fake shops/features nahi khulte.</p>
+
+<h2 id="upload-steps-androidgithub">Upload steps (Android/GitHub)</h2>
+<ol>
+  <li>ZIP download karke extract karo.</li>
+  <li><code class="language-plaintext highlighter-rouge">Brand-website-4f</code> kholo: https://github.com/bhanu13yadav1-ai/Brand-website-4f</li>
+  <li>Branch <code class="language-plaintext highlighter-rouge">main</code> confirm karo. <code class="language-plaintext highlighter-rouge">Add file</code> → <code class="language-plaintext highlighter-rouge">Upload files</code> kholo.</li>
+  <li>ZIP ke top folder <code class="language-plaintext highlighter-rouge">V1_PHASE3_UPLOAD_PACKAGE</code> ke <strong>andar ke contents</strong> upload karo, extra nested folder mat banao. <code class="language-plaintext highlighter-rouge">css/</code> aur <code class="language-plaintext highlighter-rouge">js/</code> subfolders same rakhna.</li>
+  <li>Existing <code class="language-plaintext highlighter-rouge">sw.js</code> aur <code class="language-plaintext highlighter-rouge">manifest.webmanifest</code> ko replace karo; <code class="language-plaintext highlighter-rouge">css/styles.css</code> aur <code class="language-plaintext highlighter-rouge">js/app.js</code> overlay files ko replace/add karo. Root <code class="language-plaintext highlighter-rouge">index.html</code>, <code class="language-plaintext highlighter-rouge">app.js</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>, product data aur original image files ko touch/delete mat karna.</li>
+  <li>Commit message: <code class="language-plaintext highlighter-rouge">V1 Phase 3: add collections directory and Coming Soon previews</code>.</li>
+  <li>Commit ke baad Pages build complete hone do; phir open karo: <code class="language-plaintext highlighter-rouge">https://bhanu13yadav1-ai.github.io/Brand-website-4f/phase3-diagnostics.html</code>. Agar actual Pages URL different hai, us URL ke aakhir mein <code class="language-plaintext highlighter-rouge">/phase3-diagnostics.html</code> lagao.</li>
+  <li>Pehli baar diagnostic khulne ke baad agar service worker install/update hua hai, page refresh karo aur <code class="language-plaintext highlighter-rouge">Run checks again</code> dabao.</li>
+  <li>Diagnostic mein collection directory, Sanskari button, updated previews, asset files aur wheel markup ke results dekho. Uske baad <code class="language-plaintext highlighter-rouge">Open main website</code> karke manually confirm karo.</li>
+</ol>
+
+<h2 id="is-phase-mein-preserve-kiya-gaya">Is phase mein preserve kiya gaya</h2>
+<ul>
+  <li>Existing six views: Home, Innerwear, Sanskari Edit, Wellness, Boyfriend, Fit Studio.</li>
+  <li>Existing Sanskari gallery and source campaign images.</li>
+  <li>Existing catalogue, wishlist, demo bag, three original wheel experiences, fit notes, wellness and relationship tools. Ye features Phase 3 mein rebuild/replace nahi kiye gaye.</li>
+  <li>Original root <code class="language-plaintext highlighter-rouge">app.js</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>, <code class="language-plaintext highlighter-rouge">index.html</code>, and source images are not included for overwrite.</li>
+</ul>
+
+<h2 id="limits">Limits</h2>
+<ul>
+  <li>This is an overlay for the existing <code class="language-plaintext highlighter-rouge">Brand-website-4f</code> root layout, not a standalone website package.</li>
+  <li>No new original campaign photography is added; the live Sanskari card uses an existing repository image. Upcoming faith-inspired cards use intentionally designed CSS art, not mislabeled stock photography.</li>
+  <li>No new collection is presented as available for sale.</li>
+  <li>Assistant has not pushed these files to GitHub and has not tested the published site or a physical Android device. Treat live functionality as NOT TESTED until your diagnostic page reports results.</li>
+  <li>Phase 3 does not implement Phase 4 Dirty/Wild Wheel, Phase 5 wellness expansion or later hardening; those remain separate planned phases.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

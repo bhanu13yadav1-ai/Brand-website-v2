@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>BLACKED V3 — Phase 5–6 Upload Instructions (Hinglish) | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="BLACKED V3 — Phase 5–6 Upload Instructions (Hinglish)" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE5_6_UPLOAD_INSTRUCTIONS_HINGLISH.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE5_6_UPLOAD_INSTRUCTIONS_HINGLISH.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="BLACKED V3 — Phase 5–6 Upload Instructions (Hinglish)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"BLACKED V3 — Phase 5–6 Upload Instructions (Hinglish)","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE5_6_UPLOAD_INSTRUCTIONS_HINGLISH.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="blacked-v3--phase-56-upload-instructions-hinglish">BLACKED V3 — Phase 5–6 Upload Instructions (Hinglish)</h1>
+
+<h2 id="is-baar-zip-mein-kya-hai">Is baar ZIP mein kya hai?</h2>
+
+<p><strong>Sirf changed/new files.</strong> <code class="language-plaintext highlighter-rouge">app.js</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>, <code class="language-plaintext highlighter-rouge">fallback.js</code>, <code class="language-plaintext highlighter-rouge">index.html</code>, <code class="language-plaintext highlighter-rouge">sw.js</code>, <code class="language-plaintext highlighter-rouge">phase2-photo-collections.js</code>, <code class="language-plaintext highlighter-rouge">phase2-photo-collections.css</code>, <code class="language-plaintext highlighter-rouge">phase3-design-system.css</code> aur <code class="language-plaintext highlighter-rouge">phase4-home-and-fantasy.js</code> ZIP mein full copies ke roop mein nahi hain.</p>
+
+<p>Connected GitHub <code class="language-plaintext highlighter-rouge">main</code> ko check karte waqt Phase 3/4 JS/CSS files maujood mile, lekin <code class="language-plaintext highlighter-rouge">index.html</code> unko load nahi kar raha tha. Isi wajah se Phase 3/4 ka visible update activate nahi hua. Phase 2/4 photo code ke 11 referenced WebP files bhi GitHub par 404/missing mile. Package un missing local image assets ko restore karta hai, phir naya Phase 5/6 loader existing overlays ko sahi order mein load karega.</p>
+
+<h2 id="upload-process">Upload process</h2>
+
+<ol>
+  <li>ZIP extract karo. Sab files/folders ko <code class="language-plaintext highlighter-rouge">Brand-website-v2</code> repo ke <strong>root</strong> mein merge karo. Nested <code class="language-plaintext highlighter-rouge">BLACKED_V3_PHASE5_6_CHANGED_FILES/</code> parent folder upload mat karna; <code class="language-plaintext highlighter-rouge">phase5-6-loader.js</code> root mein hona chahiye aur <code class="language-plaintext highlighter-rouge">assets/</code> root ke andar.</li>
+  <li>Existing image/source files ko delete ya replace mat karo. Jo 11 older Phase 1–4 assets missing the, wohi restore ho rahe hain; baaki 16 WebP files is turn ki nayi photos aur unke character-crops hain.</li>
+  <li>
+    <p>GitHub par <code class="language-plaintext highlighter-rouge">index.html</code> edit karo. <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> mein ye existing lines dhoondo:</p>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./app.js"</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./part-c-enhancements.js"</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>    </div>
+
+    <p>Unke turant neeche ye <strong>ek nayi line</strong> add karo:</p>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./phase5-6-loader.js?v=5.6.0"</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>    </div>
+
+    <p>Exact one-line patch <code class="language-plaintext highlighter-rouge">INDEX_INSERT_PHASE56.patch</code> mein bhi hai.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">index.html</code> plus new files/assets ko commit karo. Loader purane Phase 2/3/4 overlays aur naye Phase 5/6 modules khud sahi order mein load karega. <code class="language-plaintext highlighter-rouge">sw.js</code> ko abhi replace karne ki zaroorat nahi: existing service worker successful same-origin GET requests ko first load par cache karta hai. Pehli image check online zaroor karna.</li>
+  <li>GitHub Pages deploy hone ke baad ye URL kholo:
+<code class="language-plaintext highlighter-rouge">https://bhanu13yadav1-ai.github.io/Brand-website-v2/phase5-6-diagnostics.html</code></li>
+  <li>Pehle <strong>Check integration</strong>, phir <strong>Check all bundled images</strong> run karo. Uske baad <strong>Check 151-record archive</strong> run karke failed source URLs report se copy karo. Remote failure ko confirmed missing file, network block, ya temporary timeout mein separate karna zaroori hai.</li>
+  <li>Main site par hard refresh karo. Zaroorat ho to Chrome → Site settings → Storage → Clear site data se stale PWA cache clear karne ke baad phir open karo. Apne saved data clear karne se pehle soch lo, kyunki existing prototype notes/bookmarks browser storage mein ho sakte hain.</li>
+</ol>
+
+<h2 id="boyfriend-page-mein-kya-badlega">Boyfriend page mein kya badlega?</h2>
+
+<ul>
+  <li>Existing “Flirt karo / Pressure nahi” page aur current tools preserve rahenge.</li>
+  <li>Upar ek naya premium <code class="language-plaintext highlighter-rouge">Choose Your Match</code> hero, six selectable fictional archetype cards, preference form, optional size-reference filter, mood selection aur result card add hoga.</li>
+  <li>“Couple + One”/“Multi-Adult” result existing second 18+ gate ki taraf le jayega. Multi-adult photos us protected section ke andar hi rahengi.</li>
+  <li>Real person ko buy/book karne, verified penis size, inventory, profile, payment, ya companion availability ka koi feature nahi hai. Choice card fictional archetype preference hai; answer server ko send/save nahi hota.</li>
+  <li>Nayi mirror photo Innerwear editorial collection mein jayegi, active/balance campaign Boyfriend page par, aur seven new multi-adult editorial references second 18+ gate ke andar.</li>
+</ul>
+
+<h2 id="deployment-caution">Deployment caution</h2>
+
+<p>GitHub connector ne pichhle safe-branch request par HTTP 403 diya tha. Isliye is package mein remote commit ya live deploy ka claim nahi kiya ja raha. Agar GitHub edit/upload permission nahi deti, branch/write access solve karna hoga; live <code class="language-plaintext highlighter-rouge">main</code> par unverified partial upload mat karna.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

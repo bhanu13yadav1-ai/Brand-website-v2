@@ -1,3 +1,7 @@
+> **CURRENT REVIEW NOTICE — 22 October 2026:** this document is a historical Phase 9–15 integration guide. Do not run its installation steps as part of the current Phase 1–2 review. Use `README.md`, `README_PHASE1_2_REVIEW_HINGLISH.md` and `PHASE1_2_QA_RESULTS.md` as the current source of truth. The final Phase 12–15 loader is intentionally not linked in this review build.
+
+---
+
 # BLACKED V3 Final Release Overlay — Phases 9–15
 
 **Target repository:** `bhanu13yadav1-ai/Brand-website-v2`  

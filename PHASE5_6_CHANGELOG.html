@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>BLACKED V3 — Phase 5–6 Changelog | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="BLACKED V3 — Phase 5–6 Changelog" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE5_6_CHANGELOG.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE5_6_CHANGELOG.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="BLACKED V3 — Phase 5–6 Changelog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"BLACKED V3 — Phase 5–6 Changelog","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/PHASE5_6_CHANGELOG.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="blacked-v3--phase-56-changelog">BLACKED V3 — Phase 5–6 Changelog</h1>
+
+<p>Date: 22 October 2026
+Repo: https://github.com/bhanu13yadav1-ai/Brand-website-v2
+Status: Prepared locally; not committed/deployed by this package.</p>
+
+<h2 id="phase-5--image-reliability--source-visibility">Phase 5 — Image reliability &amp; source visibility</h2>
+
+<ul>
+  <li>Root-cause confirmed: the main <code class="language-plaintext highlighter-rouge">index.html</code> did not import the already-present Phase 1–4 overlays, and 11 image paths referenced by those overlays were missing from the connected GitHub <code class="language-plaintext highlighter-rouge">main</code> branch.</li>
+  <li>Added a one-line loader patch; loader cache-busts and loads the prior photo CSS/JS, Phase 3 design CSS, Phase 4 fantasy router, then the Phase 5/6 modules.</li>
+  <li>Added source-aware failure controls for eligible cards using the existing fallback metadata: retry the original URL or open it directly. Existing archive retry controls are not duplicated.</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">phase5-6-asset-manifest.json</code> with size and SHA-256 for every bundled image.</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">phase5-6-diagnostics.html</code> to check integration, every bundled asset, and the older 151-record remote archive in batches.</li>
+</ul>
+
+<h2 id="phase-6--boyfriend-studio-and-new-photo-placements">Phase 6 — Boyfriend Studio and new photo placements</h2>
+
+<ul>
+  <li>Added six clean portrait crops from <code class="language-plaintext highlighter-rouge">1000202136.png</code> to power actual responsive cards; the complete moodboard is also retained as a linkable reference asset.</li>
+  <li>Added a new two-column Match Studio hero, six selectable fictional archetype cards, mood/scenario selector, optional reference-size filter, local-only result card, and clear non-marketplace wording. The earlier Phase 4 preference router is tucked into an expandable “More preference routes” section so it remains usable without making the page feel repetitive or congested.</li>
+  <li>Existing date planner, message creator, three original wheel locations, Dirty/Wild Wheel and second 18+ gate are not replaced by this overlay.</li>
+  <li>Added seven new multi-adult campaign images inside the existing <code class="language-plaintext highlighter-rouge">#v23ThreesomeProtected</code> gate, one mirror/burgundy image to Innerwear editorials, and one balance/fitness campaign image to Boyfriend/Couples.</li>
+  <li>Restored eleven Phase 1–4 local WebP files which the current site scripts already referenced but GitHub main did not contain.</li>
+</ul>
+
+<h2 id="files">Files</h2>
+
+<p>New runtime files: <code class="language-plaintext highlighter-rouge">phase5-6-loader.js</code>, <code class="language-plaintext highlighter-rouge">phase5-image-reliability.js</code>, <code class="language-plaintext highlighter-rouge">phase5-image-reliability.css</code>, <code class="language-plaintext highlighter-rouge">phase6-boyfriend-studio.js</code>, <code class="language-plaintext highlighter-rouge">phase6-boyfriend-studio.css</code>.
+New diagnostics/metadata: <code class="language-plaintext highlighter-rouge">phase5-6-diagnostics.html</code>, <code class="language-plaintext highlighter-rouge">phase5-6-asset-manifest.json</code>.
+New/missing WebP assets: 27 total (11 missing old Phase 1–4 assets + 16 generated from this turn’s 10 uploaded photos; six are crops from the Choose Your Match board).
+Integration change: <code class="language-plaintext highlighter-rouge">INDEX_INSERT_PHASE56.patch</code> (one new script line only).
+Documentation/preview: this changelog, upload instructions, handoff, master notes, standalone Boyfriend preview and photo contact sheet.</p>
+
+<h2 id="validation-status">Validation status</h2>
+
+<ul>
+  <li>JavaScript syntax, CSS parsing balance, HTML parse/IDs, manifest-path existence, WebP decode, hashes and ZIP integrity are checked locally.</li>
+  <li>Local-browser fixture checks are recorded separately. These do not prove that GitHub Pages or a physical Android phone is updated.</li>
+  <li>Full 151-record URL test is intentionally left for the deployed diagnostic page because image requests need the user’s browser/network and the final uploaded repository state.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

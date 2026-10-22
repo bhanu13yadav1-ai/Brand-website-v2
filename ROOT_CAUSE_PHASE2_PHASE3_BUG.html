@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Root Cause — Phase 2/3 Upload Blank Page | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Root Cause — Phase 2/3 Upload Blank Page" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/ROOT_CAUSE_PHASE2_PHASE3_BUG.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/ROOT_CAUSE_PHASE2_PHASE3_BUG.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Root Cause — Phase 2/3 Upload Blank Page" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Root Cause — Phase 2/3 Upload Blank Page","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/ROOT_CAUSE_PHASE2_PHASE3_BUG.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="root-cause--phase-23-upload-blank-page">Root Cause — Phase 2/3 Upload Blank Page</h1>
+
+<h2 id="observed-repository-state">Observed repository state</h2>
+<p>Repository: <code class="language-plaintext highlighter-rouge">https://github.com/bhanu13yadav1-ai/Brand-website-v2</code>
+Branch inspected: <code class="language-plaintext highlighter-rouge">main</code></p>
+
+<p>The inspected tree contained the following relevant facts:</p>
+
+<ul>
+  <li>No root <code class="language-plaintext highlighter-rouge">index.html</code> existed.</li>
+  <li>The root <code class="language-plaintext highlighter-rouge">README.md</code> contained only <code class="language-plaintext highlighter-rouge"># Brand-website-v2</code>.</li>
+  <li>Root <code class="language-plaintext highlighter-rouge">app.js</code> was a 7 KB Phase 2/3 compatibility loader, not the audited main app source.</li>
+  <li>Root <code class="language-plaintext highlighter-rouge">styles.css</code> was a short <code class="language-plaintext highlighter-rouge">@import</code> wrapper, not the real stylesheet.</li>
+  <li>The repository had no <code class="language-plaintext highlighter-rouge">css/</code> or <code class="language-plaintext highlighter-rouge">js/</code> directories and no original campaign image files.</li>
+  <li><code class="language-plaintext highlighter-rouge">phase3.js</code>, <code class="language-plaintext highlighter-rouge">phase3.css</code>, two diagnostics pages, a manifest and service worker had been uploaded without the original page/application and image files those files expected.</li>
+</ul>
+
+<h2 id="cause">Cause</h2>
+<p>GitHub Pages did not have a root <code class="language-plaintext highlighter-rouge">index.html</code> to render as the website entry point, so the published page showed the repository README heading. The uploaded Phase 2/3 items were overlay/compatibility files designed for an already-populated existing repository; they were not a complete deployable website. The helper files also expected files or nested paths that were absent from <code class="language-plaintext highlighter-rouge">Brand-website-v2</code>.</p>
+
+<h2 id="fix-in-this-package">Fix in this package</h2>
+<ul>
+  <li>Add a complete root <code class="language-plaintext highlighter-rouge">index.html</code>.</li>
+  <li>Replace the root loader <code class="language-plaintext highlighter-rouge">app.js</code> with actual application code.</li>
+  <li>Replace the short root import-wrapper <code class="language-plaintext highlighter-rouge">styles.css</code> with the actual stylesheet.</li>
+  <li>Replace the service worker with a project-scoped cache setup that does not delete unrelated <code class="language-plaintext highlighter-rouge">blacked-*</code> caches for other GitHub Pages projects.</li>
+  <li>Supply the correct manifest and icon.</li>
+  <li>Keep all main files at the repository root and include a diagnostics page.</li>
+  <li>Use verified public source image URLs plus a fallback because the binary originals were not present in <code class="language-plaintext highlighter-rouge">Brand-website-v2</code>.</li>
+</ul>
+
+<h2 id="limitations">Limitations</h2>
+<p>This is a recovery build based on the feature and source audit. It cannot preserve browser <code class="language-plaintext highlighter-rouge">localStorage</code> from the separate <code class="language-plaintext highlighter-rouge">Brand-website-4f</code> origin automatically. The original images are external public-repository dependencies in this package; bundle them locally later when full binary source access is available. Live GitHub Pages and physical Android testing must be performed after upload.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

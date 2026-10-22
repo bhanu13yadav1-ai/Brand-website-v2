@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V1 Phase 5 — Upload Guide (Hinglish) | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="V1 Phase 5 — Upload Guide (Hinglish)" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_PHASE5_UPLOAD_HINGLISH.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_PHASE5_UPLOAD_HINGLISH.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V1 Phase 5 — Upload Guide (Hinglish)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"V1 Phase 5 — Upload Guide (Hinglish)","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/README_PHASE5_UPLOAD_HINGLISH.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="v1-phase-5--upload-guide-hinglish">V1 Phase 5 — Upload Guide (Hinglish)</h1>
+
+<h2 id="is-zip-mein-kya-hai">Is ZIP mein kya hai</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">index.html</code>, <code class="language-plaintext highlighter-rouge">app.js</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>, <code class="language-plaintext highlighter-rouge">fallback.js</code>, <code class="language-plaintext highlighter-rouge">sw.js</code>, <code class="language-plaintext highlighter-rouge">manifest.webmanifest</code>: complete existing Phase 4 recovery site, updated for Phase 5.</li>
+  <li><code class="language-plaintext highlighter-rouge">innerwear-image-library.json</code> + <code class="language-plaintext highlighter-rouge">INNERWEAR_IMAGE_LIBRARY_MANIFEST.csv</code>: 151 exact public image-file records, source repo, path, category and note ke saath.</li>
+  <li><code class="language-plaintext highlighter-rouge">size-chart-template.json</code>: abhi BLACKED ki verified size chart configured nahi hai; isliye calculator size guess nahi karta.</li>
+  <li><code class="language-plaintext highlighter-rouge">phase5-diagnostics.html</code>: deployed file and original-image load checks. “Load all archive images” now tests 12 URLs in parallel with a 7-second timeout per image and reports the first failed source URLs.</li>
+  <li><code class="language-plaintext highlighter-rouge">PHASE5_IMPLEMENTATION_REPORT.md</code>, <code class="language-plaintext highlighter-rouge">RESEARCH_NOTES_PHASE5.md</code>, <code class="language-plaintext highlighter-rouge">ROOT_CAUSE_IMAGE_COLLECTION_PHASE5.md</code>, <code class="language-plaintext highlighter-rouge">PHASE5_MEMORY_NOTE_COPY_PASTE.txt</code>.</li>
+</ul>
+
+<h2 id="github-par-upload">GitHub par upload</h2>
+<ol>
+  <li>ZIP extract karo.</li>
+  <li><code class="language-plaintext highlighter-rouge">bhanu13yadav1-ai/Brand-website-v2</code> ki <code class="language-plaintext highlighter-rouge">main</code> branch kholo.</li>
+  <li>Is folder ke contents repository ROOT mein upload karo (ZIP ya nested folder nahi).</li>
+  <li>Existing <code class="language-plaintext highlighter-rouge">index.html</code>, <code class="language-plaintext highlighter-rouge">app.js</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>, <code class="language-plaintext highlighter-rouge">fallback.js</code>, <code class="language-plaintext highlighter-rouge">sw.js</code>, <code class="language-plaintext highlighter-rouge">manifest.webmanifest</code> ko updated versions se replace hone do.</li>
+  <li>Naye JSON/CSV/diagnostics/report files add karo.</li>
+  <li>Commit message: <code class="language-plaintext highlighter-rouge">V1 Phase 5: expand image library and wellness size guide</code>.</li>
+</ol>
+
+<h2 id="local-qa-result">Local QA result</h2>
+<p>Local Chromium test: <strong>32/32 PASS</strong>. External image requests were blocked during local testing, so original photo loads are still unverified until the live diagnostics is run.</p>
+
+<h2 id="upload-ke-baad-test">Upload ke baad test</h2>
+<ul>
+  <li>Website: <code class="language-plaintext highlighter-rouge">https://bhanu13yadav1-ai.github.io/Brand-website-v2/</code></li>
+  <li>Diagnostics: <code class="language-plaintext highlighter-rouge">https://bhanu13yadav1-ai.github.io/Brand-website-v2/phase5-diagnostics.html</code></li>
+  <li>Diagnostics page par pehle <strong>Run checks</strong>, phir <strong>Load all archive images</strong> dabao.</li>
+  <li><code class="language-plaintext highlighter-rouge">Original image loads</code> count ya failures ke screenshot bhejo. Jo exact source URLs fail hongi, unko hum identify karenge.</li>
+</ul>
+
+<h2 id="important">Important</h2>
+<p><code class="language-plaintext highlighter-rouge">Brand-website-v2</code> repository mein original photo binaries nahi the. Is release ka image gallery exact public source URLs use karta hai; source repo private/down/renamed ho ya network raw images block kare to image fail ho sakti hai. Fallback photo original ki replacement nahi—diagnostics us distinction ko report karta hai. Is ZIP mein fake BLACKED size chart nahi hai. Product-specific official chart milne ke baad hi size recommendation configure ki jayegi.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
