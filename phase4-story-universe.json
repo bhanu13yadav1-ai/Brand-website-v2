@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "More Dirty for Horny Girls",
+  "notice": "Fictional adults only. Suggestive, non-graphic storytelling; every choice is optional.",
+  "tones": [
+    {"id":"clean","label":"Clean Hinglish","description":"Flirty, readable, without gaali."},
+    {"id":"desi","label":"Desi Casual","description":"Natural daily Hinglish, jokes and playful banter."},
+    {"id":"bold","label":"Bold Hinglish + Gaali","description":"Stronger colloquial language in fictional dialogue; no targeted slurs or pressure."}
+  ],
+  "stories": [
+    {
+      "id":"black-shirt-bad-timing",
+      "title":"Black Shirt, Bad Timing",
+      "series":"After-Dark Desi Universe",
+      "mood":"Slow burn · teasing · city night",
+      "readingTime":"4 min",
+      "characters":"Ira, 28 · Kabir, 30",
+      "teaser":{
+        "clean":"A late café, a black shirt, and two adults who keep almost saying what they mean.",
+        "desi":"Ira ko coffee chahiye thi; Kabir ki over-smart flirting bonus mein mil gayi.",
+        "bold":"Ek black shirt, ek late-night coffee aur Kabir ki bakchodi—bas Ira ko seedha jawab chahiye."
+      },
+      "openingScene":"start",
+      "scenes":{
+        "start":{
+          "heading":"Café band hone wala hai",
+          "prose":{
+            "clean":["Ira, 28, café ki last table par baithi thi. Kabir, 30, ne poochha ki kya woh saamne wali chair le sakta hai. Ira ne chair ki taraf ishara kiya, phir uski black shirt ko dekha: “You dressed like you planned this evening.”","“I planned coffee,” Kabir said. “The dramatic lighting was a free upgrade.” Ira laughed, but she noticed he waited for her answer before moving the chair closer. That small pause made the flirting feel easier."],
+            "desi":["Ira, 28, café ki last table par thi. Kabir, 30, black shirt mein aaya aur bola, “Chair le loon, ya tumhare royal court mein appointment book karun?” Ira hansi: “Pehle coffee order kar, nawab.”","Kabir ne chair kheenchne se pehle poochha, “Yahan baithna okay hai?” Ira ne haan ki. Banda over-smart tha, par dimaag use kar raha tha—yeh point uske favour mein gaya."],
+            "bold":["Ira, 28, café ki last table par thi jab Kabir, 30, black shirt aur full confidence ke saath aaya. “Chair le loon, madam, ya tere attitude ka token lena padega?” Ira hansi: “Chutiye, pehle coffee order kar.”","Kabir chair ke paas ruk gaya. “Close baithun ya apni aukaat wali distance maintain karun?” Ira ne chair tap ki. “Idhar aa, saale. Itna bhi shareef mat ban.” Dono hans pade; pace Ira ne choose kiya."]
+          },
+          "choices":[
+            {"id":"coffee","label":{"clean":"Order one more coffee","desi":"Ek aur coffee, phir dekhte hain","bold":"Coffee mangwa, saale—baat abhi baaki hai"},"nextScene":"coffee-ending"},
+            {"id":"walk","label":{"clean":"Take a short walk outside","desi":"Bahar walk aur thodi bakchodi","bold":"Chal, bahar walk karte hain, chutiye"},"nextScene":"walk-ending"}
+          ]
+        },
+        "coffee-ending":{
+          "heading":"One honest question",
+          "prose":{
+            "clean":["Ira asked, “Are you flirting because you mean it, or because the lights are nice?” Kabir smiled. “Because I like talking to you. If that is not mutual, I can keep it friendly.”","She liked the direct answer. “It is mutual. Just do not turn every sentence into a performance.” They ordered another coffee and made a plan to meet again—no guessing required."],
+            "desi":["Ira boli, “Sach bata, yeh flirting mere liye hai ya café ki lighting ke liye?” Kabir bola, “Tere liye. Par agar vibe mutual nahi hoti, toh main normal dost mode mein aa jaata.”","Ira ne cup uthaya. “Theek hai, bas har line ko audition mat bana.” Kabir ne salute kiya. Ek aur coffee order hui; next date ka plan dono ne milkar banaya."],
+            "bold":["Ira ne seedha poochha, “Oye hero, yeh flirting mere liye hai ya apni black shirt ko hero banane ke liye?” Kabir bola, “Tere liye, madam. Vibe mutual na hoti toh main chup-chaap coffee peeta.”","“Good, saale. Ab har line ko movie dialogue mat bana.” Kabir hansa. Ek aur coffee aayi, aur dono ne next date decide ki—seedhi baat, zero pressure."]
+          },
+          "choices":[{"id":"next","label":{"clean":"Continue to After-Party Bakchodi","desi":"Next story: After-Party Bakchodi","bold":"Agli kahani khol, party abhi baaki hai"},"nextStory":"afterparty-bakchodi"}]
+        },
+        "walk-ending":{
+          "heading":"Outside, under the city lights",
+          "prose":{
+            "clean":["Outside, Kabir asked whether she wanted company for the walk. Ira said yes, and they kept the conversation light: terrible songs, excellent street food, and the places each wanted to visit.","At the corner, Ira suggested another meeting. Kabir did not treat the invitation as a promise of anything more; he simply asked what day worked for her."],
+            "desi":["Bahar Kabir ne poochha, “Company chahiye ya solo main-character walk?” Ira boli, “Company, par bakchodi limit mein.” Dono ne street food, boring exes aur favourite songs discuss kiye.","Corner par Ira ne khud next meet-up suggest ki. Kabir ne bas day poochha—koi assumption nahi, koi filmy pressure nahi."],
+            "bold":["Bahar Kabir bola, “Company chahiye ya solo heroine walk?” Ira boli, “Company, saale. Bakchodi funny rahi toh bonus.” Phir dono ne street food aur apni sabse bekaar date stories roast ki.","Corner par Ira ne next meet-up khud bola. Kabir ne bas poochha, “Kaunsa din?” Drama kam, consent aur clarity full."]
+          },
+          "choices":[{"id":"next","label":{"clean":"Continue to Last Chai, First Confession","desi":"Next story: Last Chai, First Confession","bold":"Agli story chala—chai pe confession hoga"},"nextStory":"last-chai-first-confession"}]
+        }
+      }
+    },
+    {
+      "id":"afterparty-bakchodi",
+      "title":"After-Party Bakchodi",
+      "series":"After-Dark Desi Universe",
+      "mood":"Playful · confession · late night",
+      "readingTime":"4 min",
+      "characters":"Mahi, 27 · Zayn, 29",
+      "teaser":{
+        "clean":"The party is over, but Mahi and Zayn still have one honest conversation left.",
+        "desi":"Playlist khatam, party khatam—bas Mahi aur Zayn ki teasing khatam nahi hoti.",
+        "bold":"Party over, par Mahi aur Zayn ki bakchodi overtime kar rahi hai."
+      },
+      "openingScene":"start",
+      "scenes":{
+        "start":{
+          "heading":"Last song, first truth",
+          "prose":{
+            "clean":["Mahi, 27, was collecting the last paper cups when Zayn, 29, offered to help. “You have spent two hours pretending not to know every lyric,” she said. “You have spent two hours pretending my singing is fine,” he replied.","They laughed outside the venue. Zayn asked whether she wanted to continue the evening or head home. Mahi appreciated that both answers seemed genuinely welcome."],
+            "desi":["Mahi, 27, cups samet rahi thi; Zayn, 29, help karne aa gaya. “Do ghante se gaane ke lyrics chhupa raha hai,” Mahi boli. “Aur tu do ghante se meri besuri awaaz tolerate kar rahi hai,” Zayn ne jawab diya.","Venue ke bahar usne poochha, “Chai ya ghar?” Dono options sach mein open the—isi liye Mahi ne smile ki."],
+            "bold":["Mahi, 27, cups samet rahi thi, Zayn, 29, help karne aa gaya. “Do ghante se lyrics chhupa raha hai, saale.” Zayn bola, “Aur tu meri besuri awaaz pe itna natak kar rahi thi, chutiye.”","Bahar Zayn ne poochha, “Chai ya ghar? Jo mood ho.” Mahi ko achha laga ki banda answer ke saath pressure free bhi tha."]
+          },
+          "choices":[
+            {"id":"tea","label":{"clean":"Go for chai","desi":"Chai aur thodi gossip","bold":"Chai pe chalte hain, harami"},"nextScene":"tea-ending"},
+            {"id":"home","label":{"clean":"Call it a good night","desi":"Good night, kal message karna","bold":"Aaj bas, saale. Kal baat karenge"},"nextScene":"home-ending"}
+          ]
+        },
+        "tea-ending":{
+          "heading":"Chai and clarity",
+          "prose":{
+            "clean":["At the tea stall, Mahi said she had been curious about him for weeks. Zayn admitted the same, then asked if she wanted to go on a proper date. She said yes—with one condition: honest conversation, no guessing games."],
+            "desi":["Chai stall par Mahi boli, “Waise main kuch hafton se curious thi.” Zayn bola, “Same, boss.” Usne proper date poochhi. Mahi ne haan boli, saath mein rule: seedhi baat, dimaghi games nahi."],
+            "bold":["Chai stall pe Mahi boli, “Sach bolun? Main hafton se tere baare mein curious thi.” Zayn bola, “Same, madam. Date pe chalegi?” Mahi ne haan ki—“Bas chutiyap nahi, seedhi baat.”"]
+          },
+          "choices":[{"id":"next","label":{"clean":"Read Saale, Seedha Bol","desi":"Next story: Saale, Seedha Bol","bold":"Agli kahani khol, saale"},"nextStory":"saale-seedha-bol"}]
+        },
+        "home-ending":{
+          "heading":"No pressure, still a good night",
+          "prose":{
+            "clean":["Mahi called a cab and thanked Zayn for the evening. He replied, “Text me when you get home if you feel like it.” She did, and the next morning they picked a date together."],
+            "desi":["Mahi ne cab li. Zayn bola, “Ghar pahunch kar text kar dena—agar mann ho.” Mahi ne baad mein message kiya, aur agle din dono ne date plan kar li."],
+            "bold":["Mahi cab mein baithi. Zayn bola, “Ghar pahunch kar text kar diyo, agar mann ho.” Mahi boli, “Theek hai, saale.” Koi emotional blackmail nahi; agle din dono ne date plan kar li."]
+          },
+          "choices":[{"id":"next","label":{"clean":"Read Black Shirt, Bad Timing","desi":"Next story: Black Shirt, Bad Timing","bold":"Wapas Black Shirt wali kahani pe chal"},"nextStory":"black-shirt-bad-timing"}]
+        }
+      }
+    },
+    {
+      "id":"saale-seedha-bol",
+      "title":"Saale, Seedha Bol",
+      "series":"After-Dark Desi Universe",
+      "mood":"Confident flirt · gaali banter · comedy",
+      "readingTime":"3 min",
+      "characters":"Tara, 29 · Nikhil, 31",
+      "teaser":{
+        "clean":"Tara is tired of clever hints and asks Nikhil the question he keeps avoiding.",
+        "desi":"Tara ko riddles se chhutti chahiye; Nikhil ko finally seedha bolna padega.",
+        "bold":"Tara ne bola: “Saale, seedha bol. Flirt kar raha hai ya bas nautanki?”"
+      },
+      "openingScene":"start",
+      "scenes":{
+        "start":{
+          "heading":"No more hints",
+          "prose":{
+            "clean":["Tara, 29, finally stopped Nikhil, 31, in the middle of another elaborate compliment. “Do you want to take me out, or are you collecting material for a comedy show?” Nikhil laughed, then realized she deserved a direct answer.","“I want to take you out,” he said. “If you want that too.” Tara nodded. “Much better. Mystery is cute; wasting three weeks is not.”"],
+            "desi":["Tara, 29, ne Nikhil, 31, ko beech compliment mein rok diya. “Date pe le jaana hai ya comedy show ka material collect kar raha hai?” Nikhil hansa, phir seedha ho gaya.","“Date pe jaana hai, agar tu chahe.” Tara boli, “Bas. Itni si baat thi. Teen hafte ki paheli kyun bana rakhi thi?”"] ,
+            "bold":["Tara, 29, ne Nikhil, 31, ko beech mein rok diya. “Saale, seedha bol. Date pe le jaana hai ya bas apni shayari ka kachra suna raha hai?” Nikhil pehle hansa, phir samajh gaya ki answer dena hai.","“Date pe le jaana hai—agar tu bhi chahe.” Tara boli, “Dekha, chutiye? Itna simple tha. Teen hafte se dimaag kyun kha raha tha?”"]
+          },
+          "choices":[
+            {"id":"plan","label":{"clean":"Choose a date together","desi":"Dono milke date plan karo","bold":"Plan bana, harami—par dono milke"},"nextScene":"plan-ending"},
+            {"id":"slow","label":{"clean":"Keep talking, no rush","desi":"Pehle baat, phir decide","bold":"Aaram se, saale. Abhi jaldi nahi"},"nextScene":"slow-ending"}
+          ]
+        },
+        "plan-ending":{
+          "heading":"A date, not a dare",
+          "prose":{
+            "clean":["They compared calendars and chose a public café. Tara said she liked confidence when it came with listening. Nikhil said he liked her honesty. The plan was small, clear, and chosen by both."],
+            "desi":["Dono ne calendar dekha aur public café choose kiya. Tara boli, “Confidence achha hai, par sunna bhi aana chahiye.” Nikhil bola, “Noted.” Plan simple tha—aur dono ka."],
+            "bold":["Dono ne calendar dekha aur café fix kiya. Tara boli, “Confidence rakh, par kaan bhi khol ke rakh, saale.” Nikhil hansa: “Madam, noted.” Date ka plan dono ka tha, kisi ka order nahi."]
+          },
+          "choices":[{"id":"next","label":{"clean":"Read Last Chai, First Confession","desi":"Next story: Last Chai, First Confession","bold":"Chal, next confession wali story"},"nextStory":"last-chai-first-confession"}]
+        },
+        "slow-ending":{
+          "heading":"No rush is a real answer",
+          "prose":{
+            "clean":["Tara said she wanted to keep getting to know him before deciding on a date. Nikhil agreed without sulking. They went back to their friends and kept the conversation open for another day."],
+            "desi":["Tara boli ki abhi thoda aur jaan-na chahti hai. Nikhil ne drama nahi kiya; “Bilkul, jab tu comfortable ho.” Phir dono apne friends ke paas chale gaye."],
+            "bold":["Tara boli, “Abhi thoda aur jaan-na hai, saale. Date ka pressure mat bana.” Nikhil ne mood off nahi kiya—“Bilkul, jab tu bole.” Dono normal baat karte rahe. No ka matlab no; maybe ka matlab maybe."]
+          },
+          "choices":[{"id":"next","label":{"clean":"Read After-Party Bakchodi","desi":"Next story: After-Party Bakchodi","bold":"Agli story—party waali bakchodi"},"nextStory":"afterparty-bakchodi"}]
+        }
+      }
+    },
+    {
+      "id":"last-chai-first-confession",
+      "title":"Last Chai, First Confession",
+      "series":"After-Dark Desi Universe",
+      "mood":"Romance · honesty · soft tension",
+      "readingTime":"4 min",
+      "characters":"Sana, 28 · Dev, 30",
+      "teaser":{
+        "clean":"One last cup of chai gives Sana and Dev the courage to name the feeling between them.",
+        "desi":"Chai thandi ho rahi thi aur dono ki confession wali himmat finally garam.",
+        "bold":"Chai bhi thandi, hints bhi purane—ab Sana ne bola, “Bol na, saale!”"
+      },
+      "openingScene":"start",
+      "scenes":{
+        "start":{
+          "heading":"Ek sawaal aur",
+          "prose":{
+            "clean":["Sana, 28, and Dev, 30, had met after work for what they both called “just chai.” The phrase had become a joke, because neither had ever kept the meeting to one cup. Tonight, Sana decided to ask why.","“I like spending time with you,” Dev said. “I have been trying to say it without making it awkward.” Sana smiled. “You have made it awkward for at least four cups.”"],
+            "desi":["Sana, 28, aur Dev, 30, work ke baad “bas chai” bolkar milte the. Bas chai kabhi ek cup par khatam nahi hoti thi. Sana ne poochh liya, “Aakhir scene kya hai?”","Dev bola, “Tere saath time achha lagta hai. Awkward nahi banana chahta tha.” Sana hansi, “Chaar cup se awkward bana chuka hai, hero.”"] ,
+            "bold":["Sana, 28, aur Dev, 30, har baar “bas chai” ke naam pe milte the. Aaj Sana ne cup rakha: “Saale, scene kya hai? Chai ke saath free hints bhi bechta hai kya?”","Dev bola, “Tere saath time achha lagta hai. Awkward nahi banana chahta tha.” Sana hansi, “Congrats, chutiye. Chaar cup se awkward bana chuka hai.”"]
+          },
+          "choices":[
+            {"id":"honest","label":{"clean":"Say what you want honestly","desi":"Dil ki baat seedhi bolo","bold":"Seedha bol, saale—dil mein kya hai?"},"nextScene":"honest-ending"},
+            {"id":"later","label":{"clean":"Take it slowly","desi":"Dheere chalo, no pressure","bold":"Aaram se, harami. Jaldi nahi"},"nextScene":"later-ending"}
+          ]
+        },
+        "honest-ending":{
+          "heading":"No guessing, just a plan",
+          "prose":{
+            "clean":["Sana said she would like to try a proper date. Dev asked what kind of place felt comfortable, and they chose a busy café for Saturday. The confession did not solve their whole future; it gave them a clear next step."],
+            "desi":["Sana boli, “Ek proper date try kar sakte hain.” Dev ne poochha kahan comfortable rahega; dono ne Saturday ka café fix kiya. Confession se future lock nahi hua—bas next step clear hua."],
+            "bold":["Sana boli, “Proper date try karte hain.” Dev ne place poochha, dono ne Saturday café fix kiya. Bas, saale—na mind-reading, na drama. Next step clear, baaki baad mein."]
+          },
+          "choices":[{"id":"next","label":{"clean":"Return to the story universe","desi":"Story universe mein wapas","bold":"Wapas stories ki duniya mein chal"},"nextStory":"black-shirt-bad-timing"}]
+        },
+        "later-ending":{
+          "heading":"Let it grow naturally",
+          "prose":{
+            "clean":["Sana said she liked him but wanted to take things slowly. Dev thanked her for being honest and asked if they could keep meeting as they had been. She smiled: “That sounds good.”"],
+            "desi":["Sana boli ki pasand hai, par pace dheema rakhna hai. Dev ne thanks kaha aur poochha kya woh normal chai dates continue kar sakte hain. “Haan, woh sahi hai,” Sana boli."],
+            "bold":["Sana boli, “Pasand hai, par pace slow rakhenge. Samjha, saale?” Dev bola, “Bilkul. Chai dates continue?” Sana ne smile ki. Seedha jawab, bina guilt trip."]
+          },
+          "choices":[{"id":"next","label":{"clean":"Read Saale, Seedha Bol","desi":"Read Saale, Seedha Bol","bold":"Agli story khol, chutiye"},"nextStory":"saale-seedha-bol"}]
+        }
+      }
+    }
+  ]
+}

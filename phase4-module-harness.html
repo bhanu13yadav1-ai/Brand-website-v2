@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../"><title>Phase 4 Module Harness</title><link rel="stylesheet" href="phase4-story-universe.css">
+</head>
+<body style="background:#100d12;color:#fff5fa;font:15px/1.5 system-ui;padding:18px">
+<h1>Phase 4 Module Integration Harness</h1><p>This is a synthetic DOM smoke test. It validates the new module, not the complete existing website.</p>
+<pre id="test-results">RUNNING…</pre>
+<section class="view" id="view-stories" data-view="stories">
+ <div class="page-intro story-page-intro"><h1 id="storiesTitle">Original story library</h1></div>
+ <section class="story-next-banner"><p class="eyebrow">Next major update</p><h2>MORE DIRTY FOR HORNY GIRLS</h2><p>Old roadmap placeholder.</p><span class="pill">ROADMAP</span></section>
+ <div class="story-tools"><input id="storySearch" type="search"><select id="storyCategory"></select></div>
+ <div class="story-grid" id="storyGrid"></div>
+ <section class="story-vault"><h2>Old story vault</h2></section>
+</section>
+<section class="view" id="view-boyfriend" data-view="boyfriend">
+ <div class="page-intro boyfriend-intro"><h1>Boyfriend & Couples</h1></div>
+ <section class="couples-grid"></section>
+ <div id="boyResult"><strong>1/8 · Pehle poochho</strong><span>Demo result</span></div>
+ <div id="dildoResult"><strong>1/8 · Length</strong><span>Demo result</span></div>
+ <div id="plugResult"><strong>1/8 · Flared base</strong><span>Demo result</span></div>
+ <div id="wildResult"><strong>1/8 · Compliment</strong><span>Demo result</span></div>
+ <select id="wildCategory"><option value="flirty">Flirty</option></select>
+</section>
+<script>
+window.BLACKED_V1={setView:()=>{}};
+window.BLACKED_V2_P23={getDiagnostics:()=>({wheels:{boy:{segments:8},dildo:{segments:8},plug:{segments:8},wild:{segments:8}}})};
+</script>
+<script src="phase4-story-universe.js"></script>
+<script>
+(async()=>{
+ const out=[];const check=(name,ok,detail='')=>{out.push({name,status:ok?'PASS':'FAIL',detail});};
+ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+ async function waitFor(fn,timeout=4000){const start=Date.now();while(Date.now()-start<timeout){try{if(fn())return true}catch{}await sleep(25)}return false}
+ try{
+  check('data and 4 story cards load',await waitFor(()=>window.BLACKED_PHASE4?.getDiagnostics().storyCards===4),String(window.BLACKED_PHASE4?.getDiagnostics().storyCards));
+  const toneBtns=[...document.querySelectorAll('[data-p4-tone]')];check('three tone controls render',toneBtns.length===3,String(toneBtns.length));
+  document.querySelector('[data-p4-tone="bold"]')?.click();await sleep(30);
+  check('bold tone updates teaser copy',(document.querySelector('[data-story-id="saale-seedha-bol"] .p4-story-teaser')?.textContent||'').includes('Saale'));
+  document.querySelector('[data-p4-open-story="black-shirt-bad-timing"]')?.click();await sleep(40);
+  check('reader opens',!!document.querySelector('#phase4-story-dialog')?.open);
+  document.querySelector('[data-p4-choice="coffee"]')?.click();await sleep(30);
+  check('choice changes scene',document.querySelector('#p4-reader-scene-title')?.textContent==='One honest question',document.querySelector('#p4-reader-scene-title')?.textContent||'');
+  document.querySelector('[data-p4-choice="next"]')?.click();await sleep(30);
+  check('cross-story link opens next story',document.querySelector('#p4-reader-title')?.textContent==='After-Party Bakchodi',document.querySelector('#p4-reader-title')?.textContent||'');
+  document.querySelector('[data-p4-close-reader]')?.click();
+  document.querySelector('[data-p4-pref-group="height"][data-p4-pref-value="tall"]')?.click();
+  document.querySelector('[data-p4-pref-group="appearance"][data-p4-pref-value="black-dark"]')?.click();
+  document.querySelector('[data-p4-pref-group="body"][data-p4-pref-value="large"]')?.click();
+  document.querySelector('[data-p4-create-vibe]')?.click();await sleep(30);
+  const summary=document.querySelector('#p4-vibe-card-body')?.textContent||'';
+  check('preference selections create vibe card',!document.querySelector('#p4-vibe-card').hidden&&summary.includes('Tall')&&summary.includes('Black / dark-skinned adult')&&summary.includes('Large'),summary);
+  document.querySelector('[data-p4-use-vibe]')?.click();await sleep(30);
+  check('vibe card is carried into story brief',(document.querySelector('#p4-character-brief')?.textContent||'').includes('Large'));
+  document.querySelector('[data-p4-close-reader]')?.click();document.querySelector('[data-p4-clear-prefs]')?.click();
+  check('clear resets private preferences',document.querySelector('#p4-vibe-card').hidden&&Object.keys(window.BLACKED_PHASE4.getState().preferences).length===0);
+  check('all 4 wheel results get related-story links',[...document.querySelectorAll('[data-p4-wheel-story-link]')].length===4,String([...document.querySelectorAll('[data-p4-wheel-story-link]')].length));
+ }catch(error){out.push({name:'Unhandled harness error',status:'FAIL',detail:String(error)})}
+ const failed=out.filter(x=>x.status==='FAIL').length;document.querySelector('#test-results').textContent=JSON.stringify({summary:failed?`${failed} failed`:`${out.length} checks passed`,results:out},null,2);document.documentElement.dataset.testStatus=failed?'failed':'passed';
+})();
+</script>
+</body>
+</html>
