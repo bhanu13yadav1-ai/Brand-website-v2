@@ -1,0 +1,20 @@
+﻿feature,source_location,source_status,runtime_or_data_status,acceptance_or_risk
+Home / dashboard,index.html#view-home,PRESENT IN SOURCE,Runtime not tested,Do not replace current layout before baseline screenshots.
+Story library + filters,index.html#view-stories; app.js storyLibrary,PRESENT IN SOURCE,Runtime not tested,"Preserve all story IDs, series parts and branch choices."
+Optional Reading Vault,app.js; blackedV1PartBStoryVault,PRESENT IN SOURCE,Runtime not tested,Opt-in is stated; local data is not encrypted or synced.
+Innerwear catalogue,index.html#view-innerwear; app.js products,PRESENT IN SOURCE,DATA IS CONCEPT/DEMO,Eight seeded items and sample prices; no verified inventory.
+Image archive,innerwear-image-library.json,151 RECORDS / UNIQUE IDS,Remote URL loading not tested,Do not replace/delete records; compare content hashes before new media additions.
+Wishlist,app.js; blackedV1Wishlist,PRESENT IN SOURCE,Persistence/clear not tested,Preserve key and saved state.
+Comparison,index.html/app.js comparison controls,PRESENT PER EXISTING CHECKLIST,Runtime not tested,Check selection limit and result comparison later.
+Bag/cart,app.js; blackedV1Bag,DEMO ONLY,No real checkout verified,Never collect payment/card data in the static frontend.
+Sanskari campaign collection,index.html; app.js campaigns,PRESENT IN SOURCE,Image loads not tested,"Current assets are concept/campaign visuals, not inventory."
+Noor / Grace preview collections,phase2-photo-collections.js,PRESENT IN SOURCE,Gate / runtime not tested,Do not infer any model’s religion from attire/appearance.
+Wellness & Size Guide,index.html; app.js guides,PRESENT IN SOURCE,Medical review not repeated in this phase,Human anatomy and product measurements must remain distinct.
+Boyfriend / Couples,index.html#view-boyfriend,PRESENT IN SOURCE,Runtime not tested,"Use optional, consent-first prompts and clear exits."
+Land/Boyfriend + Dildo + Butt Plug + Dirty/Wild wheels,index.html; app.js; part-c-enhancements.js,PRESENT IN SOURCE,Exact pointer/result match not tested,"Use one data source for sector label, selected result and rotation."
+Fit Studio,index.html#view-fit; app.js,PRESENT IN SOURCE,Photo/clear flow not tested,Verify local-only behaviour and cleanup.
+Privacy/data controls,app.js; local storage keys,PRESENT IN SOURCE,Clear/export behaviour not tested,Keep storage claims truthful; preserve keys.
+PWA manifest/service worker,manifest.webmanifest; sw.js,PRESENT IN SOURCE,Offline/Android not tested,Phase 2 photo JS/CSS absent from pre-cache CORE list.
+Language/accessibility metadata,index.html,NEEDS REVIEW,Mixed Hinglish copy; root lang=en,Annotate mixed-language text appropriately; keyboard/screen-reader tests.
+Production sale model,catalogue + demo bag,BLOCKED / NOT CONFIGURED,No verified supplier/provider/backend,"Confirm seller, stock/specs, legal/host/payment approvals before checkout."
+Deployment health,GitHub Pages URL not accessible in available browser,NOT TESTED,Cannot infer online/offline state,Manually test actual Pages URL from Android.
