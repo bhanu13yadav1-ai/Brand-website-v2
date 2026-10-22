@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Wheel Redesign — Research &amp; Acceptance Plan | Brand-website-v2</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Wheel Redesign — Research &amp; Acceptance Plan" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/WHEEL_REDESIGN_ACCEPTANCE.html" />
+<meta property="og:url" content="https://bhanu13yadav1-ai.github.io/Brand-website-v2/WHEEL_REDESIGN_ACCEPTANCE.html" />
+<meta property="og:site_name" content="Brand-website-v2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Wheel Redesign — Research &amp; Acceptance Plan" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Wheel Redesign — Research &amp; Acceptance Plan","url":"https://bhanu13yadav1-ai.github.io/Brand-website-v2/WHEEL_REDESIGN_ACCEPTANCE.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Brand-website-v2/assets/css/style.css?v=12ae0b208d056b39bba4c4b5b981d08f59ba30f0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Brand-website-v2/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bhanu13yadav1-ai.github.io/Brand-website-v2/">Brand-website-v2</a></h1>
+      
+
+      <h1 id="wheel-redesign--research--acceptance-plan">Wheel Redesign — Research &amp; Acceptance Plan</h1>
+
+<h2 id="uploaded-visual-references">Uploaded visual references</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">1000201720.png</code> — “Tease &amp; Guess Wheel”: use as a featured wheel poster/cover.</li>
+  <li><code class="language-plaintext highlighter-rouge">1000201714.png</code> — “After-Dark Questions”: use as a second prompt-wheel cover/idea.</li>
+  <li>Both are flat, portrait poster images with text and a drawn wheel. Neither can safely serve as the interactive wheel itself, because the image cannot expose live sector selection or guarantee the displayed result matches where the pointer stops.</li>
+</ul>
+
+<h2 id="current-source-problem">Current source problem</h2>
+<p><code class="language-plaintext highlighter-rouge">index.html</code> currently loads <code class="language-plaintext highlighter-rouge">app.js</code> but does not load <code class="language-plaintext highlighter-rouge">part-c-enhancements.js</code>. The core <code class="language-plaintext highlighter-rouge">spinWheel(kind)</code> in <code class="language-plaintext highlighter-rouge">app.js</code> chooses a result using <code class="language-plaintext highlighter-rouge">chooseDifferent(...)</code>, then independently randomizes rotation (<code class="language-plaintext highlighter-rouge">1900 + randomInt(1400)</code>). Because the visual angle is not derived from the selected index, the displayed result can disagree with the segment under the pointer.</p>
+
+<p>Part C has code for labelled segments and target rotation, but that code is currently unreferenced by <code class="language-plaintext highlighter-rouge">index.html</code>; it also expects the five local male/threesome images beneath <code class="language-plaintext highlighter-rouge">./assets/fantasy-gallery/</code> when their binaries are in the repository root.</p>
+
+<h2 id="acceptance-criteria-for-implementation">Acceptance criteria for implementation</h2>
+<ol>
+  <li>Separate labelled wheel component for Boyfriend/Land, Dildo, Butt Plug and Dirty/Wild.</li>
+  <li>Use eight clear category-appropriate segments in the live wheel.</li>
+  <li>Pick a segment index first. Calculate the final rotation from that exact index plus the fixed pointer offset. Never randomly select result separately from rotation.</li>
+  <li>After animation, derive displayed title/description from the same selected index.</li>
+  <li>Category changes must update both visible labels and result dataset.</li>
+  <li>Prevent multiple spins during animation; reset must cancel pending timers/animation and unlock all controls.</li>
+  <li>Add accessible name/description and live result announcements. Keyboard users can focus and trigger each control.</li>
+  <li>Respect reduced motion settings; no endless spin or animation-only feedback.</li>
+  <li>Use poster assets as section marketing images; make the wheel itself real HTML/CSS/SVG, not a single static image.</li>
+  <li>Test each of all four wheels independently at 320, 360, 390, 430 and desktop viewport sizes.</li>
+  <li>Live diagnostics must report the selected segment index, segment title, final angle and mismatch state.</li>
+  <li>Test after refresh and after navigating between sections.</li>
+</ol>
+
+<h2 id="status">Status</h2>
+<p>Audit only — no source changes applied to GitHub in Phase 1.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
