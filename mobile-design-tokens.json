@@ -1,0 +1,79 @@
+{
+  "version": "1.0.0",
+  "baseline": "Current BLACKED V2 dark plum / pink / gold design; do not re-theme from scratch.",
+  "colors": {
+    "background": "#0d0a0e",
+    "panel": "#181219",
+    "panelSecondary": "#211720",
+    "line": "#3b2a39",
+    "text": "#fff5fa",
+    "muted": "#c0b2bd",
+    "accentPink": "#f4a0c1",
+    "accentPinkLight": "#ffc1d8",
+    "accentGold": "#eacb8c",
+    "success": "#9fe3b2",
+    "warning": "#f0d69a",
+    "error": "#ff9da6"
+  },
+  "typography": {
+    "base": "system-ui, -apple-system, Segoe UI, sans-serif",
+    "baseSize": "14px",
+    "secondary": "12px minimum for core interaction text",
+    "smallLabels": "10px only for decorative/eyebrow text; never use for essential instructions",
+    "lineHeight": "1.55"
+  },
+  "radius": {
+    "card": "17px",
+    "section": "20px",
+    "pill": "999px",
+    "button": "13px"
+  },
+  "spacing": {
+    "unit": "4px",
+    "cardPadding": "14px",
+    "sectionGap": "32px",
+    "mobileGutter": "16px"
+  },
+  "controls": {
+    "minHeight": "44px preferred",
+    "touchTarget": "At least 44x44 CSS px for important mobile actions",
+    "focus": "3px visible pink focus outline with 2px offset",
+    "reducedMotion": "Respect prefers-reduced-motion; do not require animation to understand a result",
+    "keyboard": "Every control keyboard-operable; Escape closes dialogs; return focus to invoker",
+    "errors": "Tell user what failed and how to recover; never silently discard a result"
+  },
+  "responsive": {
+    "testedWidthsPx": [
+      320,
+      360,
+      390,
+      430,
+      768,
+      1024,
+      1440
+    ],
+    "mobileFirst": true,
+    "avoidHorizontalOverflow": true,
+    "images": "width:100%; height:auto; object-fit:cover for thumbnails; include explicit intrinsic width/height to reduce layout shift"
+  },
+  "content": {
+    "toneOptions": [
+      "Clean Hinglish",
+      "Desi Casual",
+      "Bold Hinglish / Gaali"
+    ],
+    "contentIntensityOptions": [
+      "Educational / Clean",
+      "Suggestive",
+      "Bold"
+    ],
+    "separateToneFromIntensity": true,
+    "defaultNoSensitiveProfile": true,
+    "conceptLabels": [
+      "Concept only",
+      "Brand review required",
+      "Claims not verified",
+      "Not a live product / not for sale"
+    ]
+  }
+}

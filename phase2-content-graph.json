@@ -1,0 +1,636 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "BLACKED Super Update",
+  "phase": 2,
+  "baseline": {
+    "repository": "https://github.com/bhanu13yadav1-ai/Brand-website-v2",
+    "branch": "main",
+    "commit": "530b6d2339e68f0ae3bd78a01ec36981d570576b",
+    "capturedAt": "2026-10-22",
+    "files": {
+      "index.html": "007b8e7d59486b5ba93c6534aa9dcc91066d040b",
+      "app.js": "245d9c4dc32a4f27e5d05eef646d97bcf8b0177a",
+      "sw.js": "675093dcd5bb4d9975c40dd07d65a5cac9018ee4",
+      "innerwear-image-library.json": "not re-used or changed in this phase"
+    },
+    "rule": "If any base file SHA changes before applying the provided patch, stop and reconcile the patch against the new source."
+  },
+  "principles": {
+    "preserveExistingIdsAndStorageKeys": true,
+    "existingSiteFilesBundled": false,
+    "externalAssetRequestsFromNewGallery": false,
+    "conceptImagesAreProducts": false,
+    "realPaymentEnabled": false,
+    "imageRightsConfirmed": false
+  },
+  "routes": [
+    {
+      "id": "route.home",
+      "selector": "#view-home",
+      "dataView": "home",
+      "title": "Home / Discover",
+      "gate": "public-existing",
+      "description": "Entry point and cross-section discovery.",
+      "relatedRoutes": [
+        "route.stories",
+        "route.innerwear",
+        "route.boyfriend"
+      ]
+    },
+    {
+      "id": "route.stories",
+      "selector": "#view-stories",
+      "dataView": "stories",
+      "title": "Stories 18+",
+      "gate": "existing-self-attestation-not-formal-age-verification",
+      "description": "Original fictional stories, moods, chapters and reading vault.",
+      "relatedRoutes": [
+        "route.boyfriend",
+        "route.wellness"
+      ]
+    },
+    {
+      "id": "route.innerwear",
+      "selector": "#view-innerwear",
+      "dataView": "innerwear",
+      "title": "Innerwear",
+      "gate": "public-existing",
+      "description": "Catalogue and campaign/reference concepts; concept art remains separate from verified inventory.",
+      "relatedRoutes": [
+        "route.boyfriend",
+        "route.wellness"
+      ]
+    },
+    {
+      "id": "route.sanskari",
+      "selector": "#view-sanskari",
+      "dataView": "sanskari",
+      "title": "Sanskari Edit / Collections",
+      "gate": "public-existing",
+      "description": "Existing curated collection and future collection previews.",
+      "relatedRoutes": [
+        "route.innerwear",
+        "route.stories"
+      ]
+    },
+    {
+      "id": "route.wellness",
+      "selector": "#view-wellness",
+      "dataView": "wellness",
+      "title": "Wellness & Size Guide",
+      "gate": "existing-self-attestation-not-formal-age-verification",
+      "description": "General health education and product dimension guidance, separate from human anatomy claims.",
+      "relatedRoutes": [
+        "route.innerwear",
+        "route.boyfriend"
+      ]
+    },
+    {
+      "id": "route.boyfriend",
+      "selector": "#view-boyfriend",
+      "dataView": "boyfriend",
+      "title": "Boyfriend & Couples",
+      "gate": "existing-self-attestation-not-formal-age-verification",
+      "description": "Optional couples prompts, existing wheels and movement/connection concepts.",
+      "relatedRoutes": [
+        "route.stories",
+        "route.wellness"
+      ]
+    },
+    {
+      "id": "route.fit",
+      "selector": "#view-fit",
+      "dataView": "fit",
+      "title": "Fit Studio",
+      "gate": "public-existing",
+      "description": "Existing local photo preview and notes.",
+      "relatedRoutes": [
+        "route.innerwear",
+        "route.wellness"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "component.media-gallery",
+      "kind": "component",
+      "status": "new-additive",
+      "purpose": "Render local campaign concepts grouped by intent, using labels and no sales claims."
+    },
+    {
+      "id": "component.navigation-rail",
+      "kind": "component",
+      "status": "new-additive",
+      "purpose": "Offer a small relevant next destination at the end of each existing view."
+    },
+    {
+      "id": "component.image-preview-dialog",
+      "kind": "component",
+      "status": "new-additive",
+      "purpose": "Accessible click-to-preview with Escape/close/focus return and alt text."
+    },
+    {
+      "id": "component.content-graph",
+      "kind": "component",
+      "status": "new-additive",
+      "purpose": "Single versioned data source for route labels, media placement and cross-links."
+    }
+  ],
+  "media": [
+    {
+      "src": "1000202903.png",
+      "file": "blacked-aircomfort-pink-campaign-board.webp",
+      "id": "asset.p2.aircomfort.pink-board",
+      "title": "BLACKED AirComfort — Pink Campaign Board",
+      "group": "aircomfort-concepts",
+      "route": "innerwear",
+      "brand": "BLACKED (wordmark visible)",
+      "brandStatus": "wordmark-visible-ownership-unverified",
+      "placement": "Innerwear → Concept Lab → AirComfort Cooling Concepts",
+      "role": "Campaign concept board",
+      "alt": "Pink AirComfort cooling-innerwear concept advertisement with an adult fashion model and feature-panel artwork.",
+      "tags": [
+        "concept-only",
+        "cooling-innerwear",
+        "campaign-board"
+      ],
+      "note": "All cooling, fabric, moisture, noise and battery claims shown in the artwork are unverified. Do not represent it as a verified product or active SKU.",
+      "path": "phase2-assets/blacked-aircomfort-pink-campaign-board.webp",
+      "width": 1024,
+      "height": 1536,
+      "sourceBytes": 403511,
+      "webpBytes": 292282,
+      "sourceSha256": "26712f0db5f844f924738faf658fedbe5449cca7c0426ecde53b672ac017c42c",
+      "webpSha256": "3eb7f007f933b27d6387c4f03bf612b63b6609339ca3693b6f20f9abfec570b7",
+      "rightsStatus": "user-supplied; public/commercial permissions not independently verified",
+      "claimStatus": "unverified-concept-art-claims",
+      "publicationStatus": "review-only; do not publish until content-host policy and rights checks pass",
+      "sourceFile": "1000202903.png",
+      "sectionEyebrow": "INNERWEAR · CONCEPT LAB",
+      "sectionTitle": "AirComfort / Cooling Innerwear Concepts",
+      "sectionIntro": "Three campaign variants/details from one experimental concept family. The images do not verify that the cooling module works or is safe.",
+      "statusLabel": "Concept only · claims unverified"
+    },
+    {
+      "src": "1000202900.png",
+      "file": "blacked-aircomfort-detail-panel.webp",
+      "id": "asset.p2.aircomfort.detail-board",
+      "title": "BLACKED AirComfort — Feature Detail Board",
+      "group": "aircomfort-concepts",
+      "route": "innerwear",
+      "brand": "BLACKED (wordmark visible)",
+      "brandStatus": "wordmark-visible-ownership-unverified",
+      "placement": "Innerwear → Concept Lab → AirComfort Cooling Concepts",
+      "role": "Alternate feature / detail board",
+      "alt": "AirComfort pink cooling-innerwear campaign layout with detachable module illustrations and fabric detail panels.",
+      "tags": [
+        "concept-only",
+        "cooling-innerwear",
+        "alternate-creative"
+      ],
+      "note": "Alternative artwork for the same AirComfort concept family, not a separate SKU. Technical claims, materials, safety and battery performance require supplier documentation.",
+      "path": "phase2-assets/blacked-aircomfort-detail-panel.webp",
+      "width": 1024,
+      "height": 1536,
+      "sourceBytes": 392684,
+      "webpBytes": 282208,
+      "sourceSha256": "e64ae2a565c0deff95e5a7f582cf28a20b4e0f44ebd4e296aa4371c540158c8c",
+      "webpSha256": "e8d986af35fec3553113974dff9e653e58f4ae53e85dd33932af163ed9a4b712",
+      "rightsStatus": "user-supplied; public/commercial permissions not independently verified",
+      "claimStatus": "unverified-concept-art-claims",
+      "publicationStatus": "review-only; do not publish until content-host policy and rights checks pass",
+      "sourceFile": "1000202900.png",
+      "sectionEyebrow": "INNERWEAR · CONCEPT LAB",
+      "sectionTitle": "AirComfort / Cooling Innerwear Concepts",
+      "sectionIntro": "Three campaign variants/details from one experimental concept family. The images do not verify that the cooling module works or is safe.",
+      "statusLabel": "Concept only · claims unverified"
+    },
+    {
+      "src": "1000202899.png",
+      "file": "blacked-aircomfort-maroon-variant.webp",
+      "id": "asset.p2.aircomfort.maroon-variant",
+      "title": "BLACKED AirComfort — Maroon Variant Concept",
+      "group": "aircomfort-concepts",
+      "route": "innerwear",
+      "brand": "BLACKED (wordmark visible)",
+      "brandStatus": "wordmark-visible-ownership-unverified",
+      "placement": "Innerwear → Concept Lab → AirComfort Cooling Concepts",
+      "role": "Alternate colour / styling concept",
+      "alt": "Maroon lace lingerie and cooling-module product concept shown in a technical campaign board.",
+      "tags": [
+        "concept-only",
+        "cooling-innerwear",
+        "colour-variant"
+      ],
+      "note": "The maroon bra image is a visual variant only. It does not prove the fan module is manufactured, safe, compatible, washable or commercially available.",
+      "path": "phase2-assets/blacked-aircomfort-maroon-variant.webp",
+      "width": 1227,
+      "height": 1536,
+      "sourceBytes": 419424,
+      "webpBytes": 294740,
+      "sourceSha256": "bfc3aadeb9d4b67fb92a4ec0b3434eecc511000eaa209bb3b78c86d5f8c622ba",
+      "webpSha256": "dbd5512b1e9090c2e1eee7625f1bfdb5807018cde38b706fca11887935ff5615",
+      "rightsStatus": "user-supplied; public/commercial permissions not independently verified",
+      "claimStatus": "unverified-concept-art-claims",
+      "publicationStatus": "review-only; do not publish until content-host policy and rights checks pass",
+      "sourceFile": "1000202899.png",
+      "sectionEyebrow": "INNERWEAR · CONCEPT LAB",
+      "sectionTitle": "AirComfort / Cooling Innerwear Concepts",
+      "sectionIntro": "Three campaign variants/details from one experimental concept family. The images do not verify that the cooling module works or is safe.",
+      "statusLabel": "Concept only · claims unverified"
+    },
+    {
+      "src": "1000202898.png",
+      "file": "clam-cooler-3000-red-campaign.webp",
+      "id": "asset.p2.clam-cooler.red-campaign",
+      "title": "CLAM COOLER 3000 — Red Campaign Variant",
+      "group": "clam-cooler-concept",
+      "route": "innerwear",
+      "brand": "CLAM COOLER 3000 (campaign title shown)",
+      "brandStatus": "separate-concept-brand-unverified",
+      "placement": "Innerwear → Concept Lab → Experimental Cooling Concepts",
+      "role": "Separate novelty-innerwear concept",
+      "alt": "Red satin and black lace campaign visual for a CLAM COOLER 3000 cooling-underwear concept.",
+      "tags": [
+        "concept-only",
+        "novelty-innerwear",
+        "brand-review"
+      ],
+      "note": "Keep separate from AirComfort: the campaign title and art direction differ. Its performance, safety, technical and hygiene claims are not verified.",
+      "path": "phase2-assets/clam-cooler-3000-red-campaign.webp",
+      "width": 1229,
+      "height": 1536,
+      "sourceBytes": 396145,
+      "webpBytes": 275904,
+      "sourceSha256": "fa6cca3fd47e8d510a4bb41a63bbacd4e0914ca84a810c8916ecd13172cc6f8b",
+      "webpSha256": "dc3a5bb8dc876ffc69d586c47a10982cc3380a305ec9f32921da6b4eca682446",
+      "rightsStatus": "user-supplied; public/commercial permissions not independently verified",
+      "claimStatus": "unverified-concept-art-claims",
+      "publicationStatus": "review-only; do not publish until content-host policy and rights checks pass",
+      "sourceFile": "1000202898.png",
+      "sectionEyebrow": "INNERWEAR · SEPARATE CONCEPT",
+      "sectionTitle": "CLAM COOLER 3000 — Campaign Concept",
+      "sectionIntro": "A separate campaign name and visual identity. Keep it separate from AirComfort until brand and product relationships are confirmed.",
+      "statusLabel": "Brand and claims review"
+    },
+    {
+      "src": "1000202902.png",
+      "file": "pink-satin-lace-editorial.webp",
+      "id": "asset.p2.pink-satin.editorial",
+      "title": "Pink Satin — Unbranded Styling Editorial",
+      "group": "pink-satin-editorial",
+      "route": "innerwear",
+      "brand": "No clear product brand confirmed",
+      "brandStatus": "unbranded-reference",
+      "placement": "Innerwear → Editorial Concepts → Pink Satin",
+      "role": "Unbranded fashion / styling reference",
+      "alt": "Adult model wearing a pink lingerie set and satin robe in a warm editorial room with two adult male fashion models in the background.",
+      "tags": [
+        "editorial-reference",
+        "unbranded",
+        "no-sku"
+      ],
+      "note": "No item SKU, fabric specification, fit claim, stock or price is established by this photograph. Do not infer the models’ identities.",
+      "path": "phase2-assets/pink-satin-lace-editorial.webp",
+      "width": 1152,
+      "height": 1536,
+      "sourceBytes": 291832,
+      "webpBytes": 189038,
+      "sourceSha256": "4c5f651d2f1ad8ea1a758ca30424b6579c269cc92e7157d063cb60efe90e9d82",
+      "webpSha256": "a97da72904858affb949f5144ac4256fb46cf37404d202009b3376d6594874e9",
+      "rightsStatus": "user-supplied; public/commercial permissions not independently verified",
+      "claimStatus": "not-a-verified-product-listing",
+      "publicationStatus": "review-only; do not publish until content-host policy and rights checks pass",
+      "sourceFile": "1000202902.png",
+      "sectionEyebrow": "INNERWEAR · EDITORIAL REFERENCES",
+      "sectionTitle": "Pink Satin — Unbranded Styling Editorial",
+      "sectionIntro": "Styling inspiration only. No verified SKU, fabric specification, stock, price or official brand is established by the image.",
+      "statusLabel": "Unbranded reference"
+    },
+    {
+      "src": "1000202901.png",
+      "file": "blxcked-red-throne-brand-study.webp",
+      "id": "asset.p2.blxcked.red-throne",
+      "title": "“The Red Throne” — Brand Review Study",
+      "group": "brand-review-studies",
+      "route": "innerwear",
+      "brand": "BLXCKED Lingerie (spelling shown in artwork)",
+      "brandStatus": "brand-spelling-and-ownership-review-required",
+      "placement": "Innerwear → Campaign Archive → Brand Review Studies",
+      "role": "Separate campaign / collection study",
+      "alt": "Red-and-black lingerie editorial campaign titled The Red Throne with a throne setting and adult fashion models.",
+      "tags": [
+        "campaign-study",
+        "brand-review-required",
+        "not-verified-stock"
+      ],
+      "note": "The artwork uses BLXCKED rather than the core BLACKED spelling. Keep in a separate brand-review gallery until the brand relationship and image rights are confirmed.",
+      "path": "phase2-assets/blxcked-red-throne-brand-study.webp",
+      "width": 1024,
+      "height": 1536,
+      "sourceBytes": 387342,
+      "webpBytes": 288580,
+      "sourceSha256": "30cd964152ef34c4e195556cc4daced4a89cd1092f9f05fdc6252b001eaeca2b",
+      "webpSha256": "ed97240da759bfa9a642239a29c7e87613891c0c1d5f7dd80bdff32862500994",
+      "rightsStatus": "user-supplied; public/commercial permissions not independently verified",
+      "claimStatus": "not-a-verified-product-listing",
+      "publicationStatus": "review-only; do not publish until content-host policy and rights checks pass",
+      "sourceFile": "1000202901.png",
+      "sectionEyebrow": "INNERWEAR · BRAND REVIEW",
+      "sectionTitle": "Campaign Archive — Brand Review Required",
+      "sectionIntro": "The artwork shows different brand spellings. Keep these references separate from live BLACKED products until brand ownership, rights and product claims are confirmed.",
+      "statusLabel": "Brand review required"
+    },
+    {
+      "src": "1000202277.png",
+      "file": "innerwere-seated-twist-campaign-board.webp",
+      "id": "asset.p2.innerwere.seated-twist",
+      "title": "INNERWERE — Seated Twist Connection",
+      "group": "brand-review-studies",
+      "route": "innerwear",
+      "brand": "INNERWERE (spelling shown in artwork)",
+      "brandStatus": "distinct-brand-name-review-required",
+      "placement": "Innerwear → Campaign Archive → Brand Review Studies",
+      "role": "Multi-frame campaign board",
+      "alt": "INNERWERE lingerie campaign board showing adult fashion models and product-detail panels in a red and gold editorial style.",
+      "tags": [
+        "campaign-study",
+        "brand-review-required",
+        "claims-unverified"
+      ],
+      "note": "INNERWERE is a different name from BLACKED. Do not present this as BLACKED stock, verified product imagery or safe exercise guidance. Product/benefit claims need evidence.",
+      "path": "phase2-assets/innerwere-seated-twist-campaign-board.webp",
+      "width": 1024,
+      "height": 1536,
+      "sourceBytes": 472795,
+      "webpBytes": 369968,
+      "sourceSha256": "420d70da073f207fa2be352eca79e0635cedcf2a8f107477412291fd6dfe6371",
+      "webpSha256": "a0bc9a934ab28348393a53bcf76d872d617bb034f4cc9388744ecb03a17a990c",
+      "rightsStatus": "user-supplied; public/commercial permissions not independently verified",
+      "claimStatus": "not-a-verified-product-listing",
+      "publicationStatus": "review-only; do not publish until content-host policy and rights checks pass",
+      "sourceFile": "1000202277.png",
+      "sectionEyebrow": "INNERWEAR · BRAND REVIEW",
+      "sectionTitle": "Campaign Archive — Brand Review Required",
+      "sectionIntro": "The artwork shows different brand spellings. Keep these references separate from live BLACKED products until brand ownership, rights and product claims are confirmed.",
+      "statusLabel": "Brand review required"
+    },
+    {
+      "src": "1000202267.png",
+      "file": "blacked-partner-yoga-campaign-reference.webp",
+      "id": "asset.p2.partner-yoga.campaign",
+      "title": "Partner Yoga — Couples Campaign Reference",
+      "group": "partner-yoga-concepts",
+      "route": "boyfriend",
+      "brand": "BLACKED wordmark appears in artwork; rights/ownership unconfirmed",
+      "brandStatus": "wordmark-visible-ownership-unverified",
+      "placement": "Boyfriend & Couples → Movement & Connection Campaign Concepts",
+      "role": "Couples campaign / movement reference",
+      "alt": "Partner-yoga-inspired editorial showing adult models in activewear and lingerie in a studio setting.",
+      "tags": [
+        "couples-campaign",
+        "editorial-reference",
+        "health-claims-unverified"
+      ],
+      "note": "Treat as campaign inspiration, not exercise instruction or proof of intimacy, flexibility, health or relationship outcomes. Verify the brand, claims and image rights.",
+      "path": "phase2-assets/blacked-partner-yoga-campaign-reference.webp",
+      "width": 1024,
+      "height": 1536,
+      "sourceBytes": 309802,
+      "webpBytes": 213866,
+      "sourceSha256": "9cb38960a9bcda2d4e38fa5a380a7226de794d4795eb0768434634567fe5f6ee",
+      "webpSha256": "5b283536d4e13bd5f4cf220a38f4a63d3b662a5b011c0151541db66f21cbd520",
+      "rightsStatus": "user-supplied; public/commercial permissions not independently verified",
+      "claimStatus": "unverified-concept-art-claims",
+      "publicationStatus": "review-only; do not publish until content-host policy and rights checks pass",
+      "sourceFile": "1000202267.png",
+      "sectionEyebrow": "BOYFRIEND & COUPLES · CAMPAIGN CONCEPT",
+      "sectionTitle": "Partner Yoga — Movement & Connection Reference",
+      "sectionIntro": "Editorial inspiration only, not medical, fitness or relationship-outcome guidance. No health benefit should be inferred from the campaign.",
+      "statusLabel": "Campaign concept · claims unverified"
+    }
+  ],
+  "links": [
+    {
+      "from": "route.home",
+      "to": "route.stories",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Stories 18+"
+    },
+    {
+      "from": "route.home",
+      "to": "route.innerwear",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Innerwear"
+    },
+    {
+      "from": "route.home",
+      "to": "route.boyfriend",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Boyfriend & Couples"
+    },
+    {
+      "from": "route.stories",
+      "to": "route.boyfriend",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Boyfriend & Couples"
+    },
+    {
+      "from": "route.stories",
+      "to": "route.wellness",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Wellness & Size Guide"
+    },
+    {
+      "from": "route.innerwear",
+      "to": "route.boyfriend",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Boyfriend & Couples"
+    },
+    {
+      "from": "route.innerwear",
+      "to": "route.wellness",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Wellness & Size Guide"
+    },
+    {
+      "from": "route.sanskari",
+      "to": "route.innerwear",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Innerwear"
+    },
+    {
+      "from": "route.sanskari",
+      "to": "route.stories",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Stories 18+"
+    },
+    {
+      "from": "route.wellness",
+      "to": "route.innerwear",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Innerwear"
+    },
+    {
+      "from": "route.wellness",
+      "to": "route.boyfriend",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Boyfriend & Couples"
+    },
+    {
+      "from": "route.boyfriend",
+      "to": "route.stories",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Stories 18+"
+    },
+    {
+      "from": "route.boyfriend",
+      "to": "route.wellness",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Wellness & Size Guide"
+    },
+    {
+      "from": "route.fit",
+      "to": "route.innerwear",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Innerwear"
+    },
+    {
+      "from": "route.fit",
+      "to": "route.wellness",
+      "type": "related_destination",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore Wellness & Size Guide"
+    },
+    {
+      "from": "asset.p2.aircomfort.pink-board",
+      "to": "route.innerwear",
+      "type": "displayed_in",
+      "status": "implemented_by_phase2_media_gallery",
+      "label": "Innerwear → Concept Lab → AirComfort Cooling Concepts"
+    },
+    {
+      "from": "asset.p2.aircomfort.detail-board",
+      "to": "route.innerwear",
+      "type": "displayed_in",
+      "status": "implemented_by_phase2_media_gallery",
+      "label": "Innerwear → Concept Lab → AirComfort Cooling Concepts"
+    },
+    {
+      "from": "asset.p2.aircomfort.maroon-variant",
+      "to": "route.innerwear",
+      "type": "displayed_in",
+      "status": "implemented_by_phase2_media_gallery",
+      "label": "Innerwear → Concept Lab → AirComfort Cooling Concepts"
+    },
+    {
+      "from": "asset.p2.clam-cooler.red-campaign",
+      "to": "route.innerwear",
+      "type": "displayed_in",
+      "status": "implemented_by_phase2_media_gallery",
+      "label": "Innerwear → Concept Lab → Experimental Cooling Concepts"
+    },
+    {
+      "from": "asset.p2.pink-satin.editorial",
+      "to": "route.innerwear",
+      "type": "displayed_in",
+      "status": "implemented_by_phase2_media_gallery",
+      "label": "Innerwear → Editorial Concepts → Pink Satin"
+    },
+    {
+      "from": "asset.p2.blxcked.red-throne",
+      "to": "route.innerwear",
+      "type": "displayed_in",
+      "status": "implemented_by_phase2_media_gallery",
+      "label": "Innerwear → Campaign Archive → Brand Review Studies"
+    },
+    {
+      "from": "asset.p2.innerwere.seated-twist",
+      "to": "route.innerwear",
+      "type": "displayed_in",
+      "status": "implemented_by_phase2_media_gallery",
+      "label": "Innerwear → Campaign Archive → Brand Review Studies"
+    },
+    {
+      "from": "asset.p2.partner-yoga.campaign",
+      "to": "route.boyfriend",
+      "type": "displayed_in",
+      "status": "implemented_by_phase2_media_gallery",
+      "label": "Boyfriend & Couples → Movement & Connection Campaign Concepts"
+    },
+    {
+      "from": "route.stories",
+      "to": "route.boyfriend",
+      "type": "related_experience",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore optional couples ideas"
+    },
+    {
+      "from": "route.wellness",
+      "to": "route.innerwear",
+      "type": "education_to_catalogue",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Explore innerwear references"
+    },
+    {
+      "from": "route.boyfriend",
+      "to": "route.stories",
+      "type": "story_discovery",
+      "status": "implemented_by_phase2_navigation_rail",
+      "label": "Read a fictional story"
+    }
+  ],
+  "wheels": [
+    {
+      "id": "wheel.boy",
+      "existingKey": "boy",
+      "routeId": "route.boyfriend",
+      "status": "existing-feature-preserve",
+      "linkIntent": "result can offer an optional couples story or conversation; no activity is mandatory"
+    },
+    {
+      "id": "wheel.dildo",
+      "existingKey": "dildo",
+      "routeId": "route.wellness",
+      "status": "existing-feature-preserve",
+      "linkIntent": "result can point to product-dimension education; result is not a personalized size recommendation"
+    },
+    {
+      "id": "wheel.plug",
+      "existingKey": "plug",
+      "routeId": "route.wellness",
+      "status": "existing-feature-preserve",
+      "linkIntent": "result can point to safety and manufacturer-dimension information; stop if painful"
+    },
+    {
+      "id": "wheel.wild",
+      "existingKey": "wild",
+      "routeId": "route.boyfriend",
+      "status": "existing-feature-preserve",
+      "linkIntent": "optional fiction/couple prompt with skip and stop controls"
+    }
+  ],
+  "dataLinkRules": [
+    "Every new content ID is stable, unique and namespaced; do not overwrite existing story/product IDs.",
+    "Only link to known route selectors or IDs present in the current manifest.",
+    "Wheel outcomes must remain optional; no outcome is a directive to perform an act or purchase a product.",
+    "Concept art must not link to a real sale/checkout until manufacturer, SKU, claims, price, seller, stock, and provider permission are verified.",
+    "Keep existing content gated according to current navigation; self-attestation is not formal age verification.",
+    "Never infer model identity, anatomy, religious affiliation or relationship from an image.",
+    "All new images are local assets; the new gallery makes no external image requests."
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blackened.example/schema/phase2-content-graph.schema.json",
+  "title": "BLACKED Phase 2 Content and Route Graph",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "project",
+    "phase",
+    "baseline",
+    "principles",
+    "routes",
+    "components",
+    "media",
+    "links",
+    "wheels",
+    "dataLinkRules"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "project": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phase": {
+      "const": 2
+    },
+    "baseline": {
+      "type": "object",
+      "required": [
+        "repository",
+        "branch",
+        "commit",
+        "capturedAt",
+        "files",
+        "rule"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "format": "uri"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "capturedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "files": {
+          "type": "object"
+        },
+        "rule": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "principles": {
+      "type": "object",
+      "required": [
+        "preserveExistingIdsAndStorageKeys",
+        "existingSiteFilesBundled",
+        "externalAssetRequestsFromNewGallery",
+        "conceptImagesAreProducts",
+        "realPaymentEnabled",
+        "imageRightsConfirmed"
+      ],
+      "properties": {
+        "preserveExistingIdsAndStorageKeys": {
+          "type": "boolean"
+        },
+        "existingSiteFilesBundled": {
+          "type": "boolean"
+        },
+        "externalAssetRequestsFromNewGallery": {
+          "type": "boolean"
+        },
+        "conceptImagesAreProducts": {
+          "type": "boolean"
+        },
+        "realPaymentEnabled": {
+          "type": "boolean"
+        },
+        "imageRightsConfirmed": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "routes": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "selector",
+          "dataView",
+          "title",
+          "gate",
+          "description",
+          "relatedRoutes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^route\\.[a-z0-9.-]+$"
+          },
+          "selector": {
+            "type": "string",
+            "pattern": "^#view-[a-z-]+$"
+          },
+          "dataView": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "gate": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "relatedRoutes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^route\\.[a-z0-9.-]+$"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "status",
+          "purpose"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "const": "component"
+          },
+          "status": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "media": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "src",
+          "file",
+          "path",
+          "title",
+          "group",
+          "route",
+          "brand",
+          "brandStatus",
+          "placement",
+          "role",
+          "alt",
+          "note",
+          "tags",
+          "rightsStatus",
+          "claimStatus",
+          "publicationStatus",
+          "width",
+          "height",
+          "sourceBytes",
+          "webpBytes",
+          "sourceSha256",
+          "webpSha256"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^asset\\.p2\\.[a-z0-9.-]+$"
+          },
+          "src": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+\\.webp$"
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^phase2-assets/[a-z0-9-]+\\.webp$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "route": {
+            "enum": [
+              "innerwear",
+              "boyfriend"
+            ]
+          },
+          "brand": {
+            "type": "string"
+          },
+          "brandStatus": {
+            "type": "string"
+          },
+          "placement": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "minLength": 10
+          },
+          "note": {
+            "type": "string",
+            "minLength": 10
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rightsStatus": {
+            "type": "string"
+          },
+          "claimStatus": {
+            "type": "string"
+          },
+          "publicationStatus": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sourceBytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "webpBytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sourceSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "webpSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "type",
+          "status",
+          "label"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "wheels": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "existingKey",
+          "routeId",
+          "status",
+          "linkIntent"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^wheel\\.[a-z]+$"
+          },
+          "existingKey": {
+            "enum": [
+              "boy",
+              "dildo",
+              "plug",
+              "wild"
+            ]
+          },
+          "routeId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "linkIntent": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dataLinkRules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 10
+      }
+    }
+  },
+  "additionalProperties": false
+}

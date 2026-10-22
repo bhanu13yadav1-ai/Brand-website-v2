@@ -1,0 +1,23 @@
+diff --git a/sw.js b/sw.js
+--- a/sw.js
++++ b/sw.js
+@@ -1,7 +1,18 @@
+ /* BLACKED V2 Phase 2+3 repair service worker. */
+ 'use strict';
+-const CACHE_NAME = 'blacked-v2-phase2-image-repair-2';
++const CACHE_NAME = 'blacked-v2-phase2-connected-architecture-3';
+ const CORE = [
+   './','./index.html','./styles.css','./app.js','./fallback.js','./part-c-enhancements.css','./part-c-enhancements.js',
+   './manifest.webmanifest','./app-icon.svg','./innerwear-image-library.json','./size-chart-template.json',
++  './phase2-content-graph.json',
++  './phase2-experience-architecture.js',
++  './phase2-experience-architecture.css',
++  './phase2-assets/blacked-aircomfort-pink-campaign-board.webp',
++  './phase2-assets/blacked-aircomfort-detail-panel.webp',
++  './phase2-assets/blacked-aircomfort-maroon-variant.webp',
++  './phase2-assets/clam-cooler-3000-red-campaign.webp',
++  './phase2-assets/pink-satin-lace-editorial.webp',
++  './phase2-assets/blxcked-red-throne-brand-study.webp',
++  './phase2-assets/innerwere-seated-twist-campaign-board.webp',
++  './phase2-assets/blacked-partner-yoga-campaign-reference.webp',
+   './phase23-diagnostics.html','./part-a-diagnostics.html','./part-b-diagnostics.html',
