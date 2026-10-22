@@ -1,0 +1,10 @@
+BLACKED V3 HANDOFF — PHASE 5–8 DELTA
+
+1. Read README_START_HERE.md.
+2. Replace only these existing files: phase2-photo-collections.js; phase5-6-asset-manifest.json; phase5-6-loader.js; phase6-boyfriend-studio.js; phase6-boyfriend-preview.html.
+3. Add phase7-8-enhancements.js, phase7-8-enhancements.css and phase7-8-diagnostics.html.
+4. Apply INDEX_INSERT_PHASE78.patch to index.html and SW_CACHE_PATCH.txt to sw.js.
+5. Do not upload duplicate image assets; verified files already exist at the repository root.
+6. Run phase7-8-diagnostics.html on the live GitHub Pages deployment, then check all seven views, the three original wheels, Noor gallery, Boyfriend Studio, story search/language/sort/bookmarks/series, reader controls, and image failures at 320/360/390/430 px.
+
+GitHub write was blocked by 403 here. No remote commit/publish was completed.

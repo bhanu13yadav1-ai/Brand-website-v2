@@ -7,7 +7,7 @@
   const $ = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => [...r.querySelectorAll(s)];
   const state = { version:'5.6.0', studioBuilt:false, selectedArchetype:'romantic', galleryCardsAdded:0, innerwearCardsAdded:0, lastChoice:null, errors:[] };
-  const asset = path => `./assets/${path}`;
+  const asset = path => './' + String(path).split('/').pop();
   const make = (tag, cls='', text) => { const el=document.createElement(tag); if(cls)el.className=cls; if(text!==undefined)el.textContent=text; return el; };
   const archetypes = [
     {id:'romantic',title:'The Romantic',energy:'Warm · thoughtful · date-night',desc:'A slow-burn fictional character style, caring dialogue and thoughtful dates.',image:'boyfriend-studio-v3/match-romantic.webp',scenario:'romantic'},

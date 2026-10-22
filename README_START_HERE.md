@@ -1,9 +1,40 @@
-# BLACKED V3 — Phase 5–6 (Delta Only)
+# BLACKED V3 — Phase 5–8 Integration Delta
 
-This ZIP intentionally contains only new/changed files, 11 old asset files that GitHub main was confirmed to be missing, and this phase’s reports. It does not include duplicate copies of the existing app/core JS/CSS.
+This is a **delta-only package**. It deliberately does not bundle the unchanged site, core scripts, or image files that already exist in the repository root.
 
-**One index edit is still required:** add `<script src="./phase5-6-loader.js?v=5.6.0" defer></script>` directly below the existing `part-c-enhancements.js` script in `index.html`. Without that line, none of the new loader modules run, which was the main reason Phase 3–4 looked unchanged. See `PHASE5_6_UPLOAD_INSTRUCTIONS_HINGLISH.md`.
+## Why the earlier UI did not appear
 
-After uploading/merging, open `phase5-6-diagnostics.html`. Run integration checks, bundled-asset checks, then the optional 151-record remote archive check. The current ZIP has not been pushed to GitHub and is not itself proof of a live fix.
+The connected `main` source showed that `phase2-photo-collections.js`, `phase3-design-system.css`, `phase4-home-and-fantasy.js`, and the Phase 5–6 modules existed, but `index.html` did not load `phase5-6-loader.js`. On top of that, several scripts used `./assets/<folder>/<file>.webp` even though the actual image files are stored at the repository root (for example `./noor-ka-nasha.webp`, `./match-romantic.webp`). That path mismatch makes a valid image look missing.
 
-The Boyfriend Studio is a new, visually distinct fictional-archetype interface. It is not a real-person marketplace and has no payments, booking or real-person measurements. New group images remain behind the existing second 18+ self-attestation gate.
+## Files to replace in the repository root
+
+- `phase2-photo-collections.js` — fixes the 11 local image paths to the files already at repository root.
+- `phase6-boyfriend-studio.js` — the shared image resolver now uses root-level filenames.
+- `phase5-6-asset-manifest.json` — aligns the diagnostic source paths with real file paths.
+- `phase5-6-loader.js` — bumps cache-busting to v7.8.0 and loads Phase 7–8 styles/scripts after the earlier phases.
+- `phase6-boyfriend-preview.html` — fixes root-level asset URLs in the standalone preview.
+
+## Files to add
+
+- `phase7-8-enhancements.js`
+- `phase7-8-enhancements.css`
+- `phase7-8-diagnostics.html`
+
+## Two small integration edits
+
+1. **index.html:** add the one script line in `INDEX_INSERT_PHASE78.patch` immediately after the existing `part-c-enhancements.js` script:
+   `<script src="./phase5-6-loader.js?v=7.8.0" defer></script>`
+2. **sw.js:** apply `SW_CACHE_PATCH.txt`—change the cache name and add the listed root-level CORE entries. Keep all existing entries.
+
+The repository connector returned HTTP 403 for branch creation and file writes, so these edits have **not** been pushed by this assistant. Apply the delta files through GitHub's web editor/upload flow, then run diagnostics. No claim of live deployment is made.
+
+## Expected visible changes
+
+- Phase 5: image source paths match repository root assets; failed requests retain their cards and show retry/open-source controls.
+- Phase 6: the Boyfriend Studio uses the root-level six character thumbnails and original “Choose Your Match” board.
+- Phase 7: a redesigned three-card Noor / Sanskari / Grace collection hub with search, filter, image dimensions/status, and links into existing galleries.
+- Phase 8: story mood quick-filters connected to the existing story dropdown, preserved language/sort/search/bookmarks/series, plus reader font-size and focus controls.
+
+## Verification
+
+After upload, open `phase7-8-diagnostics.html` on GitHub Pages and run **Runtime checks** and **Check bundled photos**. If the loader is not detected, the `index.html` script line was not applied or the browser is serving an old cached document. Hard-refresh / clear only the website's site cache after checking diagnostics. Test 320, 360, 390 and 430 CSS-pixel widths, the Noor gallery, all existing views and the three original wheels before treating the release as done.

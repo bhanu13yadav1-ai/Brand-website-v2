@@ -70,3 +70,15 @@ The delta package is `BLACKED_V3_PHASE5_6_CHANGED_FILES/` and its ZIP. It delibe
 Read this master note and `PHASE5_6_HANDOFF.txt`. The delta package is not deployed. GitHub safe-branch creation returned 403, so use a safe write path or manual merge rather than overwrite `main` blindly. Upload the ZIP contents into the repo root, then add the one line in `INDEX_INSERT_PHASE56.patch` beneath the existing `part-c-enhancements.js` script. The loader restores the previous Phase 2–4 overlays and loads the new Phase 5–6 modules in sequence.
 
 Run `phase5-6-diagnostics.html`: first integration, then local bundle images, then the 151-record remote image archive. Report exact failed paths rather than assuming all external archive failures have the same cause. Review Boyfriend Studio on Android Chrome at 320, 360, 390 and 430 CSS px; test all seven original views, all four wheels, age gates, gallery filters, story tools, wishlist/bag, Fit Studio and storage preservation. Do not claim a live fix until the deployed diagnostics pass.
+
+
+## Phase 5–8 Integration Correction (2026-10-22)
+
+- Confirmed remote repository main commit inspected during this phase: `cf2b74cb7877a2fc699c0ee12093a75ad87bd812`.
+- Important correction to prior diagnosis: many image files **do exist at repository root**. The failure was that Phase 2/5/6 scripts referenced `./assets/<folder>/<filename>` while the committed files live at `./<filename>`. Do not upload duplicates; fix source paths.
+- `index.html` currently loads `fallback.js`, `app.js`, and `part-c-enhancements.js`, but does not load `phase5-6-loader.js`. Apply `INDEX_INSERT_PHASE78.patch` after the `part-c-enhancements.js` script tag.
+- Phase 2 fixes: 11 photo records now use root-relative filenames. Phase 6 fixes: shared asset resolver converts nested logical asset references into the root-level filename. Phase 5–6 manifest now uses the same actual root paths.
+- Phase 7: additive Noor / Sanskari / Grace collection hub with search, category filtering, 3 image-led cards, loading states, and links into existing galleries.
+- Phase 8: quick mood filters wired to the existing story filter dropdown, existing search/language/sort/story vault preserved, and reader text-size + focus-mode controls added to the existing story modal.
+- Delta package contains only changed files and new additions; unchanged scripts/CSS and image binaries are deliberately omitted because they already exist in the repository.
+- Repository GitHub writes (branch creation and contents write) were blocked by HTTP 403 in this run, so nothing here should be described as deployed. Apply the patch/upload instructions, then run `phase7-8-diagnostics.html` against GitHub Pages. Browser-level verification remains pending until that deployed page reports runtime and image results.

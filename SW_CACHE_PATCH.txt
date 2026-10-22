@@ -1,0 +1,42 @@
+PHASE 5–8 SERVICE-WORKER CACHE PATCH
+
+In sw.js, change the cache constant from:
+  const CACHE_NAME = 'blacked-v2-phase4-integration-1';
+To:
+  const CACHE_NAME = 'blacked-v3-phase78-integration-1';
+
+Add these root-level files into the CORE array (keep every existing entry):
+  './phase5-6-loader.js',
+  './phase7-8-enhancements.js',
+  './phase7-8-enhancements.css',
+  './phase5-6-asset-manifest.json',
+  './noor-ka-nasha.webp',
+  './tradition-outside-desire-inside.webp',
+  './shaam-e-noor.webp',
+  './shaam-se-raat-tak.webp',
+  './sanskari-outside-bold-within.webp',
+  './sacred-elegance.webp',
+  './made-for-quiet-moments.webp',
+  './rest-restore-rise.webp',
+  './soft-rose-evening-edit.webp',
+  './mirror-burgundy-set.webp',
+  './innerwere-campaign-trio.webp',
+  './innerwere-campaign-trio-two.webp',
+  './innerwere-campaign-trio-three.webp',
+  './choose-your-match-board.webp',
+  './match-romantic.webp',
+  './match-confident.webp',
+  './match-active.webp',
+  './match-sturdy.webp',
+  './match-couple-plus-one.webp',
+  './match-multi-adult.webp',
+  './own-your-balance.webp',
+  './burgundy-drape-editorial.webp',
+  './garden-lace-trio.webp',
+  './maroon-room-chemistry.webp',
+  './noor-burgundy-editorial.webp',
+  './noor-seated-editorial.webp',
+  './poolside-trio-alt.webp',
+  './poolside-trio-editorial.webp'
+
+Do not remove or rename existing CORE entries. The cache name change makes already-installed clients activate the new worker and discard stale blacked-* caches according to the existing activate handler.

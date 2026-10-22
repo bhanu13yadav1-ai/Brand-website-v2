@@ -4,7 +4,7 @@
 (() => {
   'use strict';
   if (window.BLACKED_V3_PHASE56_BOOT) return;
-  const VERSION = '5.6.0';
+  const VERSION = '7.8.0';
   const state = { version: VERSION, stylesLoaded: [], scriptsLoaded: [], errors: [], startedAt: new Date().toISOString() };
   const withVersion = path => `${path}?v=${VERSION}`;
   function showNotice(message) {
@@ -51,16 +51,19 @@
       './phase2-photo-collections.css',
       './phase3-design-system.css',
       './phase5-image-reliability.css',
-      './phase6-boyfriend-studio.css'
+      './phase6-boyfriend-studio.css',
+      './phase7-8-enhancements.css'
     ]) await addStyle(path);
     // These Phase 1–4 JS/CSS files already exist in the connected repo; index.html simply did not load them.
     for (const path of [
       './phase2-photo-collections.js',
       './phase4-home-and-fantasy.js',
       './phase5-image-reliability.js',
-      './phase6-boyfriend-studio.js'
+      './phase6-boyfriend-studio.js',
+      './phase7-8-enhancements.js'
     ]) await addScript(path);
     document.documentElement.dataset.blackedV3Phase56 = state.errors.length ? 'degraded' : 'loaded';
+    document.documentElement.dataset.blackedV3Phase78Loader = state.errors.length ? 'degraded' : 'loaded';
     if (state.errors.length) showNotice(`BLACKED V3 loaded with ${state.errors.length} integration issue(s). Open phase5-6-diagnostics.html and check missing file paths.`);
     else document.documentElement.dataset.blackedV3Phase56 = 'loaded';
     window.dispatchEvent(new CustomEvent('blacked:v3-phase56-ready', { detail: { ...state } }));

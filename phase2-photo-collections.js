@@ -10,21 +10,21 @@
   const state = { inserted: [], imageErrors: [], activeTrigger: null, oldBodyOverflow: '' };
   const records = {
     noor: [
-      {path:'./assets/noor-edit/noor-ka-nasha.webp', title:'Noor Ka Nasha', tag:'NOOR EDIT', category:'noor', alt:'Adult fashion model in a black, gold-trimmed head covering in a warm black-and-gold lingerie campaign'},
-      {path:'./assets/noor-edit/tradition-outside-desire-inside.webp', title:'Tradition Outside, Desire Inside', tag:'EDITORIAL CONCEPT', category:'noor', alt:'Adult fashion model in a black head covering and black-and-gold lingerie editorial styling'},
-      {path:'./assets/noor-edit/shaam-e-noor.webp', title:'Shaam-e-Noor', tag:'CAMPAIGN VARIANT', category:'variant', alt:'Black-and-gold Noor lingerie campaign with an adult model wearing a black head covering'},
-      {path:'./assets/noor-edit/shaam-se-raat-tak.webp', title:'Shaam Se Raat Tak', tag:'CAMPAIGN VARIANT', category:'variant', alt:'Related black-and-gold Noor fashion campaign featuring an adult model in a black head covering'}
+      {path:'./noor-ka-nasha.webp', title:'Noor Ka Nasha', tag:'NOOR EDIT', category:'noor', alt:'Adult fashion model in a black, gold-trimmed head covering in a warm black-and-gold lingerie campaign'},
+      {path:'./tradition-outside-desire-inside.webp', title:'Tradition Outside, Desire Inside', tag:'EDITORIAL CONCEPT', category:'noor', alt:'Adult fashion model in a black head covering and black-and-gold lingerie editorial styling'},
+      {path:'./shaam-e-noor.webp', title:'Shaam-e-Noor', tag:'CAMPAIGN VARIANT', category:'variant', alt:'Black-and-gold Noor lingerie campaign with an adult model wearing a black head covering'},
+      {path:'./shaam-se-raat-tak.webp', title:'Shaam Se Raat Tak', tag:'CAMPAIGN VARIANT', category:'variant', alt:'Related black-and-gold Noor fashion campaign featuring an adult model in a black head covering'}
     ],
     innerwear: [
-      {path:'./assets/innerwear-gallery-v3/made-for-quiet-moments.webp', title:'Made for Your Quiet Moments', tag:'PINK EDITORIAL', category:'pink', alt:'Adult model wearing a pink lingerie set in a warm luxury editorial scene'},
-      {path:'./assets/innerwear-gallery-v3/rest-restore-rise.webp', title:'Rest. Restore. Rise.', tag:'PINK EDITORIAL', category:'pink', alt:'Adult model in a pink lingerie editorial in a candlelit, warm-toned room'},
-      {path:'./assets/innerwear-gallery-v3/soft-rose-evening-edit.webp', title:'Soft Rose · Evening Editorial', tag:'NEW OWNER-SUPPLIED PHOTO', category:'pink', alt:'Adult model in a rose-toned innerwear fashion campaign in warm low lighting'}
+      {path:'./made-for-quiet-moments.webp', title:'Made for Your Quiet Moments', tag:'PINK EDITORIAL', category:'pink', alt:'Adult model wearing a pink lingerie set in a warm luxury editorial scene'},
+      {path:'./rest-restore-rise.webp', title:'Rest. Restore. Rise.', tag:'PINK EDITORIAL', category:'pink', alt:'Adult model in a pink lingerie editorial in a candlelit, warm-toned room'},
+      {path:'./soft-rose-evening-edit.webp', title:'Soft Rose · Evening Editorial', tag:'NEW OWNER-SUPPLIED PHOTO', category:'pink', alt:'Adult model in a rose-toned innerwear fashion campaign in warm low lighting'}
     ],
-    grace: {path:'./assets/grace-edit/sacred-elegance.webp', title:'Sacred Elegance', tag:'THEATRICAL CONCEPT', category:'grace', alt:'Adult model in black editorial lingerie styling and a cross necklace; supplied theatrical fashion concept'},
+    grace: {path:'./sacred-elegance.webp', title:'Sacred Elegance', tag:'THEATRICAL CONCEPT', category:'grace', alt:'Adult model in black editorial lingerie styling and a cross necklace; supplied theatrical fashion concept'},
     group: [
-      {path:'./assets/triad-gallery-v3/innerwere-campaign-trio.webp', title:'Multi-Adult Innerwear Campaign · Reference 01', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign reference in a warm luxury set'},
-      {path:'./assets/triad-gallery-v3/innerwere-campaign-trio-two.webp', title:'Multi-Adult Innerwear Campaign · Reference 02', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign in a burgundy and black editorial setting'},
-      {path:'./assets/triad-gallery-v3/innerwere-campaign-trio-three.webp', title:'Multi-Adult Innerwear Campaign · Reference 03', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign in a warm bedroom editorial setting'}
+      {path:'./innerwere-campaign-trio.webp', title:'Multi-Adult Innerwear Campaign · Reference 01', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign reference in a warm luxury set'},
+      {path:'./innerwere-campaign-trio-two.webp', title:'Multi-Adult Innerwear Campaign · Reference 02', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign in a burgundy and black editorial setting'},
+      {path:'./innerwere-campaign-trio-three.webp', title:'Multi-Adult Innerwear Campaign · Reference 03', tag:'18+ GATED REFERENCE', category:'group', alt:'Adult multi-person innerwear campaign in a warm bedroom editorial setting'}
     ]
   };
   function make(tag, cls, text) {
