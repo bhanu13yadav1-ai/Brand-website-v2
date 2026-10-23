@@ -1,0 +1,16 @@
+--- a/index.html
++++ b/index.html
+@@ -13,4 +13,7 @@
+   <link rel="stylesheet" href="./styles.css">
+   <link rel="stylesheet" href="./part-c-enhancements.css">
+   <link rel="stylesheet" href="./phase2-photo-collections.css">
++  <link rel="stylesheet" href="./phase4-story-universe.css">
++  <link rel="stylesheet" href="./phase5-product-discovery.css">
++  <link rel="stylesheet" href="./phase6-wellness-collections.css">
+@@ -17,4 +20,7 @@
+   <script src="./app.js" defer></script>
+   <script src="./part-c-enhancements.js" defer></script>
+   <script src="./phase2-photo-collections.js" defer></script>
++  <script src="./phase4-story-universe.js" defer></script>
++  <script src="./phase5-product-discovery.js" defer></script>
++  <script src="./phase6-wellness-collections.js" defer></script>

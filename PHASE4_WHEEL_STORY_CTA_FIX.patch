@@ -1,0 +1,8 @@
+--- a/phase4-story-universe.js
++++ b/phase4-story-universe.js
+@@
+-        const heading = $('strong', host);
+-        if (!heading || !/^\s*\d+\/8\b/.test(heading.textContent)) return;
++        // The wheel's actual result uses a descriptive title, not an `n/8` heading.
++        // Its retry button is the reliable marker that a spin has finished.
++        if (!host.querySelector('[data-wheel-retry]')) return;

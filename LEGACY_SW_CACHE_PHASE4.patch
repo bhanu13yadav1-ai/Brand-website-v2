@@ -1,0 +1,12 @@
+--- a/sw.js
++++ b/sw.js
+@@ -1,6 +1,8 @@
+ /* BLACKED V2 Phase 2+3 repair service worker. */
+ 'use strict';
+-const CACHE_NAME = 'blacked-v2-phase2-image-repair-2';
++const CACHE_NAME = 'blacked-v2-phase4-story-universe-1';
+ const CORE = [
+   './','./index.html','./styles.css','./app.js','./fallback.js','./part-c-enhancements.css','./part-c-enhancements.js',
++  './phase2-photo-collections.css','./phase2-photo-collections.js',
++  './phase4-story-universe.css','./phase4-story-universe.js','./phase4-story-universe.json','./phase4-diagnostics.html',
+   './manifest.webmanifest','./app-icon.svg','./innerwear-image-library.json','./size-chart-template.json',

@@ -1,0 +1,16 @@
+feature_or_data,baseline_source,Phase7_action,destructive_change,verification_required
+Main views,index.html,Kept and checked by diagnostics,NO,Android navigation smoke test
+Story library and opt-in vault,app.js + index.html,Kept; Phase4 story universe added as separate module,NO,Story searches/branches/bookmarks
+Dildo wheel,app.js + part-c-enhancements.js,Kept; Phase4 CTA marker fixed,NO,Spin/reset + story CTA
+Butt plug wheel,app.js + part-c-enhancements.js,Kept; Phase4 CTA marker fixed,NO,Spin/reset + story CTA
+Boyfriend wheel,app.js + part-c-enhancements.js,Kept; Phase4 CTA marker fixed,NO,Spin/reset + story CTA
+Dirty/Wild wheel,app.js + part-c-enhancements.js,Kept; Phase4 CTA marker fixed,NO,Spin/reset + story CTA
+Catalog search/filter/sort,app.js,Kept; Phase5 evidence filters add-on,NO,Search/sort and reference/verified filter
+Wishlist and demo bag,app.js,Kept,NO,Add/remove/qty/clear and counts
+Compare max 3,app.js,Kept and tested by diagnostics,NO,Attempt fourth distinct item
+Wellness worksheet,app.js + index.html,Unit conversion corrected only,NO,cm/in both directions and save opt-in
+Fit Studio local preview,app.js + index.html,Kept,NO,Select/remove local photo and size guard
+Fit notes,app.js localStorage key blackedV1FitNotes,Key unchanged,NO,Verify saved notes survive update
+Sanskari / Noor / Grace,phase2-photo-collections.js + index.html,Kept; Phase6 filter whole-card fix,NO,Collection selections/all
+Phase5 checkout/sales gate,phase5-product-discovery.js,Sales intentionally blocked,NO,No order/payment endpoint
+Image rights,IMAGE_RIGHTS_REGISTER.csv,Pending is explicit; no permission inferred,NO,Human review of asset evidence

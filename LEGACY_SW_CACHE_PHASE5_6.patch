@@ -1,0 +1,14 @@
+--- a/sw.js
++++ b/sw.js
+@@ -3,1 +3,1 @@
+-const CACHE_NAME = 'blacked-v2-phase2-image-repair-2';
++const CACHE_NAME = 'blacked-v2-phase5-6-review-1';
+@@ -4,2 +4,7 @@
+ const CORE = [
+   './','./index.html','./styles.css','./app.js','./fallback.js','./part-c-enhancements.css','./part-c-enhancements.js',
++  './phase5-product-discovery.css','./phase5-product-discovery.js',
++  './phase6-wellness-collections.css','./phase6-wellness-collections.js',
++  './phase5-6-review-diagnostics.html',
++  './assets/phase6-measurement-map.svg','./assets/phase6-product-specs.svg',
++  './assets/phase6-comfort-check.svg','./assets/phase6-image-rights-workflow.svg',
+*** End Patch

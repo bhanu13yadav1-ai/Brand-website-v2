@@ -1,0 +1,8 @@
+phase,name,status,verified_in_source,verified_runtime,notes
+1,Baseline audit and preservation,COMPLETE,YES,PARTIAL,Repository read-only audit carried forward; current live runtime not accessible via connected site browser
+2,Asset paths and collection architecture,REVIEW,PARTIAL,NO,Previous additive assets need deployed image-path/offline verification
+3,Wellness/collection foundations,REVIEW,PARTIAL,NO,Existing app source contains wellness guides and collection previews; no production runtime sign-off
+4,Story universe and wheel connection,FIX-PACKAGED,YES,NO,Wheel CTA completion detection repaired in Phase 7 source; script still needs integration
+5,Product discovery and sales trust,FIX-PACKAGED,YES,NO,Filter/disclosure modules ready to integrate; sales remain disabled
+6,Wellness collections and media rights,FIX-PACKAGED,YES,NO,Toolkit and collection filter fix ready; image rights remain pending
+7,Final integration and regression,REVIEW-PACKAGED,YES,NO,Installer and diagnostics included; no GitHub commit or deployment due integration permission denial

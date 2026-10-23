@@ -322,8 +322,9 @@
       if (!host || host.dataset.p4Observer === 'yes') return;
       host.dataset.p4Observer = 'yes';
       const refresh = () => {
-        const heading = $('strong', host);
-        if (!heading || !/^\s*\d+\/8\b/.test(heading.textContent)) return;
+        // The existing app renders descriptive titles (not `n/8` headings).
+        // A completed spin is identified by the retry action the wheel actually creates.
+        if (!host.querySelector('[data-wheel-retry]')) return;
         let storyId = wheelStoryMap[kind];
         if (kind === 'wild') storyId = wheelStoryMap.wild[$('#wildCategory')?.value || 'flirty'] || wheelStoryMap.wild.flirty;
         if (!getStory(storyId) || $('[data-p4-wheel-story]', host)) return;

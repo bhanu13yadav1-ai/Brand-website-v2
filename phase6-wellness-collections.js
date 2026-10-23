@@ -33,7 +33,9 @@
       const key=button.dataset.p6Collection; state.activeCollection=key;
       $$('[data-p6-collection]',nav).forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
       const campaigns=$('#sanskariGallery',view)?.closest('.section-block');
-      const noor=$('#v3NoorEditGallery',view); const grace=$('#v3GracePreview',view)?.closest('figure') || $('#v3GracePreview',view);
+      const noor=$('#v3NoorEditGallery',view);
+      // Hide/show the entire Grace preview card, not just its embedded image figure.
+      const grace=$('.coming-card.grace',view) || $('#v3GracePreview',view)?.closest('figure') || $('#v3GracePreview',view);
       const future=$('.coming-grid',view)?.closest('.section-block');
       if(campaigns) campaigns.hidden = key==='noor'||key==='grace';
       if(noor) noor.hidden = key==='sanskari'||key==='grace';

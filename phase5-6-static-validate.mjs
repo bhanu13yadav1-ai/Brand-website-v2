@@ -8,8 +8,8 @@ const p5=read('phase5-product-discovery.js');
 const p5css=read('phase5-product-discovery.css');
 const p6=read('phase6-wellness-collections.js');
 const p6css=read('phase6-wellness-collections.css');
-const indexPatch=read('patches/INDEX_PHASE5_6_INSERT.patch');
-const swPatch=read('patches/SW_CACHE_PHASE5_6.patch');
+const indexPatch=read('patches/INDEX_PHASE7_FINAL_INSERT.patch');
+const swPatch=read('patches/SW_CACHE_PHASE7_FINAL.patch');
 const diagnostics=read('phase5-6-review-diagnostics.html');
 assert.match(p5,/salesEnabled: false/,'Sales gate must be off');
 assert.match(p5,/verified product records/i,'Evidence filter is present');
@@ -28,7 +28,7 @@ assert.match(p6,/No model faith, religious endorsement or community-wide prefere
 assert.match(p6css,/@media\(max-width:740px\)/,'Phase 6 has mobile layout');
 assert.match(indexPatch,/phase5-product-discovery\.js/,'Integration patch includes phase 5 JS');
 assert.match(indexPatch,/phase6-wellness-collections\.js/,'Integration patch includes phase 6 JS');
-assert.match(swPatch,/blacked-v2-phase5-6-review-1/,'Cache name is bumped');
+assert.match(swPatch,/blacked-v2-phase7-final-1/,'Cache name is bumped');
 assert.match(diagnostics,/Original wheel locations remain/,'Diagnostic checks original wheels');
 for (const f of ['phase6-measurement-map.svg','phase6-product-specs.svg','phase6-comfort-check.svg','phase6-image-rights-workflow.svg']) {
  const svg=read('assets/'+f); assert.match(svg,/^<svg[\s>]/); assert.match(svg,/<title\b/); assert.match(svg,/<desc\b/);

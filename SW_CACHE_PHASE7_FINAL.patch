@@ -1,0 +1,14 @@
+--- a/sw.js
++++ b/sw.js
+@@
+-const CACHE_NAME = 'blacked-v2-phase2-image-repair-2';
++const CACHE_NAME = 'blacked-v2-phase7-final-1';
+@@
+   './','./index.html','./styles.css','./app.js','./fallback.js','./part-c-enhancements.css','./part-c-enhancements.js',
++  './phase4-story-universe.css','./phase4-story-universe.js','./phase4-story-universe.json',
++  './phase5-product-discovery.css','./phase5-product-discovery.js',
++  './phase6-wellness-collections.css','./phase6-wellness-collections.js',
++  './phase7-diagnostics.html','./phase5-6-review-diagnostics.html',
++  './assets/phase6-measurement-map.svg','./assets/phase6-product-specs.svg',
++  './assets/phase6-comfort-check.svg','./assets/phase6-image-rights-workflow.svg',
+*** End Patch

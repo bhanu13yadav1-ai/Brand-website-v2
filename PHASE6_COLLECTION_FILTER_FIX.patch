@@ -1,0 +1,7 @@
+--- a/phase6-wellness-collections.js
++++ b/phase6-wellness-collections.js
+@@
+-      const noor=$('#v3NoorEditGallery',view); const grace=$('#v3GracePreview',view)?.closest('figure') || $('#v3GracePreview',view);
++      const noor=$('#v3NoorEditGallery',view);
++      // Hide/show the full Grace preview card, not only its image figure.
++      const grace=$('.coming-card.grace',view) || $('#v3GracePreview',view)?.closest('figure') || $('#v3GracePreview',view);

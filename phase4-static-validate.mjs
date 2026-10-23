@@ -7,8 +7,8 @@ const read = (name) => fs.readFileSync(path.join(ROOT, name), 'utf8');
 const data = JSON.parse(read('phase4-story-universe.json'));
 const js = read('phase4-story-universe.js');
 const css = read('phase4-story-universe.css');
-const indexPatch = read('patches/INDEX_PHASE4_INSERT.patch');
-const swPatch = read('patches/SW_CACHE_PHASE4.patch');
+const indexPatch = read('patches/INDEX_PHASE7_FINAL_INSERT.patch');
+const swPatch = read('patches/SW_CACHE_PHASE7_FINAL.patch');
 
 const toneIds = (data.tones || []).map(t => t.id);
 assert.deepEqual(toneIds, ['clean', 'desi', 'bold'], 'Three ordered tone settings are expected');
@@ -48,7 +48,7 @@ assert.ok(js.includes('MutationObserver') && js.includes('data-p4-wheel-story'),
 assert.ok(!/\b(?:localStorage|sessionStorage)\.(?:setItem|getItem|removeItem)\s*\(/.test(js), 'New tone/preferences must not persist to web storage');
 assert.ok(css.includes('@media(max-width:680px)') && css.includes(':focus-visible'), 'Mobile layout and visible focus styles are required');
 assert.ok(indexPatch.includes('phase4-story-universe.css') && indexPatch.includes('phase4-story-universe.js'), 'Index integration patch incomplete');
-assert.ok(swPatch.includes('blacked-v2-phase4-story-universe-1') && swPatch.includes('phase4-story-universe.json'), 'Service worker cache patch incomplete');
+assert.ok(swPatch.includes('blacked-v2-phase7-final-1') && swPatch.includes('phase4-story-universe.json'), 'Service worker cache patch incomplete');
 
 // Exercise the exact sector-centre/correction formula used by the existing wheel integration.
 // This validates the rotation math, not a browser-rendered wheel; runtime validation lives in phase4-diagnostics.html.

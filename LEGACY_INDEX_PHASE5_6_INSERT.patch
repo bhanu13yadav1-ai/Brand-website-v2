@@ -1,0 +1,18 @@
+--- a/index.html
++++ b/index.html
+@@ -10,1 +10,1 @@
+-  <title>BLACKED · V2 Phase 4 — Collections & Wheels</title>
++  <title>BLACKED · V2 Phase 5–6 — Product Trust & Wellness</title>
+@@ -14,2 +14,4 @@
+   <link rel="stylesheet" href="./part-c-enhancements.css">
+   <link rel="stylesheet" href="./phase2-photo-collections.css">
++  <link rel="stylesheet" href="./phase5-product-discovery.css">
++  <link rel="stylesheet" href="./phase6-wellness-collections.css">
+@@ -18,2 +20,4 @@
+   <script src="./part-c-enhancements.js" defer></script>
+   <script src="./phase2-photo-collections.js" defer></script>
++  <script src="./phase5-product-discovery.js" defer></script>
++  <script src="./phase6-wellness-collections.js" defer></script>
+@@ -254,1 +258,1 @@
+-  <footer class="site-footer"><div class="wrap footer-inner"><div><b>BLACKED</b><p>V2 Phase 4 · integrated wheel hub, local campaign collections, boyfriend and gated fantasy galleries</p></div><div><a href="./phase5-diagnostics.html">Phase 5 diagnostics</a><a href="./phase6-diagnostics.html">Phase 6 diagnostics</a><a href="./phase7-diagnostics.html">Phase 7 final QA</a><a href="./phase23-diagnostics.html">V2 Phase 2+3 diagnostics</a><a href="./phase2-image-diagnostics.html">Phase 1–2 image diagnostics</a><button class="text-btn footer-privacy-btn" id="privacyOpen" type="button">Privacy & data controls</button><a href="https://github.com/bhanu13yadav1-ai/Brand-website-4f" target="_blank" rel="noopener noreferrer">Reference repository</a></div></div><p class="wrap footer-note">This is a front-end concept prototype. There is no real inventory, checkout, payment, account system or companion booking. New campaign, wheel-poster, Sanskari and boyfriend-reference assets are bundled locally. The broader 151-record archive still uses public source URLs and must be verified with Phase 2+3 diagnostics.</p></footer>
++  <footer class="site-footer"><div class="wrap footer-inner"><div><b>BLACKED</b><p>V2 Phase 5–6 · product verification, transparent sales readiness, wellness and collection guidance</p></div><div><a href="./phase5-diagnostics.html">Phase 5 diagnostics</a><a href="./phase6-diagnostics.html">Phase 6 diagnostics</a><a href="./phase5-6-review-diagnostics.html">Phase 5–6 review checks</a><a href="./phase7-diagnostics.html">Phase 7 final QA</a><a href="./phase23-diagnostics.html">V2 Phase 2+3 diagnostics</a><a href="./phase2-image-diagnostics.html">Phase 1–2 image diagnostics</a><button class="text-btn footer-privacy-btn" id="privacyOpen" type="button">Privacy & data controls</button><a href="https://github.com/bhanu13yadav1-ai/Brand-website-4f" target="_blank" rel="noopener noreferrer">Reference repository</a></div></div><p class="wrap footer-note">This remains a front-end concept prototype. There is no real inventory, checkout, payment, account system or companion booking. Phase 5 keeps sale readiness disabled until verified product and seller records are approved. Image commercial rights are not assumed; see the rights register and review diagnostics.</p></footer>
