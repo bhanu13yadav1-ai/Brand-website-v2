@@ -1,0 +1,32 @@
+feature_or_addition,current_status_from_source,phase,required_action,acceptance_check
+Home/Dashboard,Present in source,3,Preserve layout and quick navigation; add only a clear new entry point,Home renders and all existing links work on phone
+Stories search/filters/reader,Present in source; runtime not tested,4/6,Keep current stories and filters while adding mood/language discovery,Search/mood/language/sort and open/close all work
+Story series/branch endings,Presence documented; current runtime not tested,6,Preserve stable story IDs and opt-in saved progress,All existing choices route correctly; saved data persists
+Innerwear catalogue,Present in source,2/6,Keep search/filter/sort/detail behaviour and references,Category/search/sort/detail actions and counts agree
+151-record image library,JSON verified; remote URLs not all checked,2,Preserve all records; map image HTTP failures and exact duplicates,151 IDs remain discoverable; failures have clear retry/source state
+Wishlist,Present in source notes,7,Preserve localStorage key and clear/remove flow,Add/remove/count/clear; test existing saved value survives update
+Product comparison,Present in source notes,7,Preserve max-three constraint and result output,Fourth product blocked; remove and clear work
+Demo bag,Present in source notes,7,Keep explicitly demo-only; no real checkout/payment,Add/qty/remove/total works and no order is implied
+Sanskari collection,Present in source,2/6,Keep existing cards and map campaign artwork without duplicate cards,All cards open and source images resolve
+Noor/Grace previews,Present in source,6,Keep clear Coming Soon labels and avoid identity/religion inference,Correct collection state and labels remain visible
+Wellness & Size Guide,Present in source,6/7,Preserve health guidance and avoid invented universal sizes,Guide opens; claims remain evidence-based
+Boyfriend/Couples,Present/linked in current source; runtime not tested,4/6,Preserve existing module and connect new preference flow,All cards/actions work and are optional
+Fit Studio/local photo preview,Present in source notes,6/7,Keep local-only preview and clear/remove behaviour,Photo never uploads; remove/reset works
+Land/Boyfriend wheel,Present in source history; runtime not tested,4/7,Preserve original wheel and correct pointer/result,Spin/reset/repeat/category change; displayed sector equals result
+Dildo wheel,Present in source history; runtime not tested,4/7,Preserve existing wheel,Spin/reset/repeat/reduced-motion checks pass
+Butt Plug wheel,Present in source history; runtime not tested,4/7,Preserve existing wheel and non-predictive labels,Spin/reset and optional/skip result behaviour
+Dirty/Wild wheel,Present in source history; runtime not tested,4/7,Keep existing wheel separate from the new wheel,All categories/sectors/results match and Skip works
+Privacy/data controls,Present in source notes,6/7,Preserve opt-in local saves and deletion controls,Opt-in respected; clear removes intended data only
+PWA manifest/service worker,Present in current main; 4 CORE paths broken,2/7,Fix cache paths and avoid over-caching heavy visual assets,Fresh install/update/offline checks on served build
+18+ self-attestation gate,Present in source notes; not formal age verification,3/6,Keep gate for adult areas and disclose self-attestation limits,Adult section does not bypass gate through new links
+SUPER HORNY — RANDI MODE,New,3,Add separate adult area with bold style and language/mood controls,Entry/navigation works; no existing view is removed
+Dirty Talk & Gaali Generator,New,5,"Add Hindi/Hinglish/English, selectable profanity, copy and reroll",Outputs follow selected tone; copy/reroll work
+Super Horny Fantasy Wheel,New,5,Add distinct wheel with accurate result mapping,Result equals landing sector; reset and reroll work
+More Dirty / More Horny modes,New,3,Soft→Naughty→Dirty→Wild intensity and tone settings,Intensity changes output; boundaries and skip remain available
+Mood-Based Adult Stories,New/upgrade,6,Integrate mood/language/length and branching stories,Filters return matching content; no current stories lost
+Boyfriend & Couples Mode upgrade,Upgrade,4/6,"Add optional character archetypes, couple prompts, challenges, back/skip/stop",No action is imposed; accept/skip/stop works
+Personal Preference Settings,New/upgrade,3/6,Edit/reset local preference settings; default saving off or explicit opt-in,Preferences persist only after consent and clear successfully
+Visual Attraction & Arousal Mode,New,5/6,Use non-graphic fictional expressions/body-language/sensual visual themes,Only fictional consenting adults; user can skip or change mood
+Build Your Own Fantasy,New,4,"Branch from mood/type to character/toy preference then optional size, language and intensity",Choices flow to relevant fictional result; Back/Edit/Skip/Restart work
+Wild Challenge Deck,New,6,Add playful prompts and mutual opt-in with stop/skip controls,No coercion; skip and stop available at every stage
+Custom first-choice flow,Must-have from user,4,"Ask initial fantasy/mood; route to boyfriend archetypes or toy preferences; then optional size, language and intensity",Flow is fully navigable and all choices are fictional preferences

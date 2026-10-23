@@ -1,0 +1,5 @@
+asset_a,asset_b,match_basis,phase1_decision,next_action
+1000201199(1).webp,1000201277.webp,Same Git blob SHA and same size 93914 bytes,DO NOT DELETE,Map all HTML/JS/JSON references in Phase 2 before deduplication
+1000201200(1).webp,1000201281.webp,Same Git blob SHA and same size 92520 bytes,DO NOT DELETE,Map all HTML/JS/JSON references in Phase 2 before deduplication
+1000201201(1).webp,1000201280.webp,Same Git blob SHA and same size 90332 bytes,DO NOT DELETE,Map all HTML/JS/JSON references in Phase 2 before deduplication
+1000201203(1).webp,1000201279.webp,Same Git blob SHA and same size 92918 bytes,DO NOT DELETE,Map all HTML/JS/JSON references in Phase 2 before deduplication

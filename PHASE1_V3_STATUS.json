@@ -1,0 +1,67 @@
+{
+  "project": "BLACKED / Brand-website-v2",
+  "phase": 1,
+  "audit_date": "2026-10-23",
+  "branch": "main",
+  "head": "966707852219bda9dcbf312cdbd3065439981f09",
+  "status": "SOURCE_AUDIT_COMPLETE_LIVE_PERFORMANCE_BASELINE_PARTIAL",
+  "app_code_changed": false,
+  "images_changed": false,
+  "github_branch_changed": false,
+  "deployment_changed": false,
+  "source_checks": {
+    "main_views": 7,
+    "html_ids": 158,
+    "duplicate_html_ids": 0,
+    "index_local_refs": 32,
+    "missing_index_local_refs": 0,
+    "image_manifest_records": 151,
+    "unique_image_manifest_ids": 151,
+    "service_worker_core_paths": 74,
+    "service_worker_existing_paths": 70,
+    "service_worker_missing_paths": 4,
+    "exact_duplicate_image_pairs": 4
+  },
+  "performance_baseline": {
+    "tree_files": 457,
+    "tree_bytes_mb": 30.04,
+    "root_media_files": 104,
+    "root_media_mb": 27.92,
+    "large_png_total_mb": 12.2,
+    "linked_js_files": 12,
+    "linked_js_source_kb": 279.4,
+    "linked_css_files": 11,
+    "linked_css_source_kb": 92.0,
+    "existing_precache_mb": 4.69,
+    "image_precache_mb": 4.1
+  },
+  "tests": {
+    "static_source_inventory": "PASS",
+    "index_local_path_scan": "PASS",
+    "duplicate_html_id_scan": "PASS",
+    "image_manifest_json_parse": "PASS",
+    "service_worker_precache_path_scan": "FAIL: 4 incorrect assets/ SVG paths",
+    "live_pages_runtime": "NOT TESTED",
+    "external_image_http_status": "NOT TESTED",
+    "lighthouse_core_web_vitals": "NOT TESTED",
+    "physical_android_chrome": "NOT TESTED",
+    "wheel_runtime_regression": "NOT TESTED"
+  },
+  "new_files": [
+    "PHASE1_V3_BASELINE_AUDIT.md",
+    "PHASE1_V3_PERFORMANCE_BASELINE.csv",
+    "PHASE1_V3_FEATURE_PRESERVATION_MATRIX.csv",
+    "PHASE1_V3_ASSET_DUPLICATE_REVIEW.csv",
+    "PHASE1_V3_CHANGED_FILES.md",
+    "PHASE1_V3_PACKAGE_SCOPE.md",
+    "PHASE1_V3_HANDOFF.md",
+    "PHASE1_V3_STATUS.json",
+    "PHASE1_V3_SUMMARY_HINGLISH.md"
+  ],
+  "available_prior_review_package_checks": {
+    "note": "These checks run against the available rollback/reference archive based on commit 530b6d..., not the current main HEAD.",
+    "javascript_syntax": "PASS: 20 files checked",
+    "json_parse": "PASS: 32 files checked",
+    "zip_integrity": "PASS"
+  }
+}

@@ -1,0 +1,24 @@
+metric,value,unit,status,interpretation
+Repository tracked tree,457,files,MEASURED,Current main recursive tree count
+Repository content footprint,30.04,MB,MEASURED,Uncompressed sum of tracked file sizes; not page-load size
+Root image/media count,104,files,MEASURED,Image/media files at repository root
+Root image/media size,27.92,MB,MEASURED,Does not mean all images load on each visit
+Large PNG files,4,files,MEASURED,Each is approximately 2.82–3.24 MB
+Large PNG total,12.20,MB,MEASURED,Usage/load timing not established
+Index stylesheet links,11,files,MEASURED,Stylesheet render-blocking cost needs browser measurement
+Index script links,12,files,MEASURED,All script tags use defer; aggregate JS still needs profiling
+Linked JavaScript total,279.4,KB,MEASURED,Uncompressed source file sizes from current tree
+Linked CSS total,92.0,KB,MEASURED,Uncompressed source file sizes from current tree
+Image manifest,151,records,MEASURED,JSON parses and IDs are unique
+Index root-relative references,32,refs,MEASURED,All were present in current main tree
+Service-worker CORE paths,74,paths,MEASURED,Declared precache list length
+Service-worker CORE paths present,70,paths,MEASURED,Four do not exist at their declared paths
+Service-worker missing SVG entries,4,paths,CONFIRMED BUG,Cache paths incorrectly include assets/ prefix
+Existing CORE bytes,4.69,MB,MEASURED,Sum of currently present CORE items
+Media bytes in existing CORE,4.10,MB,MEASURED,First-install/update precache candidate; not a full network trace
+Exact duplicate media pairs,4,pairs,MEASURED,Byte-identical candidates; retain until references are mapped
+Live first-load time,,seconds,NOT TESTED,Requires deployed browser network trace
+Lighthouse performance score,,score,NOT TESTED,Requires browser/Lighthouse run
+LCP / INP / CLS,,metrics,NOT TESTED,Must not invent scores or timing values
+151 external image HTTP checks,,URLs,NOT TESTED,Needs real network checks
+Android Chrome regression,,checks,NOT TESTED,Requires device or reliable browser session
