@@ -26,7 +26,7 @@
       </div>
       <div class="p3-collections__grid">
         <article class="p3-collection-card p3-collection-card--active">
-          <div class="p3-collection-card__media"><img src="assets/campaign-sanskari-raat.webp" loading="lazy" decoding="async" alt="Sanskari Edit campaign artwork in navy and gold"></div>
+          <div class="p3-collection-card__media"><img src="./shaam-se-raat-tak.webp" loading="lazy" decoding="async" alt="Sanskari Edit campaign artwork in navy and gold"></div>
           <div class="p3-collection-card__body"><span class="p3-collection-status p3-collection-status--live">Available to explore</span><h3>Sanskari Collection</h3><p>Campaign looks, elegant styling references and a dedicated gallery already inside this website.</p><button class="btn primary p3-collection-card__action" type="button" data-phase3-open="sanskari">Explore Sanskari <span aria-hidden="true">↗</span></button></div>
         </article>
         <article class="p3-collection-card p3-collection-card--soon p3-collection-card--noor" aria-label="Muslim-Inspired Collection — Coming Soon">

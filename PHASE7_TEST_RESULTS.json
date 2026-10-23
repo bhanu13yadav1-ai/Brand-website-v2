@@ -1,0 +1,155 @@
+{
+  "suite": "BLACKED Consolidated Final Release · Phases 1–7",
+  "root": ".",
+  "total": 28,
+  "passed": 28,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "Main HTML parses",
+      "status": "PASS",
+      "detail": "158 IDs found"
+    },
+    {
+      "check": "No duplicate IDs in main HTML",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "All main HTML local src/href resources exist",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "All phase CSS files linked and present",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "All phase JS files linked and present",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "No duplicate script links",
+      "status": "PASS",
+      "detail": "{}"
+    },
+    {
+      "check": "All original app views are preserved",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "Original three wheels plus Dirty/Wild wheel are present",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "Wishlist, demo bag, comparison, Fit Studio, stories and age gate remain",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "All root JavaScript files pass node --check",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "Root JSON + manifest parse",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "151-entry image library preserved",
+      "status": "PASS",
+      "detail": "151"
+    },
+    {
+      "check": "Image library IDs unique",
+      "status": "PASS",
+      "detail": "151 records; 151 unique IDs"
+    },
+    {
+      "check": "Phase 4 story data has 4 stories / 3 tones",
+      "status": "PASS",
+      "detail": "{'stories': 4, 'tones': ['clean', 'desi', 'bold']}"
+    },
+    {
+      "check": "Wheel-to-story CTA hooks on actual result marker",
+      "status": "PASS",
+      "detail": "wheel finished result integration"
+    },
+    {
+      "check": "Phase 5 sales gate stays disabled",
+      "status": "PASS",
+      "detail": "no live checkout or invented inventory"
+    },
+    {
+      "check": "Phase 5 compare cap is three",
+      "status": "PASS",
+      "detail": "max three comparisons"
+    },
+    {
+      "check": "Phase 6 uses full Grace card selector",
+      "status": "PASS",
+      "detail": "filter hides/shows entire card"
+    },
+    {
+      "check": "Image rights are not claimed cleared",
+      "status": "PASS",
+      "detail": "unknown rights remain pending"
+    },
+    {
+      "check": "Four educational/right-clearance SVGs valid and accessible",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "Measurement unit switch converts entered values",
+      "status": "PASS",
+      "detail": "conversion handler found"
+    },
+    {
+      "check": "Service-worker cache version bumped",
+      "status": "PASS",
+      "detail": "blacked-v3-phases1-7-final-1"
+    },
+    {
+      "check": "New phase assets included in service-worker cache",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "Every service-worker CORE entry resolves to a file",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "Release registers and tracker have valid CSV structure",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "check": "Unverified product concepts are not sales-approved",
+      "status": "PASS",
+      "detail": "0 rows marked YES, 8 total"
+    },
+    {
+      "check": "Image rights register clearly pending/unknown",
+      "status": "PASS",
+      "detail": "no universal image clearance assumed"
+    },
+    {
+      "check": "New preferences are ephemeral; no personal-data upload path",
+      "status": "PASS",
+      "detail": "Phase 4 only GETs the same-origin story JSON; no preference persistence or upload APIs"
+    }
+  ],
+  "not_tested": [
+    "Live GitHub Pages deployment",
+    "Actual external raw-GitHub image HTTP status",
+    "Physical Android Chrome",
+    "Service-worker takeover on a real deployed origin"
+  ]
+}

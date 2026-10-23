@@ -881,7 +881,26 @@
     if (!$('#measurementForm')) return;
     $('#buildMeasurementSummary').addEventListener('click',renderMeasurementSummary);
     $('#measurementGarment').addEventListener('change',()=>{$('#measurementSummary').innerHTML='<p class="muted">Review measurements for the selected garment type.</p>';});
-    $('#measurementUnit').addEventListener('change',()=>{$('#measurementStatus').textContent='Keep existing entries in the units originally entered. Clear fields before changing the unit if you need a fresh set.';});
+    let previousMeasurementUnit = $('#measurementUnit').value;
+    $('#measurementUnit').addEventListener('change',()=>{
+      const nextUnit = $('#measurementUnit').value;
+      if (nextUnit === previousMeasurementUnit) return;
+      const factor = previousMeasurementUnit === 'cm' ? (1 / 2.54) : 2.54;
+      let converted = 0;
+      measurementFields.forEach(field => {
+        const input = $('#'+field.id); const raw = input.value.trim();
+        if (!raw) return;
+        const value = Number(raw);
+        if (!Number.isFinite(value)) return;
+        input.value = String(Math.round(value * factor * 10) / 10);
+        converted += 1;
+      });
+      previousMeasurementUnit = nextUnit;
+      $('#measurementSummary').innerHTML = '<p class="muted">Units changed and filled values were converted. Review measurements again.</p>';
+      $('#measurementStatus').textContent = converted
+        ? `Converted ${converted} filled measurement(s) to ${nextUnit === 'cm' ? 'centimetres' : 'inches'}. Review the summary before saving.`
+        : 'Units changed. No filled measurements needed converting.';
+    });
     $('#clearMeasurementSummary').addEventListener('click',()=>{measurementFields.forEach(f=>$('#'+f.id).value='');$('#measurementSummary').innerHTML='<p class="muted">Enter the relevant measurements and select “Review measurements”.</p>';$('#measurementStatus').textContent='Fields cleared.';});
     $('#saveMeasurements').addEventListener('click',()=>{
       if (!$('#saveMeasurementsOptIn').checked) { $('#measurementStatus').textContent='Saving is off. Tick “Save these measurements on this device only” to opt in.'; return; }
