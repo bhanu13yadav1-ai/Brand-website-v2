@@ -1,0 +1,41 @@
+Feature ID,Feature area,Planned phase,Phase 2 treatment,Status after this package
+01,Home hero and quick actions,2,Adds opt-in Continue Reading action without clutter,Code added; integration/live QA pending
+02,Main navigation/mobile section switching,1-2,Preserves existing nav; does not replace navigation owner,Preserved; Phase 1 runtime pending
+03,Story catalogue/search/filter/sort,2,Adds Clear Filters action; existing functionality retained,Code added; live QA pending
+04,Story reader/readability/chapter continuation,2,Uses existing reader for resume; no reader replacement,Preserved + resume integration pending
+05,Branching universe/character choices/tone,2-3,Preserved for Phase 3/4 scope,Not changed in Phase 2
+06,Bookmarks/progress/history/Story Vault,2,Reads existing opt-in vault only for continue-card,Preserved; local data keys unchanged
+07,More Dirty teaser/poll/roadmap,2-3,Preserves current labeled roadmap and poll,Preserved; adult expansion Phase 3
+08,Innerwear catalogue/product discovery,2,Adds Reset Styles,Code added; live QA pending
+09,Full image library/search/filter/archive,2,Adds Reset Archive Filters,Code added; live QA pending
+10,Spin-frame viewer/swipe/zoom,2,Preserves existing eight-frame viewer and touch behavior,Preserved; device test pending
+11,Product detail/evidence/status,2/4,Preserves reference-only product truth messaging,Preserved
+12,Wishlist/favorites,2,Existing local persistence left untouched,Preserved; regression test pending
+13,Compare references,2,Adds up-to-three local persistence in new key,Code added; live QA pending
+14,Sample bag/demo checkout,2,Existing demo-only controls left untouched,Preserved; regression test pending
+15,Campaign galleries/Home/Sanskari,2,Preserves current gallery modules,Preserved
+16,Noor/Grace/Coming Soon collections,2,Preserves collection module and filters,Preserved
+17,18+ gate/mature-content separation,1/3/5,Continue button does not auto-confirm gate,Preserved; live gate test pending
+18,Wellness/anatomy/health education,4,Out of Phase 2 scope; preserve current guides,Preserved for Phase 4
+19,Measurement worksheet/unit converter,4,Out of Phase 2 scope; no key changes,Preserved for Phase 4
+20,Fit cues/sizing/product-dimension education,4,Out of Phase 2 scope,Preserved for Phase 4
+21,Dildo wheel and safety education,3-4,Keep original wheel control/view,Preserved for Phase 3/4
+22,Butt-plug wheel and safer-use information,3-4,Keep original wheel control/view,Preserved for Phase 3/4
+23,Boyfriend/land preference wheel,3,Keep original wheel control/view,Preserved for Phase 3
+24,Wild Wheel/original wheel locations/Wheels Hub,3/5,Keep existing control; hub integration stays later scope,Preserved; expanded hub not live-confirmed
+25,Couples date planner,3,No conflicting duplicate planner added,Preserved for Phase 3 expansion
+26,Flirty message generator/copy action,3,Existing action left untouched,Preserved for Phase 3 expansion
+27,Bold/Super Horny mode/mood controls,3,Preserve existing combined Phase 3/4 bundle,Preserved; live runtime needs diagnostic
+28,Custom fantasy builder,3,Preserve current Phase 4 bundle,Preserved; live runtime needs diagnostic
+29,Phase 9 After Dark Studio,3/5,Must not double-load; audited as unwired until proven otherwise,Live status unconfirmed
+30,Phase 10 Wellness/Fluid Education,4/5,Preserve source file; separate integration phase,Live status unconfirmed
+31,Phase 11 Fit Studio,4/5,Preserve source file; separate integration phase,Live status unconfirmed
+32,Phase 12 Wheels Hub,3/5,Preserve source file; separate integration phase,Live status unconfirmed
+33,Phase 13 Couples Studio,3/5,Preserve source file; separate integration phase,Live status unconfirmed
+34,Phase 14 privacy/export/accessibility,1/5,Phase 1 foundation integration plus later hardening,Phase 1 hook pending; advanced integration unconfirmed
+35,Phase 15 What's New/release highlights,5,Keep future integration tracked,Live status unconfirmed
+36,Fit Passport/notes/local photo preview,4,Preserve existing local-only feature and caveats,Preserved for Phase 4
+37,Image retry/failure/source/rights tracking,1/5,Phase 1 diagnostics report failures; does not bundle media,Activation pending; network retest required
+38,Product Truth/seller readiness,4,Preserve evidence/off gate,Preserved for Phase 4
+39,PWA install/offline/cache freshness,1/5,Adds patch for new cache version + core assets,Patch provided; activation pending
+40,Diagnostics/feature status/bug report/release checklist,1/5,Adds Phase 2 live diagnostic plus QA checklist,Code added; live run pending

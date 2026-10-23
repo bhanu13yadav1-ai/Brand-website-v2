@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#100c10"><title>BLACKED V4 · Phase 2 Core Diagnostics</title>
+<style>
+:root{color-scheme:dark;font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;background:#100c10;color:#fff5fa;--line:#4a3446;--muted:#d1c0cc;--gold:#e7c17e;--green:#a5e8b7;--red:#ffb4b4;--amber:#f1d18c}*{box-sizing:border-box}body{margin:0}main{width:min(100%,1040px);margin:auto;padding:18px}h1{font-size:clamp(27px,5vw,42px);line-height:1.1;margin:.1em 0 .35em}p{color:var(--muted)}.eyebrow{font-size:10px;letter-spacing:.16em;color:var(--gold);font-weight:800;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}button{min-height:44px;border-radius:11px;padding:10px 14px;border:1px solid #81634c;background:#e7c17e;color:#171016;font-weight:800;cursor:pointer}button:focus-visible{outline:3px solid #f4a0c1;outline-offset:3px}button.secondary{background:#211820;border-color:var(--line);color:#fff5fa}.summary{border:1px solid var(--line);background:#1b151b;border-radius:15px;padding:14px;margin:12px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.test{min-width:0;background:#1b151b;border:1px solid var(--line);border-radius:13px;padding:13px;overflow-wrap:anywhere}.test strong{display:block}.status{display:inline-block;margin-top:5px;font-size:12px;font-weight:850}.PASS{color:var(--green)}.FAIL{color:var(--red)}.WARN{color:var(--amber)}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0c090c;border:1px solid var(--line);border-radius:12px;padding:13px;font-size:12px}iframe{display:block;width:100%;height:680px;border:1px solid var(--line);border-radius:14px;background:#100c10;margin-top:16px}details{margin-top:14px}summary{cursor:pointer;padding:10px 0;font-weight:700}.small{font-size:12px}@media(max-width:580px){main{padding:13px}.grid{grid-template-columns:1fr}iframe{height:620px}}
+</style></head>
+<body><main>
+<p class="eyebrow">BLACKED V4 · Phase 1 re-check + Phase 2 core QA</p>
+<h1>Core experience live diagnostics</h1>
+<p>After uploading the delta files, apply the integration instructions to the existing index.html, sw.js and manifest.webmanifest. This test reloads the same-origin site in a frame, checks module activation and core views, and does not clear or write user data itself.</p>
+<div class="actions"><button id="p2Run" type="button">Run live checks</button><button class="secondary" id="p2Reload" type="button">Reload site frame</button><button class="secondary" id="p2Download" type="button">Download JSON report</button></div>
+<div class="summary" id="p2Summary" role="status" aria-live="polite">Waiting for the site frame…</div><div id="p2Results" class="grid"></div>
+<details><summary>Full diagnostic data</summary><pre id="p2Raw">No report yet.</pre></details>
+<h2>Site under test</h2><iframe id="p2Frame" title="BLACKED website under test" src="./index.html?phase2qa=initial" loading="eager"></iframe>
+<p class="small">A passing GitHub Pages build only proves deployment. Confirm all PASS/WARN rows and then test touch interactions in Android Chrome. The diagnostic does not independently confirm external image rights, real product availability, or legal age.</p>
+</main>
+<script>
+(() => {
+  'use strict';
+  const $ = selector => document.querySelector(selector);
+  const frame = $('#p2Frame');
+  let lastReport = null;
+  const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+  function addResult(label,status,detail=''){
+    const card=document.createElement('div');card.className='test';
+    const title=document.createElement('strong');title.textContent=label;
+    const state=document.createElement('span');state.className=`status ${status}`;state.textContent=status;
+    const desc=document.createElement('div');desc.textContent=detail;card.append(title,state,desc);$('#p2Results').append(card);
+  }
+  async function run(){
+    $('#p2Run').disabled=true;$('#p2Run').textContent='Running…';$('#p2Results').replaceChildren();$('#p2Summary').textContent='Reloading the current deployed site…';
+    try{
+      await new Promise((resolve,reject)=>{let done=false;const finish=(fn,value)=>{if(done)return;done=true;clearTimeout(timer);frame.removeEventListener('load',onload);frame.removeEventListener('error',onerror);fn(value);};const onload=()=>finish(resolve);const onerror=()=>finish(reject,new Error('The site iframe failed to load'));const timer=setTimeout(()=>finish(reject,new Error('Site iframe timed out after 25 seconds')),25000);frame.addEventListener('load',onload,{once:true});frame.addEventListener('error',onerror,{once:true});frame.src=`./index.html?phase2qa=${Date.now()}`;});
+      const win=frame.contentWindow,doc=frame.contentDocument;
+      if(!win||!doc?.querySelector('#view-home'))throw new Error('The deployed home view could not be inspected.');
+      await wait(1500);
+      const d=win.BLACKED_V4_PHASE2?.getDiagnostics?.()||null;
+      const p1=win.BLACKED_V4_PHASE1?.getDiagnostics?.()||null;
+      const checks=[
+        ['Main app API',!!win.BLACKED_V1,'Main runtime presence'],
+        ['Phase 1 foundation',!!p1,p1?`Version ${p1.version}`:'Missing: add phase1-foundation.js to the existing index.html'],
+        ['Phase 2 core module',!!d,d?`Version ${d.version}`:'Missing: add phase2-core-experience.js to the existing index.html'],
+        ['Seven original views',doc.querySelectorAll('.view[data-view]').length===7,`${doc.querySelectorAll('.view[data-view]').length} detected`],
+        ['Stories/search/reader/vault',!!doc.querySelector('#storySearch')&&!!doc.querySelector('#storyModalBody')&&!!doc.querySelector('#storyVaultOptIn'), 'Existing story controls preserved'],
+        ['Innerwear catalogue/viewer/archive',!!doc.querySelector('#catalogGrid')&&!!doc.querySelector('#spinFrameImage')&&!!doc.querySelector('#imageLibraryGrid'),'Catalogue, eight-frame viewer and image library present'],
+        ['Wishlist and sample bag',!!doc.querySelector('#wishlistItems')&&!!doc.querySelector('#bagItems')&&!!doc.querySelector('#demoCheckout'),'Reference/demo-only commerce controls present'],
+        ['Three reset controls',!!doc.querySelector('#p2ClearStoryFilters')&&!!doc.querySelector('#p2ClearCatalogFilters')&&!!doc.querySelector('#p2ClearImageLibraryFilters'),'Story, catalogue and image-archive filters can be reset'],
+        ['18+ gate still present',!!doc.querySelector('#ageModal')&&!!doc.querySelector('#confirmAge'),'Presence checked; this test does not bypass the gate'],
+        ['Original wheel controls', ['dildoPreference','plugPreference','boyPreference','wildCategory'].every(id=>!!doc.getElementById(id)),'Four original wheel control groups present'],
+        ['No duplicate IDs',!(d?.duplicateIds?.length),d?`Duplicates: ${d.duplicateIds.join(', ')||'none'}`:'Phase 2 diagnostics API unavailable','WARN'],
+        ['Compare save list',!!d&&typeof d.compareSavedCount==='number',d?`${d.compareSavedCount} saved IDs in this browser (may be zero)`:'Module unavailable'],
+        ['Viewport overflow',d?!d.horizontalOverflow:true,d?.horizontalOverflow?'Document is wider than the viewport':'No document-level overflow found','WARN'],
+        ['Image loading',d?d.imageFailures===0:true,d?`${d.imageFailures} currently broken images in the page frame`:'Module unavailable','WARN'],
+        ['Service worker controller',!!win.navigator.serviceWorker?.controller,win.navigator.serviceWorker?.controller?'Page is controlled':'May require a repeat visit after worker activation','WARN']
+      ];
+      const results=checks.map(([label,ok,detail,fallbackStatus])=>({label,status:ok?'PASS':(fallbackStatus||'FAIL'),detail}));
+      results.forEach(x=>addResult(x.label,x.status,x.detail));
+      const failures=results.filter(x=>x.status==='FAIL').length,warnings=results.filter(x=>x.status==='WARN').length;
+      lastReport={version:'V4 Phase 2 Live QA',ranAt:new Date().toISOString(),page:location.href,iframe:frame.src,summary:{passed:results.filter(x=>x.status==='PASS').length,failed:failures,warnings},checks:results,phase1:p1,phase2:d};
+      $('#p2Summary').textContent=`Live checks complete: ${lastReport.summary.passed} PASS · ${failures} FAIL · ${warnings} WARN. Review every FAIL and WARN before marking Phase 2 complete.`;
+      $('#p2Raw').textContent=JSON.stringify(lastReport,null,2);
+    }catch(error){
+      lastReport={version:'V4 Phase 2 Live QA',ranAt:new Date().toISOString(),page:location.href,error:String(error?.message||error),note:'No live pass is claimed because the website frame could not be inspected.'};
+      addResult('Site runtime','FAIL',lastReport.error);$('#p2Summary').textContent='Live test could not inspect the deployed site. Do not treat this as a pass.';$('#p2Raw').textContent=JSON.stringify(lastReport,null,2);
+    }finally{$('#p2Run').disabled=false;$('#p2Run').textContent='Run live checks again';}
+  }
+  $('#p2Run').addEventListener('click',run);
+  $('#p2Reload').addEventListener('click',()=>{frame.src=`./index.html?phase2qa=${Date.now()}`;$('#p2Summary').textContent='Site frame reloading…';});
+  $('#p2Download').addEventListener('click',()=>{if(!lastReport){$('#p2Summary').textContent='Run checks before downloading a report.';return;}const url=URL.createObjectURL(new Blob([JSON.stringify(lastReport,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='BLACKED_V4_PHASE2_LIVE_QA.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+})();
+</script></body></html>
