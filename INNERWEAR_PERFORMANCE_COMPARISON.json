@@ -1,0 +1,70 @@
+{
+  "baseline": {
+    "before": {
+      "views": 7,
+      "wheels": 4,
+      "hiddenSrc": 64,
+      "allImg": 78,
+      "archiveCards": 0
+    },
+    "sync_click_ms_5_runs": [
+      272.8,
+      129.4,
+      119.2,
+      93.7,
+      89.7
+    ],
+    "last_activation_sync_ms": 86.4,
+    "during_click_state": {
+      "sync": 86.40000000037253,
+      "active": "innerwear",
+      "archiveCards": 24,
+      "hiddenSrc": 56
+    },
+    "after_1_2s": {
+      "active": "innerwear",
+      "archiveCards": 24,
+      "archiveBatch": null,
+      "archiveCount": 151,
+      "productCards": 8,
+      "catalogBeforeArchive": false,
+      "hiddenSrc": 56,
+      "errors": []
+    },
+    "page_errors": []
+  },
+  "patched": {
+    "before": {
+      "views": 7,
+      "wheels": 4,
+      "hiddenSrc": 0,
+      "allImg": 78,
+      "archiveCards": 0
+    },
+    "sync_click_ms_5_runs": [
+      123.2,
+      64.6,
+      73.1,
+      79.3,
+      91.2
+    ],
+    "last_activation_sync_ms": 101.3,
+    "during_click_state": {
+      "sync": 101.29999999888241,
+      "active": "innerwear",
+      "archiveCards": 0,
+      "hiddenSrc": 0
+    },
+    "after_1_2s": {
+      "active": "innerwear",
+      "archiveCards": 8,
+      "archiveBatch": 8,
+      "archiveCount": 151,
+      "productCards": 8,
+      "catalogBeforeArchive": true,
+      "hiddenSrc": 0,
+      "errors": []
+    },
+    "page_errors": []
+  }
+}

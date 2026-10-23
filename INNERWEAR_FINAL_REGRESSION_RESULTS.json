@@ -1,0 +1,60 @@
+{
+  "environment": "Controlled in-memory Chromium; mobile viewport 390x844; source scripts injected; external remote image requests intentionally aborted; manifest response fixture contains repository JSON with 151 records.",
+  "before_tap": {
+    "appReady": true,
+    "active": "home",
+    "views": 7,
+    "wheels": 4,
+    "hiddenSrc": 0,
+    "hiddenDeferred": 68,
+    "initialArchive": 0
+  },
+  "tap_dispatch_ms_five_samples": [
+    153.9,
+    64.4,
+    69.2,
+    95.8,
+    62.3
+  ],
+  "tap_dispatch_median_ms": 69.2,
+  "first_innerwear_view": {
+    "active": "innerwear",
+    "viewVisible": true,
+    "products": 8,
+    "archiveCards": 8,
+    "manifest": 151,
+    "batch": 8,
+    "catalogBeforeArchive": true,
+    "hiddenSrc": 0,
+    "errors": []
+  },
+  "archive_load_more_clicks": 18,
+  "archive_all_batches": {
+    "cards": 151,
+    "loadMoreHidden": true,
+    "manifest": 151,
+    "views": 7,
+    "wheels": 4,
+    "errors": []
+  },
+  "navigate_away_and_back": {
+    "active": "innerwear",
+    "archiveCards": 8,
+    "products": 8
+  },
+  "page_errors": [],
+  "console_errors": [
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED"
+  ]
+}

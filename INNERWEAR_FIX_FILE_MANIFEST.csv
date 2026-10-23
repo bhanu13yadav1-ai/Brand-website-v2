@@ -1,0 +1,11 @@
+File,Action,Reason
+app.js,Replace,Dynamic hidden-image deferral; idle-scheduled archive; batch 8; catalogue ordering; diagnostics fields
+sw.js,Replace,New cache version to avoid stale app.js serving after deployment
+innerwear-fix-diagnostics.html,Add,Same-origin live regression test UI
+innerwear-fix-diagnostics.js,Add,Real-browser navigation, archive and view/wheel checks
+index.html,UNCHANGED,Preserve existing view markup and navigation
+innerwear-image-library.json,UNCHANGED,Preserve all 151 image records
+styles.css,UNCHANGED,No full redesign or framework migration
+phase3-4-experience.js,UNCHANGED,Existing Phase 3/4 module preserved
+phase5-studio.js,UNCHANGED,Existing Phase 5 module preserved
+phase6/phase7 modules,UNCHANGED,Existing future-phase sources preserved

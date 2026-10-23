@@ -1,0 +1,22 @@
+[
+  {
+    "file": "app.js",
+    "bytes": 116452,
+    "sha256": "ce5ce0fb0c45069b5a2d0c07e9a03c356d8233a27b59f37c479706051eec1957"
+  },
+  {
+    "file": "sw.js",
+    "bytes": 4078,
+    "sha256": "a744f1759dc53044deb09aac2a0fa60bb7244fc7f6431554ff3d7f22e4bcdb42"
+  },
+  {
+    "file": "innerwear-fix-diagnostics.html",
+    "bytes": 3574,
+    "sha256": "3ae2d4a71c7d3ffea106240ac0a756876df2186441018fc79731fad4c063e52e"
+  },
+  {
+    "file": "innerwear-fix-diagnostics.js",
+    "bytes": 8870,
+    "sha256": "0922c1802e7a1efa1b628fad6c4fc007ede5c47019bdf42075baf85e06050f69"
+  }
+]

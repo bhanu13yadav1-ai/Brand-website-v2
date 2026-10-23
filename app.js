@@ -92,42 +92,106 @@
       ['./assets/phase6-comfort-check.svg', './phase6-comfort-check.svg'],
       ['./assets/phase6-image-rights-workflow.svg', './phase6-image-rights-workflow.svg']
     ]);
-    $$('img[src]').forEach(img => {
-      const current = img.getAttribute('src');
+    // The mobile performance observer may already have moved a hidden image URL into
+    // data-deferred-src before DOMContentLoaded. Repair either location so the corrected
+    // path survives lazy deferral and still loads when that screen is opened.
+    $$('img').forEach(img => {
+      const current = img.getAttribute('src') || img.dataset.deferredSrc || '';
       const corrected = repairs.get(current);
-      if (corrected) img.setAttribute('src', corrected);
+      if (!corrected) return;
+      if (img.dataset.deferredSrc) img.dataset.deferredSrc = corrected;
+      else img.setAttribute('src', corrected);
     });
   }
   repairKnownAssetPaths();
   document.addEventListener('DOMContentLoaded', () => window.setTimeout(repairKnownAssetPaths, 0), { once: true });
 
-  // Phase 3 performance: do not fetch media for inactive screens until the visitor opens them.
-  function deferInactiveViewImages() {
-    $$('.view:not(.active) img[src]').forEach(img => {
-      const src = img.getAttribute('src');
-      if (!src || img.dataset.deferredSrc) return;
-      img.dataset.deferredSrc = src;
-      img.removeAttribute('src');
-      img.loading = 'lazy';
-      img.decoding = 'async';
-    });
-    $$('img:not([fetchpriority="high"])').forEach(img => {
+  // Performance fix: dynamically added images in inactive views must also stay unloaded.
+  // Original behaviour only covered the static index.html. Phase modules append more than
+  // 30 gallery images after app.js runs, so they used to remain network-eligible on Home.
+  const imageDeferralState = { deferred: 0, observerActive: false };
+  function prepareImageForCurrentView(img) {
+    if (!(img instanceof HTMLImageElement)) return;
+    if (!img.hasAttribute('fetchpriority') || img.getAttribute('fetchpriority') !== 'high') {
       if (!img.hasAttribute('loading')) img.loading = 'lazy';
       if (!img.hasAttribute('decoding')) img.decoding = 'async';
-    });
+    }
+    const ownerView = img.closest('.view[data-view]');
+    if (!ownerView || ownerView.classList.contains('active')) return;
+    if (img.dataset.deferredSrc) {
+      if (img.hasAttribute('src')) img.removeAttribute('src');
+      return;
+    }
+    const src = img.getAttribute('src');
+    if (!src) return;
+    img.dataset.deferredSrc = src;
+    img.removeAttribute('src');
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    imageDeferralState.deferred++;
   }
+  function deferInactiveViewImages(root = document) {
+    const images = root instanceof HTMLImageElement ? [root] : [...(root.querySelectorAll?.('img') || [])];
+    images.forEach(prepareImageForCurrentView);
+  }
+  function loadDeferredImage(img) {
+    const src = img?.dataset?.deferredSrc;
+    if (!src) return;
+    img.setAttribute('src', src);
+    delete img.dataset.deferredSrc;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    deferredImageObserver?.unobserve(img);
+  }
+  const deferredImageObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      const img = entry.target;
+      const ownerView = img.closest('.view[data-view]');
+      // Don't restart network work for a screen that became inactive before the observer fired.
+      if (ownerView && !ownerView.classList.contains('active')) continue;
+      loadDeferredImage(img);
+    }
+  }, {rootMargin:'320px 0px',threshold:0.01}) : null;
   function restoreDeferredViewImages(viewEl) {
     if (!viewEl) return;
     $$('img[data-deferred-src]', viewEl).forEach(img => {
-      const src = img.dataset.deferredSrc;
-      if (!src) return;
-      img.setAttribute('src', src);
-      delete img.dataset.deferredSrc;
       img.loading = 'lazy';
       img.decoding = 'async';
+      if (deferredImageObserver) deferredImageObserver.observe(img);
+      else loadDeferredImage(img);
     });
   }
   deferInactiveViewImages();
+  // Observe only image insertions/src changes: do not watch all attributes or create a feedback loop.
+  const inactiveViewImageObserver = new MutationObserver(records => {
+    for (const record of records) {
+      if (record.type === 'attributes') {
+        prepareImageForCurrentView(record.target);
+      } else {
+        record.addedNodes.forEach(node => { if (node instanceof Element) deferInactiveViewImages(node); });
+      }
+    }
+  });
+  inactiveViewImageObserver.observe(document.documentElement, {
+    childList: true, subtree: true, attributes: true, attributeFilter: ['src']
+  });
+  imageDeferralState.observerActive = true;
+
+  // Put the eight immediately usable product references before the large 151-record archive.
+  // This makes Innerwear useful before optional archive metadata/remote images finish loading.
+  function prioritizeInnerwearCatalog() {
+    const catalog = $('#catalogGrid');
+    const compare = $('#comparePanel');
+    const archive = $('#imageLibraryGrid')?.closest('.image-library-section');
+    if (!catalog || !archive || !archive.parentElement) return false;
+    if (archive.compareDocumentPosition(catalog) & Node.DOCUMENT_POSITION_FOLLOWING) {
+      archive.insertAdjacentElement('beforebegin', catalog);
+      if (compare) archive.insertAdjacentElement('beforebegin', compare);
+    }
+    return true;
+  }
+  prioritizeInnerwearCatalog();
 
   function setView(name) {
     if (!['home','stories','innerwear','sanskari','wellness','boyfriend','fit'].includes(name)) return;
@@ -138,11 +202,19 @@
     $$('.view').forEach(v => { const active = v.dataset.view === name; v.hidden = !active; v.classList.toggle('active', active); });
     const activeView = $('#view-' + name);
     restoreDeferredViewImages(activeView);
+    deferInactiveViewImages();
     $$('[data-view-link]').forEach(b => b.classList.toggle('active', b.dataset.viewLink === name));
     $$('.main-nav [data-view-link]').forEach(b => { if (b.dataset.viewLink === name) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     $('#mobileMenu').classList.add('hidden'); $('#menuToggle').setAttribute('aria-expanded','false');
     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
-    if (name === 'innerwear') { renderCatalog(); initImageLibrary(); showSpinFrame(0); }
+    if (name === 'innerwear') {
+      // Paint the catalogue first. The image archive is optional, large and loaded after the
+      // navigation frame has painted, so the tap does not synchronously compete with its DOM work.
+      renderCatalog();
+      renderImageLibrary(false);
+      showSpinFrame(0);
+      scheduleImageLibraryInit();
+    }
     if (name === 'sanskari') renderCampaigns();
     if (name === 'home') renderHomeCampaigns();
     if (name === 'stories') renderStories();
@@ -785,7 +857,7 @@
   // Phase 6: image records load from the separate same-origin JSON manifest.
   // This avoids duplicating ~60 KB of metadata in app.js and limits initial DOM work.
   const imageLibrary = [];
-  const imageLibraryState = { ready:false, loading:false, error:'', invalidRecords:0, visibleLimit:24, batchSize:24, matching:[], controlsBound:false };
+  const imageLibraryState = { ready:false, loading:false, scheduled:false, error:'', invalidRecords:0, visibleLimit:8, batchSize:8, matching:[], controlsBound:false };
   const allowedImageRepos = new Set(['Brand-website-4f','Brand-website-3','Brand-website-full-finally-']);
   function isAllowedImageRecord(item) {
     if (!item || typeof item !== 'object') return false;
@@ -802,6 +874,26 @@
   function imageCardHTML(item) {
     return `<article class="image-library-card" data-library-id="${esc(item.id)}" style="content-visibility:auto;contain-intrinsic-size:360px"><a class="image-library-media" href="${esc(item.src)}" target="_blank" rel="noopener noreferrer" title="Open original source: ${esc(item.filename)}"><img src="${esc(item.src)}" data-original-src="${esc(item.src)}" alt="${esc(item.title)} · ${esc(item.category)} · image reference" loading="lazy" decoding="async" fetchpriority="low" width="600" height="720" data-library-image><span class="image-open-label">Open original ↗</span></a><div class="image-library-copy"><span class="kicker">${esc(item.category)}</span><h3>${esc(item.title)}</h3><p>${esc(item.filename)}</p><small>Source: ${esc(item.source_repo)}</small><p class="image-source-status" hidden role="status">Original file did not load. The record remains in the collection.</p><div class="image-library-actions"><a class="small-btn" href="${esc(item.src)}" target="_blank" rel="noopener noreferrer">Open source</a><button class="small-btn" type="button" data-image-retry="${esc(item.id)}">Retry image</button></div><p class="image-library-note">${esc(item.notes)}</p></div></article>`;
   }
+  function scheduleImageLibraryInit() {
+    if (imageLibraryState.ready || imageLibraryState.loading || imageLibraryState.scheduled) return;
+    imageLibraryState.scheduled = true;
+    const startWhenIdle = () => {
+      if (document.querySelector('#view-innerwear')?.classList.contains('active') !== true) {
+        imageLibraryState.scheduled = false;
+        return;
+      }
+      const start = () => {
+        imageLibraryState.scheduled = false;
+        if (document.querySelector('#view-innerwear')?.classList.contains('active')) initImageLibrary();
+      };
+      if ('requestIdleCallback' in window) window.requestIdleCallback(start, { timeout: 900 });
+      else window.setTimeout(start, 160);
+    };
+    // Ensure one paint between the navigation tap and the JSON / gallery rendering work.
+    if ('requestAnimationFrame' in window) requestAnimationFrame(() => window.setTimeout(startWhenIdle, 0));
+    else window.setTimeout(startWhenIdle, 80);
+  }
+
   function renderImageLibrary(append = false) {
     const host = $('#imageLibraryGrid'); if (!host) return;
     if (!imageLibraryState.ready) {
@@ -1014,6 +1106,11 @@
       campaignCount:campaigns.length,
       imageLibraryReady:imageLibraryState.ready,
       imageLibraryLoading:imageLibraryState.loading,
+      imageLibraryBatchSize:imageLibraryState.batchSize,
+      imageLibraryInitScheduled:imageLibraryState.scheduled,
+      inactiveViewImagesDeferred:imageDeferralState.deferred,
+      inactiveViewImageObserver:imageDeferralState.observerActive,
+      innerwearCatalogBeforeArchive:!!($('#catalogGrid') && $('#imageLibraryGrid') && ($('#catalogGrid').compareDocumentPosition($('#imageLibraryGrid')) & Node.DOCUMENT_POSITION_FOLLOWING)),
       imageLibraryCount:imageLibrary.length,
       imageLibraryMatching:imageLibraryState.matching.length,
       imageLibraryRendered:$('#imageLibraryGrid')?.querySelectorAll('.image-library-card').length || 0,

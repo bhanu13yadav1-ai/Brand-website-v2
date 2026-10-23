@@ -1,0 +1,15 @@
+Test,Result,Evidence,Limit
+app.js syntax,PASS,node --check app.js,Static syntax only
+sw.js syntax,PASS,node --check sw.js,Static syntax only
+diagnostic JS syntax,PASS,node --check innerwear-fix-diagnostics.js,Static syntax only
+Current 7 views,PASS,Controlled Chromium DOM check,Not public Pages
+Current 4 wheels,PASS,Controlled Chromium DOM check,Not public Pages
+Inactive image src,PASS,64 baseline to 0 patched,Controlled DOM; external requests blocked
+Innerwear navigation,PASS,Innerwear activated in controlled Chromium,Not physical Android
+Product cards,PASS,8 rendered before archive,Controlled DOM
+Archive initial batch,PASS,24 baseline to 8 patched,Controlled DOM
+All archive entries,PASS,151 shown after 18 Load next 8 actions,Controlled DOM
+Repeated Home to Innerwear navigation,PASS,Worked after archive initialization,Controlled DOM
+Page JavaScript exceptions,PASS,0 uncaught exceptions,Remote images were deliberately aborted
+Public GitHub Pages test,NOT TESTED,Network/browser access unavailable,Must be run after upload on real origin
+Android physical-device performance,NOT TESTED,Physical phone not available to harness,Must be run after upload
