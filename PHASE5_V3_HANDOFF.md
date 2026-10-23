@@ -1,0 +1,2 @@
+# Phase 5 handoff
+Phase 5 features now load only after entering Boyfriend & Couples, minimizing impact on first-load/Home. Phase 3 + Phase 4 are left as their existing combined bundle. Next phase should develop Phase 6 Stories, Couples preferences and Challenge Deck while preserving all existing screens, original wheels, image library, wishlist, demo bag, wellness and Fit Studio. Continue to avoid bulk deletion.

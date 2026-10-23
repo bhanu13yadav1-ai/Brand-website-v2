@@ -398,3 +398,57 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
 
+/* Phase 5 loader: no Phase 5 UI, CSS or additional request until the visitor opens the studio. */
+(() => {
+  'use strict';
+  if (window.BLACKED_PHASE5_LOADER) return;
+  const $ = (s, root=document) => root.querySelector(s);
+  let requested = false;
+  function loadStudio() {
+    const view = $('#view-boyfriend');
+    if (!view || view.hidden || !view.classList.contains('active')) return;
+    if (window.BLACKED_V5_STUDIO || document.querySelector('script[data-phase5-studio]')) return;
+    requested = true;
+    const script = document.createElement('script');
+    script.src = './phase5-studio.js';
+    script.async = true;
+    script.dataset.phase5Studio = 'true';
+    script.addEventListener('load', () => { script.dataset.loadOK = 'true'; });
+    script.addEventListener('error', () => { script.dataset.loadError = 'true'; document.documentElement.dataset.blackedPhase5 = 'load-error'; });
+    document.head.appendChild(script);
+  }
+  function attachLaunch() {
+    const mode = $('#v3-randi-mode');
+    if (!mode || $('#p5StudioLaunch')) return;
+    const button = document.createElement('button');
+    button.type = 'button'; button.id = 'p5StudioLaunch';
+    button.className = 'btn secondary';
+    button.style.cssText = 'margin-top:10px;width:100%;min-height:44px';
+    button.textContent = 'Open Fantasy + Dirty Talk Studio →';
+    button.setAttribute('aria-label', 'Open Phase 5 Fantasy Wheel, Desi Dirty Talk and Visual Attraction');
+    const anchor = $('.v3-randi-mode__disclaimer', mode) || mode.lastElementChild;
+    anchor?.insertAdjacentElement('afterend', button);
+  }
+  function handleClick(event) {
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target) return;
+    if (target.closest('#p5StudioLaunch')) {
+      $('#mainNav [data-view-link="boyfriend"]')?.click();
+      window.setTimeout(() => { loadStudio(); $('#p5FantasyStudio')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); }, 320);
+      return;
+    }
+    if (target.closest('[data-view-link="boyfriend"]')) window.setTimeout(loadStudio, 90);
+  }
+  function boot() {
+    attachLaunch();
+    document.addEventListener('click', handleClick);
+    const view = $('#view-boyfriend');
+    if (view) {
+      const observer = new MutationObserver(loadStudio);
+      observer.observe(view, {attributes:true,attributeFilter:['hidden','class']});
+      if (!view.hidden && view.classList.contains('active')) loadStudio();
+    }
+    window.BLACKED_PHASE5_LOADER = { version:'5.0.0', loadStudio, getDiagnostics:() => ({registered:true,requested,loaded:!!window.BLACKED_V5_STUDIO,bundleTag:!!document.querySelector('script[data-phase5-studio]'),loadError:document.querySelector('script[data-phase5-studio]')?.dataset.loadError==='true'}) };
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',boot,{once:true}); else boot();
+})();

@@ -1,0 +1,19 @@
+Feature,Status,Notes
+Home,Preserved,Phase 5 panel itself is not initialized on Home
+Stories 18+,Preserved,Original view and age gate untouched
+Innerwear catalogue and archive,Preserved,No data changed
+Sanskari Edit,Preserved,Original screen untouched
+Wellness 18+,Preserved,No wellness tools removed
+Boyfriend & Couples,Preserved,Phase5 panel added on demand within existing view
+Fit Studio,Preserved,Original view untouched
+Original four wheels,Preserved,No original wheel markup removed
+Wishlist,Preserved,Existing storage keys unchanged
+Demo bag and compare,Preserved,Existing state untouched
+Saved stories,Preserved,Existing save opt-in untouched
+Phase 3 Randi Mode,Preserved,Same combined Phase 3+4 bundle retained
+Phase 4 Fantasy Builder,Preserved,Same combined bundle retained
+Phase5 Fantasy Wheel,Added,8 optional fictional prompts
+Phase5 Desi Dirty Talk,Added,3 languages, mild slang toggle OFF by default
+Phase5 Visual Attraction,Added,Non-graphic fully clothed editorial scene prompt
+Local privacy,Added,Preferences local only; prompts not networked
+Existing file cleanup,Deferred,No old files deleted

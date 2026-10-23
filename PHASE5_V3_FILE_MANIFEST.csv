@@ -1,0 +1,11 @@
+File,Action,Reason
+phase3-4-experience.js,Replace,Small loader + entry button; Phase 5 script remains off initial Home load
+phase5-studio.js,Add,One on-demand JS bundle with embedded CSS and three features
+phase5-diagnostics.html,Replace,Adds Phase 5 live interaction checks on existing diagnostics URL
+PHASE5_V3_CHANGELOG.md,Documentation,Summary of changes
+PHASE5_V3_TEST_REPORT.md,Documentation,Static tests and live-test limitation
+PHASE5_V3_HANDOFF.md,Documentation,Next phase requirements
+UPLOAD_GUIDE_PHASE5_HINGLISH.md,Documentation,Phone-friendly upload steps
+SAFE_CLEANUP_PHASE5.md,Documentation,No blind deletion
+PHASE5_V3_FEATURE_PRESERVATION.csv,Checklist,Existing feature preservation
+PHASE5_V3_FILE_MANIFEST.csv,Manifest,Package contents
