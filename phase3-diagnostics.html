@@ -1,45 +1,40 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#100d10">
-<title>BLACKED V1 — Phase 3 Diagnostics</title>
-<style>
-:root{color-scheme:dark;--bg:#100d10;--panel:#1b151b;--line:#3a2a37;--pink:#f6a4c2;--muted:#c7b9c5;--ok:#96e6b2;--bad:#ff9b9b;--warn:#f7d28b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff7fb;font:15px/1.5 system-ui,sans-serif;padding:18px;max-width:1040px;margin-inline:auto}h1{font-size:clamp(24px,5vw,35px);line-height:1.15}h2{font-size:19px;margin-top:0}.muted{color:var(--muted)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border:1px solid var(--pink);border-radius:12px;padding:10px 14px;color:#170d14;background:var(--pink);font-weight:700;text-decoration:none;cursor:pointer}.btn.alt{background:transparent;color:var(--pink)}.row{border-top:1px solid var(--line);padding:9px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}.tag{font-size:12px;white-space:nowrap}.PASS{color:var(--ok)}.FAIL{color:var(--bad)}.NOTTESTED,.BLOCKED{color:var(--warn)}iframe{border:1px solid var(--line);width:100%;height:390px;border-radius:12px;background:#fff}code,pre{overflow-wrap:anywhere;white-space:pre-wrap}.small{font-size:12px}@media(max-width:400px){body{padding:11px}.row{grid-template-columns:1fr;gap:2px}.panel{padding:12px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://raw.githubusercontent.com; connect-src 'self'; frame-src 'self'">
+  <meta name="theme-color" content="#100c10">
+  <title>BLACKED V3 Phase 3 · Mode & Speed Diagnostics</title>
+  <style>
+    :root{color-scheme:dark;--bg:#100c10;--panel:#20151f;--line:#493244;--text:#fff1f5;--muted:#c4b4c1;--pink:#f0a6bd;--good:#a8e0bc;--bad:#ffb0b7}*{box-sizing:border-box}body{margin:0;background:linear-gradient(150deg,#1b111b,#0c0a0d 64%);color:var(--text);font:14px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}.wrap{width:min(960px,100% - 28px);margin:0 auto;padding:22px 0 44px}header,section{border:1px solid var(--line);border-radius:18px;background:rgba(30,21,31,.9);padding:18px;margin-bottom:14px}h1{margin:.2rem 0 .6rem;font-size:clamp(25px,6vw,36px);line-height:1.08}h2{font-size:18px;margin:0 0 9px}.eyebrow{margin:0 0 5px;color:var(--pink);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.muted{color:var(--muted);font-size:12px}.actions{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}button{min-height:44px;border:1px solid #6c4b61;border-radius:11px;background:#f0aac3;color:#25151f;padding:10px 14px;font-size:13px;font-weight:800;cursor:pointer}button.secondary{background:#2b1d2b;color:#fbe9f2}button:focus-visible{outline:3px solid #fff;outline-offset:3px}.status{display:inline-flex;align-items:center;gap:6px;min-height:25px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:10px;font-weight:800}.status.pass{color:var(--good);border-color:#41674e}.status.fail{color:var(--bad);border-color:#79404b}.checks{display:grid;gap:8px}.check{display:flex;flex-direction:column;gap:3px;padding:10px 11px;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:#151016}.check b{font-size:12px}.check small{color:var(--muted);font-size:11px;overflow-wrap:anywhere}.topline{display:flex;align-items:center;justify-content:space-between;gap:10px}#homeFrame{display:block;width:100%;height:720px;border:1px solid var(--line);border-radius:12px;background:#100c10}#frameWrap{margin-top:14px}.small{font-size:11px;color:var(--muted)}.results-empty{color:var(--muted);padding:10px 0}@media(max-width:480px){header,section{padding:14px}.actions{flex-direction:column}button{width:100%}#homeFrame{height:660px}}
+  </style>
+  <script src="./phase3-diagnostics.js" defer></script>
 </head>
 <body>
-<h1>V1 Phase 3 — Structure & Collections Check</h1>
-<p class="muted">This checks whether the additive Phase 3 code is loaded on the hosted page. It does not certify every feature, the full image catalogue, or physical Android testing.</p>
-<div class="panel"><h2>Actions</h2><div class="actions"><a class="btn" href="./index.html">Open main website</a><button class="btn alt" id="rerun" type="button">Run checks again</button></div><p class="small muted">Open after uploading the whole package. If this is the first visit after a service-worker update, wait briefly and refresh once.</p></div>
-<div class="panel"><h2>File routes</h2><div id="files">Checking…</div></div>
-<div class="panel"><h2>Runtime integration (embedded same-origin page)</h2><div id="runtime">Loading main website inside the diagnostic page…</div><p class="small muted">The embedded page uses the actual published website URL. The interaction checks are real browser checks once this page is hosted; they do not replace testing the whole website manually.</p><iframe id="siteFrame" title="Embedded website for Phase 3 checks" src="./index.html?phase3-diagnostic=1"></iframe></div>
-<div class="panel"><h2>Image checks</h2><div id="images">Waiting for the embedded page…</div></div>
-<div class="panel"><h2>Original wheels — source structure</h2><div id="wheels">Waiting for the embedded page…</div></div>
-<div class="panel"><h2>Interpretation</h2><p class="small"><b class="PASS">PASS</b> = this check ran and succeeded. <b class="FAIL">FAIL</b> = this check ran and failed. <b class="NOTTESTED">NOT TESTED</b> = unavailable in this browser/session. Diagnostics do not claim backend commerce, formal age verification, or zero bugs.</p></div>
-<script>
-(() => {
-'use strict';
-const $=s=>document.querySelector(s);const paths=['./index.html','./app.js','./styles.css','./css/styles.css','./js/app.js','./phase3.js','./phase3.css','./sw.js','./manifest.webmanifest'];
-function row(host,label,status,detail=''){const e=document.createElement('div');e.className='row';const a=document.createElement('span');a.textContent=label+(detail?' — '+detail:'');const b=document.createElement('strong');b.className='tag '+status;b.textContent=status;e.append(a,b);host.append(e)}
-async function routeCheck(){const host=$('#files');host.replaceChildren();for(const path of paths){try{const r=await fetch(path,{cache:'no-store'});row(host,path,r.ok?'PASS':'FAIL',`HTTP ${r.status}`)}catch(e){row(host,path,'FAIL',String(e))}}}
-function waitFor(fn,timeout=8000){return new Promise(resolve=>{const start=Date.now();const tick=()=>{let v=false;try{v=fn()}catch{}if(v){resolve(true);return}if(Date.now()-start>timeout){resolve(false);return}setTimeout(tick,150)};tick()})}
-async function runtimeCheck(){const host=$('#runtime'),imageHost=$('#images'),wheelHost=$('#wheels');host.replaceChildren();imageHost.replaceChildren();wheelHost.replaceChildren();const frame=$('#siteFrame');const ready=await waitFor(()=>frame.contentDocument&&frame.contentDocument.querySelector('#phase3-collection-directory')&&frame.contentWindow.BLACKED_PHASE3);if(!ready){row(host,'Phase 3 directory loaded','FAIL','timeout or phase3.js not loaded');row(host,'Phase 3 status object','FAIL','window.BLACKED_PHASE3 missing');row(imageHost,'Sanskari preview images','NOT TESTED','runtime injection did not complete');row(wheelHost,'Three original wheel controls','NOT TESTED','main page not ready');return}
- const doc=frame.contentDocument,win=frame.contentWindow,s=win.BLACKED_PHASE3.recheck?win.BLACKED_PHASE3.recheck():win.BLACKED_PHASE3;
- row(host,'Phase 3 script initialization',s.initialized?'PASS':'FAIL',`version ${s.version||'unknown'}`);
- row(host,'Home collection directory',!!doc.getElementById('phase3-collection-directory')?'PASS':'FAIL','added after existing destination grid');
- row(host,'Existing Sanskari gallery retained',!!doc.querySelector('#view-sanskari #sanskariGallery')?'PASS':'FAIL','original gallery element still present');
- row(host,'Sanskari route action',!!doc.querySelector('[data-phase3-open="sanskari"]')?'PASS':'FAIL','button exists');
- row(host,'Muslim-Inspired Coming Soon',!!doc.querySelector('#view-sanskari [data-phase3-preview="muslim-inspired"]')?'PASS':'FAIL','existing Noor teaser relabelled, not replaced');
- row(host,'Christian-Inspired Coming Soon',!!doc.querySelector('#view-sanskari [data-phase3-preview="christian-inspired"]')?'PASS':'FAIL','existing Grace teaser relabelled, not replaced');
- const button=doc.querySelector('[data-phase3-open="sanskari"]');if(button){button.click();await new Promise(r=>setTimeout(r,350));const active=doc.querySelector('.view.active')?.dataset.view;row(host,'Click “Explore Sanskari”',active==='sanskari'?'PASS':'FAIL',`active view: ${active||'unknown'}`);const homeNav=doc.querySelector('#mainNav [data-view-link="home"]');if(homeNav){homeNav.click();await new Promise(r=>setTimeout(r,180));row(host,'Return to Home',doc.querySelector('.view.active')?.dataset.view==='home'?'PASS':'FAIL','uses the existing navigation handler')}}
- // Trigger load of every image in the current Sanskari view without replacing source paths.
- const sanskariNav=doc.querySelector('#mainNav [data-view-link="sanskari"]');if(sanskariNav)sanskariNav.click();await new Promise(r=>setTimeout(r,500));
- const imgs=[...doc.querySelectorAll('#view-sanskari img')];if(!imgs.length)row(imageHost,'Sanskari image elements','FAIL','none found');else{const checks=await Promise.all(imgs.map(img=>new Promise(resolve=>{img.loading='eager';if(img.complete)resolve({ok:img.naturalWidth>0,alt:img.alt||'(no alt text)',src:img.currentSrc||img.src,width:img.naturalWidth});else{const timer=setTimeout(()=>resolve({ok:img.naturalWidth>0,alt:img.alt||'(no alt text)',src:img.currentSrc||img.src,width:img.naturalWidth}),6000);img.addEventListener('load',()=>{clearTimeout(timer);resolve({ok:img.naturalWidth>0,alt:img.alt||'(no alt text)',src:img.currentSrc||img.src,width:img.naturalWidth})},{once:true});img.addEventListener('error',()=>{clearTimeout(timer);resolve({ok:false,alt:img.alt||'(no alt text)',src:img.currentSrc||img.src,width:0})},{once:true})}})));const failed=checks.filter(x=>!x.ok);row(imageHost,'Sanskari images loaded',failed.length===0?'PASS':'FAIL',`${checks.length-failed.length}/${checks.length} loaded`);failed.slice(0,12).forEach(x=>row(imageHost,'Failed image', 'FAIL',`${x.src} · alt: ${x.alt}`));}
- const required=[['Boyfriend wheel','boyPreference','boyResult','boy'],['Dildo wheel','dildoPreference','dildoResult','dildo'],['Butt Plug wheel','plugPreference','plugResult','plug']];for(const [name,select,result,kind] of required){const ok=!!doc.getElementById(select)&&!!doc.getElementById(result)&&!!doc.querySelector(`[data-spin-wheel="${kind}"]`)&&!!doc.querySelector(`[data-wheel-disc="${kind}"]`);row(wheelHost,name,ok?'PASS':'FAIL','source controls exist; spin interaction still needs manual test')}
-}
-async function run(){await routeCheck();await runtimeCheck()}
-$('#rerun').addEventListener('click',run);$('#siteFrame').addEventListener('load',()=>{setTimeout(()=>runtimeCheck(),250)});run();
-})();
-</script>
+  <main class="wrap">
+    <header>
+      <p class="eyebrow">BLACKED · V3 · Phase 3</p>
+      <h1>Mode & performance check</h1>
+      <p class="muted">Use after uploading the Phase 3 ZIP. Tests run in this browser and do not change saved site data. It cannot measure every visitor's internet connection or replace a real Android Chrome check.</p>
+      <div class="actions"><button id="runAll">Run all checks</button><button id="runHome" class="secondary">Measure Home load</button><button id="exportCsv" class="secondary">Export CSV</button></div>
+      <div id="overall" class="status">Not run yet</div>
+    </header>
+    <section>
+      <div class="topline"><h2>File & feature checks</h2><span id="checkCount" class="status">0 checks</span></div>
+      <div id="results" class="checks"><p class="results-empty">Tap “Run all checks” to verify this upload.</p></div>
+    </section>
+    <section>
+      <h2>Homepage load measurement</h2>
+      <p class="muted">Loads the actual homepage in a same-origin frame, waits for the new mode module, then reports elapsed time and the resource types the browser exposes. Results depend on network, device, cache state and GitHub Pages.</p>
+      <div id="speedResult" class="check"><b>Not measured</b><small>Tap “Measure Home load”.</small></div>
+      <div id="frameWrap" hidden><iframe id="homeFrame" title="Homepage smoke test"></iframe></div>
+    </section>
+    <section>
+      <h2>Important limits</h2>
+      <p class="muted">A PASS means the named local check succeeded in this browser only. It does not prove that all external images load, that every wheel works on every device, or that other features have no regression. Open the live website on Android Chrome and manually test Home, all seven views, all four wheels, Stories, Wishlist/Bag, Wellness, Fit Studio and saved progress.</p>
+      <p><a href="./index.html" style="color:#f0a6bd">Open the website ↗</a></p>
+    </section>
+  </main>
 </body>
 </html>

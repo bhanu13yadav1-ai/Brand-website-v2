@@ -1,0 +1,15 @@
+File,Action,Purpose
+app.js,REPLACE,"Performance deferral,  four Phase 6 image-path repairs,  additive Phase 3 module loader; based on inspected main app source"
+sw.js,REPLACE,"Phase 3 cache version,  feature asset precache,  project-scoped stale cache cleanup,  bounded network-first navigation fallback"
+phase3-horny-mode.js,ADD,"Super Horny / Randi Mode,  moods,  language,  mild slang toggle,  local preferences,  fictional prompt output"
+phase3-horny-mode.css,ADD,Responsive and accessible mode styling
+phase3-diagnostics.html,ADD,Manual same-origin diagnostics page
+phase3-diagnostics.js,ADD,"Checks,  homepage measurement and CSV export"
+reports/PHASE3_V3_CHANGELOG.md,OPTIONAL DOCUMENT,Feature and performance changes
+reports/PHASE3_V3_HANDOFF.md,OPTIONAL DOCUMENT,Next-step handoff and known limitations
+reports/PHASE3_V3_TEST_REPORT.md,OPTIONAL DOCUMENT,Static test outcomes and browser limitations
+reports/PHASE3_V3_CHANGED_FILES.md,OPTIONAL DOCUMENT,Replacement/addition list
+reports/UPLOAD_GUIDE_PHASE3_HINGLISH.md,OPTIONAL DOCUMENT,Phone-friendly upload steps
+reports/PHASE3_V3_FEATURE_PRESERVATION.csv,OPTIONAL DOCUMENT,Feature preservation and roadmap mapping
+reports/PHASE3_V3_PERFORMANCE_BASELINE.csv,OPTIONAL DOCUMENT,Source-level before/after comparisons; no fabricated timing
+previews/PHASE3_V3_RANDI_MODE_PREVIEW.png,OPTIONAL PREVIEW,Static design mockup; not a live-site screenshot

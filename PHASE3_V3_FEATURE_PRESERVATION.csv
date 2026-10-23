@@ -1,0 +1,31 @@
+Feature,Status in Phase 3 package,Notes / next phase
+Home,Preserved + enhanced,Existing home hero and content stay; mode inserted after hero
+SUPER HORNY / RANDI MODE,Added now,Primary Home entry panel
+Mood levels: Flirty / Teasing / Bold / Wild,Added now,Four selectable mood levels
+Language: Hindi / Hinglish / English,Added now,Three generation languages; preference is local-only
+Desi Gaali / profanity toggle,Added now,Off by default; only mild slang is appended
+18+ prompt confirmation,Added now,Required in mode before generating; original age modal unchanged
+Stories 18+ view,Preserved,Rendering deferred until the visitor opens Stories
+13 starter stories and story-series logic,Preserved,Story list is rendered on Stories navigation
+Innerwear catalogue and 151-record image archive,Preserved,Catalogue render and image-library fetch remain on Innerwear navigation
+Sanskari collection/gallery,Preserved,Ten campaign cards render on Sanskari navigation
+Wellness & sizing education,Preserved,Original educational content/forms remain in app.js and index.html
+Boyfriend & Couples view,Preserved,Original navigation and four wheel sections remain
+Original Boy wheel,Preserved,No wheel selector/logic replaced
+Original Dildo wheel,Preserved,No wheel selector/logic replaced
+Original Plug wheel,Preserved,No wheel selector/logic replaced
+Separate Dirty/Wild wheel,Preserved,No wheel selector/logic replaced
+Wishlist and sample Bag,Preserved,No existing storage keys cleared or rewritten by Phase 3
+Fit Studio notes,Preserved,No existing storage keys cleared or rewritten by Phase 3
+Existing consent and privacy notes,Preserved,Original screen-level controls remain
+Custom multi-step fantasy builder,Future Phase 4,Keep on roadmap; do not drop
+Super Horny Fantasy Wheel,Future Phase 5,"New dedicated tool,  separate from existing four wheels"
+Desi Dirty Talk / Gaali Generator,Future Phase 5,Expanded generator beyond the Phase 3 mild-slang toggle
+Visual Attraction mode,Future Phase 5,"Non-graphic,  suggestive visual/story direction"
+Mood-based adult stories,Future Phase 6,Connect modes to story discovery
+Boyfriend & Couples expansion,Future Phase 6,Keep current view and build on it
+Personal preference settings,Phase 3 partial + Phase 6 expansion,Phase 3 saves only language/mood/profanity under a dedicated key
+More Dirty / More Horny intensity,Future Phase 6,Build on the four Phase 3 moods
+Wild Challenge Deck,Future Phase 6,"Optional,  skip/stop always available"
+Full regression / Android / release verification,Future Phase 7,After uploads and all previous phases pass live diagnostics
+Phase 6 educational SVG diagrams,Fixed now,"Corrects 4 image paths to repository root; diagnostics checks them, "

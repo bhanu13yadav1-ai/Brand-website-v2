@@ -82,6 +82,53 @@
     const safeSrc = isSafeAppImageURL(src) ? String(src) : RAW4 + 'look-black-lace.webp';
     return `<img class="${esc(className)}" src="${esc(safeSrc)}" alt="${esc(alt)}" loading="lazy" decoding="async" fetchpriority="low" width="600" height="720" data-asset-image>`;
   }
+  // Repair four Phase 6 diagrams whose module currently points at a non-existent ./assets/ folder.
+  // The verified SVG files live at the repository root. The second scan catches diagrams inserted by
+  // the Phase 6 DOMContentLoaded setup without observing every image mutation on the whole page.
+  function repairKnownAssetPaths() {
+    const repairs = new Map([
+      ['./assets/phase6-measurement-map.svg', './phase6-measurement-map.svg'],
+      ['./assets/phase6-product-specs.svg', './phase6-product-specs.svg'],
+      ['./assets/phase6-comfort-check.svg', './phase6-comfort-check.svg'],
+      ['./assets/phase6-image-rights-workflow.svg', './phase6-image-rights-workflow.svg']
+    ]);
+    $$('img[src]').forEach(img => {
+      const current = img.getAttribute('src');
+      const corrected = repairs.get(current);
+      if (corrected) img.setAttribute('src', corrected);
+    });
+  }
+  repairKnownAssetPaths();
+  document.addEventListener('DOMContentLoaded', () => window.setTimeout(repairKnownAssetPaths, 0), { once: true });
+
+  // Phase 3 performance: do not fetch media for inactive screens until the visitor opens them.
+  function deferInactiveViewImages() {
+    $$('.view:not(.active) img[src]').forEach(img => {
+      const src = img.getAttribute('src');
+      if (!src || img.dataset.deferredSrc) return;
+      img.dataset.deferredSrc = src;
+      img.removeAttribute('src');
+      img.loading = 'lazy';
+      img.decoding = 'async';
+    });
+    $$('img:not([fetchpriority="high"])').forEach(img => {
+      if (!img.hasAttribute('loading')) img.loading = 'lazy';
+      if (!img.hasAttribute('decoding')) img.decoding = 'async';
+    });
+  }
+  function restoreDeferredViewImages(viewEl) {
+    if (!viewEl) return;
+    $$('img[data-deferred-src]', viewEl).forEach(img => {
+      const src = img.dataset.deferredSrc;
+      if (!src) return;
+      img.setAttribute('src', src);
+      delete img.dataset.deferredSrc;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+    });
+  }
+  deferInactiveViewImages();
+
   function setView(name) {
     if (!['home','stories','innerwear','sanskari','wellness','boyfriend','fit'].includes(name)) return;
     if (['wellness','boyfriend','stories'].includes(name) && !state.adultAllowed) {
@@ -89,11 +136,13 @@
     }
     state.view = name;
     $$('.view').forEach(v => { const active = v.dataset.view === name; v.hidden = !active; v.classList.toggle('active', active); });
+    const activeView = $('#view-' + name);
+    restoreDeferredViewImages(activeView);
     $$('[data-view-link]').forEach(b => b.classList.toggle('active', b.dataset.viewLink === name));
     $$('.main-nav [data-view-link]').forEach(b => { if (b.dataset.viewLink === name) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     $('#mobileMenu').classList.add('hidden'); $('#menuToggle').setAttribute('aria-expanded','false');
     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
-    if (name === 'innerwear') { renderCatalog(); initImageLibrary(); }
+    if (name === 'innerwear') { renderCatalog(); initImageLibrary(); showSpinFrame(0); }
     if (name === 'sanskari') renderCampaigns();
     if (name === 'home') renderHomeCampaigns();
     if (name === 'stories') renderStories();
@@ -1042,7 +1091,25 @@
   // Release local object URLs for selected photos when the document is discarded.
   window.addEventListener('pagehide',()=>{if(state.currentPhotoUrl){URL.revokeObjectURL(state.currentPhotoUrl);state.currentPhotoUrl=null;}});
 
-  renderHomeCampaigns();renderCampaigns();renderCatalog();renderStories();renderStoryVault();initMeasurementTools();renderHeaderCounts();renderWishlist();renderBag();updateMeasureConversion();showSpinFrame(0);
+  // Render only the visible Home payload at startup. Other screens initialize on navigation.
+  renderHomeCampaigns();initMeasurementTools();renderHeaderCounts();renderWishlist();renderBag();updateMeasureConversion();
+  // Load the Phase 3 mode as a small additive module; no index.html rewrite is required.
+  (function loadPhase3Mode() {
+    if (document.querySelector('script[data-phase3-horny-mode]')) return;
+    if (!document.querySelector('link[data-phase3-horny-mode-style]')) {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = './phase3-horny-mode.css';
+      style.dataset.phase3HornyModeStyle = 'true';
+      document.head.appendChild(style);
+    }
+    const script = document.createElement('script');
+    script.src = './phase3-horny-mode.js';
+    script.async = true;
+    script.dataset.phase3HornyMode = 'true';
+    document.head.appendChild(script);
+  })();
+
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
     window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(err=>{state.diagnostic.errors.push('Service worker: '+String(err));console.warn('[BLACKED V1] Service worker registration failed',err);}));
   }

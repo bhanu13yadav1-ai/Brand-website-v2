@@ -1,0 +1,12 @@
+Metric,Before Phase 3,After Phase 3,How derived,Measurement status
+Home-startup hidden-view renderer calls,4 screen renderers invoked at startup,0 hidden-view screen renderers invoked at startup,Static source comparison of app.js startup path,Source-level change verified; no ms score
+Catalog items built before user opens Innerwear,8,0,Current app.js product records and startup calls,Source-level change verified; items render on Innerwear navigation
+Sanskari campaign items built before user opens Sanskari,10,0,Current app.js campaign records and startup calls,Source-level change verified; items render on Sanskari navigation
+Story cards built before user opens Stories,13,0,Current app.js story library and startup calls,Source-level change verified; cards render on Stories navigation
+Hidden Innerwear spin frame initialized on Home load,Yes,No,showSpinFrame(0) moved to Innerwear navigation,Source-level change verified; network timing not measured
+Inactive-view static image sources,Active at initial parse/boot,Temporarily removed and restored on view navigation,New deferInactiveViewImages/restoreDeferredViewImages logic,Source-code check only; live image timing not measured
+Page load time,Not reliably measured,Not reliably measured,Full browser run blocked by environment policy,NOT TESTED
+Lighthouse performance score,Not taken,Not taken,Requires browser/deployment profiling,NOT TESTED
+External image availability,Not verified,Not verified,Remote image endpoints remain external dependencies,NOT TESTED
+Slow navigation fallback,Network-first wait is unbounded,Use cached app shell after 1.8 seconds,Source-level service-worker inspection,Not browser-measured
+Phase 6 Wellness SVG references,4 paths point to missing ./assets/ folder,Map exact references to verified repository-root SVGs,Repository path existence check,Static paths verified; live image render not tested
