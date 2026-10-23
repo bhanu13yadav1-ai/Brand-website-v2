@@ -1,0 +1,6 @@
+BLACKED V3 Phase 7 final release + Phase 6 completion
+Package type: merge/update package for the existing repository; not a replacement website archive.
+Apply INDEX_PATCH_PHASE6_PHASE7_HINGLISH.md exactly. Do not replace the whole index.html.
+Current GitHub main has not yet received these Phase 6/7 combined bundles; this ZIP has not been deployed.
+The code package leaves all older Phase 6 and Phase 7/8 source files in place for rollback.
+In-memory Chromium: 23 PASS, 1 WARN, 0 FAIL. Public Pages and Android Chrome: NOT TESTED because network/browser access was blocked. See reports/PHASE7_V3_TEST_REPORT.md.

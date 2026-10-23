@@ -1,0 +1,18 @@
+test,status,detail
+JavaScript syntax: Phase 6+7 combined bundle,PASS,node --check passes
+JavaScript syntax: Phase 6 lazy loader,PASS,node --check passes
+JavaScript syntax: Phase 7/8 combined bundle,PASS,node --check passes
+JavaScript syntax: Phase 7/8 lazy loader,PASS,node --check passes
+JavaScript syntax: Phase 6 diagnostics,PASS,node --check passes
+JavaScript syntax: Phase 7 final diagnostics,PASS,node --check passes
+Service worker syntax,PASS,node --check passes
+Wellness SVG paths,PASS,All four diagrams use verified repository-root SVG paths in the bundled module
+Original screen count,PASS,Seven original views remain in index markup
+Original wheels,PASS,Four wheel discs remain in index markup
+Phase 6 on-demand startup,PASS,Combined module is not in service-worker CORE; lazy loader included
+Phase 7/8 on-demand startup,PASS,Combined module and CSS are not in CORE; lazy loader included
+Phase 6 & Phase 7 UX surfaces,PASS,In-memory Chromium integration check verified studio header, tabs, search, deck, trust strip and bottom navigation
+Collections & story reading tools,PASS,In-memory Chromium integration check verified Phase 7 hub, Phase 8 story dashboard and reader controls
+Local preference save in about:blank,WARN,Opaque in-memory browser context blocked storage; actual-origin diagnostic will test it
+Live GitHub Pages runtime,NOT TESTED,Network/DNS restrictions and ERR_BLOCKED_BY_ADMINISTRATOR prevented live navigation
+Android Chrome runtime,NOT TESTED,Must be checked after upload with included diagnostics page

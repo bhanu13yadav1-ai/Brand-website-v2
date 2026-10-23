@@ -1,0 +1,19 @@
+Feature,Status,Implementation
+Home,Preserved,Original index and app entry retained; Phase6/7 payloads not requested until relevant views
+Stories 18+,Preserved,Original app story list modal and opt-in vault remain; Phase7/8 controls lazy-load on Stories
+Innerwear and 151-record image archive,Preserved,No product records/images removed; existing loaders/filters remain
+Sanskari/Noor/Grace collections,Preserved,Original cards retained; search/filter hub lazy-loads on Sanskari
+Wellness 18+,Preserved,Original measurements/wheels remain; guide images use verified root SVG paths
+Boyfriend & Couples original tools,Preserved,Date/messages and existing four wheel surfaces remain
+Six fictional archetypes,Preserved,Searchable/filterable cards and hero selection remain
+Custom fantasy builder,Preserved,Existing v6 form and Phase4 builder remain available
+Phase5 Fantasy Wheel/Dirty Talk/Visual Attraction,Preserved,Existing on-demand Phase5 module kept
+Couples Connection Deck,Added/Enhanced,Illustrated card with Done/Another/Skip and optional prompts
+Preferences,Preserved/Enhanced,Local storage requires explicit opt-in and dedicated key can be cleared independently
+Fit Studio,Preserved,Original local photo preview and notes remain
+Four original wheels,Preserved,Dildo/plug/boyfriend/Dirty-Wild wheel discs remain in original markup
+Wishlist/sample bag/compare,Preserved,No existing data keys cleared or storage-reset logic added
+Phase6 payload load,Optimized,One combined script requested only on relevant screens
+Phase7/8 stories and collections,Optimized,Combined JS/CSS requested only for Stories or Sanskari
+Image rights notes,Preserved,Existing image-rights panel remains, not a claim of clearance
+Old source files,Preserved,No delete operations in this package; rollback copies stay in repository

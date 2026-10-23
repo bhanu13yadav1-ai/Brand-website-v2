@@ -1,0 +1,126 @@
+{
+  "test_mode": "Chromium DOM in-memory; local/network navigation was blocked so script assets were injected directly",
+  "tests": [
+    {
+      "test": "Main app API",
+      "status": "PASS",
+      "detail": "window.BLACKED_V1 should be initialized."
+    },
+    {
+      "test": "Seven views preserved",
+      "status": "PASS",
+      "detail": "Counts the existing view sections."
+    },
+    {
+      "test": "Four original wheels preserved",
+      "status": "PASS",
+      "detail": "Four original wheel discs stay in original markup."
+    },
+    {
+      "test": "Phase 3 + 4 bundle initialized",
+      "status": "PASS",
+      "detail": "Phase 4 builder should initialize in the original DOM."
+    },
+    {
+      "test": "Home has no Phase 6 bundle payload",
+      "status": "PASS",
+      "detail": "Phase 6 payload is not loaded before relevant navigation."
+    },
+    {
+      "test": "Boyfriend age gate",
+      "status": "PASS",
+      "detail": "18+ self-attestation modal should appear first."
+    },
+    {
+      "test": "Phase 6 core studio builds",
+      "status": "PASS",
+      "detail": "Original Phase 6 studio initialized."
+    },
+    {
+      "test": "Six fictional archetypes",
+      "status": "PASS",
+      "detail": "All six archetype cards are preserved."
+    },
+    {
+      "test": "Phase 6 UX controls",
+      "status": "PASS",
+      "detail": "Search and local preference controls are present."
+    },
+    {
+      "test": "Phase 7 reference UI builds",
+      "status": "PASS",
+      "detail": "New reference-style mobile Studio UI is present."
+    },
+    {
+      "test": "Four main Studio tabs",
+      "status": "PASS",
+      "detail": "Match/Fantasy/Couples Deck/Wellness tabs remain available."
+    },
+    {
+      "test": "Mobile bottom nav activates",
+      "status": "PASS",
+      "detail": "Bottom nav becomes active while Boyfriend screen is selected."
+    },
+    {
+      "test": "Bottom navigation routes to original view",
+      "status": "PASS",
+      "detail": "The new bottom navigation routes through the existing main navigation rather than creating duplicate views."
+    },
+    {
+      "test": "Studio bottom nav returns correctly",
+      "status": "PASS",
+      "detail": "The bottom navigation returns to the Studio and toggles its active state."
+    },
+    {
+      "test": "Archetype search filters cards",
+      "status": "PASS",
+      "detail": "Typing romantic hides non-matching archetypes."
+    },
+    {
+      "test": "Couples deck advances",
+      "status": "PASS",
+      "detail": "'Ask one curious question' -> 'Plan a low-pressure date'"
+    },
+    {
+      "test": "Illustrated deck card present",
+      "status": "PASS",
+      "detail": "Connection illustration and trust strip added."
+    },
+    {
+      "test": "Optional local preferences save and clear",
+      "status": "WARN",
+      "detail": "Browser storage was blocked in about:blank; the on-device release diagnostic will verify this on GitHub Pages."
+    },
+    {
+      "test": "Wellness toolkit and 3 diagrams",
+      "status": "PASS",
+      "detail": "Tool kit includes three educational diagrams."
+    },
+    {
+      "test": "Wellness diagram paths fixed",
+      "status": "PASS",
+      "detail": "Checks each original source path even when the image fallback replaces its visible src in the network-blocked about:blank test context."
+    },
+    {
+      "test": "Phase 7 collection hub builds",
+      "status": "PASS",
+      "detail": "Three existing collection cards and their search/filter hub are retained."
+    },
+    {
+      "test": "Phase 7/8 story tools build",
+      "status": "PASS",
+      "detail": "Story discovery and reader toolbar load on Stories."
+    },
+    {
+      "test": "Saved story vault remains",
+      "status": "PASS",
+      "detail": "Original optional story-saving surface remains."
+    },
+    {
+      "test": "Uncaught JS errors during in-memory integration",
+      "status": "PASS",
+      "detail": "[]"
+    }
+  ],
+  "page_errors": []
+}

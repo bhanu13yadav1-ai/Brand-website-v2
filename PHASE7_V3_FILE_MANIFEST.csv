@@ -1,0 +1,17 @@
+File,Action,Reason
+sw.js,Replace,New v7 cache key and small app-shell loader precache
+phase6-combined-ux.js,Add,Combined Phase6 original modules + completed UX + Phase7 reference-style Studio UI
+phase6-lazy-loader.js,Add,Requests Phase6 payload only for the relevant views
+phase6-diagnostics.html,Replace,On-device Phase6 live test entry already linked in footer
+phase6-diagnostics.js,Add,Expanded Phase6 interaction and Studio UI checks with CSV export
+phase7-8-combined.js,Add,Existing Phase7 collection hub + Phase8 story reader plus CSS in one on-demand bundle
+phase7-8-lazy-loader.js,Add,Requests collection/story bundle only on Stories or Sanskari
+phase7-diagnostics.html,Replace,Final release QA entry already linked in footer
+phase7-final-diagnostics.js,Add,Same-origin all-release checks and CSV export
+index.html,Edit 6 removals and 2 loader additions,Reference-only patch; whole index is not replaced
+phase6-boyfriend-studio.js,Keep,Original rollback source retained
+phase6-boyfriend-studio.css,Keep,Original rollback source retained
+phase6-wellness-collections.js,Keep,Original rollback source retained
+phase6-wellness-collections.css,Keep,Original rollback source retained
+phase7-8-enhancements.js,Keep,Original rollback source retained
+phase7-8-enhancements.css,Keep,Original rollback source retained

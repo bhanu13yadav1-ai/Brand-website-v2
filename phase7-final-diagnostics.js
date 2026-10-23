@@ -1,0 +1,59 @@
+(() => {
+  'use strict';
+  const $=s=>document.querySelector(s);const state={results:[],running:false};
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  async function waitFor(fn,timeout=10000,interval=120){const start=performance.now();while(performance.now()-start<timeout){try{const v=fn();if(v)return v;}catch(_){}await wait(interval);}return null;}
+  function add(name,status,detail=''){const el=document.createElement('div');el.className='result-row';const title=document.createElement('b');title.textContent=name;const pill=document.createElement('span');pill.className='status '+status.toLowerCase();pill.textContent=status;const small=document.createElement('small');small.textContent=detail;el.append(title,pill,small);$('#results').append(el);state.results.push({name,status,detail});}
+  async function loadFrame(frame,url){return new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(new Error('Page did not finish loading within 20 seconds. The host, deployment, DNS or browser policy may be blocking it.')),20000);frame.onload=()=>{clearTimeout(timer);resolve();};frame.onerror=()=>{clearTimeout(timer);reject(new Error('Frame could not load the requested URL.'));};frame.src=url;});}
+  async function run(){if(state.running)return;state.running=true;state.results=[];$('#results').replaceChildren();$('#runTests').disabled=true;$('#runTests').textContent='Testing deployed website…';const frame=$('#siteFrame');let win,doc;
+    try{
+      await loadFrame(frame,'./index.html?phase7release='+Date.now());win=frame.contentWindow;doc=frame.contentDocument;
+      if(!doc?.querySelector('#view-home'))throw new Error('Home view markup was not found.');
+      await waitFor(()=>win.BLACKED_V1||doc.querySelector('#view-home'),6000);
+      add('Live homepage load','PASS',`Same-origin frame loaded in this browser. This is a warm/cold condition-dependent timing, not a server benchmark.`);
+      add('Main app API',win.BLACKED_V1?'PASS':'FAIL',win.BLACKED_V1?'window.BLACKED_V1 is available.':'window.BLACKED_V1 missing; inspect app.js/network/console.');
+      const views=[...doc.querySelectorAll('.view[data-view]')].map(x=>x.dataset.view);add('Seven original views',views.length===7?'PASS':'FAIL',`${views.length} detected: ${views.join(', ')}`);
+      const wheels=[...doc.querySelectorAll('[data-wheel-disc]')].map(x=>x.dataset.wheelDisc);add('Four original wheels',wheels.length===4?'PASS':'FAIL',`Found ${wheels.length}: ${wheels.join(', ')}`);
+      const timing=win.performance.getEntriesByType('navigation')[0];add('Document timing',timing?'PASS':'WARN',timing?`DCL ${Math.round(timing.domContentLoadedEventEnd)} ms · load ${Math.round(timing.loadEventEnd)} ms · transfer ${timing.transferSize||'not exposed'} bytes. Browser cache and network conditions affect these readings.`:'Navigation Timing API did not return an entry.');
+      const initialResources=win.performance.getEntriesByType('resource').map(x=>x.name);
+      const homeP6=initialResources.some(x=>x.includes('phase6-combined-ux.js'));const homeP78=initialResources.some(x=>x.includes('phase7-8-combined.js'));
+      add('Phase 6 deferred on Home',!homeP6?'PASS':'WARN',homeP6?'Phase 6 bundle was already requested on Home.':'Phase 6 bundle was not requested before entering a relevant screen.');
+      add('Phase 7/8 tools deferred on Home',!homeP78?'PASS':'WARN',homeP78?'Collection/story bundle was already requested on Home.':'Story/collection bundle was not requested on Home.');
+      // Force the 18+ gate to be fresh in the same-origin test session, then test Boyfriend Studio.
+      try{win.sessionStorage.removeItem('blackedV1AdultConfirmed');}catch(_){}
+      await loadFrame(frame,'./index.html?phase7gate='+Date.now());win=frame.contentWindow;doc=frame.contentDocument;await waitFor(()=>doc?.querySelector('#view-home'),5000);
+      doc.querySelector('#mainNav [data-view-link="boyfriend"]')?.click();await wait(120);
+      let age=!!doc.querySelector('#ageModal')&&!doc.querySelector('#ageModal').classList.contains('hidden');add('18+ gate before Boyfriend Studio',age?'PASS':'FAIL',age?'The age self-attestation modal appeared before entry.':'Age gate did not appear.');
+      if(age){const check=doc.querySelector('#ageConfirm');if(check)check.checked=true;doc.querySelector('#confirmAge')?.click();}
+      const p6=await waitFor(()=>win.BLACKED_PHASE6_UX?.getDiagnostics?.().loaded&&win.BLACKED_V3_PHASE6?.getDiagnostics?.().studioBuilt,14000);
+      add('Phase 6 bundle on demand',p6?'PASS':'FAIL',p6?'Combined Phase 6 modules loaded when Boyfriend was opened.':`Lazy loader: ${win.BLACKED_PHASE6_LAZY_LOADER?.getDiagnostics?.().state||'missing'}; errors: ${win.BLACKED_PHASE6_LAZY_LOADER?.getDiagnostics?.().errors?.join('; ')||'none recorded'}`);
+      const matchCount=doc.querySelectorAll('#v6MatchGrid .v6-match-card').length;add('Six character archetypes',matchCount===6?'PASS':'FAIL',`${matchCount} cards found.`);
+      const studioUI=win.BLACKED_PHASE7_STUDIO_UI?.getDiagnostics?.();add('Reference-style Studio UI',studioUI?.loaded&&studioUI.header&&studioUI.tabs>=4&&studioUI.bottomNav?'PASS':'FAIL',JSON.stringify(studioUI||{api:false}));
+      add('Mobile bottom navigation active',!!doc.body.classList.contains('p7-studio-active')&&!!doc.querySelector('.p7-studio-bottom-nav')?'PASS':'WARN',`Active class: ${doc.body.classList.contains('p7-studio-active')}; nav exists: ${!!doc.querySelector('.p7-studio-bottom-nav')}.`);
+      if(doc.querySelector('#p6xArchetypeSearch')){const input=doc.querySelector('#p6xArchetypeSearch');input.value='romantic';input.dispatchEvent(new win.Event('input',{bubbles:true}));await wait(60);const visible=doc.querySelectorAll('#v6MatchGrid .v6-match-card:not([hidden])').length;add('Character search/filter works',visible>0&&visible<matchCount?'PASS':'FAIL',`Search “romantic” displays ${visible}/${matchCount}.`);input.value='';input.dispatchEvent(new win.Event('input',{bubbles:true}));}else add('Character search/filter works','FAIL','Search input missing.');
+      const deck=!!doc.querySelector('#p6xCouplesDeck'),deckImage=!!doc.querySelector('.p7-deck-image img');add('Couples Connection Deck',deck&&deckImage&&!!doc.querySelector('#p6xDeckSkip')?'PASS':'FAIL',`Deck ${deck}; image ${deckImage}; skip control ${!!doc.querySelector('#p6xDeckSkip')}.`);
+      const before=doc.querySelector('#p6xDeckPromptTitle')?.textContent;doc.querySelector('#p6xDeckNext')?.click();await wait(50);const after=doc.querySelector('#p6xDeckPromptTitle')?.textContent;add('Connection deck advances',before&&after&&before!==after?'PASS':'WARN',`Prompt changed: ${!!before&&!!after&&before!==after}.`);
+      const pref=doc.querySelector('#p6xSavePrefsOptIn');let prefsPassed=false;
+      try{if(pref){pref.checked=true;pref.dispatchEvent(new win.Event('change',{bubbles:true}));doc.querySelector('#p6xSavePrefs')?.click();prefsPassed=JSON.parse(win.localStorage.getItem('blackedV6StudioPrefs')||'null')?.enabled===true;doc.querySelector('#p6xClearPrefs')?.click();}}catch(_){}
+      add('Local preference opt-in and clear',prefsPassed?'PASS':'WARN',prefsPassed?'A dedicated test preference key was saved only after opt-in, then cleared.':'Storage flow was unavailable or did not persist in this browser; no app-wide data was cleared.');
+      const postHomeP6=win.performance.getEntriesByType('resource').some(x=>x.name.includes('phase6-combined-ux.js'));add('Phase 6 requested after navigation',postHomeP6?'PASS':'FAIL',postHomeP6?'Resource timing confirms on-demand bundle request.':'No Phase 6 bundle request appears in resource timing.');
+      // Verify root-path SVG correction in Wellness and then collection/story lazy module.
+      doc.querySelector('#mainNav [data-view-link="wellness"]')?.click();await wait(160);
+      const toolkit=await waitFor(()=>doc.querySelector('#p6WellnessToolkit'),7000);const svgImgs=toolkit?[...toolkit.querySelectorAll('img')]:[];const wrong=svgImgs.filter(i=>(i.getAttribute('src')||'').startsWith('./assets/phase6-'));
+      add('Wellness educational diagrams',!!toolkit&&svgImgs.length===3&&wrong.length===0?'PASS':'FAIL',`Toolkit ${!!toolkit}; diagrams ${svgImgs.length}; wrong ./assets paths ${wrong.length}.`);
+      add('Wellness quick-jump controls',!!doc.querySelector('#p6xWellnessJumps')?'PASS':'FAIL',`Quick jumps present: ${!!doc.querySelector('#p6xWellnessJumps')}.`);
+      doc.querySelector('#mainNav [data-view-link="sanskari"]')?.click();await wait(100);
+      const p78=await waitFor(()=>win.BLACKED_V3_PHASE78?.getDiagnostics?.(),9000);add('Phase 7 collections load on demand',!!p78?.phase7CollectionHub?'PASS':'FAIL',JSON.stringify(p78||{api:false,loader:win.BLACKED_PHASE78_LAZY_LOADER?.getDiagnostics?.()}));
+      if(doc.querySelector('[data-p6-collection="noor"]')){doc.querySelector('[data-p6-collection="noor"]').click();await wait(50);add('Sanskari/Noor collection switch',/Noor-related/.test(doc.querySelector('#p6CollectionStatus')?.textContent||'')?'PASS':'WARN',doc.querySelector('#p6CollectionStatus')?.textContent||'No collection status.');}else add('Sanskari/Noor collection switch','WARN','Original collection jump controls were not found.');
+      doc.querySelector('#mainNav [data-view-link="stories"]')?.click();await wait(200);
+      const storyDiag=win.BLACKED_V3_PHASE78?.getDiagnostics?.();add('Phase 7/8 story tools',storyDiag?.phase8StoryDashboard&&storyDiag?.phase8ReaderToolbar?'PASS':'FAIL',JSON.stringify({dashboard:storyDiag?.phase8StoryDashboard,readerToolbar:storyDiag?.phase8ReaderToolbar,originalGrid:storyDiag?.phase8OriginalStoryGrid,originalCards:storyDiag?.phase8OriginalStoryCount}));
+      const sourceTags=[...doc.querySelectorAll('script[src],link[rel="stylesheet"][href]')];const errored=sourceTags.filter(x=>x.dataset.loadError==='true');add('Observed module load errors',errored.length?'WARN':'PASS',errored.length?errored.map(x=>x.src||x.href).join(', '):'No script load error markers on the page.');
+      const cacheKeys=await win.caches?.keys?.().catch(()=>[])||[];const cache=cacheKeys.find(x=>x==='blacked-v7-final-release-phase6-ux-1');add('Final service-worker cache',cache?'PASS':'WARN',cache||`Expected v7 cache not detected; existing keys: ${cacheKeys.join(', ')||'none'}. First visit or unsupported storage can explain this.`);
+      const imgs=[...doc.querySelectorAll('#view-home img')];const broken=imgs.filter(i=>i.complete&&i.naturalWidth===0&&i.getAttribute('src')&&!i.getAttribute('src').startsWith('data:'));add('Homepage image availability',broken.length?'WARN':'PASS',`${imgs.length} Home image elements; ${broken.length} completed requests currently have zero naturalWidth. Still-loading images aren't counted.`);
+      const pass=state.results.filter(x=>x.status==='PASS').length,warn=state.results.filter(x=>x.status==='WARN').length,fail=state.results.filter(x=>x.status==='FAIL').length;$('#summary').textContent=`Completed: ${pass} PASS · ${warn} WARN · ${fail} FAIL. Export CSV to share the exact browser evidence.`;
+    }catch(err){add('Live test blocked','FAIL',`${err.name||'Error'}: ${err.message||String(err)}. This is a real browser failure, not a static-code pass.`);$('#summary').textContent='The test did not complete. Export the result CSV and inspect the failure row.';}
+    finally{state.running=false;$('#runTests').disabled=false;$('#runTests').textContent='Run checks again';}
+  }
+  $('#runTests').addEventListener('click',run);
+  $('#exportCsv').addEventListener('click',()=>{const lines=[['test','status','detail'],...state.results.map(x=>[x.name,x.status,x.detail])];const csv=lines.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='BLACKED_PHASE7_FINAL_RELEASE_TEST.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);});
+})();

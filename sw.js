@@ -1,23 +1,19 @@
-/* BLACKED V3 Phase 3: lean app-shell cache, bounded navigation wait, media-on-request. */
+/* BLACKED V3 Phase 6: app-shell only at startup; Phase 6 studio is fetched when opened. */
 'use strict';
-const CACHE_NAME = 'blacked-v4-phase4-combined-experience-1';
+const CACHE_NAME = 'blacked-v7-final-release-phase6-ux-1';
 const CORE = [
   './index.html',
   './styles.css', './part-c-enhancements.css', './phase2-photo-collections.css',
   './phase3-design-system.css', './phase3.css', './phase4-story-universe.css',
   './phase5-image-reliability.css', './phase5-product-discovery.css',
-  './phase6-boyfriend-studio.css', './phase6-wellness-collections.css', './phase7-8-enhancements.css',
   './fallback.js', './app.js', './part-c-enhancements.js', './phase2-photo-collections.js',
   './phase3.js', './phase3-4-experience.js', './phase4-home-and-fantasy.js', './phase4-story-universe.js',
-  './phase5-image-reliability.js', './phase5-product-discovery.js',
-  './phase6-boyfriend-studio.js', './phase6-wellness-collections.js', './phase7-8-enhancements.js',
-  './manifest.webmanifest', './app-icon.svg', './innerwear-image-library.json', './size-chart-template.json',
-  './phase4-story-universe.json',
-  './phase6-measurement-map.svg', './phase6-product-specs.svg',
-  './phase6-comfort-check.svg', './phase6-image-rights-workflow.svg'
+  './phase5-image-reliability.js', './phase5-product-discovery.js', './phase6-lazy-loader.js', './phase7-8-lazy-loader.js',
+  './manifest.webmanifest', './app-icon.svg',
+  './phase4-story-universe.json'
 ];
 
-// Bound install-time network fan-out: at most six small app-shell requests at once.
+// Keep startup fan-out bounded; a failed optional file doesn't block the service worker install.
 async function precacheWithLimit(cache, paths, limit = 6) {
   let cursor = 0;
   const workers = Array.from({ length: Math.min(limit, paths.length) }, async () => {
@@ -26,9 +22,7 @@ async function precacheWithLimit(cache, paths, limit = 6) {
       try {
         const response = await fetch(path, { cache: 'reload' });
         if (response.ok && response.type === 'basic') await cache.put(path, response);
-      } catch (_) {
-        // Offline or unavailable optional path: continue installing the remaining app shell.
-      }
+      } catch (_) { /* Offline or unavailable optional path: keep installing. */ }
     }
   });
   await Promise.all(workers);
@@ -54,7 +48,6 @@ self.addEventListener('fetch', event => {
   if (url.origin !== self.location.origin) return;
 
   if (request.mode === 'navigate') {
-    // Network first, but cap the wait on a slow mobile connection. Keep the fetch alive to refresh cache.
     const cachePromise = caches.open(CACHE_NAME);
     const networkPromise = cachePromise.then(cache => fetch(request).then(async network => {
       if (network.ok) await cache.put(request, network.clone());
@@ -81,7 +74,7 @@ self.addEventListener('fetch', event => {
     if (cached) return cached;
     try {
       const network = await fetch(request);
-      // Runtime-cache local assets only when the visitor actually requests them.
+      // Cache app-owned local assets only after the visitor actually requests them.
       if (network.ok && network.type === 'basic') await cache.put(request, network.clone());
       return network;
     } catch (_) {
