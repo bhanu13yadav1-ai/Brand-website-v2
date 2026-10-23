@@ -1093,24 +1093,23 @@
 
   // Render only the visible Home payload at startup. Other screens initialize on navigation.
   renderHomeCampaigns();initMeasurementTools();renderHeaderCounts();renderWishlist();renderBag();updateMeasureConversion();
-  // Load the Phase 3 mode as a small additive module; no index.html rewrite is required.
-  (function loadPhase3Mode() {
-    if (document.querySelector('script[data-phase3-horny-mode]')) return;
-    if (!document.querySelector('link[data-phase3-horny-mode-style]')) {
-      const style = document.createElement('link');
-      style.rel = 'stylesheet';
-      style.href = './phase3-horny-mode.css';
-      style.dataset.phase3HornyModeStyle = 'true';
-      document.head.appendChild(style);
-    }
+  // Phase 3 + 4 are delivered as one same-origin asset to reduce request count and deployment mismatch.
+  (function loadCombinedPhase34() {
+    if (document.querySelector('script[data-phase34-bundle]') || document.documentElement.dataset.blackedPhase34Bundle === 'ready') return;
     const script = document.createElement('script');
-    script.src = './phase3-horny-mode.js';
+    script.src = './phase3-4-experience.js';
+    script.addEventListener('load', () => { script.dataset.loadOK = 'true'; });
+    script.addEventListener('error', () => { script.dataset.loadError = 'true'; });
     script.async = true;
-    script.dataset.phase3HornyMode = 'true';
+    script.dataset.phase34Bundle = 'true';
+    script.onerror = () => {
+      state.diagnostic.errors.push('Phase 3/4 bundle failed to load: phase3-4-experience.js');
+      document.documentElement.dataset.blackedPhase34Bundle = 'load-error';
+    };
     document.head.appendChild(script);
   })();
 
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-    window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(err=>{state.diagnostic.errors.push('Service worker: '+String(err));console.warn('[BLACKED V1] Service worker registration failed',err);}));
+    window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').then(reg=>reg.update().catch(()=>{})).catch(err=>{state.diagnostic.errors.push('Service worker: '+String(err));console.warn('[BLACKED V1] Service worker registration failed',err);}));
   }
 })();

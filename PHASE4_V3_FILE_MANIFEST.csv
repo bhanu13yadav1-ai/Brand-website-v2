@@ -1,0 +1,7 @@
+File,Action,Reason
+app.js,Replace,Phase 3+4 combined and diagnostics update
+fallback.js,Replace,Phase 3+4 combined and diagnostics update
+sw.js,Replace,Phase 3+4 combined and diagnostics update
+phase3-4-experience.js,Add,Phase 3+4 combined and diagnostics update
+phase4-diagnostics.html,Add,Phase 3+4 combined and diagnostics update
+phase4-diagnostics.js,Add,Phase 3+4 combined and diagnostics update

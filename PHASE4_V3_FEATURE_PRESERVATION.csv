@@ -1,0 +1,16 @@
+Feature,Status,Notes
+Home,Preserved,Existing index.html is not replaced
+Stories 18+,Preserved,Original app age gate remains
+Innerwear,image archive and catalogue,Preserved,No dataset deletion
+Sanskari campaigns,Preserved,Original assets/views untouched
+Wellness 18+,Preserved,Original view and diagrams untouched
+Boyfriend & Couples,Preserved,Original view/wheel untouched
+Fit Studio,Preserved,Original view and notes untouched
+Dildo and Plug wheels,Preserved,Original DOM and modules untouched
+Boyfriend wheel and Dirty/Wild wheel,Preserved,Original DOM and modules untouched
+Wishlist,Comparison,Preserved,Existing app state/storage untouched
+Sample bag,Preserved,Existing app state/storage untouched
+Saved stories,Preserved,No storage keys deleted
+Phase 3 SUPER HORNY/RANDI MODE,Combined,Same module content bundled into phase3-4-experience.js
+Phase 4 Build Your Own Fantasy,Implemented,Four-step locally generated non-graphic fiction prompt builder
+Cleanup,Deferred,No existing source or data file removed

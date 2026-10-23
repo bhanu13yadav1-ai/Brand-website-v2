@@ -1,0 +1,126 @@
+{
+  "checks": [
+    {
+      "test": "app API booted",
+      "status": "PASS",
+      "detail": "object"
+    },
+    {
+      "test": "seven existing views retained",
+      "status": "PASS",
+      "detail": "7"
+    },
+    {
+      "test": "four original wheel discs retained",
+      "status": "PASS",
+      "detail": "4"
+    },
+    {
+      "test": "navigation innerwear",
+      "status": "PASS",
+      "detail": "view active"
+    },
+    {
+      "test": "navigation sanskari",
+      "status": "PASS",
+      "detail": "view active"
+    },
+    {
+      "test": "navigation fit",
+      "status": "PASS",
+      "detail": "view active"
+    },
+    {
+      "test": "navigation home",
+      "status": "PASS",
+      "detail": "view active"
+    },
+    {
+      "test": "18+ gate stories",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "test": "18+ gate wellness",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "test": "18+ gate boyfriend",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "test": "Phase 3 mood panel present",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "test": "Phase 4 fantasy builder present",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "test": "Phase 4 starts on step 1",
+      "status": "PASS",
+      "detail": "STEP 1 OF 4 \u00b7 Choose a mood"
+    },
+    {
+      "test": "wizard step 2",
+      "status": "PASS",
+      "detail": "STEP 2 OF 4 \u00b7 Choose a character"
+    },
+    {
+      "test": "wizard step 3",
+      "status": "PASS",
+      "detail": "STEP 3 OF 4 \u00b7 Pick visual style"
+    },
+    {
+      "test": "wizard step 4",
+      "status": "PASS",
+      "detail": "STEP 4 OF 4 \u00b7 Set language & intensity"
+    },
+    {
+      "test": "age confirmation blocks generation",
+      "status": "PASS",
+      "detail": "Pehle 18+ confirmation check karo. Adult fictional prompt abhi generate nahi hua."
+    },
+    {
+      "test": "prompt generated after 18+ confirmation",
+      "status": "PASS",
+      "detail": "Write a non-graphic adult fictional scene with the playful adult partner, built around a fictional accessory as a playfu"
+    },
+    {
+      "test": "prompt is non-graphic/consent anchored",
+      "status": "PASS",
+      "detail": "alogue and playful tension, without graphic detail. Keep every character an adult, make consent explicit, and let anyone pause or opt out at any time."
+    },
+    {
+      "test": "phase 4 local-only diagnostics",
+      "status": "PASS",
+      "detail": "{'loaded': True, 'step': 4, 'stepCount': 4, 'choices': 12, 'language': 'en', 'localOnly': True, 'adultGate': True, 'outputVisible': True}"
+    },
+    {
+      "test": "no uncaught page errors",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "emergency navigation fallback activates Innerwear",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "test": "emergency fallback still enforces 18+ gate",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "test": "emergency fallback continues after 18+ confirmation",
+      "status": "PASS",
+      "detail": "True"
+    }
+  ],
+  "page_errors": [],
+  "console_errors": []
+}
