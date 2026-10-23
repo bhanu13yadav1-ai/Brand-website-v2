@@ -1,0 +1,44 @@
+BLACKED V4 — SESSION HANDOFF NOTE
+
+MASTER PLAN FILE: BLACKED_V4_MASTER_PLAN.md
+REPOSITORY: https://github.com/bhanu13yadav1-ai/Brand-website-v2
+LIVE SITE: https://bhanu13yadav1-ai.github.io/Brand-website-v2/
+PLAN SCOPE: 40 feature areas × 7 ideas = 280 ideas; all are V4 scope.
+TARGET: bold, horny, teasing, adult-oriented experience for consenting adults, with premium mobile-first UI, real interactions, no clutter, privacy and honest feature status.
+
+USE ONLY 5 PHASES:
+1. Audit, foundation, repair and phone-first design.
+2. Core experience, content, collections and discovery.
+3. Bold/horny/dirty/playful interactive engine: stories, wheels, After Dark, fantasy builder, Couples tools.
+4. Wellness, body education, fit and product/image trust.
+5. Integrate all approved modules, privacy/PWA hardening, full live QA and V4 release.
+
+NON-NEGOTIABLES:
+- Read BLACKED_V4_MASTER_PLAN.md at the start and update it at end of every phase.
+- Preserve all current views, original 4 wheel placements, stories, image archive/manifests, storage keys and user data.
+- Audit current repo/live deployment before changing code; the current state may have changed after this note.
+- Phase 9–15 files existing in repo does NOT prove they're live. Verify the chosen loader architecture. Prior audit found phase12-15-final-loader.js not referenced from index.html; latest V3 did connect phase3-4-experience.js through app.js.
+- No duplicate module loads; every button must work or be honestly disabled/Coming Soon.
+- Phone-first, uncluttered, readable; advanced options progressive-disclosed.
+- Adult mode is opt-in; fictional adults; clear limits and skip/pause/stop controls.
+- Wellness content stays factual. No invented product stock, seller, material, price, rights, checkout, diagnosis or encryption claims.
+- Tests must be labelled STATIC, MOCK/IN-MEMORY, LIVE BROWSER or REAL ANDROID. A successful GitHub Pages build is not proof that all features work.
+- Before V4 release, account for all 40 areas and all 280 ideas as IMPLEMENTED, DEFERRED (reason), or NOT APPLICABLE (reason). No critical/high bug open.
+
+BASELINE RECORD FROM 2026-10-23:
+Latest inspected commit: bafa97b0861c1a08a96472f655ca2152f1eff6ae
+Pages workflow: success
+V3 Phase 3/4 combined bundle: app.js dynamically loads phase3-4-experience.js
+Service-worker cache name: blacked-v4-phase4-combined-experience-1
+Phase 9–15 full live integration and actual Android regression: not proven by that deployment result.
+
+NEXT SESSION PROMPT:
+“First open BLACKED_V4_MASTER_PLAN.md and inspect the latest repo commit and live site. Do not ask me to restate requirements. Start with Phase 1 audit, preserve all existing features and data, record the baseline, then implement/test phase-by-phase. At the end of every phase update the master plan and give me a copy/paste handoff. Never call the site finished without live and Android regression evidence.”
+
+
+PHASE 1 CURRENT STATUS (2026-10-23):
+- Delta ZIP prepared as BLACKED_V4_PHASE1_DELTA.zip; it contains only newly added code/docs/plan plus an index insertion patch. No existing image/assets or unchanged app modules are duplicated.
+- New phase1-foundation.js is NOT ACTIVE until one line is added to the existing index.html: <script src="./phase1-foundation.js?v=4.1.0" defer></script> (see PHASE1_INSTALL_GUIDE_HINGLISH.md).
+- Static JavaScript syntax checks + ZIP integrity passed. Headless Chromium fixture timed out in the test environment, so no browser pass is claimed. Live diagnostics and Android testing are still pending.
+- No GitHub commit was made: write integration returned HTTP 403. Owner needs to upload extracted delta files and add the one-line script integration.
+- Do not start Phase 2 until phase1-live-diagnostics.html report is reviewed and Android regressions are checked.

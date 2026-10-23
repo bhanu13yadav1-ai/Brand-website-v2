@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100c10">
+  <title>BLACKED V4 · Phase 1 Live Diagnostics</title>
+  <style>
+    :root{color-scheme:dark;font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;background:#100c10;color:#fff5fa;--line:#4a3446;--muted:#d1c0cc;--gold:#e7c17e;--green:#a5e8b7;--red:#ffb4b4;--amber:#f1d18c}
+    *{box-sizing:border-box}body{margin:0}main{width:min(100%,1040px);margin:auto;padding:18px}h1{font-size:clamp(27px,5vw,42px);line-height:1.1;margin:.1em 0 .35em}p{color:var(--muted)}.eyebrow{font-size:10px;letter-spacing:.16em;color:var(--gold);font-weight:800;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}button{min-height:44px;border-radius:11px;padding:10px 14px;border:1px solid #81634c;background:#e7c17e;color:#171016;font-weight:800;cursor:pointer}button:focus-visible{outline:3px solid #f4a0c1;outline-offset:3px}button.secondary{background:#211820;border-color:var(--line);color:#fff5fa}.summary{border:1px solid var(--line);background:#1b151b;border-radius:15px;padding:14px;margin:12px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.test{min-width:0;background:#1b151b;border:1px solid var(--line);border-radius:13px;padding:13px;overflow-wrap:anywhere}.test strong{display:block}.status{display:inline-block;margin-top:5px;font-size:12px;font-weight:850}.PASS{color:var(--green)}.FAIL{color:var(--red)}.WARN{color:var(--amber)}.PENDING{color:var(--amber)}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0c090c;border:1px solid var(--line);border-radius:12px;padding:13px;font-size:12px}iframe{display:block;width:100%;height:680px;border:1px solid var(--line);border-radius:14px;background:#100c10;margin-top:16px}details{margin-top:14px}summary{cursor:pointer;padding:10px 0;font-weight:700}.small{font-size:12px}@media(max-width:580px){main{padding:13px}.grid{grid-template-columns:1fr}iframe{height:620px}}
+  </style>
+</head>
+<body><main>
+  <p class="eyebrow">BLACKED V4 · Phase 1 · Live browser check</p>
+  <h1>Foundation & regression diagnostics</h1>
+  <p>This page inspects the same-origin deployed website in an iframe. It does not change the website's saved data. Upload the Phase 1 delta files, add the one-line script integration to the existing <code>index.html</code>, wait for GitHub Pages deployment, and then run these checks.</p>
+  <div class="actions"><button id="runChecks" type="button">Run live checks</button><button class="secondary" id="reloadSite" type="button">Reload test site</button><button class="secondary" id="downloadReport" type="button">Download report JSON</button></div>
+  <div class="summary" id="summary" role="status" aria-live="polite">Waiting for the website frame…</div>
+  <div class="grid" id="results"></div>
+  <details><summary>Full diagnostic data</summary><pre id="raw">No report yet.</pre></details>
+  <h2>Website under test</h2>
+  <iframe id="siteFrame" title="BLACKED website under test" src="./index.html?phase1qa=initial" loading="eager"></iframe>
+  <p class="small">Caveat: a passing GitHub Pages build is not a substitute for testing all interactions in Android Chrome. This page is a source-backed smoke test, not a universal performance/security certification.</p>
+</main>
+<script>
+(() => {
+  'use strict';
+  const $ = selector => document.querySelector(selector);
+  const frame = $('#siteFrame');
+  let lastReport = null;
+  const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+  function addResult(label, status, detail) {
+    const card = document.createElement('div'); card.className = 'test';
+    const title = document.createElement('strong'); title.textContent = label;
+    const state = document.createElement('span'); state.className = `status ${status}`; state.textContent = status;
+    const description = document.createElement('div'); description.textContent = detail || '';
+    card.append(title, state, description); $('#results').append(card);
+  }
+  async function run() {
+    $('#runChecks').disabled = true; $('#runChecks').textContent = 'Running…';
+    $('#results').replaceChildren(); $('#summary').textContent = 'Loading a fresh same-origin copy of the site…';
+    frame.src = `./index.html?phase1qa=${Date.now()}`;
+    try {
+      await new Promise((resolve, reject) => {
+        let settled = false;
+        let timer;
+        const finish = fn => value => {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          frame.removeEventListener('load', onLoad);
+          frame.removeEventListener('error', onError);
+          fn(value);
+        };
+        const onLoad = finish(resolve);
+        const onError = finish(reject);
+        frame.addEventListener('load', onLoad, { once: true });
+        frame.addEventListener('error', onError, { once: true });
+        timer = setTimeout(() => onError(new Error('Website did not finish loading within 25 seconds')), 25000);
+        frame.src = `./index.html?phase1qa=${Date.now()}`;
+      });
+      const win = frame.contentWindow, doc = frame.contentDocument;
+      if (!win || !doc || !doc.querySelector('#view-home')) throw new Error('Home view not found in the deployed page.');
+      await wait(1800);
+      const phase1 = win.BLACKED_V4_PHASE1;
+      const snapshot = phase1?.getDiagnostics?.() || null;
+      const views = doc.querySelectorAll('.view[data-view]').length;
+      const links = doc.querySelectorAll('#mainNav [data-view-link]').length;
+      const hasAge = !!doc.querySelector('#ageModal');
+      const ids = [...doc.querySelectorAll('[id]')].map(el => el.id);
+      const duplicates = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
+      const check = (label, ok, detail, failStatus = 'FAIL') => addResult(label, ok ? 'PASS' : failStatus, detail);
+      check('Phase 1 foundation module', !!snapshot, snapshot ? `Version ${snapshot.version}` : 'Module not detected. Confirm the one-line index.html insertion and deployment.');
+      check('Main app API', !!win.BLACKED_V1, win.BLACKED_V1 ? 'Existing app API detected' : 'BLACKED_V1 is missing; inspect main scripts / 404 responses.');
+      check('Seven main views', views === 7, `${views} views found; expected 7.`);
+      check('Main navigation', links >= 7, `${links} links found in the desktop/main navigation.`);
+      check('18+ gate markup', hasAge, hasAge ? 'Age confirmation modal exists.' : 'Age confirmation modal is missing.');
+      check('Duplicate IDs', duplicates.length === 0, duplicates.length ? duplicates.join(', ') : 'No duplicates detected.');
+      check('Combined Phase 3/4 bundle', !!(win.BLACKED_V3_PHASE3 && win.BLACKED_PHASE4_FANTASY), 'Looks for the runtime APIs of the combined Phase 3/4 bundle.', 'WARN');
+      const wheelIds = ['dildoPreference','plugPreference','boyPreference','wildCategory'];
+      const wheelMissing = wheelIds.filter(id => !doc.getElementById(id));
+      check('Four wheel controls', wheelMissing.length === 0, wheelMissing.length ? `Missing: ${wheelMissing.join(', ')}` : 'All four original wheel controls detected.', 'WARN');
+      check('Horizontal overflow', snapshot ? !snapshot.horizontalOverflow : false, snapshot ? `Document width ${doc.documentElement.scrollWidth}px vs viewport ${win.innerWidth}px.` : 'Cannot inspect until foundation module loads.', 'WARN');
+      check('Image requests', snapshot ? !snapshot.failedImageCount : false, snapshot ? `${snapshot.imageCount} total; ${snapshot.loadedImageCount} loaded; ${snapshot.failedImageCount} failed; ${snapshot.imagePathRepairs} path repair(s).` : 'Foundation diagnostics API unavailable.', 'WARN');
+      check('Service worker support', !!snapshot?.serviceWorker?.supported, snapshot?.serviceWorker?.controlled ? 'Page is controlled by a service worker.' : 'Supported but this session may not yet be controlled; first visit can be normal.', 'WARN');
+      // Test only a non-gated navigation action and return the iframe to Home; no local saved data is cleared.
+      doc.querySelector('#mainNav [data-view-link="innerwear"]')?.click(); await wait(180);
+      const innerwearOk = !doc.querySelector('#view-innerwear')?.hidden && doc.querySelector('#view-innerwear')?.classList.contains('active');
+      check('Innerwear navigation round-trip', innerwearOk, innerwearOk ? 'Innerwear opened from the main navigation.' : 'Innerwear did not become active.');
+      doc.querySelector('#mainNav [data-view-link="home"]')?.click(); await wait(100);
+      lastReport = { generatedAt: new Date().toISOString(), url: location.href, summary: { views, links, duplicates, innerwearOk }, phase1: win.BLACKED_V4_PHASE1?.runSmokeTests?.() || null, diagnostics: win.BLACKED_V4_PHASE1?.getDiagnostics?.() || null };
+      const failures = [...$('#results').querySelectorAll('.FAIL')].length;
+      const warnings = [...$('#results').querySelectorAll('.WARN')].length;
+      $('#summary').textContent = failures ? `${failures} failing check(s), ${warnings} warning(s). Fix the failures before Phase 2.` : `No failing smoke checks. ${warnings} warning(s) still require review; this is not yet the full Phase 1 sign-off.`;
+      $('#raw').textContent = JSON.stringify(lastReport, null, 2);
+    } catch (error) {
+      lastReport = { generatedAt: new Date().toISOString(), error: `${error.name}: ${error.message}`, note: 'This is a live browser check; a frame/network failure is not a pass.' };
+      addResult('Live diagnostic runner', 'FAIL', lastReport.error);
+      $('#summary').textContent = 'Live checks could not complete. Do not treat the site as verified.';
+      $('#raw').textContent = JSON.stringify(lastReport, null, 2);
+    } finally {
+      $('#runChecks').disabled = false; $('#runChecks').textContent = 'Run live checks again';
+    }
+  }
+  $('#runChecks').addEventListener('click', run);
+  $('#reloadSite').addEventListener('click', () => { frame.src = `./index.html?phase1reload=${Date.now()}`; $('#summary').textContent = 'Reloading site…'; });
+  $('#downloadReport').addEventListener('click', () => {
+    if (!lastReport) { $('#summary').textContent = 'Run live checks first.'; return; }
+    const url = URL.createObjectURL(new Blob([JSON.stringify(lastReport, null, 2)], { type: 'application/json' }));
+    const a = document.createElement('a'); a.href = url; a.download = 'BLACKED_PHASE1_LIVE_REPORT.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+  frame.addEventListener('load', () => { $('#summary').textContent = 'Site frame loaded. Press Run live checks for a fresh inspection.'; });
+})();
+</script>
+</body></html>

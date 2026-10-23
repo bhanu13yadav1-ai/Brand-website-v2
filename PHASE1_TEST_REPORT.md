@@ -1,27 +1,25 @@
-# Phase 1 — Test & Verification Report
+# BLACKED V4 Phase 1 — Package Validation Report
 
-## Static/source checks performed against current `main`
+## Scope
+This phase-1 delta package adds an additive foundation module, a same-origin live diagnostic page, installation instructions, a minimal one-line `index.html` integration patch, and the V4 planning/handoff files. It does not replace existing images/assets or unchanged repository files.
 
-- [PASS] Repository HEAD captured: `530b6d2339e68f0ae3bd78a01ec36981d570576b`.
-- [PASS] Current index references seven main views; route-name list matches seven view IDs.
-- [PASS] Static ID scan found 158 HTML IDs and zero duplicate IDs.
-- [PASS] Current index script/style references point at existing tree paths.
-- [PASS] Static scan did not find missing local source references in `index.html`.
-- [PASS] Image library includes 151 records and unique IDs.
-- [PASS] Service-worker CORE contains 49 entries; every listed path exists in the current tree.
-- [NEEDS FIX/VERIFY] Service worker does not pre-cache `phase2-photo-collections.js` or `.css` even though both are linked in the current `index.html`.
-- [NEEDS HUMAN QA] Two active wheel logic layers exist (legacy core plus add-on); source reading cannot prove final pointer-sector/result match.
-- [PASS] All ten uploaded photos were readable as image files, dimension-checked and converted to optimized WebP staged copies. Original composition/text was not retouched.
-- [PASS] New asset names are distinct from the ten uploaded numeric source names. Full content-hash comparison against all repository binaries could not be performed because this environment could not clone/download the repository binary assets; before merging, compare new WebP hashes and perceptual duplicates against the existing full asset library.
+## Checks performed in this packaging environment
+- JavaScript syntax check (`node --check phase1-foundation.js`) — PASS.
+- Inline diagnostic JavaScript syntax check — PASS after extraction from the HTML and parsing through Node.
+- ZIP integrity check (`unzip -t`) — recorded in the final packaging verification.
+- Archive file list — verified after packaging to ensure no image files, `index.html`, `app.js`, `styles.css`, `sw.js`, or existing repo modules are duplicated inside the delta ZIP.
 
-## Not tested / blocked
+## Not tested here
+- The deployed GitHub Pages site could not be interacted with from this environment.
+- The Phase 1 module only runs after the required one-line script tag is committed in `index.html`.
+- Android Chrome touch behavior, all original wheel interactions, real external image HTTP success, offline controller takeover, PWA install and all Phase 9–15 integrations have not been certified by this package build.
 
-- [NOT TESTED] Live Pages/site/browser interactions; the available browser could not open the Pages URL.
-- [NOT TESTED] Physical Android Chrome, touch, scroll, mobile menu, install/PWA prompts and cache-update behaviour.
-- [NOT TESTED] Runtime network responses for the 151 external image records.
-- [NOT TESTED] JS parser/automated tests on a fresh clone of current `main`; container networking could not resolve `github.com`, so historical QA files were not treated as current runtime proof.
-- [NOT TESTED] Public-use image permissions/model releases, embedded marketing claims or product supplier data.
+## Exit gate before Phase 2
+1. Upload new files and add the one-line script integration.
+2. Confirm GitHub Pages deployment workflow succeeds.
+3. Run `phase1-live-diagnostics.html` against the deployed site.
+4. Save its JSON report and fix any FAIL; examine all WARN items.
+5. Perform Android Chrome tests with existing user data preserved.
 
-## Release status
-
-**Phase 1 is partially complete.** Source inventory and incoming photo placement registry are complete for planning. Phase 1 remains open until the current deployment/device and platform/brand/business decision gates are documented. No feature code or production assets were changed.
+- Headless Chromium fixture smoke test — INCONCLUSIVE: Chromium timed out in this execution environment before emitting DOM output. No browser-level pass is claimed.
+- GitHub write/deploy — NOT PERFORMED: repository write integration returned HTTP 403; owner upload required.

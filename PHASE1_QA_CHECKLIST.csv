@@ -1,0 +1,19 @@
+ID,Area,Check,Expected result,Status
+P1-01,Packaging,No images copied,Delta archive contains no image assets,To verify
+P1-02,Packaging,No unchanged source files copied,Only new files/docs and integration patch,To verify
+P1-03,Integration,Foundation script in index.html,One deferred script tag present,Pending owner upload
+P1-04,Runtime,BLACKED_V1 present,Existing app booted,Pending live test
+P1-05,Navigation,Seven views present,Home/Stories/Innerwear/Sanskari/Wellness/Boyfriend/Fit,Pending live test
+P1-06,Navigation,Innerwear round-trip,Open Innerwear then Home,Pending live test
+P1-07,Accessibility,Mobile menu aria state,aria-expanded and aria-hidden match state,Pending live test
+P1-08,Accessibility,Escape closes mobile menu,Menu closes and focus returns to toggle,Pending Android test
+P1-09,Layout,Horizontal overflow,No unintended document-level overflow,Pending live test
+P1-10,Markup,Duplicate IDs,None,Pending live test
+P1-11,Images,Known /assets path repair,Retries basename once only after local /assets failure,Pending live test
+P1-12,Images,Failed image reporting,Failed images are reported in diagnostics,Pending live test
+P1-13,Data safety,Storage preservation,No local/session storage is deleted or rewritten,Source reviewed
+P1-14,PWA,Service worker presence/controller,Support/controller state reported honestly,Pending live test
+P1-15,Release,Console/asset errors,No critical module errors; warnings reviewed,Pending live test
+P1-16,Mobile,320/360/390/430px layouts,No clipped controls or unwanted horizontal scroll,Pending real device/browser
+P1-17,Regression,Four original wheel control groups,All four controls still exist,Pending live test
+P1-18,Regression,18+ gate,Gate remains present; no gated content is opened by diagnostics,Pending live test

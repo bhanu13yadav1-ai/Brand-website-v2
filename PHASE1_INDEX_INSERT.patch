@@ -1,0 +1,8 @@
+--- a/index.html
++++ b/index.html
+@@
+   <script src="./phase6-wellness-collections.js" defer></script>
+   <script src="./phase7-8-enhancements.js" defer></script>
++  <!-- BLACKED V4 Phase 1: mobile usability guardrails + diagnostics -->
++  <script src="./phase1-foundation.js?v=4.1.0" defer></script>
+ </head>
