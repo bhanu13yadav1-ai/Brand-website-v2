@@ -1,0 +1,11 @@
+phase,workstream,status,deliverable,automated_check,manual_gate,production_status
+5,Product discovery filters,IMPLEMENTED IN ADD-ON,phase5-product-discovery.js and css,Static assertions pass,Test search/category/sort/filter on Android,Not deployed
+5,Verified product information,DATA PENDING,PRODUCT_VERIFICATION_REGISTER.csv,8 rows default NO,Fill supplier-backed SKU/material/size/stock/final price/seller facts,Not sales approved
+5,Comparison,IMPLEMENTED IN ADD-ON,Three-reference cap and truth disclosure,Static assertions pass,Test add/remove/limit states,Not deployed
+5,Selling model,PLANNING ONLY,Editorial/own-brand/affiliate/marketplace selector,Static assertions pass,Legal/business approval and secure checkout required,Sales disabled
+6,Wellness guidance,IMPLEMENTED IN ADD-ON,phase6-wellness-collections.js and 3 guide SVGs,Module syntax/XML checks pass,Review content/links and phone layout,Not deployed
+6,Fit Studio,ADDITIVE PRIVACY NOTE,Local photo/notes reminder,Static assertions pass,Confirm local preview and clear controls,Not deployed
+6,Sanskari/Noor/Grace,IMPLEMENTED IN ADD-ON,Collection jumpnav and existing collection integration,Static assertions pass,Test each collection filter and focus behavior,Not deployed
+6,Image rights,RIGHTS REVIEW PENDING,IMAGE_RIGHTS_REGISTER.csv and workflow SVG,CSV schema checked,Verify every image and release/permission,Not commercially cleared
+6,New media,IMPLEMENTED IN ADD-ON,4 original SVG instructional assets,XML parse passes,Visual regression and alt-text review on mobile,Not deployed
+6,Repository integration,BLOCKED,patches/ integration guidance,Patch content prepared,GitHub write access needed for branch/PR,No commit or deployment

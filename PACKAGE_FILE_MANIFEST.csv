@@ -1,16 +1,24 @@
-path,kind,purpose
-phase4-story-universe.js,new runtime module,"Tone-aware branching stories, preference cards, wheel-to-story links"
-phase4-story-universe.css,new stylesheet,"Responsive mobile-first styles and accessible focus states"
-phase4-story-universe.json,new content data,"Four linked stories, twelve scenes and three tone versions"
-phase4-diagnostics.html,new diagnostic page,"Hosted integration checks for route availability, stories, preferences and wheel alignment"
-tests/phase4-module-harness.html,new test harness,"Synthetic DOM smoke-test page; not a substitute for full site QA"
-tests/phase4-static-validate.mjs,new validation script,"Validate JSON graph, tones, wheel math, and package integration anchors"
-tests/phase4-repo-check.mjs,new validation script,"Check integrated files in the repository root after patches are applied"
-patches/INDEX_PHASE4_INSERT.patch,integration patch,"Add stylesheet and script tags without replacing index.html"
-patches/SW_CACHE_PHASE4.patch,integration patch,"Version the service-worker cache and precache Phase 4 assets"
-README_PHASE4_HINGLISH.md,documentation,"Integration steps and feature boundaries"
-PHASE4_TEST_REPORT.md,documentation,"Recorded static test results and untested boundaries"
-PHASE_TRACKER_UPDATED.csv,project tracking,"Records completed package scope and remaining blockers"
-HANDOFF_PHASE4_TO_PHASE5.md,project handoff,"Exact Phase 5 entry criteria and pending Phase 4 tasks"
-docs/PHASE4_CHANGELOG.md,documentation,"Base SHA, scope, preservation and test boundary"
-docs/PHASE4_DATA_MODEL_NOTES.md,documentation,"Story graph, tone, preference and wheel-link data model"
+path,bytes,sha256
+CHANGELOG_PHASE5_6.md,1450,ed70c1761760b6a406f943baf7a530c2af634c0fcfb66df1b7ed2fd4e79b24e3
+HANDOFF_PHASE5_6_TO_PHASE7.md,1900,e24b8326bb69a2529487d87a03e2328aada4e980b6a8a5211b7e8e5d6ee0ba21
+IMAGE_RIGHTS_REGISTER.csv,1989,4351d5ff89e360445febcbd72eeca9c73dc56be1786b7bb3a50eae6c791b2139
+PHASE5_6_TEST_REPORT.md,3256,6887b3653827536c3f777ec5d415faf6963c090b4747219948a0b4a80c95542b
+PHASE_TRACKER_PHASE5_6.csv,1703,035b206863136eeff4f9069d2e30d699437373cc4a734e8666cb25b8c9bfba46
+PRODUCT_VERIFICATION_REGISTER.csv,868,c368cc66420eef893f3dd9db23e5cbc7da108f32d9a15e7538dd139ea9f7371e
+README.md,892,8f0738c9f1a2f4800526dcc5243f68dc4490597539b932189875d3dfa4a364bc
+README_PHASE5_6_HINGLISH.md,3451,ad95b6e37748ccae97b639fd570178cf033e4f7c8b4783d2b9900d0dbdbab4d4
+assets/phase6-comfort-check.svg,2023,69902862a17a0d8106eaef19bf3d4a27e46b2c219fc62bc33596c80fc18964e3
+assets/phase6-image-rights-workflow.svg,1669,0c246f7d37bd2010c468addf91674740caccebc88cfa6ffd2917ca2a432a1964
+assets/phase6-measurement-map.svg,1350,e52cb8fc6709ed760303e83eeb3bd62622b6878a4c6326a5d6cfc37d3d2e6268
+assets/phase6-product-specs.svg,1848,059aaa62da1ce616e0878cd1833e53131f89d4e4309924957f6db70988a6dad4
+docs/phase5-sales-approval-policy.md,2993,be5493613aba8da3dbb141e38fa6c8025a0f14591cc4b82f108653d1649fd804
+docs/phase6-media-rights-checklist.md,1956,04776d36230fb6098629117f039651222de9129f30ca4078e207cef1a9edbbe1
+patches/INDEX_PHASE5_6_INSERT.patch,3067,6df5c320616798d3ae03c732e7fe39ff6891c0df4b722f2a807c96bf0c0482c8
+patches/SW_CACHE_PHASE5_6.patch,662,ef83f45c050e2afb4bcad96fcde12037b0a6ccba715b9d5ee375b0e1f5ba7bcc
+phase5-6-review-diagnostics.html,6379,d8bad140b0d321046060a9dd2eae3efbd4d90fc79eaf1c1c4899037f355b469c
+phase5-product-discovery.css,3448,e3bdd82ace8616ed9ae17dd5a331ee312102062802281715458689cfe5acffac
+phase5-product-discovery.js,14858,2941ad0f77c69807b9f6c74f3e36bda4646cf7b3062dae5a95d1522c7597970f
+phase6-wellness-collections.css,3277,78fdfec3ca8ba5613bf580785dcb16bb39790d013276bf8a1e2a4a9a0373cca8
+phase6-wellness-collections.js,10803,6df6a7db9ee1faf77f6cab02aa3b5846e32ecc078546eaadd141522baec7bac5
+tests/phase5-6-static-validate.mjs,3351,e6e47dad4e336f2cef6dd8cfce90135e45ec68d4320542173e750137e28bbe0d
+tests/phase56-module-harness.html,6776,79be3a7f4733dfc663efed21f2c8c1f08ddaad6d8efa1e2a848464cd14104287

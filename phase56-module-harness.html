@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Phase 5–6 Module Harness</title>
+<link rel="stylesheet" href="../phase5-product-discovery.css"><link rel="stylesheet" href="../phase6-wellness-collections.css">
+<style>:root{color-scheme:dark;--line:#453044;--muted:#c0b2bd;--cream:#fff5fa;--pink:#f4a0c1;--gold:#eacb8c;--panel:#181219}body{margin:0;padding:12px;background:#100c10;color:var(--cream);font:14px/1.5 system-ui,sans-serif}.wrap{max-width:1000px;margin:auto}.view{margin:15px 0;padding:14px;border:1px solid #443044;border-radius:15px}.toolbar,.product-grid,.compare-grid,.fit-layout,.coming-grid{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}.product-card,.compare-card,.panel,.coming-card{padding:12px;border:1px solid #493448;border-radius:12px}.product-price small{display:block}.page-intro{margin-bottom:12px}.sanskari-hero{padding:20px;border:1px solid #493448}.wheel{padding:12px}.muted{color:var(--muted)}.product-card[hidden]{display:none!important}</style></head><body><main class="wrap">
+<h1>Phase 5–6 Runtime Harness</h1><p>Static fixture only — not the full BLACKED app.</p>
+<section id="view-innerwear" class="view" data-view="innerwear"><div class="page-intro"><h1>Innerwear</h1></div><div class="toolbar"></div><p id="catalogCount">2 concepts</p><div id="catalogGrid" class="product-grid">
+<article class="product-card"><div class="product-card-copy"><span class="kicker">LACE EDIT</span><h3>Reference A</h3><p>Concept reference.</p><div class="product-price">₹799 <small>sample price · not verified</small></div></div><div class="product-card-actions"><button data-add="a">Add demo pick</button><button data-save="a">Save</button></div><div><button data-compare="a">Compare A</button></div></article>
+<article class="product-card"><div class="product-card-copy"><span class="kicker">EVERYDAY</span><h3>Reference B</h3><p>Concept reference.</p><div class="product-price">₹649 <small>sample price · not verified</small></div></div><div class="product-card-actions"><button data-add="b">Add demo pick</button></div><div><button data-compare="b">Compare B</button></div></article></div>
+<section id="comparePanel" class="section-block"><div class="section-heading"><h2>Compare</h2></div><div id="compareResults" class="compare-grid"><article class="compare-card"><h3>A</h3><button data-compare="a">Remove A</button></article><article class="compare-card"><h3>B</h3><button data-compare="b">Remove B</button></article><article class="compare-card"><h3>C</h3><button data-compare="c">Remove C</button></article></div></section><div id="campaignModalDescription"></div>
+</section>
+<section id="view-wellness" class="view" data-view="wellness"><div class="page-intro"><h1>Wellness</h1></div><section class="section-block wellness-measurements"><h2>Worksheet</h2></section><section class="section-block wellness-quick-guides"><h2>Existing guides</h2></section><form id="measurementForm"></form></section>
+<section id="view-sanskari" class="view" data-view="sanskari"><div class="sanskari-hero"><h1>Sanskari</h1></div><section class="section-block"><div class="coming-grid"><article class="coming-card noor"><h2>Noor</h2></article><article class="coming-card grace"><h2>Grace</h2><figure><article id="v3GracePreview" class="v3-photo-card">Grace preview</article></figure></article></div></section><section id="v3NoorEditGallery" class="section-block"><h2>Noor gallery</h2></section><section id="sanskariGallery" class="section-block"><h2>Sanskari gallery</h2></section></section>
+<section id="view-fit" class="view" data-view="fit"><div class="page-intro"><h1>Fit Studio</h1></div><div class="fit-layout"><section class="panel"><textarea id="fitNotes"></textarea></section><section class="panel"><input id="fitPhotoUpload" type="file"></section></div></section>
+</main>
+<script src="../phase5-product-discovery.js"></script><script src="../phase6-wellness-collections.js"></script>
+<script>
+(() => {const results=[];const ok=(name,pass,detail='')=>results.push({name,pass:!!pass,detail});const $=s=>document.querySelector(s);
+document.addEventListener('click',e=>{if(e.target.closest('[data-compare]'))window.__appReceivedCompare=true;});
+setTimeout(()=>{
+const p5=window.BLACKED_PHASE5,p6=window.BLACKED_PHASE6;
+ok('Phase 5 global loaded',!!p5);ok('Phase 6 global loaded',!!p6);
+ok('Reference badge injected',!!$('.p5-record-badge'));
+ok('Illustrative price disclaimer injected',!!$('.p5-price-disclaimer'));
+ok('Sales gate remains off',p5?.salesEnabled===false);
+ok('Compare truth note injected',!!$('.p5-compare-truth'));
+$('#p5EvidenceFilter').value='verified';$('#p5EvidenceFilter').dispatchEvent(new Event('change',{bubbles:true}));ok('Verified filter rejects unverified concept cards',[...document.querySelectorAll('.product-card')].every(c=>c.hidden));
+$('#p5EvidenceFilter').value='all';$('#p5EvidenceFilter').dispatchEvent(new Event('change',{bubbles:true}));ok('Reset evidence restores reference cards',[...document.querySelectorAll('.product-card')].every(c=>!c.hidden));
+$('#p5SellerModel').value='affiliate';$('#p5SellerModel').dispatchEvent(new Event('change',{bubbles:true}));ok('Affiliate mode remains planning-only',/Planning preview only/.test($('#p5ModelGuidance').textContent));ok('Sale readiness remains blocked',/BLOCKED/.test($('#p5ModelGuidance').textContent));
+const fourth=document.createElement('button');fourth.dataset.compare='d';fourth.textContent='Add D';$('#catalogGrid').append(fourth);window.__appReceivedCompare=false;fourth.click();ok('Fourth comparison item is blocked',!window.__appReceivedCompare);
+ok('Wellness toolkit injected',!!$('#p6WellnessToolkit'));ok('Three local wellness SVG education assets referenced',$$('#p6WellnessToolkit img').length===3);
+ok('Rights panels in Sanskari and Fit Studio',!!$('#p6RightsCollections')&&!!$('#p6RightsFit'));
+const noorButton=$('[data-p6-collection="noor"]');noorButton.click();ok('Noor selection filters out Grace', $('#v3NoorEditGallery').hidden===false&&$('#v3GracePreview').closest('figure').hidden===true);
+$('[data-p6-collection="all"]').click();ok('All collection view restores previews',!$('#v3NoorEditGallery').hidden&&!$('#v3GracePreview').closest('figure').hidden);
+ok('Fit Studio privacy note injected',!!$('#p6FitPrivacyHint'));
+const passed=results.filter(x=>x.pass).length;const summary={passed,total:results.length,results};const out=document.createElement('pre');out.id='runtime-results';out.textContent=JSON.stringify(summary,null,2);document.body.append(out);document.documentElement.dataset.tests=passed===results.length?'passed':'failed';
+},80);
+function $$(s){return [...document.querySelectorAll(s)]}
+})();
+</script></body></html>

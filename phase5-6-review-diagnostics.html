@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#100c10">
+<title>BLACKED · Phase 5–6 Review Diagnostics</title>
+<style>
+:root{color-scheme:dark;--bg:#100c10;--panel:#1a131b;--line:#453044;--text:#fff5fa;--muted:#c0b2bd;--pink:#f4a0c1;--gold:#eacb8c;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif}.wrap{width:min(1100px,calc(100% - 24px));margin:16px auto}.card{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:15px;margin:12px 0}.muted{color:var(--muted)}h1{font-size:clamp(23px,4vw,34px);line-height:1.1;margin:0 0 8px}h2{font-size:18px;margin:0 0 8px}.actions{display:flex;gap:8px;flex-wrap:wrap}button,a.btn{min-height:42px;border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:#2c1d2b;color:var(--text);font:inherit;text-decoration:none;cursor:pointer}.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.check{padding:10px;border:1px solid var(--line);border-radius:10px}.pass{color:#a8e5b4}.pending{color:var(--gold)}iframe{display:block;width:100%;height:70vh;min-height:520px;border:1px solid var(--line);border-radius:14px;background:#100c10}@media(max-width:580px){.checklist{grid-template-columns:1fr}iframe{height:68vh;min-height:460px}}
+</style>
+</head>
+<body><main class="wrap"><h1>Phase 5 + Phase 6 · Review diagnostics</h1><p class="muted">This opens the real app inside the frame below and reads its additive-module diagnostics when available. Passing static checks does not replace manual Android, image, offline or business-approval testing.</p>
+<section class="card"><div class="actions"><button type="button" id="refreshChecks">Refresh checks</button><a class="btn" href="./index.html" target="_blank" rel="noopener">Open site separately ↗</a></div><p id="summary" role="status" aria-live="polite" class="pending">Loading the review site…</p><div id="checks" class="checklist"></div></section>
+<iframe id="siteFrame" title="BLACKED website review frame" src="./index.html"></iframe>
+<section class="card"><h2>Manual checks still required</h2><p>Use Android Chrome and verify: original 3 wheel locations plus Dirty/Wild Wheel, search/sort/wishlist/demo bag/compare, age-gate navigation, Fit Studio image selection and clear controls, Noor/Grace toggles, image-loading diagnostics, service-worker update/offline behavior, keyboard focus, and reduced-motion settings. Confirm no order/payment is created.</p><p class="muted">Rights, product evidence and seller/legal status are not proven by a browser check. Sales must remain off until owners verify the real records.</p></section></main>
+<script>
+(() => {
+'use strict';
+const $=s=>document.querySelector(s);const frame=$('#siteFrame');const checks=$('#checks');
+function add(label,ok,detail){const d=document.createElement('div');d.className='check';const status=document.createElement('b');status.className=ok?'pass':'pending';status.textContent=ok?'PASS':'PENDING';const p=document.createElement('p');p.textContent=label;const small=document.createElement('small');small.className='muted';small.textContent=detail||'';d.append(status,p,small);checks.append(d)}
+function run(){checks.replaceChildren();let w;try{w=frame.contentWindow}catch{}if(!w||!w.document){$('#summary').textContent='Could not read the site frame. Open this diagnostic and index.html from the same local/web origin.';return}
+const doc=w.document;const p5=w.BLACKED_PHASE5;const p6=w.BLACKED_PHASE6;let list=[];
+list.push(['Phase 5 module loaded',!!p5,p5?'Additive product discovery module detected':'Include phase5-product-discovery.js after current app scripts']);
+list.push(['Phase 6 module loaded',!!p6,p6?'Wellness/collections module detected':'Include phase6-wellness-collections.js after the collection module']);
+list.push(['Existing catalog still present',!!doc.querySelector('#catalogGrid'),`${doc.querySelectorAll('#catalogGrid .product-card').length} current catalog cards`]);
+list.push(['Sales remains disabled',!!p5&&!p5.salesEnabled,p5?'Diagnostics report salesEnabled=false':'Cannot confirm without Phase 5 module']);
+list.push(['Original wheel locations remain',!!doc.querySelector('[data-wheel-disc="dildo"]')&&!!doc.querySelector('[data-wheel-disc="plug"]')&&!!doc.querySelector('[data-wheel-disc="boy"]'),'Dildo, plug and boyfriend wheels are expected']);
+list.push(['Dirty/Wild wheel remains',!!doc.querySelector('[data-wheel-disc="wild"]'),'Wild wheel is an additional feature; the original three must remain']);
+list.push(['Wellness guide present',!!doc.querySelector('#view-wellness .guide-grid')&&!!doc.querySelector('#measurementForm'),'Existing guide and measurement worksheet found']);
+list.push(['Fit Studio still present',!!doc.querySelector('#fitPhotoUpload')&&!!doc.querySelector('#fitNotes'),'Local photo preview and fit notes found']);
+list.push(['Collection previews present',!!doc.querySelector('.coming-card.noor')&&!!doc.querySelector('.coming-card.grace'),'Noor and Grace remain labelled future concepts']);
+list.push(['Rights workflow visible',!!doc.querySelector('#p6RightsCollections')&&!!doc.querySelector('#p6RightsFit'),'Image-rights clearance panels exist in both target views']);
+list.push(['Original SVG guide assets referenced',!!doc.querySelector('[src="./assets/phase6-measurement-map.svg"]')&&!!doc.querySelector('[src="./assets/phase6-product-specs.svg"]')&&!!doc.querySelector('[src="./assets/phase6-comfort-check.svg"]'),'Image requests/rights need visual manual review']);
+list.push(['Existing asset rights not assumed cleared',!!p6&&!p6.rightsClearedForExistingAssets,'This diagnostic must not be interpreted as rights approval']);
+list.forEach(([label,ok,detail])=>add(label,ok,detail));const pass=list.filter(x=>x[1]).length;$('#summary').textContent=`${pass}/${list.length} checks passed in this frame. Any PENDING result needs investigation; this is not a production sign-off.`;$('#summary').className=pass===list.length?'pass':'pending';}
+$('#refreshChecks').addEventListener('click',run);frame.addEventListener('load',()=>setTimeout(run,250));window.addEventListener('focus',()=>setTimeout(run,250));
+})();
+</script></body></html>
