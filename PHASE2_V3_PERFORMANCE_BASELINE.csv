@@ -1,0 +1,11 @@
+﻿metric,before,after_target,unit,status_or_note
+service_worker_precache_entries,74,33,entries,Source-level comparison; install list only
+service_worker_precache_bytes,4689926,526591,bytes,"Exact tree-size comparison: old 4,689,926 B versus new 526,591 B; actual network responses vary"
+service_worker_precache_reduction,0,88.77,percent,"Source-size estimate, not Lighthouse or network measurement"
+max_install_request_concurrency,unbounded Promise.allSettled,6,requests,Bounded queue in new service worker
+image_library_manifest_startup,Fetched on every app boot,On entering Innerwear,behavior,First Home visit no longer triggers manifest/gallery initialization
+direct_external_image_references_checked,0,42,image URLs,New diagnostics checks RAW4/RAW3 images on demand; existing 151-record diagnostic page remains available
+local_root_svg_paths,4 incorrect assets/... references,4 correct root references,paths,Verified against current main tree
+live_lcp,,,seconds,NOT TESTED; run after upload on same Android device/network
+live_inp,,,milliseconds,NOT TESTED; physical device/browser required
+live_cls,,,score,NOT TESTED; real browser measurement required
