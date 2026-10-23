@@ -1,10 +1,36 @@
 /* BLACKED V2 Phase 2+3 repair service worker. */
 'use strict';
-const CACHE_NAME = 'blacked-v2-phase2-image-repair-2';
+const CACHE_NAME = 'blacked-v3-phases1-7-final-1';
 const CORE = [
   './','./index.html','./styles.css','./app.js','./fallback.js','./part-c-enhancements.css','./part-c-enhancements.js',
   './manifest.webmanifest','./app-icon.svg','./innerwear-image-library.json','./size-chart-template.json',
   './phase23-diagnostics.html','./part-a-diagnostics.html','./part-b-diagnostics.html',
+  './phase3.js',
+  './phase3.css',
+  './phase3-design-system.css',
+  './phase4-home-and-fantasy.js',
+  './phase4-story-universe.js',
+  './phase4-story-universe.css',
+  './phase4-story-universe.json',
+  './phase5-image-reliability.js',
+  './phase5-image-reliability.css',
+  './phase5-product-discovery.js',
+  './phase5-product-discovery.css',
+  './phase6-boyfriend-studio.js',
+  './phase6-boyfriend-studio.css',
+  './phase6-wellness-collections.js',
+  './phase6-wellness-collections.css',
+  './phase7-8-enhancements.js',
+  './phase7-8-enhancements.css',
+  './phase5-6-review-diagnostics.html',
+  './phase3-diagnostics.html',
+  './assets/phase6-measurement-map.svg',
+  './assets/phase6-product-specs.svg',
+  './assets/phase6-comfort-check.svg',
+  './assets/phase6-image-rights-workflow.svg',
+  './PRODUCT_VERIFICATION_REGISTER.csv',
+  './IMAGE_RIGHTS_REGISTER.csv',
+
   './phase4-diagnostics.html','./phase5-diagnostics.html','./phase6-diagnostics.html','./phase7-diagnostics.html',
   './part-c-diagnostics.html',
   './male-reference-01.webp','./male-reference-02.webp',
