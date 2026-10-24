@@ -1,0 +1,33 @@
+﻿Feature ID,Area,Feature,User value,Status,Acceptance / follow-up
+P17-01,Language engine,Five levels: Clean/Light/Medium/Full/Ultra Desi,User controls intensity; generated output varies by level,IMPLEMENTED_IN_UPDATE,All five options appear in the preference form and generated outputs; reset returns to Clean.
+P17-02,Language engine,Hindi/Hinglish/English output packs,Use preferred language across supported prompts,IMPLEMENTED_IN_UPDATE,Changing language changes dialogue text and syncs with existing supported selectors.
+P17-03,Language engine,"Tone chooser: teasing, savage, bold, dramatic, flirty, roast","Make results feel meaningfully different, not one fixed line",IMPLEMENTED_IN_UPDATE,Each tone selects a distinct prompt pool and changes output.
+P17-04,Ultra Studio,Quick Urge Mode,"Quick one-prompt, medium branch, or deep beat starter",IMPLEMENTED_IN_UPDATE,Mode/duration control appears in result metadata and affects branch count.
+P17-05,Ultra Studio,Scene Remix and surprise action,Generate a fresh prompt and optionally change tone,IMPLEMENTED_IN_UPDATE,Remix changes tone or picks a new variant; output updates.
+P17-06,Ultra Studio,Choice branches / continue,"Continue, change mood, or finish without restarting site",IMPLEMENTED_IN_UPDATE,Each branch click regenerates using a changed tone / beat.
+P17-07,Ultra Studio,Copy generated result,Copy text for personal use,IMPLEMENTED_IN_UPDATE,Copy API success is announced; blocked clipboard shows manual-copy fallback message.
+P17-08,Ultra Studio,Private saved scene vault,"Save, load, delete one, clear all; browser localStorage only",IMPLEMENTED_IN_UPDATE,Scene appears after save; load restores it; delete and clear remove entries.
+P17-09,Ultra Studio,Age confirmation for new generator,Avoid accidental entry to adult dialogue generator,IMPLEMENTED_IN_UPDATE,Generate/Remix blocked until checkbox is selected.
+P17-10,Language engine,Global gaali preference supports Ultra,Keep Phase 16 and Phase 5/4 supported controls in sync,IMPLEMENTED_IN_UPDATE,Ultra option is present and phrase is used for supported generated outputs.
+P17-11,Wellness catalog,"Dildo categories: classic, curved, suction-base",Restore missing category discovery,IMPLEMENTED_AS_CATEGORY_PREVIEWS,"Cards show category label, not a verified SKU; no fake price/spec."
+P17-12,Wellness catalog,"Anal categories: butt plug, vibrating plug, anal beads, prostate massager",Restore missing category discovery,IMPLEMENTED_AS_CATEGORY_PREVIEWS,Cards show retrieval/base reminder and supplier specs needed.
+P17-13,Wellness catalog,"Lubricant, cleaning, storage categories",Complete the wellness shopping journey,IMPLEMENTED_AS_CATEGORY_PREVIEWS,Categories appear with compatibility/care reminder and unverified status.
+P17-14,Wellness catalog,"Search, category filter, A–Z sort",Find a category quickly on Android,IMPLEMENTED_IN_UPDATE,"Search term, category and sort each alter visible results."
+P17-15,Wellness catalog,Compare up to 3 entries,Make missing data visible instead of inventing a comparison,IMPLEMENTED_IN_UPDATE,Comparison table shows unknown fields and blocks a fourth selection.
+P17-16,Wellness catalog,Local product shortlist,Save category to this-device shortlist,IMPLEMENTED_IN_UPDATE,Save button toggles and persists IDs locally.
+P17-17,Wellness safety,Safety notes and trusted source links,"Flared base/retrieval, lubrication, compatibility, cleaning, sharing",IMPLEMENTED_IN_UPDATE,Safety panel and external references display below catalog.
+P17-18,Trust/data quality,Verified product truth score,"Score completeness of SKU, materials, dimensions, seller, stock, image rights",NEXT_BACKLOG,"Implement only once supplier records exist; score completeness, not safety."
+P17-19,Wellness UX,Material × lube × condom compatibility matrix,Show only verified compatibility and return Unknown when data missing,NEXT_BACKLOG,Unknown remains neutral; no guessed green ticks.
+P17-20,Wellness UX,Need-based product finder,"Help users navigate category, experience, intended use and care",NEXT_BACKLOG,"Decision tree surfaces education and categories, not medical recommendations."
+P17-21,Wellness data,Actual supplier / seller / SKU integration,"Real images, manufacturer material, dimensions, price, stock, return data",WAITING_FOR_REAL_DATA,"Owner must provide/verify supplier feeds, SKU and image rights."
+P17-22,Ultra Studio,Custom wordbook / blocked phrases,User adds favorite phrases or phrases never to use,NEXT_BACKLOG,"Must be local-first, editable, exportable and removable."
+P17-23,Ultra Studio,Regional voice packs,"Dilli Hinglish, UP-flavoured Hinglish, neutral Hindi, English",NEXT_BACKLOG,"Label as style choices, not universal regional stereotypes."
+P17-24,Ultra Studio,No-repeat phrase engine,Avoid repeated lines across recent generations,NEXT_BACKLOG,Local rolling history; clear-history button.
+P17-25,Ultra Studio,Two-sided branching dialogue,Alternate character A/B lines with edit/continue controls,NEXT_BACKLOG,A branch changes the next beat; each character retains boundaries.
+P17-26,Privacy UX,Quick hide / no-save mode,Reduce accidental exposure on a shared device,NEXT_BACKLOG,No URL/query sharing; clear labeling; no claim of privacy on public hosting.
+P17-27,Navigation,Home Quick Launch,"Access Ultra, Urge, old wheels, Stories, Boyfriend and Wellness fast",NEXT_BACKLOG,Shortcuts open existing destinations; no duplicate feature screens.
+P17-28,Testing,Feature Health Check panel,"Report missing module, broken asset, failed event flow",NEXT_BACKLOG,"Status reflects actual runtime checks, not just the existence of a file."
+P17-29,Privacy/data,Settings-only reset and full local-data delete,User can reset module or clear stored data separately,PARTIAL_IN_UPDATE,Ultra reset preserves saved list; saved list has separate Clear all. Broader global clearing is future.
+P17-30,Accessibility,"One-hand controls, visible focus, reduced motion",Improve mobile readability and touch accuracy,PARTIAL_IN_UPDATE,New panel has mobile breakpoints and reduced-motion handling; full-site audit remains.
+P17-31,Feature preservation,Keep 3 original wheels and old archive,Avoid regressions while adding new module,REGRESSION_TEST_REQUIRED,Phase 17 is additive; must test actual site after merging.
+P17-32,Privacy/legal,Team-only access and adult-page controls,Prevent treating a public URL as private,OWNER_ACTION_REQUIRED,GitHub Pages public URL requires separate access-control/legal planning for true team-only use.

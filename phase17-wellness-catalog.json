@@ -1,0 +1,17 @@
+{
+  "version": "17.0.0",
+  "notice": "Every record is a category concept only. These are not verified products, real SKUs, prices, sellers, stock claims or safety certifications.",
+  "items": [
+    {"id":"dildo-classic","name":"Classic / abstract dildo","category":"dildo","image":"phase17-product-dildo.svg","description":"Category preview for non-vibrating and abstract forms.","intended":"Vaginal or anal use only when manufacturer explicitly labels it for that use.","verified":false},
+    {"id":"dildo-curved","name":"Curved / ergonomic dildo","category":"dildo","image":"phase17-product-dildo.svg","description":"Explore shape and manufacturer-listed insertable dimensions.","intended":"Check intended-use label and actual dimensions first.","verified":false},
+    {"id":"dildo-suction","name":"Suction-base dildo","category":"dildo","image":"phase17-product-dildo.svg","description":"Category preview with base/handle details to verify.","intended":"Check base design, surface compatibility and maker instructions.","verified":false},
+    {"id":"butt-plug-basic","name":"Beginner butt plug","category":"butt-plug","image":"phase17-product-anal.svg","description":"Anal-use category preview; no real SKU or size has been verified.","intended":"Must have a flared base or effective retrieval stop.","verified":false},
+    {"id":"butt-plug-vibe","name":"Vibrating butt plug","category":"butt-plug","image":"phase17-product-anal.svg","description":"Check vibration controls, waterproof rating and cleaning directions.","intended":"Must have a flared base or effective retrieval stop.","verified":false},
+    {"id":"anal-beads","name":"Anal beads","category":"anal-beads","image":"phase17-product-anal.svg","description":"Category preview; material, joined construction and retrieval design need verification.","intended":"Only use products designed for this purpose and with safe retrieval design.","verified":false},
+    {"id":"prostate-massager","name":"Prostate massager","category":"prostate","image":"phase17-product-anal.svg","description":"Category preview; curve, usable length and base need manufacturer data.","intended":"Check the product’s explicit intended-use and retrieval design.","verified":false},
+    {"id":"water-lube","name":"Water-based lubricant","category":"lubricant","image":"phase17-product-lube.svg","description":"Accessory category preview; ingredients and compatibility require supplier data.","intended":"Water-based lube is generally compatible with a broad range of toys; verify the label.","verified":false},
+    {"id":"silicone-lube","name":"Silicone-based lubricant","category":"lubricant","image":"phase17-product-lube.svg","description":"Accessory category preview; actual formula and compatibility require verification.","intended":"May damage some silicone toys; follow the manufacturer’s compatibility guidance.","verified":false},
+    {"id":"toy-cleaner","name":"Toy cleaner / care","category":"care","image":"phase17-product-care.svg","description":"Cleaning accessory category preview; no active product or ingredient data supplied.","intended":"Follow the exact toy manufacturer’s cleaning instructions.","verified":false},
+    {"id":"storage-pouch","name":"Private storage pouch","category":"storage","image":"phase17-product-care.svg","description":"Storage accessory category preview; size and fabric details are not yet verified.","intended":"Allow the toy to dry fully and follow storage guidance.","verified":false}
+  ]
+}

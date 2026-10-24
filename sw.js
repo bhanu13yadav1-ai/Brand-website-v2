@@ -1,13 +1,13 @@
 /* BLACKED V3 Phase 3: lean app-shell cache, bounded navigation wait, media-on-request. */
 'use strict';
-const CACHE_NAME = 'blacked-v4-phase16-preference-first-20261024-2';
+const CACHE_NAME = 'blacked-v4-phase17-ultra-urge-wellness-20261024-1';
 const CORE = [
   './index.html',
   './styles.css', './part-c-enhancements.css', './phase2-photo-collections.css',
   './phase3-design-system.css', './phase3.css', './phase4-story-universe.css',
   './phase5-image-reliability.css', './phase5-product-discovery.css',
   './phase6-boyfriend-studio.css', './phase6-wellness-collections.css', './phase7-8-enhancements.css',
-  './phase16-preference-first.css',
+  './phase16-preference-first.css', './phase17-ultra-urge-wellness.css',
   './fallback.js', './app.js', './part-c-enhancements.js', './phase2-photo-collections.js',
   './phase1-foundation.js', './phase2-core-experience.js', './phase3-v4-experience.js', './phase5-final-release-loader.js',
   './phase9-after-dark.css', './phase9-after-dark.js',
@@ -21,6 +21,8 @@ const CORE = [
   './phase5-image-reliability.js', './phase5-product-discovery.js',
   './phase6-boyfriend-studio.js', './phase6-wellness-collections.js', './phase7-8-enhancements.js',
   './phase16-preference-first.js', './phase16-host-avatar.svg',
+  './phase17-ultra-urge-wellness.js', './phase17-wellness-catalog.json',
+  './phase17-product-dildo.svg', './phase17-product-anal.svg', './phase17-product-lube.svg', './phase17-product-care.svg',
   './manifest.webmanifest', './app-icon.svg', './innerwear-image-library.json', './size-chart-template.json',
   './phase5-v4-release-diagnostics.html', './phase12-15-diagnostics.html',
   './phase4-story-universe.json',

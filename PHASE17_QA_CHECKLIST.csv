@@ -1,0 +1,25 @@
+﻿Test ID,Area,Action,Expected result,Test type,Current evidence
+QA-01,Installation,Phase 17 stylesheet and script load from root,Network tab shows 200 for new CSS/JS/catalog/SVG files,Manual after deployment,Not tested live
+QA-02,Age gate,Attempt Generate with confirmation unchecked,Status asks for 18+ confirmation; no result generated,Pass expected,Static only
+QA-03,Age gate,Check 18+ then Generate,"Result shows title, dialogue and prompt",Pass expected,Static only
+QA-04,Language,"Generate in Hindi, Hinglish and English",Prompt text changes to chosen language,Pass expected,Static only
+QA-05,Gaali,"Generate Clean, Light, Medium, Full, Ultra",Each has a different matching text level,Pass expected,Static only
+QA-06,Integration,Change Ultra and open supported Phase 16/Phase 5 generator,Shared language/level selectors sync; generated text updated,Pass expected,Static only
+QA-07,Remix,Click Remix / surprise me several times,"Tone or line changes, UI remains usable",Pass expected,Static only
+QA-08,Branches,Click each branch and Continue,Result changes; no console error,Pass expected,Static only
+QA-09,Clipboard,Click Copy result on HTTPS,Copy succeeds or fallback message appears,Pass expected,Static only
+QA-10,Favorites,"Save, Load, Delete and Clear all",Each action changes local saved list correctly,Pass expected,Static only
+QA-11,Catalog,Open Wellness after page load,11 category preview cards appear,Pass expected,Static only
+QA-12,Catalog search,Search for “butt plug” or “dildo”,Matching cards only show,Pass expected,Static only
+QA-13,Catalog filter,Switch through each category,Visible card count/category matches selection,Pass expected,Static only
+QA-14,Catalog sort,Select A–Z,Names sort alphabetically,Pass expected,Static only
+QA-15,Compare,Compare 1–3 categories then try 4th,Table lists unknowns; fourth selection is blocked,Pass expected,Static only
+QA-16,Product shortlist,Save and unsave category; reload,Local saved icon/list stays consistent,Pass expected,Static only
+QA-17,Product truth,Inspect every category card,"No fabricated prices, seller, stock, certification or dimensions",Pass expected,Static only
+QA-18,Safety,Check anal category and safety panel,Flared base/retrieval guidance and source links visible,Pass expected,Static only
+QA-19,Responsive,"Test at 320px, 360px, 390px and desktop",No horizontal page overflow; readable text/buttons,Manual after deployment,Not tested live
+QA-20,Regression,"Test original Wheels 1–3, Stories search, messages, Boyfriend, wishlist/bag, Innerwear, Sanskari, Fit",Original features remain working,Manual after deployment,Not tested live
+QA-21,Cache,Deploy and revisit with existing service worker,New cache version activates; Phase17 files not stale,Manual after deployment,Not tested live
+QA-22,Runtime,Check browser console and image/network errors,No new uncaught error or 404 from Phase17 files,Manual after deployment,Not tested live
+QA-23,Privacy,Clear saved scenes and product shortlist,Cleared local data does not reappear after reload,Pass expected,Static only
+QA-24,Truth in release,Inspect catalog cards,"All records are explicitly labelled category concept, not SKU",Pass expected,Static only

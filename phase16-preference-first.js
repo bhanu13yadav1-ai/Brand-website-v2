@@ -1,4 +1,4 @@
-/* BLACKED V4 Phase 16 — preference-first fictional match + adjustable language intensity.
+/* BLACKED V4 Phase 17 — extends Phase 16 with Ultra Desi gaali support across existing generated outputs.
  * Additive module: preserves existing wheels, stories, messages, wishlists and catalog data.
  * Preferences are stored only in this browser. All characters/routes are fictional adults.
  */
@@ -8,7 +8,7 @@
 
   const PREF_KEY = 'blackedV4PreferenceFirst';
   const GAALI_KEY = 'blackedV4GaaliLevel';
-  const LEVELS = ['clean', 'light', 'medium', 'full'];
+  const LEVELS = ['clean', 'light', 'medium', 'full', 'ultra'];
   const DEFAULTS = Object.freeze({ vibe: 'romantic', size: 'none', thickness: 'none', skin: 'none', build: 'none', language: 'hinglish', gaali: 'clean' });
   const VIBE_MAP = {
     romantic: { archetype: 'romantic', story: 'romantic', mood: 'gentle' },
@@ -24,23 +24,26 @@
     skin: { none: 'No preference', light: 'Light / fair', medium: 'Medium brown', deep: 'Deep brown / dark' },
     build: { none: 'No preference', lean: 'Lean', athletic: 'Athletic', broad: 'Broad / muscular', stocky: 'Stocky / sturdy' },
     language: { hinglish: 'Hindi + Hinglish', hi: 'Hindi', en: 'English' },
-    gaali: { clean: 'Clean', light: 'Light gaali', medium: 'Medium gaali', full: 'Full Desi gaali' }
+    gaali: { clean: 'Clean', light: 'Light gaali', medium: 'Medium gaali', full: 'Full Desi gaali', ultra: 'Ultra Desi gaali' }
   };
   const GAALI_LINES = {
     hinglish: {
       light: 'Saala, hint dena chhod aur seedha bata kya vibe chahiye—no ka matlab no hi rahega.',
       medium: 'Bhenchod, itne hints kyun? Apni choice seedhi bol; dono ki haan hogi tabhi aage badhenge.',
-      full: 'Bhenchod, bakchodi chhod aur apni pasand seedhi bol—lekin “no” suna toh scene wahi khatam. No pressure, no bullshit.'
+      full: 'Bhenchod, bakchodi chhod aur apni pasand seedhi bol—lekin “no” suna toh scene wahi khatam. No pressure, no bullshit.',
+      ultra: 'Bhenchod, bakchodi ab band—apni vibe seedhi bol; dono ki haan hai toh scene aage, warna full stop. No pressure, no bullshit.'
     },
     hi: {
       light: 'साला, इशारों में मत घुमा—अपनी पसंद साफ़ बता; ना का मतलब ना ही है।',
       medium: 'भेनचोद, इतने इशारे क्यों? अपनी पसंद सीधे बता—दोनों की हाँ होगी तभी आगे बढ़ेंगे।',
-      full: 'भेनचोद, बकचोदी छोड़ और साफ़ बता कि क्या पसंद है—ना सुना तो बात वहीं खत्म। कोई दबाव नहीं।'
+      full: 'भेनचोद, बकचोदी छोड़ और साफ़ बता कि क्या पसंद है—ना सुना तो बात वहीं खत्म। कोई दबाव नहीं।',
+      ultra: 'भेनचोद, बकचोदी अब बंद—अपनी पसंद साफ़ बता; दोनों की हाँ होगी तभी बात आगे बढ़ेगी, वरना फुल स्टॉप। कोई दबाव नहीं।'
     },
     en: {
       light: 'Damn, stop hinting and say what vibe you want—no still means no.',
       medium: 'Fuck, why all the hints? Say what you want straight; both people have to be into it.',
-      full: 'Fuck the guessing—say what you want, but a no ends it. No pressure, no bullshit.'
+      full: 'Fuck the guessing—say what you want, but a no ends it. No pressure, no bullshit.',
+      ultra: 'Fuck the guessing—say your vibe straight; if both adults are into it, continue, otherwise stop. No pressure, no bullshit.'
     }
   };
 
@@ -100,7 +103,7 @@
     step2.append(makeField('v4PrefBuild', '5 · Body build', [['none','No preference'],['lean','Lean'],['athletic','Athletic'],['broad','Broad / muscular'],['stocky','Stocky / sturdy']]));
     const step3 = make('section', 'v4-pref-step'); step3.dataset.step = '2'; step3.hidden = true; step3.setAttribute('aria-label','Step 3: language and dialogue style');
     step3.append(makeField('v4PrefLanguage', '6 · Kis language mein?', [['hinglish','Hindi + Hinglish'],['hi','Hindi'],['en','English']]));
-    step3.append(makeField('v4PrefGaali', '7 · Gaali intensity', [['clean','Clean'],['light','Light gaali'],['medium','Medium gaali'],['full','Full Desi gaali']]));
+    step3.append(makeField('v4PrefGaali', '7 · Gaali intensity', [['clean','Clean'],['light','Light gaali'],['medium','Medium gaali'],['full','Full Desi gaali'],['ultra','Ultra Desi gaali']]));
     fields.append(step1, step2, step3); form.append(progressWrap, fields);
     const note = make('p', 'v4-pref-note', 'Size/thickness sirf fictional adult-character references hain. Skin shade aur body build styling ko affect karte hain—not personality, worth ya behaviour. Ye preferences kisi real person ko label nahi karti.');
     form.append(note);
@@ -234,7 +237,7 @@
     if (card && !$('#v4P5GaaliLevel', card)) {
       const field = make('label', 'p5-experience__field v4-p5-gaali-field', 'Gaali intensity');
       const select = document.createElement('select'); select.id = 'v4P5GaaliLevel'; select.name = 'v4P5GaaliLevel';
-      [['clean','Clean'],['light','Light gaali'],['medium','Medium gaali'],['full','Full Desi gaali']].forEach(([value,label]) => { const opt=make('option','',label); opt.value=value; select.append(opt); });
+      [['clean','Clean'],['light','Light gaali'],['medium','Medium gaali'],['full','Full Desi gaali'],['ultra','Ultra Desi gaali']].forEach(([value,label]) => { const opt=make('option','',label); opt.value=value; select.append(opt); });
       field.append(select);
       if (language?.closest('label')) language.closest('label').insertAdjacentElement('afterend', field); else card.append(field);
       select.value = prefs.gaali;
@@ -304,7 +307,7 @@
     const field = make('label', 'v3-randi-mode__field v4-gaali-field'); field.htmlFor = 'v4GaaliLevel';
     const copy = make('span'); copy.append(make('b','', '03 · DESI GAALI MODE'), make('small','', 'Clean se full gaali tak. Naya generated prompt is voice mein aayega.'));
     const select = document.createElement('select'); select.id = 'v4GaaliLevel'; select.name = 'v4GaaliLevel';
-    [['clean','Clean language'],['light','Light gaali'],['medium','Medium gaali'],['full','Full Desi gaali']].forEach(([value,label]) => { const opt=make('option','',label);opt.value=value;select.append(opt); });
+    [['clean','Clean language'],['light','Light gaali'],['medium','Medium gaali'],['full','Full Desi gaali'],['ultra','Ultra Desi gaali']].forEach(([value,label]) => { const opt=make('option','',label);opt.value=value;select.append(opt); });
     field.append(copy, select); settings.append(field);
     select.value = prefs.gaali;
     root.addEventListener('change', event => {

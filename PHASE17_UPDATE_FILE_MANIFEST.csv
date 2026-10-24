@@ -1,0 +1,16 @@
+﻿File,Action,Purpose
+index.html,REPLACE,Attach Phase 17 CSS/JS; preserves Phase16 activation.
+sw.js,REPLACE,Increment cache and precache Phase17 JS/CSS/catalog/SVG.
+phase16-preference-first.js,REPLACE,Add Ultra Desi option to shared Phase16 preference/generator controls.
+phase17-ultra-urge-wellness.js,NEW,"Ultra dialogue studio, quick Urge mode, local scene vault and Wellness product finder."
+phase17-ultra-urge-wellness.css,NEW,Responsive mobile-first styles.
+phase17-wellness-catalog.json,NEW,11 category concept entries; no verified retail data claimed.
+phase17-product-dildo.svg,NEW IMAGE,Original abstract illustrative product-category art.
+phase17-product-anal.svg,NEW IMAGE,Original illustrative anal-wellness category art.
+phase17-product-lube.svg,NEW IMAGE,Original lubricant-category art.
+phase17-product-care.svg,NEW IMAGE,Original cleaning/storage-category art.
+PHASE17_IDEA_MASTER_PLAN_HINGLISH.md,DOC,"Current release scope, future unique ideas, prior accepted ideas and research references."
+PHASE17_RESEARCH_AND_SOURCES.md,DOC,"Two-pass research notes, sources and limitations."
+PHASE17_FEATURE_BACKLOG.csv,DOC,Implementation status and acceptance criteria.
+PHASE17_QA_CHECKLIST.csv,DOC,Manual and static release test checklist.
+PHASE17_INSTALL_HINGLISH.md,DOC,Simple update-only install instructions.
