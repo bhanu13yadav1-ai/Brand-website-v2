@@ -1,19 +1,18 @@
-ID,Area,Check,Expected result,Status
-P1-01,Packaging,No images copied,Delta archive contains no image assets,To verify
-P1-02,Packaging,No unchanged source files copied,Only new files/docs and integration patch,To verify
-P1-03,Integration,Foundation script in index.html,One deferred script tag present,Pending owner upload
-P1-04,Runtime,BLACKED_V1 present,Existing app booted,Pending live test
-P1-05,Navigation,Seven views present,Home/Stories/Innerwear/Sanskari/Wellness/Boyfriend/Fit,Pending live test
-P1-06,Navigation,Innerwear round-trip,Open Innerwear then Home,Pending live test
-P1-07,Accessibility,Mobile menu aria state,aria-expanded and aria-hidden match state,Pending live test
-P1-08,Accessibility,Escape closes mobile menu,Menu closes and focus returns to toggle,Pending Android test
-P1-09,Layout,Horizontal overflow,No unintended document-level overflow,Pending live test
-P1-10,Markup,Duplicate IDs,None,Pending live test
-P1-11,Images,Known /assets path repair,Retries basename once only after local /assets failure,Pending live test
-P1-12,Images,Failed image reporting,Failed images are reported in diagnostics,Pending live test
-P1-13,Data safety,Storage preservation,No local/session storage is deleted or rewritten,Source reviewed
-P1-14,PWA,Service worker presence/controller,Support/controller state reported honestly,Pending live test
-P1-15,Release,Console/asset errors,No critical module errors; warnings reviewed,Pending live test
-P1-16,Mobile,320/360/390/430px layouts,No clipped controls or unwanted horizontal scroll,Pending real device/browser
-P1-17,Regression,Four original wheel control groups,All four controls still exist,Pending live test
-P1-18,Regression,18+ gate,Gate remains present; no gated content is opened by diagnostics,Pending live test
+﻿ID,Area,Check,Expected result,Status,Evidence / next action
+P1-01,Repository,Record main HEAD SHA,Commit 16b76469fb274f5a65d3cfa2bd3d34765639bef3 recorded,Pass,GitHub API metadata
+P1-02,Backup,Create backup branch or save pinned source ZIP,Exact baseline preserved outside working branch,Blocked,GitHub ref API 403; local DNS prevents ZIP download; owner manual action
+P1-03,Deployment,Check latest Pages workflow,Build and deploy workflow conclusion success,Pass,Run 40091793252; this is not a runtime test
+P1-04,Navigation,Confirm all primary view identifiers,Seven views found in index.html,Pass,Source inspection only
+P1-05,Wheels,Confirm original wheel discs,Four wheel IDs found,Pass,Spin/result alignment still needs browser test
+P1-06,Static IDs,Check duplicate IDs in index.html,No duplicates found by regex scan,Pass,Rendered DOM still needs test
+P1-07,Direct dependencies,Check local script/style/manifest paths,All parsed local references exist in tracked tree,Pass,No request/runtime test
+P1-08,Service worker,Check CORE path existence,64 CORE entries exist in tree,Pass,Install/offline activation not tested
+P1-09,Phase 17,Check catalog verification flags,11 records; all verified=false,Pass,Concept-only catalogue
+P1-10,Manifest,Review PWA metadata,Name/description match intended release version,Needs follow-up,Manifest still says V4 while new Phase 17 files exist
+P1-11,Images,Check 151 external image references,HTTP and rights status known for each item,Not tested,Run same-origin browser/network checks; use rights register
+P1-12,Storage,Map reads/writes/deletes for all keys,Legacy keys retained or migrated with explicit tests,Partial,Inventory prepared; call-site walk and browser tests remain
+P1-13,Privacy,Check local saved-preference explanation,Disclosure and deletion controls are visible and work,Not tested,Manual UI review
+P1-14,Responsive,Test widths 320/360/390/430px and desktop,No horizontal overflow or clipped actions,Not tested,Real browser needed
+P1-15,Runtime,Check console and failed requests,No uncaught errors or missing root assets,Not tested,Live page unavailable in audit environment
+P1-16,Human research,Conduct moderated adult usability round,5–6 consenting adults; anonymized notes,Not conducted,Protocol prepared; recruit adults and schedule sessions
+P1-17,Regression,Test all original features after future changes,No previously working feature lost,Not tested,Use preservation list in audit report

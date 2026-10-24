@@ -1,35 +1,27 @@
 {
-  "project": "BLACKED Super Update",
   "phase": 1,
-  "phase_status": "PARTIAL_SOURCE_AUDIT_COMPLETE_LIVE_VALIDATION_BLOCKED",
-  "audit_date": "2026-10-22",
-  "repo": "https://github.com/bhanu13yadav1-ai/Brand-website-v2",
+  "project": "BLACKED V5",
+  "audit_date": "2026-10-24",
+  "repository": "bhanu13yadav1-ai/Brand-website-v2",
   "branch": "main",
-  "head_sha": "530b6d2339e68f0ae3bd78a01ec36981d570576b",
-  "code_changed": false,
-  "github_commit_created": false,
-  "source_checks": {
-    "tree_entries": 333,
-    "views": [
-      "home",
-      "stories",
-      "innerwear",
-      "sanskari",
-      "wellness",
-      "boyfriend",
-      "fit"
-    ],
-    "html_ids": 158,
-    "duplicate_html_ids": 0,
-    "image_library_records": 151,
-    "unique_image_library_ids": 151,
-    "sw_core_paths": 49,
-    "missing_sw_core_paths": 0,
-    "phase2_assets_in_service_worker_precache": false
-  },
-  "live_browser": "NOT_TESTED",
-  "android": "NOT_TESTED",
-  "new_photo_count": 10,
-  "new_photos": "staged WebP copies; not wired into live site",
-  "next_action": "Verify live deployment and Android behaviour; close policy/brand/rights/sales gates before Phase 2."
+  "baseline_commit": "16b76469fb274f5a65d3cfa2bd3d34765639bef3",
+  "status": "partial",
+  "completed": [
+    "Current GitHub repository metadata and latest commit inspected",
+    "600-file repository tree inspected",
+    "Seven main views and four original wheel discs inventoried",
+    "Direct HTML dependencies and service-worker core paths statically checked against tree",
+    "Phase 17 wellness catalogue and existing static QA report reviewed",
+    "Risks, source storage inventory, manual QA checklist and human usability protocol prepared"
+  ],
+  "blocked_or_not_done": [
+    "Backup branch creation blocked by GitHub integration HTTP 403",
+    "Full source ZIP could not be downloaded because this execution environment could not resolve external hosts",
+    "Live site could not be rendered by the available browser reader",
+    "Android Chrome runtime/touch/clipboard/storage/service-worker tests not run",
+    "External image HTTP status and asset rights not verified",
+    "No human participants recruited; usability protocol is prepared but not conducted"
+  ],
+  "production_code_changed": false,
+  "rollback_reference": "16b76469fb274f5a65d3cfa2bd3d34765639bef3"
 }
