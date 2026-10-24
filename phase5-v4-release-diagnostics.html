@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#100c10">
+<title>BLACKED V4 · Phase 5 Release Diagnostics</title>
+<style>
+:root{color-scheme:dark;--bg:#100c10;--panel:#1b131c;--line:#493346;--ink:#fff3f8;--muted:#c7b7c6;--pink:#f0a6bd;--gold:#e4c18a;--ok:#9be2b1;--bad:#ff9da8}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0,#392037 0,transparent 42%),var(--bg);color:var(--ink);font:14px/1.55 system-ui,sans-serif;padding:16px}main{max-width:1000px;margin:auto}h1{font-size:clamp(22px,5vw,32px);line-height:1.12}.muted{color:var(--muted)}.panel{border:1px solid var(--line);border-radius:16px;background:#1b131ce8;padding:15px;margin:14px 0}button{border:1px solid var(--line);border-radius:11px;padding:11px 14px;min-height:44px;background:#32202e;color:var(--ink);font:inherit;font-weight:700}button.primary{background:var(--pink);color:#1b1018}.actions{display:flex;gap:9px;flex-wrap:wrap}.results{display:grid;gap:7px}.result{padding:10px 12px;border:1px solid var(--line);border-radius:10px;overflow-wrap:anywhere}.PASS{border-color:#467c58}.FAIL{border-color:#944f57}.WARN{border-color:#a3874f}.status{font-weight:800}.PASS .status{color:var(--ok)}.FAIL .status{color:var(--bad)}.WARN .status{color:var(--gold)}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}iframe{width:100%;height:580px;border:1px solid var(--line);border-radius:12px;background:#100c10}.tiny{font-size:12px}
+</style>
+</head>
+<body>
+<main>
+<p class="muted">BLACKED V4 · PHASE 5</p><h1>Live release diagnostics</h1>
+<p class="muted">Checks the current same-origin app inside an iframe. It reports module activation, view/wheel presence, duplicate IDs, overflow, image status and Innerwear tap latency. Automated structure checks do not replace hands-on Android, content, and feature-flow testing.</p>
+<div class="panel"><div class="actions"><button id="run" class="primary" type="button">Run live checks</button><button id="download" type="button" disabled>Download JSON report</button><button id="reload" type="button">Reload app frame</button></div><p id="status" role="status" aria-live="polite">Loading the app frame…</p><div id="results" class="results"></div></div>
+<div class="panel"><h2>App under test</h2><p class="muted tiny">Tap Innerwear or another section here to inspect the actual page loaded from this GitHub Pages origin.</p><iframe id="appFrame" title="BLACKED live app under test" src="./index.html?phase5diag=1"></iframe></div>
+<div class="panel"><h2>Latest JSON result</h2><pre id="json">No run yet.</pre></div>
+</main>
+<script>
+(function(){
+'use strict';
+const frame=document.getElementById('appFrame'),results=document.getElementById('results'),status=document.getElementById('status'),jsonOut=document.getElementById('json'),download=document.getElementById('download');
+let latest=null;
+const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+function row(name,state,detail){const el=document.createElement('div');el.className='result '+state;const label=document.createElement('span');label.className='status';label.textContent=state+' · ';const title=document.createElement('strong');title.textContent=name;const desc=document.createElement('div');desc.className='muted';desc.textContent=detail||'';el.append(label,title,desc);results.append(el);}
+async function waitForApp(){for(let i=0;i<80;i++){try{const w=frame.contentWindow,d=w.document;if(d.readyState==='complete'&&d.querySelectorAll('.view[data-view]').length) return {w,d};}catch(e){}await delay(250);}throw new Error('App frame did not become ready in 20 seconds. Check the Pages deployment and reload this diagnostic.');}
+function safeCall(fn){try{return fn();}catch(e){return {error:String(e)};}}
+async function run(){
+ results.replaceChildren();status.textContent='Running checks against the app frame…';download.disabled=true;
+ try{
+  const pair=await waitForApp(),w=pair.w,d=pair.d; await delay(900);
+  const p2=safeCall(()=>w.BLACKED_V4_PHASE2&&w.BLACKED_V4_PHASE2.runSmokeTests?w.BLACKED_V4_PHASE2.runSmokeTests():null);
+  const p3=safeCall(()=>w.BLACKED_V4_PHASE3&&w.BLACKED_V4_PHASE3.runSmokeTests?w.BLACKED_V4_PHASE3.runSmokeTests():null);
+  const p5=safeCall(()=>w.BLACKED_V4_PHASE5&&w.BLACKED_V4_PHASE5.runSmokeTests?w.BLACKED_V4_PHASE5.runSmokeTests():null);
+  const moduleChecks=[['Phase 1 foundation',!!w.BLACKED_V4_PHASE1],['Phase 2 core experience',!!w.BLACKED_V4_PHASE2],['Phase 3 selective loader',!!w.BLACKED_V4_PHASE3],['Phase 9 After Dark',!!w.BLACKED_V3_PHASE9],['Phase 10 Wellness',!!w.BLACKED_V3_PHASE10],['Phase 11 Fit Studio',!!w.BLACKED_V3_PHASE11],['Phase 12 Wheels Hub',!!w.BLACKED_V3_PHASE12_WHEELS],['Phase 13 Couples Studio',!!w.BLACKED_V3_PHASE13],['Phase 14 privacy/accessibility hardening',!!w.BLACKED_V3_PHASE14],['Phase 15 release highlights',!!w.BLACKED_V3_PHASE15]];
+  moduleChecks.forEach(x=>row(x[0],x[1]?'PASS':'FAIL',x[1]?'API found on active page':'API missing; module inactive or failed to load.'));
+  const views=Array.from(d.querySelectorAll('.view[data-view]')).map(x=>x.dataset.view);row('Seven main views',views.length===7?'PASS':'FAIL',views.join(', ')+' ('+views.length+')');
+  const wheels={dildo:!!d.querySelector('[data-wheel-disc="dildo"]'),plug:!!d.querySelector('[data-wheel-disc="plug"]'),boy:!!d.querySelector('[data-wheel-disc="boy"]'),wild:!!d.querySelector('[data-wheel-disc="wild"]')};row('All four wheels',Object.values(wheels).every(Boolean)?'PASS':'FAIL',JSON.stringify(wheels));
+  const seen=new Set(),dups=[];d.querySelectorAll('[id]').forEach(x=>{if(seen.has(x.id))dups.push(x.id);seen.add(x.id);});row('Duplicate IDs',dups.length===0?'PASS':'FAIL',dups.length?dups.join(', '):'None detected');
+  const overflow=d.documentElement.scrollWidth>d.documentElement.clientWidth;row('Horizontal page overflow',overflow?'WARN':'PASS',overflow?'Document width '+d.documentElement.scrollWidth+'px > viewport '+d.documentElement.clientWidth+'px':'No document-level overflow in this iframe viewport.');
+  const completedImgs=Array.from(d.images).filter(i=>i.complete),loaded=completedImgs.filter(i=>i.naturalWidth>0),failed=completedImgs.filter(i=>i.naturalWidth===0&&!!(i.currentSrc||i.getAttribute('src')));row('Image status snapshot',failed.length?'WARN':'PASS','Images '+d.images.length+'; loaded '+loaded.length+'; completed failures '+failed.length+'. External images may still be loading.');
+  const swSupported='serviceWorker' in w.navigator;row('Service worker',swSupported?'PASS':'WARN',swSupported?'supported; controller='+!!w.navigator.serviceWorker.controller:'not supported in this browser context');
+  const inner=d.querySelector('[data-view-link="innerwear"]');let tap={found:!!inner,dispatchMs:null,viewActive:false,heartbeat:null};
+  if(inner){const start=performance.now();inner.click();tap.dispatchMs=Math.round(performance.now()-start);await delay(160);tap.viewActive=!!d.querySelector('#view-innerwear.active:not([hidden])');tap.heartbeat=safeCall(()=>w.BLACKED_V4_PHASE3&&w.BLACKED_V4_PHASE3.getDiagnostics?w.BLACKED_V4_PHASE3.getDiagnostics().innerwear.heartbeat:null);row('Innerwear tap dispatch',tap.dispatchMs<120?'PASS':'WARN','Synchronous click handler '+tap.dispatchMs+' ms; active view='+tap.viewActive+'. Synthetic test, not an Android measurement.');row('Innerwear view opened',tap.viewActive?'PASS':'FAIL','heartbeat='+JSON.stringify(tap.heartbeat));}else row('Innerwear tap dispatch','FAIL','No Innerwear navigation control found.');
+  latest={timestamp:new Date().toISOString(),url:frame.src,viewport:{width:d.documentElement.clientWidth,height:d.documentElement.clientHeight},modules:Object.fromEntries(moduleChecks.map(x=>[x[0],x[1]])),views,wheels,duplicateIds:dups,horizontalOverflow:overflow,images:{total:d.images.length,loaded:loaded.length,completedFailures:failed.map(i=>({src:i.currentSrc||i.getAttribute('src'),alt:i.alt}))},serviceWorker:{supported:swSupported,controller:swSupported?!!w.navigator.serviceWorker.controller:false},innerwearTap:tap,phase2:p2,phase3:p3,phase5:p5};
+  jsonOut.textContent=JSON.stringify(latest,null,2);download.disabled=false;status.textContent='Checks finished. Modules active '+moduleChecks.filter(x=>x[1]).length+'/'+moduleChecks.length+'. Review all WARN/FAIL rows and download JSON evidence.';
+ }catch(error){row('Diagnostic runner','FAIL',String(error));status.textContent='Diagnostic failed: '+String(error);latest={timestamp:new Date().toISOString(),error:String(error)};jsonOut.textContent=JSON.stringify(latest,null,2);download.disabled=false;}
+}
+document.getElementById('run').addEventListener('click',run);
+document.getElementById('reload').addEventListener('click',()=>{frame.src='./index.html?phase5diag='+Date.now();status.textContent='Reloading app frame…';});
+download.addEventListener('click',()=>{if(!latest)return;const blob=new Blob([JSON.stringify(latest,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='BLACKED-V4-Phase5-live-diagnostics.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+frame.addEventListener('load',()=>{status.textContent='App frame loaded. Press Run live checks to test this build.';});
+})();
+</script>
+</body></html>

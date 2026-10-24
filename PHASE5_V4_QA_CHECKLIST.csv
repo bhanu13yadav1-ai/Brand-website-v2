@@ -1,0 +1,31 @@
+﻿ID,Test area,Acceptance criterion,Status
+Q01,Root/Home opens,Current Pages build and first paint work,NOT_RUN
+Q02,Startup console,No fatal runtime exceptions,NOT_RUN
+Q03,Phase 1 foundation,Global API present and initializes once,NOT_RUN
+Q04,Phase 2 core,Global API present; original story storage key preserved,NOT_RUN
+Q05,Phase 3 selective loader,Phase 9/12/13 APIs loaded exactly once,NOT_RUN
+Q06,Phase 5 final loader,"Phase 10/11/14/15 APIs, styles and no duplicate init",NOT_RUN
+Q07,Core views: Home/Stories/Innerwear/Sanskari,Open each and navigate back,NOT_RUN
+Q08,18+ views: Wellness/Boyfriend/Stories,Cancel/confirm the age-gate path,NOT_RUN
+Q09,All four wheels,"Spin, rapid-repeat, reset and visible result",NOT_RUN
+Q10,Innerwear tap dispatch time,Diagnostics synthetic click under 120 ms; compare manual Android tap,NOT_RUN
+Q11,Repeated Innerwear entry,Innerwear → Home → Innerwear at least five times,NOT_RUN
+Q12,Image archive,"151-record index; filters, 8-item pagination and retry",NOT_RUN
+Q13,Image failure recovery,Simulate/observe failed image and retry/source action,NOT_RUN
+Q14,Story filters,Search/category/language/sort/reset/empty state,NOT_RUN
+Q15,Story Vault privacy,Opt-in/save/continue/bookmark/clear/reload,NOT_RUN
+Q16,Wishlist/compare/bag,"Persistence, max-3 compare, remove/clear/empty state",NOT_RUN
+Q17,Date planner,"Settings change plans; swap, edit and copy work",NOT_RUN
+Q18,Flirty message generator,Tones differ; edit/copy and clipboard fallback work,NOT_RUN
+Q19,After Dark deck,Category/tone/intensity/generate/skip/session favourites,NOT_RUN
+Q20,Fantasy builder,Step validation/back/next/edit/copy/reroll/reset,NOT_RUN
+Q21,Wellness sources,All source links open; no diagnosis claim,NOT_RUN
+Q22,Measurement and fit,"cm/in conversion, invalid inputs and disclosure",NOT_RUN
+Q23,Couples Studio,"All filters, image modal, close and each CTA",NOT_RUN
+Q24,Privacy export,Export content and local-storage warning accurate,NOT_RUN
+Q25,DOM IDs,No duplicate IDs after modules render,NOT_RUN
+Q26,Phone-width overflow,No horizontal overflow at 320/360/390/430 px,NOT_RUN
+Q27,Accessibility/reduced motion,"Keyboard focus, Escape and reduced motion",NOT_RUN
+Q28,PWA and stale cache,"Install, update, offline fallback, refresh after cache change",NOT_RUN
+Q29,Product/image truth,"Concept pricing, source/right and stock claims are clearly labelled",NOT_RUN
+Q30,Android release regression,All routes and repeated Innerwear taps on Chrome Android,NOT_RUN

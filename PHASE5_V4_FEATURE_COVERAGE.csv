@@ -1,0 +1,41 @@
+﻿Feature ID,Feature Area,Phase 5 work/status,Current confidence,Required verification
+01,"Home screen, hero and quick actions",Phase 15 release highlights loader; existing Home retained,INTEGRATED_NOT_LIVE_VERIFIED,Open Home and check highlight links/position on Android
+02,"Main navigation, mobile menu and section switching",Existing navigation preserved; view image work moved off tap stack,PATCHED_NOT_LIVE_VERIFIED,Tap all seven views and test menu open/close/Escape
+03,Story catalogue/search/filters/sort,Existing story module retained; Phase 2 core activated by patch,INTEGRATED_NOT_LIVE_VERIFIED,"Search, filter, sort, empty state and reset"
+04,Story reader and chapter continuation,Existing reader/chapter behavior preserved,EXISTING_NEEDS_FLOW_TEST,"Open story, read, next/back and exit"
+05,Branching story universe and tone choices,Existing Phase 4 story universe and combined bundle preserved,EXISTING_NEEDS_FLOW_TEST,Test an end-to-end branch and tone change
+06,Story Vault/bookmarks/progress/history,Phase 2 core activation; original storage key retained,INTEGRATED_NOT_LIVE_VERIFIED,"Opt-in, bookmark, continue, clear and reload"
+07,More Dirty for Horny Girls teaser/poll/roadmap,Existing surface retained; status labeling needs review,REVIEW_REQUIRED,Verify poll actions and Available/Planned labels
+08,Innerwear catalogue/filter/product discovery,Catalog retained; tap render deferred to next frame,PATCHED_NOT_LIVE_VERIFIED,"Search, category, sort, reset and repeated taps"
+09,151-record image library,Existing manifest preserved; archive continues in batches of 8,PATCHED_NOT_LIVE_VERIFIED,Search/filter/sort/load more/retry
+10,Spin-frame image viewer/swipe/slider,Existing eight-frame viewer retained,EXISTING_NEEDS_ANDROID_TEST,Swipe left/right and test slider/prev/next
+11,Product detail modal/status claims,Existing product details and concept/sample labels retained,EXISTING_NEEDS_FLOW_TEST,Open/close every detail modal and confirm no live stock claims
+12,Wishlist/local saved styles,Existing storage key and button path retained,EXISTING_NEEDS_FLOW_TEST,Add/remove and reload
+13,Compare selected references,Phase 2 compare persistence module activated by patch,INTEGRATED_NOT_LIVE_VERIFIED,"Select 1–3, reload, clear and retest"
+14,Sample bag/demo checkout,Existing demo-only bag retained; no real payment path added,EXISTING_NEEDS_FLOW_TEST,Add/remove/quantity/subtotal/empty state
+15,Campaign galleries and Sanskari edit,Existing campaign gallery retained,EXISTING_NEEDS_FLOW_TEST,Preview/save and mobile gallery layout
+16,Noor/Grace Coming Soon collections,Existing preview cards retained,REVIEW_REQUIRED,Confirm Coming Soon labels and no fake shop
+17,18+ gate and mature-content separation,Existing self-attestation gate retained,EXISTING_NEEDS_FLOW_TEST,Cancel/confirm and protected routes
+18,Wellness guide/anatomy education,Phase 10 module activated by Phase 5 loader,INTEGRATED_NOT_LIVE_VERIFIED,"Check evidence links, disclaimers and advice boundaries"
+19,Measurement worksheet/unit conversion,Existing worksheet plus Phase 11 module,INTEGRATED_NOT_LIVE_VERIFIED,Convert both directions and check numeric output
+20,Fit cues/sizing education,Phase 11 Fit Studio loaded; no unverified sizing claims added,INTEGRATED_NOT_LIVE_VERIFIED,Check fit cues and no invented brand size chart
+21,Dildo wheel education,Original wheel logic preserved,EXISTING_NEEDS_FLOW_TEST,Spin/repeat/reset/keyboard/result announcement
+22,Butt-plug wheel/safety info,Original wheel logic preserved,EXISTING_NEEDS_FLOW_TEST,"Repeat/reset, flared-base/hygiene safety notes"
+23,Boyfriend preference wheel,Original third wheel preserved,EXISTING_NEEDS_FLOW_TEST,"Select range, spin/reset, no real-body prediction"
+24,Wild Wheel and Wheels Hub,Phase 12 hub activated by selective Phase 3 loader,INTEGRATED_NOT_LIVE_VERIFIED,Hub shortcuts must reach existing four wheels
+25,Couples date planner,Phase 3 V4 enhancement adds option-aware plans/swaps,INTEGRATED_NOT_LIVE_VERIFIED,"Change mood/budget, swap plan and edit/copy"
+26,Flirty message generator/copy,Phase 3 V4 enhancement adds variants/editor/copy fallback,INTEGRATED_NOT_LIVE_VERIFIED,"Test different tones, edit and clipboard failure"
+27,Bold mode/mood/intensity,Existing combined Phase 3/4 bundle preserved,EXISTING_NEEDS_FLOW_TEST,"Gate, mood/language/reset and no forced escalation"
+28,Custom fantasy builder,Existing combined Phase 4 builder preserved,EXISTING_NEEDS_FLOW_TEST,Every step/back/next/edit/copy/reroll/reset
+29,Phase 9 After Dark Studio,Loaded by Phase 3 V4 selective loader,INTEGRATED_NOT_LIVE_VERIFIED,Filters/generate/skip/favourites/session-only note
+30,Phase 10 wellness/fluid education,Loaded by Phase 5 loader,INTEGRATED_NOT_LIVE_VERIFIED,Source links/options/disclaimer/no diagnosis
+31,Phase 11 Fit Studio,Loaded by Phase 5 loader,INTEGRATED_NOT_LIVE_VERIFIED,"Measurement guidance, conversion, opt-in storage"
+32,Phase 12 Wheels Hub,Loaded by Phase 3 V4 selective loader,INTEGRATED_NOT_LIVE_VERIFIED,All four shortcuts reach original wheel elements
+33,Phase 13 Couples Studio,Loaded by Phase 3 V4 selective loader,INTEGRATED_NOT_LIVE_VERIFIED,All filters/preview modal/cards/CTAs
+34,Phase 14 privacy/export/accessibility,Loaded by Phase 5 loader,INTEGRATED_NOT_LIVE_VERIFIED,"Export content, clear disclosure, focus visibility"
+35,Phase 15 Whats New/release panel,Loaded last by Phase 5 loader after Phase 3,INTEGRATED_NOT_LIVE_VERIFIED,Verify release highlight routes/diagnostics links
+36,Fit Passport/local photo/notes,Existing local notes and photo preview preserved,EXISTING_NEEDS_PRIVACY_REVIEW,Opt-in/clear/export and prove photo is not uploaded
+37,Image retry/source/rights status,Existing Phase 5 recovery plus Phase 14 image status,INTEGRATED_NOT_LIVE_VERIFIED,"Force failed image, retry and open-source flow"
+38,Product Truth/sales readiness,Reference-only labels retained; no seller/stock facts fabricated,REVIEW_REQUIRED,"Owner review of source, rights, exact price and terms"
+39,PWA install/offline/cache freshness,Phase 5 worker cache + V4 manifest update,INTEGRATED_NEEDS_DEVICE_TEST,Install/update/offline/network recovery on Android
+40,Diagnostics/feature status/release QA,Phase 5 diagnostic and 30-step regression checklist,INTEGRATED_NOT_LIVE_VERIFIED,Run JSON checks and finish Android checklist
