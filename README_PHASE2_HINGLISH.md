@@ -1,59 +1,58 @@
-# BLACKED Super Update — Phase 2: Connected Architecture
+# BLACKED V5 — Phase 2 Premium UI/UX + Existing Feature Repair
 
-**Status:** Additive patch package for review. **Not committed/pushed to GitHub.**
+**Baseline:** `bhanu13yadav1-ai/Brand-website-v2` at commit `16b76469fb274f5a65d3cfa2bd3d34765639bef3`
+**Prepared:** 24 October 2026
+**Scope:** additive UI/UX refinements and safe improvements to existing interactions. This package does not add Phase 3 adult/wellness features or change product data.
 
-## What Phase 2 delivers
+## What Phase 2 adds
 
-- A versioned content/route graph so route names, media placement and cross-links have one source of truth.
-- A JSON Schema plus a local validator for route IDs, asset IDs, graph links, local files and image hashes.
-- A compact navigation rail connecting existing views without replacing `index.html` or `app.js`.
-- Local media galleries inserted into current views: AirComfort cooling concepts, separate CLAM COOLER concept, unbranded pink satin editorial, a brand-review campaign group, and Partner Yoga campaign reference.
-- Accessible image-preview dialog (explicit click only; close button, Escape, focus return), visible asset-loading status and missing-image diagnostics.
-- Eight new, optimised WebP photos from the latest uploaded batch.
-- A minimal patch for `index.html` and a minimal patch for `sw.js`; existing site files are not bundled.
+1. A refined dark-luxury visual layer using the existing BLACKED burgundy/rose/gold theme.
+2. More usable mobile navigation: one clear hamburger entry point on phone rather than the existing horizontal navigation and menu competing for space. Desktop navigation remains unchanged.
+3. Larger, more consistent touch controls, refined focus states, reduced-motion support, responsive filter forms and more consistent card treatments.
+4. Additive `Reset story filters`, `Reset style filters`, `Reset image filters` and `Reset product filters` actions, only when their matching existing controls are present.
+5. Better navigation semantics: label the mobile navigation, keep `aria-expanded` and `aria-current` in sync, announce view changes and move keyboard focus to the destination heading.
+6. `window.BLACKED_V5_PHASE2_UX.getDiagnostics()` for lightweight in-page DOM diagnostics.
+7. A fresh service-worker cache version plus explicit cache entries for the new CSS/JS assets.
 
-## Exact baseline inspected
+## Safety and preservation
 
-- Repository: https://github.com/bhanu13yadav1-ai/Brand-website-v2
-- Branch: `main`
-- Current inspected HEAD: `530b6d2339e68f0ae3bd78a01ec36981d570576b`
-- `index.html` blob SHA: `007b8e7d59486b5ba93c6534aa9dcc91066d040b`
-- `app.js` blob SHA: `245d9c4dc32a4f27e5d05eef646d97bcf8b0177a`
-- `sw.js` blob SHA: `675093dcd5bb4d9975c40dd07d65a5cac9018ee4`
+- The existing `app.js`, story data, original four wheel engines, saved-data keys, product records, image manifest and 7 base views are not rewritten.
+- No local storage key is renamed, migrated, cleared or newly introduced by this UX module.
+- Reset buttons only reset current filter/search controls to their documented defaults; they do not clear bookmarks, wishlist, bag, measurement notes or saved favourites.
+- Existing hidden/visible view handling and adult access gates remain owned by `app.js`.
+- Product concepts remain concept-only; no real product, vendor, price, SKU, material or safety verification is introduced.
 
-**Guard:** Before applying the patches, recheck the current `main` HEAD and the base-file SHAs. If either differs, do not blindly apply; reconcile against the newest source first.
+## Install — recommended safe way
 
-## New files to copy to repository root
+1. Download the exact baseline source ZIP from:
+   `https://github.com/bhanu13yadav1-ai/Brand-website-v2/archive/16b76469fb274f5a65d3cfa2bd3d34765639bef3.zip`
+2. Extract the archive. Put these two assets and the helper scripts in the repository root alongside `index.html` and `sw.js`:
+   - `phase2-premium-ux.css`
+   - `phase2-premium-ux.js`
+   - `install_phase2.py`
+   - `validate_phase2.py`
+3. From the repository root, run:
+   `python install_phase2.py`
+   The script checks insertion markers before editing, saves `index.html` and `sw.js` backups *outside* the website root, adds both new module references and advances the service-worker cache version. It is idempotent for the module references.
+4. Run:
+   `node --check phase2-premium-ux.js`
+   `python validate_phase2.py`
+5. Inspect `git diff` or compare the original backup before committing. Deploy only after review.
 
-- `phase2-content-graph.json`
-- `phase2-experience-architecture.js`
-- `phase2-experience-architecture.css`
-- `architecture/phase2-content-graph.schema.json`
-- `phase2-assets/` (eight new WebP files)
+## Install on GitHub from a phone (without Python)
 
-Other folders (`architecture/`, `tools/`, `patches/`, `previews/`, and reports) are for source control / review as desired; the app only needs the listed runtime files and assets.
+1. Upload `phase2-premium-ux.css` and `phase2-premium-ux.js` to the repository root.
+2. In `index.html`, add this directly after the existing Phase 17 stylesheet:
+   `<link rel="stylesheet" href="./phase2-premium-ux.css">`
+3. In `index.html`, add this directly after the existing Phase 17 script:
+   `<script src="./phase2-premium-ux.js" defer></script>`
+4. In `sw.js`, add `./phase2-premium-ux.css` to `CORE`, and add `./phase2-premium-ux.js` to `CORE`. Change the cache name to `blacked-v4-phase2-premium-ux-20261024-1`.
+5. Commit those changes and wait for GitHub Pages to publish, then run the QA checklist below. Keep the current `main` commit available for rollback.
 
-## Integration instructions
+Do not upload the ZIP itself as the website's `index.html`. Upload/extract the two actual assets.
 
-1. Keep a fresh backup of current `main` and use a separate review branch/repository for integration. Do not overwrite `main` directly.
-2. Copy the new runtime files and `phase2-assets/` into the working copy.
-3. Apply `patches/INDEX_INSERT_PHASE2.patch` only if `index.html` SHA matches the recorded baseline.
-4. Apply `patches/SERVICE_WORKER_PHASE2.patch` only if `sw.js` SHA matches the recorded baseline. It bumps the cache namespace and precaches the new graph, JS, CSS and eight images.
-5. Serve over HTTP (not `file://`) and run `python tools/validate_phase2.py --root .` from the package. The validation report is separate from live browser testing.
-6. Verify each existing view, all injected galleries, Escape/close/focus restoration, missing-asset fallback, cross-nav into the existing age self-attestation, all wheels, story choices, wishlist/compare/demo bag, and service-worker update on a real Android device.
-7. Do not publish the new media until the exact host's content policy, image rights/model releases, brand spelling, and claims are approved. All photos are treated as user-supplied references, not proof of rights or product performance.
+## Current limitations
 
-## New-photo placement summary
-
-See `reports/PHASE2_NEW_ASSET_MANIFEST.csv`. Re-uploaded `1000202897.png` and `1000202895.png` were excluded: their source SHA-256 values exactly match Phase 1's two already-staged images. They are not duplicated in this ZIP.
-
-## Test status
-
-- `tools/validate_phase2.py`: 134/134 static checks PASS.
-- JSON Schema: valid; no schema errors.
-- JavaScript syntax (`node --check`): PASS.
-- Patch format/application: PASS against baseline header fixtures; actual target blob SHA must still be rechecked before integration.
-- JavaScript syntax: checked separately with Node.
-- New image decodability and hashes: checked at packaging time.
-- Browser interaction / deployed GitHub Pages / network image delivery / physical Android: **NOT TESTED in this environment**.
-- GitHub writes: no source file, branch, or commit was changed in this run.
+- The GitHub connector denied branch creation in this session (HTTP 403), so this phase has **not** been committed to the live repository or deployed.
+- Browser-based click/touch tests are not run from this environment. Static checks and syntax checks are not a substitute for actual Android Chrome testing.
+- The original app's 18+ gate is self-attestation, not verified age assurance.

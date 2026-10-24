@@ -1,21 +1,21 @@
-ID,Area,Test,Expected result,Environment,Status
-P2-01,Integration,Phase 1 script tag present after original modules,window.BLACKED_V4_PHASE1 exists after deploy,LIVE BROWSER,NOT TESTED
-P2-02,Integration,Phase 2 script tag present after Phase 1,window.BLACKED_V4_PHASE2 exists after deploy,LIVE BROWSER,NOT TESTED
-P2-03,Home,No Story Vault opt-in/no lastRead,No fake continue card appears,STATIC + LIVE BROWSER,NOT TESTED
-P2-04,Home,Story Vault opt-in and valid lastRead,Continue card shows; copy says local browser only,MOCK + LIVE BROWSER,NOT TESTED
-P2-05,Story resume,Click Continue while 18+ gate is unconfirmed,Age gate remains visible; no bypass or auto-confirm,REAL ANDROID,NOT TESTED
-P2-06,Story resume,Confirm 18+ manually after clicking Continue,Existing Story Vault item opens if the record remains valid,REAL ANDROID,NOT TESTED
-P2-07,Story filters,Enter query / change mood or language / sort,Clear filters button appears and resets all controls,MOCK + LIVE BROWSER,NOT TESTED
-P2-08,Catalogue,Search/category/sort,Reset styles becomes available and returns controls to defaults,MOCK + LIVE BROWSER,NOT TESTED
-P2-09,Image archive,Search/category/sort,Reset archive filters returns search/category/sort to default,MOCK + LIVE BROWSER,NOT TESTED
-P2-10,Compare,Select up to three concept cards,IDs save locally and compare panel shows selected entries,LIVE BROWSER,NOT TESTED
-P2-11,Compare,Reload and reopen Innerwear,Previously selected comparison IDs restore once in this browser,LIVE BROWSER,NOT TESTED
-P2-12,Compare,Clear compare,Comparison list state is removed from the new Phase 2 key,LIVE BROWSER,NOT TESTED
-P2-13,Existing data,Review story vault / wishlist / bag records before and after,Existing keys stay unchanged; no silent storage wipe,STATIC + LIVE BROWSER,NOT TESTED
-P2-14,Views,Check 7 original view roots,All seven existing views remain in DOM,STATIC + LIVE BROWSER,NOT TESTED
-P2-15,Images,Image archive,viewer and home images,Failed sources are reported; no image data bundled in delta,NETWORK + LIVE BROWSER,NOT TESTED
-P2-16,Mobile,320/360/390/430 widths,No page-level horizontal overflow; readable controls,REAL ANDROID / RESPONSIVE,NOT TESTED
-P2-17,PWA,Updated cache name and core assets,New worker activates and does not erase local storage,LIVE BROWSER,NOT TESTED
-P2-18,Manifest,Check installed app metadata after manifest update,Name and short name show V4,ANDROID PWA,NOT TESTED
-P2-19,Accessibility,Keyboard focus and reduced motion,Visible focus and reduced-motion preference respected,DESKTOP + ANDROID,NOT TESTED
-P2-20,Production,Review JSON diagnostics,No FAIL remains; every WARN reviewed with evidence,LIVE BROWSER,NOT TESTED
+Test ID,Area,Action,Expected result,Status
+P2-01,Install,Confirm new CSS and JS references exist exactly once in index.html,No duplicate script/style imports,Not run on installed repository
+P2-02,Service worker,Confirm CORE includes the new CSS and JS and cache name has changed,New UX assets are cache-addressable and cache revision is new,Not run on installed repository
+P2-03,Desktop navigation,Open each of seven sections from main navigation,Correct view activates and active page is indicated,Manual browser test required
+P2-04,Mobile navigation,At 320/360/390/430px open hamburger and choose all seven sections,One menu pattern is used; destination is clear; menu closes after navigation,Manual Android Chrome test required
+P2-05,Mobile menu keyboard,Open menu and press Escape,Menu closes and focus returns to menu toggle,Manual browser test required
+P2-06,Age gate,Tap Stories/Wellness/Couples without confirmation,Existing age gate remains in control; no route bypass,Manual browser test required
+P2-07,Story filter reset,Set search/mood/language/sort then Reset story filters,All fields return to defaults and story list refreshes,Manual browser test required
+P2-08,Style filter reset,Set style search/category/sort then reset,All fields reset and existing catalogue remains,Manual browser test required
+P2-09,Image filter reset,Set image search/category/sort then reset,Archive filters reset and no entries are deleted,Manual browser test required
+P2-10,Wellness filter reset,Filter product concepts then reset,Category concepts reset; no saved product favourites are removed,Manual browser test required
+P2-11,Keyboard focus,Use Tab/Enter to navigate and operate reset buttons,Visible focus indicator and functional buttons,Manual accessibility test required
+P2-12,Screen-reader status,Change view and reset filters,Announcer reports changes without creating repeated announcements,Manual accessibility test required
+P2-13,Reduced motion,Enable system reduced-motion setting,Page transitions and CSS motion are reduced,Manual browser test required
+P2-14,Touch size,Tap visible controls on phone,Primary controls are comfortably tappable,Manual device test required
+P2-15,Layout 320px,Inspect Home, Stories, Innerwear, Wellness, Couples and Fit Studio,No horizontal overflow or clipped controls,Manual browser test required
+P2-16,Four wheels,Spin Dildo, Butt Plug, Boyfriend and Wild wheels,Existing result/controls still work; no regression,Manual regression test required
+P2-17,Existing persistence,Reload and verify old seeded wishlist/bag/fit notes/story progress,All old keys/data remain intact,Manual regression test required
+P2-18,Image archive,Search/filter/load-more and open image/source actions,Current image library still behaves as before,Manual regression test required
+P2-19,Console/network,Inspect errors and new assets in browser devtools,No new uncaught JS errors or 404 for Phase 2 assets,Manual browser test required
+P2-20,Rollback,Restore backups in a test checkout and verify old nav/cache reference is restored,Rollback instructions work,Manual test required

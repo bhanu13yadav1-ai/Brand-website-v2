@@ -1,55 +1,19 @@
-diff --git a/index.html b/index.html
 --- a/index.html
 +++ b/index.html
-@@ -34,3 +34,7 @@
-   <script src="./phase6-wellness-collections.js" defer></script>
-   <script src="./phase7-8-enhancements.js" defer></script>
-+  <!-- BLACKED V4 Phase 1 foundation -->
-+  <script src="./phase1-foundation.js?v=4.1.0" defer></script>
-+  <!-- BLACKED V4 Phase 2 core experience -->
-+  <script src="./phase2-core-experience.js?v=4.2.0" defer></script>
- </head>
-diff --git a/sw.js b/sw.js
+@@ -25,1 +25,2 @@
+   <link rel="stylesheet" href="./phase17-ultra-urge-wellness.css">
++  <link rel="stylesheet" href="./phase2-premium-ux.css">
+@@ -44,1 +45,2 @@
+   <script src="./phase17-ultra-urge-wellness.js" defer></script>
++  <script src="./phase2-premium-ux.js" defer></script>
 --- a/sw.js
 +++ b/sw.js
-@@ -1,4 +1,4 @@
- /* BLACKED V3 Phase 3: lean app-shell cache, bounded navigation wait, media-on-request. */
- 'use strict';
--const CACHE_NAME = 'blacked-v7-innerwear-interaction-fix-2';
-+const CACHE_NAME = 'blacked-v4-phase2-core-experience-1';
- const CORE = [
-@@ -11,4 +11,5 @@
-   './phase3.js', './phase3-4-experience.js', './phase4-home-and-fantasy.js', './phase4-story-universe.js',
-   './phase5-image-reliability.js', './phase5-product-discovery.js',
-   './phase6-boyfriend-studio.js', './phase6-wellness-collections.js', './phase7-8-enhancements.js',
-+  './phase1-foundation.js', './phase2-core-experience.js',
-   './manifest.webmanifest', './app-icon.svg', './innerwear-image-library.json', './size-chart-template.json',
-diff --git a/manifest.webmanifest b/manifest.webmanifest
---- a/manifest.webmanifest
-+++ b/manifest.webmanifest
-@@ -1,6 +1,6 @@
- {
--  "name": "BLACKED — V2 Phase 4 Collections & Wheels",
--  "short_name": "BLACKED V2.4",
--  "description": "BLACKED V2 Phase 4 review build with Phase 2 local campaign-image path repair and image diagnostics.",
-+  "name": "BLACKED — V4 Core Experience",
-+  "short_name": "BLACKED V4",
-+  "description": "BLACKED V4 mobile-first adult-fiction, style-reference, collection and wellness prototype. Sample products are concepts; there is no real checkout.",
-   "start_url": "./index.html",
-   "scope": "./",
-diff --git a/BLACKED_V4_MASTER_PLAN.md b/BLACKED_V4_MASTER_PLAN.md
---- a/BLACKED_V4_MASTER_PLAN.md
-+++ b/BLACKED_V4_MASTER_PLAN.md
-@@ -158,9 +158,9 @@
- ## Phase tracker (update this in every handoff)
- 
--- [~] Phase 1 — Audit, foundation, repair & phone-first design (delta package prepared; live integration/diagnostics pending)
--- [ ] Phase 2 — Core product, content, collections & discovery
-+- [~] Phase 1 — Audit, foundation, repair & phone-first design (files uploaded; re-audit found phase1-foundation.js still missing from index.html; integration and live diagnostics pending)
-+- [~] Phase 2 — Core product, content, collections & discovery (additive core UX module prepared; integration and live diagnostics pending)
- - [ ] Phase 3 — Bold, horny, dirty, playful & interactive engine
- - [ ] Phase 4 — Wellness, body education, fit & trust
- - [ ] Phase 5 — Full integration, privacy hardening, PWA & V4 release QA
- 
--**Current plan status:** planning complete; implementation and live verification not yet signed off. Current known baseline from latest inspected main commit: V3 Phase 3/4 combined bundle was integrated into `app.js`; service worker cache changed to `blacked-v4-phase4-combined-experience-1`; GitHub Pages build workflow succeeded. The 40-feature audit still lists Phase 9–15 modules as unconfirmed live integrations until diagnostics prove otherwise.
-+**Current plan status:** Phase 1 files are present in `main` and the latest inspected GitHub Pages workflow succeeded, but the source audit still shows `index.html` does not load `phase1-foundation.js`; Phase 1 is not signed off until that integration passes the deployed diagnostic. Current `sw.js` cache before this patch is `blacked-v7-innerwear-interaction-fix-2`, and `manifest.webmanifest` still carries V2.4 labels. This Phase 2 delta provides the integration edits, but runtime and Android checks are still pending. The 40-feature audit continues to label Phase 9–15 modules unconfirmed until live diagnostics prove otherwise.
+@@ -3,1 +3,1 @@
+-const CACHE_NAME = 'blacked-v4-phase17-ultra-urge-wellness-20261024-1';
++const CACHE_NAME = 'blacked-v4-phase2-premium-ux-20261024-1';
+@@ -9,1 +9,2 @@
+   './phase16-preference-first.css', './phase17-ultra-urge-wellness.css',
++  './phase2-premium-ux.css',
+@@ -22,1 +23,2 @@
+   './phase17-ultra-urge-wellness.js', './phase17-wellness-catalog.json',
++  './phase2-premium-ux.js',

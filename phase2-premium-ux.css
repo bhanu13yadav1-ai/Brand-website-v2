@@ -1,0 +1,244 @@
+/* BLACKED V5 Phase 2 — additive premium mobile UX layer.
+ * Loaded after existing styles so it refines the current visual system without replacing it.
+ */
+:root {
+  --p2ux-bg: #0b090c;
+  --p2ux-panel: #171217;
+  --p2ux-panel-raised: #201720;
+  --p2ux-border: #493543;
+  --p2ux-rose: #efabc6;
+  --p2ux-rose-bright: #ffd0e0;
+  --p2ux-gold: #e9cf9a;
+  --p2ux-muted: #c7b8c3;
+  --p2ux-radius: 18px;
+  --p2ux-focus: #ffd0e0;
+  --p2ux-space: clamp(14px, 2.8vw, 24px);
+}
+
+html { scroll-padding-top: 92px; }
+body {
+  background:
+    radial-gradient(ellipse at 12% 5%, rgb(84 36 64 / 19%), transparent 34%),
+    radial-gradient(ellipse at 92% 28%, rgb(107 65 38 / 9%), transparent 30%),
+    var(--p2ux-bg);
+  line-height: 1.62;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+::selection { background: #7a405e; color: #fff8fb; }
+
+.site-header {
+  background: rgb(15 11 16 / 95%);
+  border-bottom-color: rgb(126 79 103 / 40%);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 18%);
+}
+.topbar { gap: 12px; }
+.brand { letter-spacing: .075em; }
+.brand:focus-visible,
+.icon-btn:focus-visible,
+.bag-btn:focus-visible,
+.nav-link:focus-visible,
+.mobile-nav button:focus-visible,
+.destination:focus-visible,
+.btn:focus-visible,
+.text-btn:focus-visible,
+.p2ux-reset:focus-visible {
+  outline: 3px solid var(--p2ux-focus);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgb(239 171 198 / 14%);
+}
+.nav-link.active,
+.mobile-nav button.active,
+.mobile-nav button[aria-current="page"] {
+  background: linear-gradient(125deg, #382333, #211720);
+  border-color: #95617c;
+  color: #fff6fa;
+}
+
+.main-content { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+.hero {
+  position: relative;
+  border-color: rgb(130 81 108 / 65%);
+  background:
+    radial-gradient(ellipse at 0% 0%, rgb(124 54 91 / 22%), transparent 45%),
+    linear-gradient(135deg, #211620 0%, #100c10 60%, #21151f 100%);
+  box-shadow: 0 18px 45px rgb(0 0 0 / 16%);
+}
+.hero h1, .page-intro h1, .sanskari-hero h1 {
+  text-wrap: balance;
+}
+.hero-copy > p:not(.eyebrow),
+.page-intro > p:not(.eyebrow),
+.section-heading .muted { max-width: 68ch; }
+.hero-points { gap: 9px 14px; }
+.hero-points span { font-size: 12px; }
+
+.section-block { margin-block: clamp(24px, 4.5vw, 36px); }
+.section-heading { align-items: flex-start; }
+.section-heading h2, .section-block h2 { text-wrap: balance; }
+.destination,
+.guide-card,
+.wellness-basic-card,
+.wellness-research-note,
+.product-card,
+.campaign-card,
+.future-mini,
+.coming-card,
+.story-card,
+.p17-product-card,
+.p17-saved-item {
+  border-color: rgb(103 70 91 / 70%);
+  box-shadow: 0 9px 26px rgb(0 0 0 / 10%);
+}
+.destination {
+  min-height: 106px;
+  background: linear-gradient(145deg, rgb(39 27 39 / 96%), rgb(20 15 22 / 98%));
+  transition: border-color .16s ease, transform .16s ease, background .16s ease;
+}
+.destination:hover {
+  border-color: #96627d;
+  background: linear-gradient(145deg, #302031, #171019);
+}
+.destination small { line-height: 1.5; }
+
+/* Keep all text and controls comfortably readable without changing content or app state. */
+button, input, select, textarea { font-size: max(14px, 1em); }
+.btn, .icon-btn, .bag-btn, .mobile-nav button { min-height: 44px; }
+.btn { padding-inline: 15px; }
+.field input, .field select, .field textarea,
+.p17-field input, .p17-field select {
+  min-height: 46px;
+  border-color: #65485a;
+  background-color: #151016;
+}
+.field input::placeholder, .p17-field input::placeholder { color: #ad9ca8; opacity: 1; }
+
+/* Search/filter toolbars need enough space on touch screens. */
+.story-tools, .toolbar, .image-library-toolbar, .p17-catalog-tools {
+  gap: 12px;
+  align-items: end;
+}
+.story-tools .field, .toolbar .field, .image-library-toolbar .field,
+.p17-catalog-tools .p17-field { min-width: 0; }
+.result-line { line-height: 1.5; }
+
+/* Reset actions are added by phase2-premium-ux.js without changing old controls. */
+.p2ux-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 8px 0 12px;
+}
+.p2ux-reset {
+  min-height: 42px;
+  padding: 9px 13px;
+  border: 1px solid #755267;
+  border-radius: 12px;
+  background: #1a121b;
+  color: #f8e8f0;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.p2ux-reset:hover { border-color: var(--p2ux-rose); background: #291a28; }
+.p2ux-reset:active { transform: translateY(1px); }
+.p2ux-reset span { color: var(--p2ux-rose-bright); margin-right: 6px; }
+
+/* Screen-reader announcement helper. */
+.p2ux-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+.view h1[tabindex="-1"]:focus { outline: 2px solid var(--p2ux-focus); outline-offset: 5px; border-radius: 3px; }
+
+/* Premium mobile pattern: one navigation entry point, no duplicate horizontal nav + menu. */
+@media (max-width: 640px) {
+  html { scroll-padding-top: 76px; }
+  body { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  .site-header { backdrop-filter: blur(18px); }
+  .topbar { min-height: 62px; }
+  .hamburger { min-width: 44px; min-height: 44px; border-radius: 14px; }
+  .main-nav { display: none; }
+  .mobile-nav:not(.hidden) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px 12px max(14px, env(safe-area-inset-bottom));
+    border-top: 1px solid rgb(126 79 103 / 28%);
+    background: #100c10;
+  }
+  .mobile-nav button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    padding: 11px 12px;
+    border-radius: 13px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+  .wrap { width: calc(100% - 24px); }
+  .main-content { padding-top: 14px; }
+  .hero { padding: clamp(16px, 4vw, 22px); gap: 16px; }
+  .hero-media, .hero-media img { min-height: 230px; }
+  .hero-points { display: flex; flex-wrap: wrap; }
+  .section-heading { gap: 10px; }
+  .destination-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .destination { grid-template-columns: 34px minmax(0, 1fr) 14px; gap: 8px; min-height: 92px; padding: 11px; border-radius: 15px; }
+  .dest-icon { width: 34px; height: 34px; font-size: 18px; }
+  .destination b { font-size: 13px; }
+  .destination small { font-size: 11px; }
+  .story-tools, .toolbar, .image-library-toolbar, .p17-catalog-tools {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .story-filter-row { gap: 7px; }
+  .story-filter { min-height: 40px; }
+  .result-line { align-items: flex-start; }
+  .product-grid, .campaign-grid { gap: 10px; }
+  .product-card-copy { padding: 10px; }
+  .product-card-copy h3 { font-size: 14px; }
+  .product-card-copy p { font-size: 12px; }
+  .p17-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .p17-product-card > img { height: 112px; }
+  .p17-product-body { padding: 10px; }
+  .p17-product-card h3 { font-size: 13px; }
+  .p2ux-action-row { justify-content: flex-start; }
+  .p2ux-reset { width: auto; }
+  .p17-saved-list { grid-template-columns: minmax(0, 1fr); }
+  .spin-viewer-layout { gap: 6px; }
+  .spin-arrow { min-width: 42px; min-height: 44px; }
+}
+
+@media (max-width: 380px) {
+  .destination-grid { grid-template-columns: minmax(0, 1fr); }
+  .destination { min-height: 78px; }
+  .header-actions { gap: 5px; }
+  .icon-btn, .bag-btn { padding-inline: 8px; }
+  .brand { font-size: 17px; }
+  .p17-product-card > img { height: 96px; }
+}
+
+@media (min-width: 641px) {
+  .mobile-nav { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

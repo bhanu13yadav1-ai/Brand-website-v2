@@ -1,22 +1,25 @@
-# Phase 2 Changelog — Connected Architecture
+# Phase 2 Changelog
 
 ## Added
-- `phase2-content-graph.json`: single source of truth for seven current views, four existing wheel keys, new media, and route relationships.
-- `architecture/phase2-content-graph.schema.json`: JSON Schema for the graph.
-- `architecture/mobile-design-tokens.json`: current brand-aligned design and accessibility contract.
-- `phase2-experience-architecture.js` / `.css`: additive media galleries, related-destination rail, click-to-preview dialog, and missing-image status.
-- Eight new WebP assets in `phase2-assets/`.
-- `tools/validate_phase2.py`, source-diff patches, photo manifest, preview and QA/handoff reports.
+- Additive premium theme overlay `phase2-premium-ux.css`.
+- Additive interaction/accessibility module `phase2-premium-ux.js`.
+- Safe install helper with automatic backups outside the public site root.
+- Static validation helper.
+- Human-review and Android QA checklists.
 
-## Existing features preserved by design
-- No modifications to existing story or product records.
-- No changes to existing storage keys or saved data.
-- No real payment/cart/stock claims added.
-- No wheel logic or adult gate implementation replaced.
-- No full existing HTML/CSS/JS/data files included in this ZIP.
+## UI improvements
+- Phone: hides duplicate horizontal nav, leaving a single hamburger menu that expands to a two-column section grid.
+- Adjusts spacing, heading balance, card depth, filter field spacing and touch target minimums.
+- Adds clear keyboard focus and system reduced-motion support.
+- Adds screen-reader announcement and focused section headings after a successful view change.
+- Adds reset actions for Stories, style catalogue, image library and Wellness category filters.
 
-## Scope / publication guards
-- The visual assets are concept/editorial references, not live inventory.
-- Claims embedded in cooling/fabric/battery/fitness-themed posters are unverified.
-- Brand labels BLACKED, BLXCKED, CLAM COOLER 3000 and INNERWERE are not automatically treated as the same brand.
-- Image permissions and the production host's current content policy are not confirmed.
+## Preserved
+- Seven existing views and four existing wheel selectors remain in source.
+- Existing product catalogue, story data, image archive, service-worker semantics and storage keys are not altered by the JS module.
+- No sale, real checkout, user accounts, new tracking or new external dependency is added.
+
+## Not claimed
+- No live deployment from this environment.
+- No real-device browser tests, real-user sessions or visual regression screenshot tests.
+- No claim that existing images all resolve or have commercial usage rights.
