@@ -1,7 +1,7 @@
 {
-  "name": "BLACKED — V4 Experience",
+  "name": "BLACKED V4 — Complete Experience",
   "short_name": "BLACKED V4",
-  "description": "BLACKED V4 mobile-first experience with updated collections, wheels, wellness education, fit studio, and release highlights.",
+  "description": "BLACKED V4 complete mobile-first experience with integrated discovery, story, couples, wellness, fit, wheel and privacy modules.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

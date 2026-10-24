@@ -1,0 +1,9 @@
+path,action,purpose,bytes,sha256
+index.html,REPLACE,Connects the preference-first module and integrated V4 entrypoints,58461,91f0e4a47d30bb1370a5920c67913533e2a4c384b91c7f8ede1a9c38e94ea42e
+app.js,REPLACE,Improves navigation responsiveness by deferring previous-screen image work,116843,4d4a1b777085da758df83adef19084ab1089b9b7912b2921a2bb3e0a02a2a8b5
+sw.js,REPLACE,Bumps cache key and precaches the new Phase 16 assets,4802,8dd7a482a8f20a2b05aeb69a23c7ec1824f0f697d504dd28c0d0d4fe3ac4d133
+manifest.webmanifest,REPLACE,BLACKED V4 PWA metadata,503,8c9f9762a8e22f663a9990e8a161470e04266d81de304a902e7bc5d0de1edd37
+phase16-preference-first.js,ADD,Three-step host-led preference wizard and language/gaali intensity sync,27786,c896ff7f2e43c3dd7babdda56af38ed77cd3f890c1fc9086b423705a06e055a8
+phase16-preference-first.css,ADD,"Mobile-first layout for the wizard, progress bar and settings",5129,f33bc6e1bb5ff8b843d6e4d4bb2cc3330e414b762f1e3f722d730a75c44262bd
+phase16-host-avatar.svg,ADD,New lightweight fictional adult-host illustration; no previous photo assets copied,2111,97c2524f5de6b04045be9171850e5c1edaf8446c40d4dc304c3f4aabd7cd6726
+PHASE16_INSTALL_HINGLISH.md,DOCUMENTATION,Install instructions and verification notes,3192,44eaa44cc69dcb9dd8a9afa56fc5a3b407cc7c04ff440813ff3f2ac8cdacc27c
