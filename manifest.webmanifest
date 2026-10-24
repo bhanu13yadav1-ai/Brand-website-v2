@@ -1,7 +1,7 @@
 {
-  "name": "BLACKED — V2 Phase 4 Collections & Wheels",
-  "short_name": "BLACKED V2.4",
-  "description": "BLACKED V2 Phase 4 review build with Phase 2 local campaign-image path repair and image diagnostics.",
+  "name": "BLACKED — V4 Experience",
+  "short_name": "BLACKED V4",
+  "description": "BLACKED V4 mobile-first experience with updated collections, wheels, wellness education, fit studio, and release highlights.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

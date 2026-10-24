@@ -1,0 +1,5 @@
+path,action,purpose,sha256,bytes
+index.html,REPLACE,Overwrite: activate existing V4 loaders,4bcc802e8f0b9c5b946dcd1ec0632a73e873cdf1fd5913420d64c8affbd15091,58171
+app.js,REPLACE,Overwrite: avoid whole-document image scan on each navigation,4d4a1b777085da758df83adef19084ab1089b9b7912b2921a2bb3e0a02a2a8b5,116843
+sw.js,REPLACE,Overwrite: refresh service worker cache + precache loader modules,405ac0e0f011f39c9735e67b043acc6a695a580b6a2a4b6f40aa6dc01a2da771,4603
+manifest.webmanifest,REPLACE,Overwrite: set PWA metadata to BLACKED V4,19fdc42c728ce66f6d0a6cbf3e9a75f335786ed43a003d8189f39f799b42b125,490

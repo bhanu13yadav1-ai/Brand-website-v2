@@ -1,6 +1,6 @@
 /* BLACKED V3 Phase 3: lean app-shell cache, bounded navigation wait, media-on-request. */
 'use strict';
-const CACHE_NAME = 'blacked-v7-innerwear-interaction-fix-2';
+const CACHE_NAME = 'blacked-v4-update-20261024-1';
 const CORE = [
   './index.html',
   './styles.css', './part-c-enhancements.css', './phase2-photo-collections.css',
@@ -8,6 +8,11 @@ const CORE = [
   './phase5-image-reliability.css', './phase5-product-discovery.css',
   './phase6-boyfriend-studio.css', './phase6-wellness-collections.css', './phase7-8-enhancements.css',
   './fallback.js', './app.js', './part-c-enhancements.js', './phase2-photo-collections.js',
+  './phase1-foundation.js', './phase2-core-experience.js', './phase3-v4-experience.js', './phase5-final-release-loader.js',
+  './phase9-after-dark.css', './phase10-wellness-education.css', './phase11-fit-studio.css',
+  './phase12-wheels-hub.css', './phase13-couples-studio.css', './phase14-hardening.css', './phase15-whats-new.css',
+  './phase9-after-dark.js', './phase10-wellness-education.js', './phase11-fit-studio.js',
+  './phase12-wheels-hub.js', './phase13-couples-studio.js', './phase14-hardening.js', './phase15-whats-new.js',
   './phase3.js', './phase3-4-experience.js', './phase4-home-and-fantasy.js', './phase4-story-universe.js',
   './phase5-image-reliability.js', './phase5-product-discovery.js',
   './phase6-boyfriend-studio.js', './phase6-wellness-collections.js', './phase7-8-enhancements.js',

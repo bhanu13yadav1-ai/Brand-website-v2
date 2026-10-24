@@ -198,11 +198,17 @@
     if (['wellness','boyfriend','stories'].includes(name) && !state.adultAllowed) {
       state.pendingView = name; $('#ageConfirm').checked = false; $('#ageError').classList.add('hidden'); $('#ageModal').classList.remove('hidden'); return;
     }
+    const previousView = $('.view.active');
     state.view = name;
     $$('.view').forEach(v => { const active = v.dataset.view === name; v.hidden = !active; v.classList.toggle('active', active); });
     const activeView = $('#view-' + name);
+    // Restore the destination immediately, but do not scan the entire document on every tap.
     restoreDeferredViewImages(activeView);
-    deferInactiveViewImages();
+    if (previousView && previousView !== activeView) {
+      const deferPreviousView = () => deferInactiveViewImages(previousView);
+      if ('requestIdleCallback' in window) requestIdleCallback(deferPreviousView, { timeout: 700 });
+      else setTimeout(deferPreviousView, 0);
+    }
     $$('[data-view-link]').forEach(b => b.classList.toggle('active', b.dataset.viewLink === name));
     $$('.main-nav [data-view-link]').forEach(b => { if (b.dataset.viewLink === name) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     $('#mobileMenu').classList.add('hidden'); $('#menuToggle').setAttribute('aria-expanded','false');
