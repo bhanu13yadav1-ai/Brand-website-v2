@@ -1,0 +1,141 @@
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -32,5 +32,9 @@
+   <script src="./phase6-boyfriend-studio.js" defer></script>
+   <script src="./phase6-wellness-collections.js" defer></script>
+   <script src="./phase7-8-enhancements.js" defer></script>
++  <script src="./phase1-foundation.js" defer></script>
++  <script src="./phase2-core-experience.js" defer></script>
++  <script src="./phase3-v4-experience.js" defer></script>
++  <script src="./phase5-final-release-loader.js" defer></script>
+ </head>
+ 
+diff --git a/app.js b/app.js
+--- a/app.js
++++ b/app.js
+@@ -192,5 +192,24 @@
+     return true;
+   }
+   prioritizeInnerwearCatalog();
++
++  // Keep navigation taps light: hydrate only the newly active view, and defer images
++  // only in the view the user just left instead of rescanning every page on every tap.
++  let innerwearEntryToken = 0;
++  function scheduleInnerwearRender(token) {
++    const start = () => {
++      if (token !== innerwearEntryToken || state.view !== 'innerwear') return;
++      try {
++        renderCatalog(); renderImageLibrary(false); showSpinFrame(0); scheduleImageLibraryInit();
++      } catch (error) {
++        state.diagnostic.errors.push('Innerwear render failed: ' + String(error));
++        console.error('[BLACKED V4] Innerwear render failed', error);
++        const status = $('#imageLibraryStatus');
++        if (status) status.textContent = 'Optional image archive render failed; other sections remain available.';
++      }
++    };
++    if ('requestAnimationFrame' in window) requestAnimationFrame(() => window.setTimeout(start, 0));
++    else window.setTimeout(start, 32);
++  }
+ 
+   function setView(name) {
+@@ -197,23 +215,27 @@
+     if (['wellness','boyfriend','stories'].includes(name) && !state.adultAllowed) {
+       state.pendingView = name; $('#ageConfirm').checked = false; $('#ageError').classList.add('hidden'); $('#ageModal').classList.remove('hidden'); return;
+     }
++    const previousView = $('.view.active');
+     state.view = name;
+     $$('.view').forEach(v => { const active = v.dataset.view === name; v.hidden = !active; v.classList.toggle('active', active); });
+     const activeView = $('#view-' + name);
+-    restoreDeferredViewImages(activeView);
+-    deferInactiveViewImages();
++    const activateImages = () => { if (state.view === name) restoreDeferredViewImages(activeView); };
++    if ('requestAnimationFrame' in window) requestAnimationFrame(activateImages);
++    else window.setTimeout(activateImages, 0);
++    const deferPreviousImages = () => { if (previousView && previousView !== activeView) deferInactiveViewImages(previousView); };
++    if ('requestIdleCallback' in window) requestIdleCallback(deferPreviousImages, { timeout: 900 });
++    else window.setTimeout(deferPreviousImages, 80);
+     $$('[data-view-link]').forEach(b => b.classList.toggle('active', b.dataset.viewLink === name));
+     $$('.main-nav [data-view-link]').forEach(b => { if (b.dataset.viewLink === name) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
+     $('#mobileMenu').classList.add('hidden'); $('#menuToggle').setAttribute('aria-expanded','false');
+     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+     if (name === 'innerwear') {
+-      // Paint the catalogue first. The image archive is optional, large and loaded after the
+-      // navigation frame has painted, so the tap does not synchronously compete with its DOM work.
+-      renderCatalog();
+-      renderImageLibrary(false);
+-      showSpinFrame(0);
+-      scheduleImageLibraryInit();
++      const token = ++innerwearEntryToken;
++      const catalog = $('#catalogGrid'), archive = $('#imageLibraryGrid');
++      if (catalog && !catalog.childElementCount) catalog.textContent = 'Preparing the style catalogue…';
++      if (archive && !archive.childElementCount) archive.textContent = 'The image archive loads separately below…';
++      scheduleInnerwearRender(token);
+     }
+     if (name === 'sanskari') renderCampaigns();
+     if (name === 'home') renderHomeCampaigns();
+     if (name === 'stories') renderStories();
+diff --git a/sw.js b/sw.js
+--- a/sw.js
++++ b/sw.js
+@@ -1,18 +1,24 @@
+ /* BLACKED V3 Phase 3: lean app-shell cache, bounded navigation wait, media-on-request. */
+ 'use strict';
+-const CACHE_NAME = 'blacked-v7-innerwear-interaction-fix-2';
++const CACHE_NAME = 'blacked-v4-phase5-release-1';
+ const CORE = [
+   './index.html',
+   './styles.css', './part-c-enhancements.css', './phase2-photo-collections.css',
+   './phase3-design-system.css', './phase3.css', './phase4-story-universe.css',
+   './phase5-image-reliability.css', './phase5-product-discovery.css',
+   './phase6-boyfriend-studio.css', './phase6-wellness-collections.css', './phase7-8-enhancements.css',
+   './fallback.js', './app.js', './part-c-enhancements.js', './phase2-photo-collections.js',
+   './phase3.js', './phase3-4-experience.js', './phase4-home-and-fantasy.js', './phase4-story-universe.js',
+   './phase5-image-reliability.js', './phase5-product-discovery.js',
+   './phase6-boyfriend-studio.js', './phase6-wellness-collections.js', './phase7-8-enhancements.js',
++  './phase1-foundation.js', './phase2-core-experience.js', './phase3-v4-experience.js', './phase5-final-release-loader.js',
++  './phase9-after-dark.js', './phase9-after-dark.css', './phase10-wellness-education.js', './phase10-wellness-education.css',
++  './phase11-fit-studio.js', './phase11-fit-studio.css', './phase12-wheels-hub.js', './phase12-wheels-hub.css',
++  './phase13-couples-studio.js', './phase13-couples-studio.css', './phase14-hardening.js', './phase14-hardening.css',
++  './phase15-whats-new.js', './phase15-whats-new.css',
++  './phase1-live-diagnostics.html', './phase2-live-diagnostics.html', './phase3-v4-live-diagnostics.html', './phase5-v4-release-diagnostics.html', './phase12-15-diagnostics.html',
+   './manifest.webmanifest', './app-icon.svg', './innerwear-image-library.json', './size-chart-template.json',
+   './phase4-story-universe.json',
+   './phase6-measurement-map.svg', './phase6-product-specs.svg',
+   './phase6-comfort-check.svg', './phase6-image-rights-workflow.svg'
+ ];
+diff --git a/manifest.webmanifest b/manifest.webmanifest
+--- a/manifest.webmanifest
++++ b/manifest.webmanifest
+@@ -1,7 +1,7 @@
+ {
+-  "name": "BLACKED — V2 Phase 4 Collections & Wheels",
+-  "short_name": "BLACKED V2.4",
+-  "description": "BLACKED V2 Phase 4 review build with Phase 2 local campaign-image path repair and image diagnostics.",
++  "name": "BLACKED — V4 Complete Experience",
++  "short_name": "BLACKED V4",
++  "description": "Mobile-first adult fashion, stories, couples, wheels and wellness reference tools. Fictional adult prompts, optional local tools and privacy-first controls.",
+   "start_url": "./index.html",
+   "scope": "./",
+   "display": "standalone",
+diff --git a/BLACKED_V4_MASTER_PLAN.md b/BLACKED_V4_MASTER_PLAN.md
+--- a/BLACKED_V4_MASTER_PLAN.md
++++ b/BLACKED_V4_MASTER_PLAN.md
+@@ -158,11 +158,11 @@
+ ## Phase tracker (update this in every handoff)
+ 
+-- [~] Phase 1 — Audit, foundation, repair & phone-first design (delta package prepared; live integration/diagnostics pending)
+-- [ ] Phase 2 — Core product, content, collections & discovery
+-- [ ] Phase 3 — Bold, horny, dirty, playful & interactive engine
+-- [ ] Phase 4 — Wellness, body education, fit & trust
+-- [ ] Phase 5 — Full integration, privacy hardening, PWA & V4 release QA
++- [~] Phase 1 — Foundation connected by this integration; live interaction and Android checks pending.
++- [~] Phase 2 — Core experience connected by this integration; feature-by-feature runtime verification pending.
++- [~] Phase 3 — Selective Phase 9/12/13 integration connected; wheel/story/date/message acceptance checks pending.
++- [~] Phase 4 — Phase 10/11 wellness and fit modules connected by the Phase 5 release loader; content/medical and fit validation pending.
++- [~] Phase 5 — Release loader, service-worker cache, V4 manifest, diagnostics and release QA tracking integrated; production sign-off pending.
+ 
+-**Current plan status:** planning complete; implementation and live verification not yet signed off. Current known baseline from latest inspected main commit: V3 Phase 3/4 combined bundle was integrated into `app.js`; service worker cache changed to `blacked-v4-phase4-combined-experience-1`; GitHub Pages build workflow succeeded. The 40-feature audit still lists Phase 9–15 modules as unconfirmed live integrations until diagnostics prove otherwise.
++**Current plan status:** Phase 5 integrates the previously uploaded Phase 1/2 foundation/core modules and selective Phase 3 loader through `index.html`. A separate Phase 5 loader adds only the missing Phase 10/11/14/15 modules after Phase 3 finishes loading, avoiding duplicate Phase 2/4–8 initialization. The Innerwear navigation handler no longer scans every image on every navigation tap. The versioned service-worker cache includes V4 modules and diagnostics; the manifest identifies V4. Automated runtime diagnostics and Android/manual regression remain required; no live handset pass is claimed.
+ 
+ ## Copy/paste phase handoff template — mandatory every time
