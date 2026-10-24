@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#100c10">
+<title>BLACKED V5 · Phase 4 Wellness & Fit Diagnostics</title>
+<style>
+:root{color-scheme:dark;font:14px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;background:#100c10;color:#fff4f8;--muted:#c5b6c2;--line:#4a3448;--pink:#f0a8c6;--gold:#e9cf9a;--green:#a1e3b4;--red:#ffa5b0;--amber:#eacb8c}*{box-sizing:border-box}body{margin:0;padding:18px 12px 35px;background:radial-gradient(ellipse at 88% 0,#45213a,transparent 40%),#100c10}.wrap{max-width:900px;margin:auto}h1{font-size:clamp(26px,6vw,38px);line-height:1.08;letter-spacing:-.035em;margin:7px 0 12px}.eyebrow{font-size:10px;font-weight:850;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}p{color:var(--muted);line-height:1.6}.panel{background:#1b131c;border:1px solid var(--line);border-radius:17px;padding:15px;margin:14px 0}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border:1px solid #79536b;border-radius:11px;padding:10px 13px;background:#2a1c29;color:#fff5fa;font:inherit;font-weight:750;text-decoration:none}.btn.primary{background:var(--pink);border-color:var(--pink);color:#23131c}.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}#summary{font-weight:800;min-height:22px}#results{display:grid;gap:8px}.result{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:10px 11px;border:1px solid var(--line);border-radius:12px;background:#171119}.detail{display:block;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--muted);font-size:11px;margin-top:3px}.status{align-self:start;white-space:nowrap;border-radius:999px;padding:3px 8px;font-size:10px;font-weight:900}.pass{color:var(--green);background:#183526}.fail{color:var(--red);background:#411a27}.warn{color:var(--amber);background:#3a2d18}iframe{position:absolute;left:-12000px;top:0;width:390px;height:844px;border:0;visibility:hidden;pointer-events:none}.small{font-size:12px}.notice{border-left:3px solid var(--gold);padding-left:11px}.foot{font-size:11px;color:var(--muted);margin-top:20px}
+</style>
+</head>
+<body>
+<main class="wrap">
+<p class="eyebrow">BLACKED V5 · PHASE 4 · WELLNESS / FIT / TRUST</p>
+<h1>Check that Wellness & Fit modules actually load</h1>
+<p>This same-origin checker inspects the deployed website after upload. It checks module markers and local file availability. It does not submit answers, save measurements, clear saved data, automatically accept the 18+ prompt, or simulate wheel spins.</p>
+<section class="panel">
+  <h2 style="margin:0;font-size:18px">Before running</h2>
+  <p class="small">Upload the Phase 2/3 fix and Phase 4 package to the same GitHub Pages root first. Dynamic modules may take around 20–25 seconds to settle. If the browser blocks the same-origin frame, the report will say so rather than passing the check.</p>
+  <div class="actions"><button class="btn primary" id="runChecks" type="button">Run live checks</button><button class="btn" id="downloadReport" type="button" disabled>Download JSON report</button><a class="btn" href="./index.html">Open website</a></div>
+  <p id="summary" role="status" aria-live="polite">No tests run yet.</p>
+</section>
+<section class="panel"><h2 style="margin:0 0 10px;font-size:18px">Results</h2><div id="results"></div></section>
+<p class="notice small">A successful static/module check does not mean a diagnosis was performed or that the website passed medical, usability, accessibility, or real-phone testing. Wellness text is general information, not a diagnosis; the size chart must come from the exact product brand.</p>
+<p class="foot">Privacy boundary: this page reads the current DOM and makes same-origin file checks only. It does not read or export browser storage or send a report anywhere. The JSON export is generated locally only when you tap Download.</p>
+<iframe id="appFrame" title="Website being checked" aria-hidden="true" tabindex="-1"></iframe>
+</main>
+<script>
+(() => {
+ 'use strict';
+ const $ = s => document.querySelector(s);
+ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+ let latest = null;
+ function addResult(item) {
+  const row = document.createElement('div'); row.className = 'result';
+  const copy = document.createElement('div'); const title = document.createElement('b'); title.textContent = item.name;
+  const detail = document.createElement('span'); detail.className = 'detail'; detail.textContent = item.detail || '';
+  copy.append(title, detail); const badge = document.createElement('span'); badge.className = 'status ' + (item.status === 'PASS' ? 'pass' : item.status === 'FAIL' ? 'fail' : 'warn'); badge.textContent = item.status; row.append(copy, badge); $('#results').append(row);
+ }
+ async function waitForModules(frame, timeout = 25000) {
+  const started = Date.now();
+  while (Date.now() - started < timeout) {
+   try {
+    const w = frame.contentWindow;
+    if (w && w.document && w.BLACKED_V3_FINAL_RELEASE && w.BLACKED_V3_PHASE15) return true;
+   } catch (_) { return false; }
+   await delay(250);
+  }
+  return false;
+ }
+ async function runChecks() {
+  const button = $('#runChecks'); button.disabled = true; button.textContent = 'Checking…'; $('#downloadReport').disabled = true; $('#results').replaceChildren(); $('#summary').textContent = 'Loading the same-site app and waiting for dynamic modules…';
+  const checks = [];
+  const check = (name, pass, detail = '', status) => checks.push({ name, status: status || (pass ? 'PASS' : 'FAIL'), pass: status ? status === 'PASS' : !!pass, detail });
+  try {
+   const frame = $('#appFrame');
+   const frameLoad = new Promise((resolve, reject) => {
+    const t = setTimeout(() => reject(new Error('Website frame timed out before load.')), 18000);
+    frame.addEventListener('load', () => { clearTimeout(t); resolve(); }, { once: true });
+    frame.addEventListener('error', () => { clearTimeout(t); reject(new Error('Website frame emitted an error.')); }, { once: true });
+   });
+   frame.src = './index.html?phase4-health-check=' + Date.now();
+   await frameLoad;
+   const frameAccessible = !!frame.contentWindow && !!frame.contentDocument;
+   if (!frameAccessible) throw new Error('Same-origin frame is not readable. Open this diagnostics page on the same GitHub Pages origin as index.html.');
+   const settled = await waitForModules(frame, 25000);
+   const w = frame.contentWindow, d = frame.contentDocument;
+   for (const v of ['home','stories','innerwear','sanskari','wellness','boyfriend','fit']) check('Existing view: ' + v, !!d.querySelector('#view-' + v), '#view-' + v);
+   for (const wheel of ['dildo','plug','boy','wild']) check('Original wheel node: ' + wheel, !!d.querySelector('[data-wheel-disc="' + wheel + '"]'), 'Presence only; this diagnostic does not spin the wheel.');
+   check('Original 18+ self-attestation gate', !!d.querySelector('#ageModal') && !!d.querySelector('#ageConfirm'), 'Does not auto-confirm or bypass the gate.');
+   check('Phase 2 premium UX API', !!w.BLACKED_V5_PHASE2_UX, 'window.BLACKED_V5_PHASE2_UX');
+   check('Phase 3 diagnostics/recovery API', !!w.BLACKED_V5_PHASE3, 'window.BLACKED_V5_PHASE3');
+   check('Phase 3 adult mood module', !!w.BLACKED_V3_PHASE3 && !!d.querySelector('#v3-randi-mode'), 'Existing combined Phase 3/4 engine.');
+   check('Phase 4 story universe', !!w.BLACKED_PHASE4 && !!w.BLACKED_PHASE4.getDiagnostics?.().loaded, JSON.stringify(w.BLACKED_PHASE4?.getDiagnostics?.() || {}));
+   check('Phase 4 story tone controls', d.querySelectorAll('[data-p4-tone]').length >= 3, 'Clean / Desi / Bold tone choices.');
+   check('Phase 4 character preference panel', !!d.querySelector('#phase4-boyfriend-preferences'), 'Existing optional, page-memory preferences.');
+   check('Phase 9 After Dark Studio', !!w.BLACKED_V3_PHASE9 && !!d.querySelector('#v9AfterDarkStudio'), 'Dynamic prompt studio.');
+   check('Phase 12 Wheels Hub', !!w.BLACKED_V3_PHASE12_WHEELS, 'Hub is separate from the four original wheel engines.');
+   check('Phase 13 Couples Studio', !!w.BLACKED_V3_PHASE13 && !!d.querySelector('#v13CouplesStudio'), 'Uses existing repository image assets.');
+   check('Phase 10 Wellness module API', !!w.BLACKED_V3_PHASE10, 'Existing evidence-linked education module.');
+   const wellness = w.BLACKED_V3_PHASE10?.getDiagnostics?.() || {};
+   check('Phase 10 education panel rendered', !!d.querySelector('#v10FluidEducation') && (wellness.fluidCards || 0) >= 3, JSON.stringify(wellness));
+   check('Phase 11 Fit Studio module API', !!w.BLACKED_V3_PHASE11, 'Existing measurement/fit guidance module.');
+   const fit = w.BLACKED_V3_PHASE11?.getDiagnostics?.() || {};
+   check('Phase 11 Fit guide rendered', !!d.querySelector('#v11FitGuide') && (fit.stepCards || 0) >= 3, JSON.stringify(fit));
+   check('Measurements use explicit existing opt-in', !!d.querySelector('#saveMeasurementsOptIn'), 'This check reads presence only and does not toggle it.');
+   check('Phase 14 privacy/reliability API', !!w.BLACKED_V3_PHASE14, 'Privacy export, image-status and accessibility module.');
+   check('Phase 15 release highlights API', !!w.BLACKED_V3_PHASE15, 'Unified feature summary / release diagnostics.');
+   const final = w.BLACKED_V3_FINAL_RELEASE?.getDiagnostics?.() || {};
+   check('Final loader diagnostics API', !!w.BLACKED_V3_FINAL_RELEASE && !!final.modules, JSON.stringify({ status: final.status, phase3Ready: final.phase3Ready, modules: final.modules, errors: final.errors }));
+   check('Phase 4 wellness/fit loader ready', d.documentElement.dataset.blackedV4Phase5 === 'loaded', 'Loader status: ' + (d.documentElement.dataset.blackedV4Phase5 || 'not set'), d.documentElement.dataset.blackedV4Phase5 === 'loaded' ? 'PASS' : 'WARN');
+   for (const ref of ['phase2-premium-ux.css','phase2-premium-ux.js','phase3-v5-interactive.css','phase3-v5-interactive.js','phase4-story-universe.css','phase4-story-universe.js','phase5-final-release-loader.js']) {
+    const found = ref.endsWith('.css') ? !!d.querySelector('link[href*="' + ref + '"]') : !!d.querySelector('script[src*="' + ref + '"]');
+    check('Entry point reference: ' + ref, found, 'index.html');
+   }
+   const duplicates = []; const ids = new Set(); d.querySelectorAll('[id]').forEach(node => { if (ids.has(node.id)) duplicates.push(node.id); ids.add(node.id); });
+   check('No duplicate IDs', duplicates.length === 0, duplicates.join(', ') || 'No duplicate IDs detected.');
+   check('Module loading settled', settled, 'Phase 10/11/14/15 may still be pending if this reports WARN.');
+   const paths = ['phase4-story-universe.json','phase4-story-universe.js','phase4-story-universe.css','phase4-diagnostics.js','phase2-premium-ux.css','phase2-premium-ux.js','phase3-v5-interactive.css','phase3-v5-interactive.js','phase10-wellness-education.css','phase10-wellness-education.js','phase11-fit-studio.css','phase11-fit-studio.js','phase14-hardening.js','phase15-whats-new.js'];
+   await Promise.all(paths.map(async path => { try { const resp = await fetch('./' + path, { method: 'HEAD', cache: 'no-store' }); check('Local asset HTTP: ' + path, resp.ok, 'HTTP ' + resp.status); } catch (e) { check('Local asset HTTP: ' + path, false, String(e)); } }));
+   const imagePaths = ['own-your-balance.webp','same-room-different-feelings.webp','same-girl-different-stories.webp','garden-lace-trio.webp','poolside-trio-editorial.webp','phase16-host-avatar.svg'];
+   await Promise.all(imagePaths.map(async path => { try { const resp = await fetch('./' + path, {method:'HEAD',cache:'no-store'}); check('Existing image HTTP: ' + path, resp.ok, 'HTTP ' + resp.status); } catch(e) { check('Existing image HTTP: ' + path, false, String(e)); } }));
+   latest = { project:'BLACKED V5 · Phase 4 Wellness/Fit live diagnostics', checkedAt:new Date().toISOString(), pageOrigin:location.origin, summary:{total:checks.length,passed:checks.filter(x=>x.status==='PASS').length,failed:checks.filter(x=>x.status==='FAIL').length,warn:checks.filter(x=>x.status==='WARN').length}, checks, privacy:{diagnosticStorageInspection:false,diagnosticStorageWritten:false,diagnosticStorageCleared:false,reportUploaded:false,ageGateAutoAccepted:false,existingAppInitializationMayReadItsOwnLocalSettings:true}, limits:['This page checks module markers and same-origin asset HEAD responses; it does not simulate wheel spins, form conversion or delete actions.','Image HTTP success does not prove an image is visually correct or rights-cleared.','Live GitHub Pages build, Android Chrome and user accessibility tasks need separate manual verification.'] };
+   checks.forEach(addResult);
+   $('#summary').textContent = `${latest.summary.passed}/${latest.summary.total} PASS · ${latest.summary.failed} FAIL · ${latest.summary.warn} WARN`;
+   $('#downloadReport').disabled = false;
+  } catch(error) {
+   check('Same-origin website frame', false, String(error)); checks.forEach(addResult);
+   latest = {project:'BLACKED V5 · Phase 4 Wellness/Fit live diagnostics',checkedAt:new Date().toISOString(),error:String(error),checks,limits:['A frame/network/policy blocker is not counted as a passed test.']};
+   $('#summary').textContent = 'Diagnostics could not complete: ' + String(error); $('#downloadReport').disabled = false;
+  } finally {button.disabled = false;button.textContent = 'Run live checks';}
+ }
+ $('#runChecks').addEventListener('click', runChecks);
+ $('#downloadReport').addEventListener('click', () => { if (!latest) return; const blob = new Blob([JSON.stringify(latest,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='BLACKED_V5_PHASE4_WELLNESS_FIT_DIAGNOSTICS.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+Test ID,Phase,Area,Test,Expected result,Status,Evidence / Notes
+P234-01,P2,Index wiring,Confirm Phase 2 CSS appears once in index.html,Loaded after the existing app styles,INSTALLER REQUIRED
+P234-02,P2,Index wiring,Confirm Phase 2 JS appears once in index.html,Initializes once and exposes BLACKED_V5_PHASE2_UX,INSTALLER REQUIRED
+P234-03,P2,Service worker,Confirm Phase 2 CSS and JS in CORE,Paths cached under new cache namespace,INSTALLER REQUIRED
+P234-04,P2,Filter reset,Filter stories then use Reset story filters,Filters return to defaults and story grid refreshes,MANUAL AFTER DEPLOY
+P234-05,P2,Filter reset,Filter innerwear catalogue then reset,Search/category/sort reset without deleting styles,MANUAL AFTER DEPLOY
+P234-06,P2,Filter reset,Filter image library then reset,Search/category/sort reset without removing archive records,MANUAL AFTER DEPLOY
+P234-07,P2,Filter reset,Filter wellness concept catalogue then reset,Only controls reset; saved favorites remain,MANUAL AFTER DEPLOY
+P234-08,P2,Mobile menu,At 320/360/390/430px open menu and navigate,Menu opens/closes and does not overlap content,MANUAL ANDROID
+P234-09,P2,Keyboard,Use Tab/Enter/Escape on navigation,Focus visible and Escape closes menu,MANUAL ACCESSIBILITY
+P234-10,P2,Storage,Open current wishlist/bag/story/fit data,Existing values survive update/reload,MANUAL REGRESSION
+P234-11,P3,Index wiring,Confirm Phase 3 V5 CSS and JS appear once,Recovery/diagnostics layer loads without replacing wheel engine,INSTALLER REQUIRED
+P234-12,P3,Diagnostics API,Check window.BLACKED_V5_PHASE3,Diagnostics object exposes status and report API,MANUAL AFTER DEPLOY
+P234-13,P3,Original wheel,Spin/reset/repeat Dildo wheel,Only one active spin; result is announced and reset works,MANUAL ANDROID
+P234-14,P3,Original wheel,Spin/reset/repeat Butt Plug wheel,Only one active spin; educational disclaimer stays visible,MANUAL ANDROID
+P234-15,P3,Original wheel,Spin/reset/repeat Boyfriend wheel,Existing result and reset behavior preserved,MANUAL ANDROID
+P234-16,P3,Original wheel,Spin/reset/repeat Wild wheel,Category setting affects output; skip/stop remains available,MANUAL ANDROID
+P234-17,P3,After Dark,Open After Dark and filter/generate/skip,Actions change output and remain fictional/adult,MANUAL AFTER DEPLOY
+P234-18,P3,Couples Studio,Open couples gallery and use filters/CTAs,Cards use existing assets and CTAs route to real controls,MANUAL AFTER DEPLOY
+P234-19,P3,Date/message,Regenerate plan/message and copy/fallback,Output changes; clipboard failure has honest manual fallback,MANUAL AFTER DEPLOY
+P234-20,P3,Innerwear responsiveness,Open Innerwear and measure tap/paint responsiveness,UI paints before optional large archive work,MANUAL ANDROID
+P234-21,P3,Image archive,Search/filter/load-more and open existing image links,Existing 151-record archive still responds,MANUAL AFTER DEPLOY
+P234-22,P4,Story universe,Switch Clean/Desi/Bold tones and follow choices,New four-story universe renders with linked branches,MANUAL AFTER DEPLOY
+P234-23,P4,Wheel story CTA,Finish spin and inspect related-story CTA,CTA appears only after actual result marker and opens a valid story,MANUAL AFTER DEPLOY
+P234-24,P4,Wellness loader,Confirm Phase 10 API and education panel,General education and sources render; no diagnosis claim,DIAGNOSTIC + MANUAL
+P234-25,P4,Fit Studio,Confirm Phase 11 API and fit guide,Measurement guidance and opt-in are visible,DIAGNOSTIC + MANUAL
+P234-26,P4,Measurement conversion,Test cm→in and in→cm on realistic values,Round trip within expected rounding; no fake product size prediction,MANUAL REQUIRED
+P234-27,P4,Privacy/reliability,Confirm Phase 14 API and image error status,Export/path/accessibility status works; no silent upload,DIAGNOSTIC + MANUAL
+P234-28,P4,Release summary,Confirm Phase 15 API and final loader,Release diagnostics lists modules without duplicate initialization,DIAGNOSTIC + MANUAL
+P234-29,P4,Diagnostic page,Run phase4-wellness-fit-diagnostics.html,Report distinguishes PASS/FAIL/WARN and local downloads JSON,MANUAL AFTER DEPLOY
+P234-30,P4,Service worker,Update while online and reload then test offline shell,New cache activates without deleting user data,MANUAL PWA
+P234-31,All,Images,Inspect relevant campaign/photo assets on phone,Correct local source, composition and rights status known,MANUAL IMAGE REVIEW
+P234-32,All,Age gate,Attempt Stories/Wellness/Couples before confirmation,Original 18+ self-attestation gate remains enforced,MANUAL REQUIRED
+P234-33,All,Responsive,Inspect all main views at 320px,No clipped primary control or unintended horizontal overflow,MANUAL ANDROID
+P234-34,All,Regression,Check browser console/network for new exceptions/404s,No new uncaught JS error or missing Phase 2/3/4 dependency,MANUAL DEVTOOLS
+P234-35,All,Rollback,Restore sibling backup in a clean test checkout,Previous files can be restored without touching saved browser data,MANUAL BACKUP TEST
