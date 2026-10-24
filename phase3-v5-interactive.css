@@ -1,0 +1,38 @@
+/* BLACKED V5 Phase 3 — recovery and diagnostics UI only; existing wheel/gallery styling stays canonical. */
+.p3v5-recovery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin: 12px auto;
+  padding: 13px 15px;
+  max-width: 1120px;
+  border: 1px solid #805367;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #291722, #151016);
+  color: #fff3f7;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
+}
+.p3v5-recovery[hidden] { display: none !important; }
+.p3v5-recovery h2 { margin: 0 0 4px; font-size: 15px; line-height: 1.25; }
+.p3v5-recovery p { margin: 0; color: #d7c4cf; font-size: 12px; line-height: 1.5; }
+.p3v5-recovery button {
+  min-height: 44px;
+  border: 1px solid #efabc6;
+  border-radius: 11px;
+  padding: 10px 13px;
+  background: #efabc6;
+  color: #24121b;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.p3v5-recovery button:focus-visible { outline: 3px solid #ffe0ec; outline-offset: 3px; }
+@media (max-width: 520px) {
+  .p3v5-recovery { grid-template-columns: minmax(0, 1fr); }
+  .p3v5-recovery button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p3v5-recovery *, .p3v5-recovery { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}

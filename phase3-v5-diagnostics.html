@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#100c10">
+<title>BLACKED V5 · Phase 3 Diagnostics</title>
+<style>
+:root{color-scheme:dark;--bg:#100c10;--panel:#1b131c;--line:#493346;--ink:#fff3f8;--muted:#c7b7c6;--pink:#f0a6bd;--gold:#e4c18a;--ok:#9be2b1;--bad:#ff9da8;--warn:#e4c18a}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0,#392037 0,transparent 42%),var(--bg);color:var(--ink);font:14px/1.55 system-ui,sans-serif;padding:16px}main{max-width:940px;margin:auto}h1{font-size:clamp(23px,5vw,34px);line-height:1.12;margin:.3rem 0 .7rem}.eyebrow{color:var(--pink);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}p{color:var(--muted)}.panel{border:1px solid var(--line);border-radius:18px;background:#1b131ce8;padding:16px;margin:14px 0}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}button{border:1px solid var(--line);border-radius:12px;padding:11px 14px;min-height:44px;background:#32202e;color:var(--ink);font:inherit;font-weight:750}button.primary{background:var(--pink);color:#23131d}button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}#results{display:grid;gap:8px}.result{padding:11px 12px;border:1px solid var(--line);border-radius:12px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.detail{display:block;color:var(--muted);font-size:12px;overflow-wrap:anywhere}.status{font-size:11px;font-weight:900;border-radius:999px;padding:3px 8px;height:max-content}.pass{color:var(--ok);background:#183526}.fail{color:var(--bad);background:#411a27}.warn{color:var(--warn);background:#3a2b14}iframe{position:absolute;width:1px;height:1px;border:0;left:-9999px;visibility:hidden}#summary{font-weight:800}footer{font-size:12px;margin:16px 0 30px;color:var(--muted)}code{overflow-wrap:anywhere}a{color:#ffd0e0}
+</style></head><body><main>
+<p class="eyebrow">BLACKED V5 · Phase 3</p><h1>Interactive tools & preservation diagnostics</h1>
+<p>Load the real same-origin app in a hidden frame, then check module markers, all seven existing views, four wheel nodes, Phase 2 wiring and local photo references. The checks never spin wheels, change preferences, or clear saved data.</p>
+<section class="panel"><div id="summary" role="status" aria-live="polite">Ready to run checks.</div><div class="actions"><button class="primary" id="runChecks" type="button">Run checks</button><button id="downloadReport" type="button" disabled>Download JSON report</button><a href="./index.html">Back to website ↗</a></div><div id="results"></div></section>
+<section class="panel"><h2>How to interpret this page</h2><p><b>PASS</b> means the selector/API or requested local asset was found by this browser. It does not prove every action works. <b>FAIL</b> means investigate that module. Use the phone checklist for wheel spins, touch targets, age gate and actual image rendering.</p><p>Report privacy: it includes marker names, statuses, timestamps and asset paths only. It does not export any saved story, wishlist, bag, fit note or user preference values.</p></section>
+<footer>BLACKED V5 Phase 3 diagnostics · manual Android interaction tests remain required.</footer></main>
+<iframe id="appFrame" title="Website under diagnostics" src="./index.html?phase3v5diagnostic=1"></iframe>
+<script>
+(() => {
+ 'use strict';
+ const $=s=>document.querySelector(s); let latest=null;
+ const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+ function addResult(item){const row=document.createElement('div');row.className='result';const copy=document.createElement('div');const title=document.createElement('b');title.textContent=item.name;const detail=document.createElement('span');detail.className='detail';detail.textContent=item.detail||'';copy.append(title,detail);const badge=document.createElement('span');badge.className='status '+(item.status==='PASS'?'pass':item.status==='FAIL'?'fail':'warn');badge.textContent=item.status;row.append(copy,badge);$('#results').append(row)}
+ async function runChecks(){const button=$('#runChecks');button.disabled=true;button.textContent='Checking…';$('#results').replaceChildren();$('#summary').textContent='Waiting for app modules to settle…';
+  try {const frame=$('#appFrame');if(!frame.contentWindow || !frame.contentDocument)throw new Error('The app frame is not accessible. Open this diagnostics page from the same GitHub Pages origin.');await delay(14000);const w=frame.contentWindow,d=frame.contentDocument;const checks=[];const check=(name,pass,detail='')=>checks.push({name,status:pass?'PASS':'FAIL',pass:!!pass,detail});
+   for(const v of ['home','stories','innerwear','sanskari','wellness','boyfriend','fit'])check('View: '+v,!!d.querySelector('#view-'+v),'#view-'+v);
+   for(const key of ['BLACKED_V4_PHASE1','BLACKED_V4_PHASE2','BLACKED_V5_PHASE2_UX','BLACKED_V3_PHASE3','BLACKED_PHASE4_FANTASY','BLACKED_V4_PHASE3','BLACKED_V3_PHASE9','BLACKED_V3_PHASE12_WHEELS','BLACKED_V3_PHASE13'])check('Module API: '+key,!!w[key],'window.'+key);
+   for(const wheel of ['dildo','plug','boy','wild'])check('Original wheel node: '+wheel,!!d.querySelector('[data-wheel-disc="'+wheel+'"]'),'Does not simulate a spin.');
+   check('Existing age gate',!!d.querySelector('#ageModal')&&!!d.querySelector('#ageConfirm'),'Original self-attestation modal still exists.');
+   check('Phase 2 CSS wired',!!d.querySelector('link[href*="phase2-premium-ux.css"]'),'CSS reference in index.html.');
+   check('Phase 2 JS wired',!!d.querySelector('script[src*="phase2-premium-ux.js"]'),'Script reference in index.html.');
+   check('Phase 3 V5 CSS wired',!!d.querySelector('link[href*="phase3-v5-interactive.css"]'),'Additive recovery styles.');
+   check('Phase 3 V5 JS wired',!!d.querySelector('script[src*="phase3-v5-interactive.js"]'),'Additive runtime checks.');
+   const idSet=new Set(),dups=[];d.querySelectorAll('[id]').forEach(n=>{if(idSet.has(n.id))dups.push(n.id);idSet.add(n.id)});check('No duplicate IDs',dups.length===0,dups.join(', ')||'No duplicates.');
+   const localAssets=['own-your-balance.webp','same-room-different-feelings.webp','same-girl-different-stories.webp','garden-lace-trio.webp','poolside-trio-editorial.webp','phase16-host-avatar.svg'];
+   await Promise.all(localAssets.map(async path=>{try{const response=await fetch('./'+path,{method:'HEAD',cache:'no-store'});check('Existing image asset: '+path,response.ok,'HTTP '+response.status+' · '+response.headers.get('content-type'))}catch(e){check('Existing image asset: '+path,false,String(e))}}));
+   const inner= d.querySelector('#v13CouplesStudio');if(inner){const imgs=[...inner.querySelectorAll('img')];check('Couples gallery images referenced',imgs.length>0,imgs.map(i=>i.getAttribute('src')).join(', '))}else check('Couples gallery images referenced',false,'Couples Studio did not initialize.');
+   const p3=w.BLACKED_V4_PHASE3?.getDiagnostics?.();check('Selective loader reported no errors',!!p3 && (!p3.errors||p3.errors.length===0),p3?.errors?.join('; ')||'No loader error array, or it is empty.');
+   latest={version:'BLACKED V5 Phase 3 diagnostics',checkedAt:new Date().toISOString(),summary:{total:checks.length,passed:checks.filter(x=>x.pass).length,failed:checks.filter(x=>!x.pass).length},checks,privacy:{savedValuesExported:false,storageModified:false,storageCleared:false,networkUploads:false},limits:['Static marker and same-origin asset checks only.','Wheel spin and UI actions must be tested manually on Android Chrome.','A passed asset HEAD request does not guarantee visually correct composition or image rights.']};
+   checks.forEach(addResult);$('#summary').textContent=`${latest.summary.passed}/${latest.summary.total} checks passed · ${latest.summary.failed} need review.`;$('#downloadReport').disabled=false;
+  }catch(error){$('#summary').textContent='Diagnostics could not read the app frame: '+String(error);addResult({name:'Same-origin app frame',status:'FAIL',detail:String(error)});latest={checkedAt:new Date().toISOString(),error:String(error),checks:[]};$('#downloadReport').disabled=false}
+  finally{button.disabled=false;button.textContent='Run checks'}
+ }
+ $('#runChecks').addEventListener('click',runChecks);
+ $('#downloadReport').addEventListener('click',()=>{if(!latest)return;const blob=new Blob([JSON.stringify(latest,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='BLACKED_V5_PHASE3_DIAGNOSTICS.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
+})();
+</script></body></html>

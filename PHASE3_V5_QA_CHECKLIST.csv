@@ -1,0 +1,31 @@
+Test ID,Area,Pass criteria,Method,Status
+P3V5-01,Preflight,Current root index app service-worker manifest and Phase 2 assets exist,Installer dry run,NOT RUN ON USER CHECKOUT
+P3V5-02,Idempotence,Running installer twice does not duplicate references,Installer / source grep,NOT TESTED ON USER CHECKOUT
+P3V5-03,Phase 2 CSS,Stylesheet referenced once after legacy theme,Source validation,NOT TESTED ON USER CHECKOUT
+P3V5-04,Phase 2 JS,UX script referenced once after Phase 17 module,Source validation,NOT TESTED ON USER CHECKOUT
+P3V5-05,Service worker,Cache namespace bumped and Phase 2/3 files in CORE,Static validator,NOT TESTED ON USER CHECKOUT
+P3V5-06,Navigation,Seven current views remain intact,Diagnostics + manual,NOT TESTED
+P3V5-07,Age gate,Stories Wellness Couples gate remains in place,Diagnostics + manual,NOT TESTED
+P3V5-08,Mood Studio,Flirty Teasing Bold Wild/mood and language controls still change output,Manual Android/desktop,NOT TESTED
+P3V5-09,Adult confirmation,No generated adult prompt without studio 18+ confirmation,Manual Android/desktop,NOT TESTED
+P3V5-10,Reset & skip,Reset/skip/close and sweeten/change-tone controls remain usable,Manual Android/desktop,NOT TESTED
+P3V5-11,Fantasy Builder,Four-step controls back/next/required options/output/copy/reroll work,Manual Android/desktop,NOT TESTED
+P3V5-12,After Dark Studio,Filters generate skip favourites/remove/clear states work,Manual Android/desktop,NOT TESTED
+P3V5-13,Wheels Hub,All hub routes target existing wheel sections,Manual Android/desktop,NOT TESTED
+P3V5-14,Dildo wheel,Spin reset repeat keyboard result announcement work,Manual Android/desktop,NOT TESTED
+P3V5-15,Plug wheel,Spin reset repeat result and safety note work,Manual Android/desktop,NOT TESTED
+P3V5-16,Boyfriend wheel,Spin reset repeat and fictional-result disclaimer work,Manual Android/desktop,NOT TESTED
+P3V5-17,Wild wheel,Spin skip reset and consent wording work,Manual Android/desktop,NOT TESTED
+P3V5-18,Couples Studio,Filters/card CTAs and existing local images load correctly,Manual Android/desktop,NOT TESTED
+P3V5-19,Date planner,Settings change outputs and estimated plans are labelled honestly,Manual Android/desktop,NOT TESTED
+P3V5-20,Message generator,Context changes text and copy failure fallback is truthful,Manual Android/desktop,NOT TESTED
+P3V5-21,Innerwear speed,Navigation stays responsive while optional archive renders after paint,Timer heartbeat/browser trace,NOT TESTED
+P3V5-22,Image archive,Search category sort batch/load-more/source actions keep working,Manual Android/desktop,NOT TESTED
+P3V5-23,Photo paths,Existing local root assets return HTTP 200 in browser diagnostics,Live diagnostics,NOT TESTED
+P3V5-24,Keyboard & motion,Focus visible; Escape works; reduced motion honored,Keyboard/OS setting,NOT TESTED
+P3V5-25,Viewport,No overflow at 320/360/390/430/768/1024/1440 CSS px,Responsive browser,NOT TESTED
+P3V5-26,Storage preservation,Existing wishlist bag story progress and fit notes survive refresh,Manual test with test profile,NOT TESTED
+P3V5-27,Console/network,No uncaught errors or new 404s in deployed site,DevTools/diagnostic,NOT TESTED
+P3V5-28,Recovery banner,Only appears on unresolved module failure; reload retries without clearing storage,Failure-injection test,NOT TESTED
+P3V5-29,Rollback,Backup restoration successfully tested on a separate checkout,Manual rollback test,NOT TESTED
+P3V5-30,Release gate,Do not mark Phase 3 complete until all critical checks pass,Review report,OPEN
