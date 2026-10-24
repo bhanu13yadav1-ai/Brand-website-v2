@@ -374,7 +374,7 @@
 
   function getDiagnostics() {
     let wheelDiagnostics = null;
-    try { wheelDiagnostics = window.BLACKED_V2_P23?.getDiagnostics?.() || null; } catch (error) { state.errors.push(`wheel diagnostics: ${String(error)}`); }
+    try { wheelDiagnostics = window.BLACKED_V3_PHASE12_WHEELS?.getDiagnostics?.() || window.BLACKED_V2_P23?.getDiagnostics?.() || null; } catch (error) { state.errors.push(`wheel diagnostics: ${String(error)}`); }
     return {
       version: state.version, initialized: state.initialized, loaded: state.loaded,
       storyUniverse: !!$('#phase4-story-universe'), storyCards: $$('#p4-story-grid .p4-story-card').length,

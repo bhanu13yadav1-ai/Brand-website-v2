@@ -1,0 +1,27 @@
+﻿Test ID,Area,Acceptance criteria,Method,Status
+P5-01,Integration,Phase 2 stylesheet and script appear exactly once in index.html,Static,PASS
+P5-02,Integration,Phase 3 V5 stylesheet and script appear exactly once in index.html,Static,PASS
+P5-03,PWA,Service-worker cache key changed to the Phase 5 V5 namespace,Static,PASS
+P5-04,Innerwear,setView switches the visible view before heavy Innerwear collection work,Static,PASS
+P5-05,Innerwear,Catalogue/archive render has a frame/task yield and stale-render token guard,Static,PASS
+P5-06,Innerwear,Image manifest fetch aborts after 10 seconds and exposes Retry state,Static,PASS
+P5-07,Preservation,All seven primary views are still present,Static,PASS
+P5-08,Preservation,Original four wheel nodes are still present,Static,PASS
+P5-09,Preservation,Original age self-attestation route guard remains in app.js,Static,PASS
+P5-10,Privacy,No localStorage.clear() introduced,Static,PASS
+P5-11,Phase 4,Story and Wheel Hub modules remain referenced and diagnostic global names are compatible,Static,PASS
+P5-11a,CSP,Phase 5 diagnostic uses external same-origin JS and CSS,Static,PASS
+P5-12,Runtime,Phase 5 live diagnostics opens on the same GitHub Pages origin,Live browser,NOT TESTED
+P5-13,Runtime,Innerwear view visible within 300 ms and timer heartbeat under 650 ms,Live browser/Android,NOT TESTED
+P5-14,Runtime,Catalogue cards render; manifest resolves or displays timeout+Retry within 10 seconds,Live browser/Android,NOT TESTED
+P5-15,Runtime,Dildo wheel spin/reset at original location,Manual Android,NOT TESTED
+P5-16,Runtime,Butt Plug wheel spin/reset at original location,Manual Android,NOT TESTED
+P5-17,Runtime,Boyfriend wheel spin/reset at original location,Manual Android,NOT TESTED
+P5-18,Runtime,Dirty/Wild wheel spin/reset at original location,Manual Android,NOT TESTED
+P5-19,Runtime,Story tone and branching choices respond correctly,Manual Android,NOT TESTED
+P5-20,Runtime,"Wishlist, demo bag, saved story progress and fit notes remain intact",Manual regression,NOT TESTED
+P5-21,Runtime,Phase 10 Wellness and Phase 11 Fit modules initialise,Live diagnostic,NOT TESTED
+P5-22,Runtime,Cache installs/activates and PWA metadata says BLACKED V5,Live browser,NOT TESTED
+P5-23,Accessibility,"Keyboard focus, reduced motion, 320/360/390/430px overflow",Manual Android,NOT TESTED
+P5-24,Network,Broken image manifest/source paths display recoverable state; other views remain responsive,Live browser,NOT TESTED
+P5-25,Release,No console exceptions or missing root script/style requests after deployment,Browser devtools,NOT TESTED

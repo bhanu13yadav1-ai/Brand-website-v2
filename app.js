@@ -193,6 +193,33 @@
   }
   prioritizeInnerwearCatalog();
 
+  // Phase 5: switch views immediately, then render the heavier Innerwear collection after a paint.
+  // A token cancels stale scheduled renders if the visitor quickly changes sections.
+  let innerwearEntryToken = 0;
+  function phase5AfterPaint(callback) {
+    if ('requestAnimationFrame' in window) requestAnimationFrame(() => window.setTimeout(callback, 0));
+    else window.setTimeout(callback, 40);
+  }
+  function scheduleInnerwearRender(token) {
+    phase5AfterPaint(() => {
+      const startRender = () => {
+        if (token !== innerwearEntryToken || state.view !== 'innerwear') return;
+        try {
+          renderCatalog();
+          renderImageLibrary(false);
+          showSpinFrame(0);
+          scheduleImageLibraryInit();
+        } catch (error) {
+          if (state.diagnostic && Array.isArray(state.diagnostic.errors)) state.diagnostic.errors.push('Innerwear render failed: ' + String(error));
+          console.error('[BLACKED V5] Innerwear render failed', error);
+          const status = $('#imageLibraryStatus');
+          if (status) status.textContent = 'Image collection could not render. Other sections remain available; use Retry when ready.';
+        }
+      };
+      startRender();
+    });
+  }
+
   function setView(name) {
     if (!['home','stories','innerwear','sanskari','wellness','boyfriend','fit'].includes(name)) return;
     if (['wellness','boyfriend','stories'].includes(name) && !state.adultAllowed) {
@@ -202,24 +229,28 @@
     state.view = name;
     $$('.view').forEach(v => { const active = v.dataset.view === name; v.hidden = !active; v.classList.toggle('active', active); });
     const activeView = $('#view-' + name);
-    // Restore the destination immediately, but do not scan the entire document on every tap.
-    restoreDeferredViewImages(activeView);
+    // Do not restore dozens of image sources in the same tap handler as navigation.
+    phase5AfterPaint(() => {
+      if (state.view !== name) return;
+      const restore = () => { if (state.view === name) restoreDeferredViewImages(activeView); };
+      if ('requestIdleCallback' in window) window.requestIdleCallback(restore, { timeout: 900 });
+      else window.setTimeout(restore, 80);
+    });
     if (previousView && previousView !== activeView) {
       const deferPreviousView = () => deferInactiveViewImages(previousView);
-      if ('requestIdleCallback' in window) requestIdleCallback(deferPreviousView, { timeout: 700 });
-      else setTimeout(deferPreviousView, 0);
+      if ('requestIdleCallback' in window) window.requestIdleCallback(deferPreviousView, { timeout: 900 });
+      else window.setTimeout(deferPreviousView, 80);
     }
     $$('[data-view-link]').forEach(b => b.classList.toggle('active', b.dataset.viewLink === name));
     $$('.main-nav [data-view-link]').forEach(b => { if (b.dataset.viewLink === name) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     $('#mobileMenu').classList.add('hidden'); $('#menuToggle').setAttribute('aria-expanded','false');
     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
     if (name === 'innerwear') {
-      // Paint the catalogue first. The image archive is optional, large and loaded after the
-      // navigation frame has painted, so the tap does not synchronously compete with its DOM work.
-      renderCatalog();
-      renderImageLibrary(false);
-      showSpinFrame(0);
-      scheduleImageLibraryInit();
+      const token = ++innerwearEntryToken;
+      const catalog = $('#catalogGrid'), archive = $('#imageLibraryGrid');
+      if (catalog && !catalog.childElementCount) catalog.textContent = 'Preparing the style catalogue…';
+      if (archive && !archive.childElementCount) archive.textContent = 'The optional image collection loads separately below…';
+      scheduleInnerwearRender(token);
     }
     if (name === 'sanskari') renderCampaigns();
     if (name === 'home') renderHomeCampaigns();
@@ -863,7 +894,7 @@
   // Phase 6: image records load from the separate same-origin JSON manifest.
   // This avoids duplicating ~60 KB of metadata in app.js and limits initial DOM work.
   const imageLibrary = [];
-  const imageLibraryState = { ready:false, loading:false, scheduled:false, error:'', invalidRecords:0, visibleLimit:8, batchSize:8, matching:[], controlsBound:false };
+  const imageLibraryState = { ready:false, loading:false, scheduled:false, error:'', timedOut:false, invalidRecords:0, visibleLimit:8, batchSize:8, matching:[], controlsBound:false };
   const allowedImageRepos = new Set(['Brand-website-4f','Brand-website-3','Brand-website-full-finally-']);
   function isAllowedImageRecord(item) {
     if (!item || typeof item !== 'object') return false;
@@ -959,9 +990,23 @@
       });
     }
     imageLibraryState.loading=true;
+    imageLibraryState.timedOut=false;
+    imageLibraryState.error='';
     $('#imageLibrarySourceCount').textContent='Loading image records from the local manifest…';
+    const requestController = typeof AbortController === 'function' ? new AbortController() : null;
+    let requestTimedOut = false;
+    let requestTimeout = null;
+    const timeoutPromise = new Promise((_, reject) => {
+      requestTimeout = window.setTimeout(() => {
+        requestTimedOut = true;
+        if (requestController) requestController.abort();
+        reject(new Error('Image manifest request timed out after 10 seconds.'));
+      }, 10000);
+    });
     try {
-      const response=await fetch('./innerwear-image-library.json',{cache:'default',credentials:'same-origin'});
+      const requestOptions={cache:'default',credentials:'same-origin'};
+      if (requestController) requestOptions.signal=requestController.signal;
+      const response=await Promise.race([fetch('./innerwear-image-library.json',requestOptions), timeoutPromise]);
       if (!response.ok) throw new Error(`Image manifest returned HTTP ${response.status}`);
       const rows=await response.json();
       if (!Array.isArray(rows)) throw new Error('Image manifest must contain a JSON array.');
@@ -975,10 +1020,16 @@
       imageLibraryState.error='';
       renderImageLibrary(false);
     } catch(error) {
-      imageLibraryState.error=String(error?.message||error);
+      imageLibraryState.timedOut=requestTimedOut||!!(requestController && requestController.signal.aborted);
+      imageLibraryState.error=imageLibraryState.timedOut
+        ? 'Image index request timed out after 10 seconds. The rest of the website is still available; tap Retry to try again.'
+        : String(error?.message||error);
+      // Clear the loading flag before renderImageLibrary so it shows the retry state instead of the spinner.
+      imageLibraryState.loading=false;
       state.diagnostic.errors.push('Image manifest: '+imageLibraryState.error);
       renderImageLibrary(false);
     } finally {
+      if (requestTimeout !== null) window.clearTimeout(requestTimeout);
       imageLibraryState.loading=false;
     }
   }
@@ -1112,6 +1163,8 @@
       campaignCount:campaigns.length,
       imageLibraryReady:imageLibraryState.ready,
       imageLibraryLoading:imageLibraryState.loading,
+      imageLibraryError:imageLibraryState.error,
+      imageLibraryTimedOut:imageLibraryState.timedOut,
       imageLibraryBatchSize:imageLibraryState.batchSize,
       imageLibraryInitScheduled:imageLibraryState.scheduled,
       inactiveViewImagesDeferred:imageDeferralState.deferred,

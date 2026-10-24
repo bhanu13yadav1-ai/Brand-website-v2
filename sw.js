@@ -1,6 +1,6 @@
 /* BLACKED V3 Phase 3: lean app-shell cache, bounded navigation wait, media-on-request. */
 'use strict';
-const CACHE_NAME = 'blacked-v4-phase17-ultra-urge-wellness-20261024-1';
+const CACHE_NAME = 'blacked-v5-phase5-release-20261024-1';
 const CORE = [
   './index.html',
   './styles.css', './part-c-enhancements.css', './phase2-photo-collections.css',
@@ -8,6 +8,7 @@ const CORE = [
   './phase5-image-reliability.css', './phase5-product-discovery.css',
   './phase6-boyfriend-studio.css', './phase6-wellness-collections.css', './phase7-8-enhancements.css',
   './phase16-preference-first.css', './phase17-ultra-urge-wellness.css',
+  './phase2-premium-ux.css', './phase3-v5-interactive.css',
   './fallback.js', './app.js', './part-c-enhancements.js', './phase2-photo-collections.js',
   './phase1-foundation.js', './phase2-core-experience.js', './phase3-v4-experience.js', './phase5-final-release-loader.js',
   './phase9-after-dark.css', './phase9-after-dark.js',
@@ -17,11 +18,12 @@ const CORE = [
   './phase13-couples-studio.css', './phase13-couples-studio.js',
   './phase14-hardening.css', './phase14-hardening.js',
   './phase15-whats-new.css', './phase15-whats-new.js',
-  './phase3.js', './phase3-4-experience.js', './phase4-home-and-fantasy.js', './phase4-story-universe.js',
+  './phase3.js', './phase3-4-experience.js', './phase4-home-and-fantasy.js', './phase4-story-universe.js', './phase4-diagnostics.html', './phase4-diagnostics.js', './phase4-wellness-fit-diagnostics.html',
   './phase5-image-reliability.js', './phase5-product-discovery.js',
   './phase6-boyfriend-studio.js', './phase6-wellness-collections.js', './phase7-8-enhancements.js',
   './phase16-preference-first.js', './phase16-host-avatar.svg',
   './phase17-ultra-urge-wellness.js', './phase17-wellness-catalog.json',
+  './phase2-premium-ux.js', './phase3-v5-interactive.js', './phase3-v5-diagnostics.html', './phase5-v5-release-diagnostics.html', './phase5-v5-release-diagnostics.css', './phase5-v5-release-diagnostics.js',
   './phase17-product-dildo.svg', './phase17-product-anal.svg', './phase17-product-lube.svg', './phase17-product-care.svg',
   './manifest.webmanifest', './app-icon.svg', './innerwear-image-library.json', './size-chart-template.json',
   './phase5-v4-release-diagnostics.html', './phase12-15-diagnostics.html',

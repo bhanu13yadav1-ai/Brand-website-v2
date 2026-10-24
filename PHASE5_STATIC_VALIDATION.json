@@ -1,0 +1,345 @@
+{
+  "project": "BLACKED V5 Phase 5 release package",
+  "base_commit": "81922dfd0de481892f6a433d4fc15c7c3b74449f",
+  "checked_at_utc": "2026-10-24T18:07:11Z",
+  "status": "STATIC_PASS",
+  "summary": {
+    "total": 65,
+    "passed": 65,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "name": "View preserved: home",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "View preserved: stories",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "View preserved: innerwear",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "View preserved: sanskari",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "View preserved: wellness",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "View preserved: boyfriend",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "View preserved: fit",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Index references phase2-premium-ux.css once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "Index references phase2-premium-ux.js once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "Index references phase3-v5-interactive.css once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "Index references phase3-v5-interactive.js once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "Index references phase4-story-universe.css once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "Index references phase4-story-universe.js once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "Index references phase5-final-release-loader.js once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase2-premium-ux.css once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase2-premium-ux.js once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase3-v5-interactive.css once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase3-v5-interactive.js once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase3-v5-diagnostics.html once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase5-v5-release-diagnostics.html once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase5-v5-release-diagnostics.css once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase5-v5-release-diagnostics.js once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase4-diagnostics.html once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase4-diagnostics.js once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "SW cache references phase4-wellness-fit-diagnostics.html once",
+      "status": "PASS",
+      "detail": "1"
+    },
+    {
+      "name": "New SW cache revision",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Innerwear render deferred",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Image manifest abort timeout present",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Timeout produces retry state",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No localStorage.clear()",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Original adult gate preserved",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "V5 manifest metadata",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Manifest icon preserved",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No duplicate IDs in main index",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Phase 4 diagnostic wheel API corrected",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Phase 4 story API fallback corrected",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "HTML parses: phase5-v5-release-diagnostics.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No duplicate IDs: phase5-v5-release-diagnostics.html",
+      "status": "PASS",
+      "detail": "6 IDs"
+    },
+    {
+      "name": "Phase 5 diagnostic tests Innerwear timer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No bulk-load button in new diagnostic",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "All original photo assets retained",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: app.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: sw.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: phase2-premium-ux.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: phase3-v5-interactive.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: phase4-home-and-fantasy.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: phase4-story-universe.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: phase5-final-release-loader.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: phase10-wellness-education.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: phase11-fit-studio.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: phase14-hardening.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: phase15-whats-new.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Node syntax: Phase 5 diagnostic JS",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase2-premium-ux.css",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase2-premium-ux.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase3-v5-interactive.css",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase3-v5-interactive.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase3-v5-diagnostics.html",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase5-v5-release-diagnostics.css",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase5-v5-release-diagnostics.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase5-final-release-loader.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase10-wellness-education.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase11-fit-studio.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase14-hardening.js",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Required deployed file exists: phase15-whats-new.js",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "runtime_not_tested": [
+    "GitHub Pages deploy for patched files",
+    "Physical Android Chrome taps and layout",
+    "Actual wheel spin/reset in live site",
+    "Live browser console/network after upload",
+    "External source photo availability and rights status"
+  ]
+}

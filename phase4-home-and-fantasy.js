@@ -105,7 +105,7 @@
     });
   }
   function diagnostics(){
-    const base=window.BLACKED_V3_PHASE12?.getDiagnostics?.()||{};
+    const base=window.BLACKED_V3_PHASE12_WHEELS?.getDiagnostics?.()||window.BLACKED_V3_PHASE12?.getDiagnostics?.()||{};
     return {version:'1.0.0',homeLinksAdded:state.homeLinksAdded,fantasyStudioAdded:state.fantasyStudioAdded,fantasyForm:!!$('#v3FantasyForm'),fantasyResult:!!$('#v3FantasyResult'),homeQuicklinkCount:$('#v3HomeQuicklinks')?.querySelectorAll('[data-v3-navigate]').length||0,groupPhotosInsideGate:!!$('#v3GroupCampaignGallery')?.closest('#v23ThreesomeProtected'),groupGalleryCards:$('#v3GroupCampaignGallery')?.querySelectorAll('.v3-photo-card').length||0,innerwearEditorialCards:$('#v3InnerwearEditorialGalleryGrid')?.querySelectorAll('.v3-photo-card').length||0,noorGalleryCards:$('#v3NoorEditGalleryGrid')?.querySelectorAll('.v3-photo-card').length||0,generatedResults:state.generated,errors:[...state.errors],phase12:base};
   }
   function boot(){
