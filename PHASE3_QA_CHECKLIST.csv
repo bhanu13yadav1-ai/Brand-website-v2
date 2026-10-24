@@ -1,0 +1,26 @@
+﻿Test ID,Area,Pass criteria,Method,Status
+P3-001,index.html integration,"After edits, index references phase1-foundation.js, phase2-core-experience.js and phase3-v4-experience.js exactly once",Manual/source,NOT TESTED
+P3-002,No module duplication,No Phase2–8 legacy module reloaded by the selective Phase3 loader,Runtime,NOT TESTED
+P3-003,Phase3/4 dependency,Existing phase3-4-experience.js reports ready before dependent Phase9/12/13 modules load,Runtime,NOT TESTED
+P3-004,Innerwear tap latency,Main tap handler <250ms and a 75ms timer heartbeat runs within 500ms on review browser,Live diagnostic,NOT TESTED
+P3-005,Innerwear catalogue,Product reference cards remain visible and respond when archive JSON or external photos fail,Manual/live,NOT TESTED
+P3-006,Archive lazy load,Manifest remains async; first batch 8; load-more reveals later items; no 151-card synchronous burst,Manual/live,NOT TESTED
+P3-007,Image archive resilience,Broken remote source produces visible status/retry; Home and other views still respond,Manual/live,NOT TESTED
+P3-008,Phase 1 foundation,Accessible menu/focus/diagnostics API is active,Live diagnostic,NOT TESTED
+P3-009,Phase 2 module,"Clear filters, conditional Continue Reading, compare persistence API active",Live diagnostic/manual,NOT TESTED
+P3-010,Four wheel nodes,"Dildo, plug, boyfriend and Wild wheel nodes exist after bundle is ready",Live diagnostic,NOT TESTED
+P3-011,Original wheel locations,Each existing wheel spins/resets/re-rolls at its existing location and through the hub shortcut,Manual,NOT TESTED
+P3-012,Wheel anti-race,Rapid tap cannot start overlapping wheel animations or strand buttons,Manual,NOT TESTED
+P3-013,18+ access gate,"Wellness, Stories and Boyfriend/Couples routes keep the original self-attestation gate",Manual,NOT TESTED
+P3-014,After Dark Studio,Filters change prompts; generate/next/skip/favourite/remove/clear states work; favourites are session-only,Manual/live,NOT TESTED
+P3-015,Couples Studio,"Cards render, 4 filters alter visibility, every CTA routes to a real existing control",Manual/live,NOT TESTED
+P3-016,Date planner,"Settings change outputs; outputs are labeled estimates, not live venue/booking facts",Manual,NOT TESTED
+P3-017,Message copy,Copy shows truthful status and a selectable fallback when clipboard API fails,Manual,NOT TESTED
+P3-018,Fantasy builder,"Required choices, Back/Next, preview/edit/reroll/skip/finish and boundary choices tested",Manual,NOT TESTED
+P3-019,Mobile widths,No horizontal overflow at 320/360/390/430px; all important controls at least 44px where possible,Browser + Android,NOT TESTED
+P3-020,Keyboard/reduced motion,"Visible focus, Escape/close/stop, reduced-motion behavior and screen-reader status work",Manual,NOT TESTED
+P3-021,Local data preservation,Existing wishlist/bag/story keys are unchanged; no new remote upload or tracking,Code review,PASS IN DESIGN; VERIFY ON DEPLOY
+P3-022,Service worker,Cache name changes and local Phase1/2/3 modules get precached; no old-cache stale build,Live/Android,NOT TESTED
+P3-023,Pages workflow,GitHub Pages workflow finishes successfully after edits,GitHub Actions,NOT TESTED
+P3-024,Diagnostics export,phase3-v4-live-diagnostics.html can download a JSON report with module APIs and latency results,Live diagnostic,NOT TESTED
+P3-025,Phase boundaries,Phase10/11/14/15 not accidentally loaded by Phase3 patch; remain explicit Phase4/5 tasks,Source review,NOT TESTED

@@ -1,29 +1,30 @@
-# Phase 3 — Test Report
+# BLACKED V4 Phase 3 — Source/Package Validation Report
 
-## Static checks actually run
+**Status: Static/package checks only. Live deployed behavior and Android regression are still NOT TESTED.**
 
-- Package validator: **28/28 PASS; 0 FAIL**. Checks JSON schema, all four unique media IDs, file existence and SHA-256 hashes, expected route/picker hooks, no storage writes in this module, skip/build/reset action states, visible image-error status, reduced-motion and mobile CSS, manifest row parity, and required diagnostic/patch files.
-- `node --check super-phase3-experience.js`: **PASS**.
-- Both integration patch files passed `git apply --check` against a synthetic baseline containing the exact anchor lines retrieved from the captured current GitHub files. This checks unified-diff syntax/context; it is not a commit or a proof of live integration.
-- New WebP assets were reopened with Pillow during build and preserve the original dimensions. The manifest records SHA-256 and byte counts.
+## Re-audit results (main branch, 24 Oct 2026)
 
-## Browser/runtime limitation
+- `index.html` includes existing app modules through `phase7-8-enhancements.js`, but did not load `phase1-foundation.js` or `phase2-core-experience.js`.
+- `phase9-after-dark.js/css`, `phase12-wheels-hub.js/css`, and `phase13-couples-studio.js/css` were present but not included in the active index script chain.
+- `phase12-15-final-loader.js` exists but was intentionally not used here: it loads other Phase 2 and Phase 4–8 assets again, so adding it blindly risks duplicate initialization.
+- `innerwear-image-library.json` contains 151 records; the existing app code renders the image archive in batches of 8. `setView()` also performed a page-wide image deferral scan on each navigation tap, which was a plausible synchronous main-thread pressure point; it has **not** been reproduced on a live handset, so this is recorded as a root-cause candidate, not a confirmed single cause.
 
-A Playwright attempt to open the local HTTP smoke preview was blocked by this execution environment with `ERR_BLOCKED_BY_ADMINISTRATOR`. Therefore the local interactive smoke test is **NOT TESTED**, including real click behaviour, image loading in a browser, focus handling, horizontal overflow, hosted integration, and physical Android Chrome. Run `previews/PHASE3_RUNTIME_SMOKE_PREVIEW.html` from a local HTTP server and `super-phase3-diagnostics.html` after applying the package to a review build.
+## Static checks run
 
-## Acceptance expectations
+- `node --check phase3-v4-experience.js`: PASS.
+- `phase3-v4-live-diagnostics.html` parsed with Python's HTML parser: PASS.
+- `git apply --check` against a synthetic source-context fixture: PASS. This is not a real-repository application test.
+- ZIP integrity: PASS; 10 files; no media and no copied existing root source files.
+- Traceability counts: 40 audited feature areas; 77 feature-idea rows; 25 QA checklist rows.
+- Live iframe/Android checks: NOT TESTED from this build environment.
 
-- Current seven existing views remain the route source of truth.
-- Four new image galleries appear only in their mapped views. Wellness media remains within the existing 18+ route and images use lazy loading.
-- Poster headlines/layout are preserved with `object-fit: contain` in the preview cards.
-- Boyfriend preference chooser has seven card groups and appears at the top of the existing section.
-- Build hides the first action row; Skip clears any partial selections and leaves only “Open preferences”; Edit and Reopen restore controls; Clear returns to an empty form.
-- Preference values remain in JavaScript memory only. They are not written to localStorage/sessionStorage or sent to a backend. A page reload should reset the selection.
-- Appearance is separate from optional fictional anatomy tropes; there is no inference from skin tone/race or image.
-- Existing story, product, wishlist, bag, Fit Studio and four wheels are not rewritten.
+## Changes in package
 
-## Not tested / not verified
+- `PHASE3_INTEGRATION.patch` connects Phase 1, Phase 2 and the selective Phase 3 loader; updates the service-worker cache/core list; updates manifest branding; updates master-plan tracker; and makes Innerwear image scanning/rendering non-blocking after view switch.
+- `phase3-v4-experience.js` loads only Phase 9 After Dark, Phase 12 Wheels Hub and Phase 13 Couples Studio modules/styles. It adds three date ideas with swap/copy/explicit local save, editable message variants with copy fallback, user-controlled prompt steering and fictional adult story turns.
+- `phase3-v4-live-diagnostics.html` measures deployed module activation, original wheel presence, Innerwear tap dispatch/timer heartbeat, catalogue render, and duplicate IDs; it exports a local JSON report.
+- Coverage/QA tracker preserves 40 audited areas and the Phase 3 idea requirements; later phases stay marked pending rather than being silently marked complete.
 
-- NOT TESTED: hosted site after applying the patch; physical Android Chrome; service-worker lifecycle/old-cache cleanup; browser loading of all new images; regression across the seven existing views, saved data and all wheels.
-- NOT VERIFIED: commercial image permissions, brand ownership, actual product existence, manufacturer specs, supplier claims, materials, safety, stock or prices.
-- This is an additive review package only. It has not been committed or deployed.
+## Acceptance gate
+
+Do not mark Phase 3 complete until the integration patch is applied to the current source, the Pages deployment succeeds, the same-origin diagnostics JSON shows no unexplained FAILs, and the manual Android checklist passes. Static syntax is not proof that UI paths work.

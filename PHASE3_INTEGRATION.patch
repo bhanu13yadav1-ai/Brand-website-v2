@@ -1,0 +1,116 @@
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -32,5 +32,8 @@
+   <script src="./phase6-boyfriend-studio.js" defer></script>
+   <script src="./phase6-wellness-collections.js" defer></script>
+   <script src="./phase7-8-enhancements.js" defer></script>
++  <script src="./phase1-foundation.js" defer></script>
++  <script src="./phase2-core-experience.js" defer></script>
++  <script src="./phase3-v4-experience.js" defer></script>
+ </head>
+ 
+diff --git a/app.js b/app.js
+--- a/app.js
++++ b/app.js
+@@ -192,5 +192,24 @@
+     return true;
+   }
+   prioritizeInnerwearCatalog();
++
++  // Keep navigation taps light: hydrate only the newly active view, and defer images
++  // only in the view the user just left instead of rescanning every page on every tap.
++  let innerwearEntryToken = 0;
++  function scheduleInnerwearRender(token) {
++    const start = () => {
++      if (token !== innerwearEntryToken || state.view !== 'innerwear') return;
++      try {
++        renderCatalog(); renderImageLibrary(false); showSpinFrame(0); scheduleImageLibraryInit();
++      } catch (error) {
++        state.diagnostic.errors.push('Innerwear render failed: ' + String(error));
++        console.error('[BLACKED V4] Innerwear render failed', error);
++        const status = $('#imageLibraryStatus');
++        if (status) status.textContent = 'Optional image archive render failed; other sections remain available.';
++      }
++    };
++    if ('requestAnimationFrame' in window) requestAnimationFrame(() => window.setTimeout(start, 0));
++    else window.setTimeout(start, 32);
++  }
+ 
+   function setView(name) {
+@@ -197,23 +215,27 @@
+     if (['wellness','boyfriend','stories'].includes(name) && !state.adultAllowed) {
+       state.pendingView = name; $('#ageConfirm').checked = false; $('#ageError').classList.add('hidden'); $('#ageModal').classList.remove('hidden'); return;
+     }
++    const previousView = $('.view.active');
+     state.view = name;
+     $$('.view').forEach(v => { const active = v.dataset.view === name; v.hidden = !active; v.classList.toggle('active', active); });
+     const activeView = $('#view-' + name);
+-    restoreDeferredViewImages(activeView);
+-    deferInactiveViewImages();
++    const activateImages = () => { if (state.view === name) restoreDeferredViewImages(activeView); };
++    if ('requestAnimationFrame' in window) requestAnimationFrame(activateImages);
++    else window.setTimeout(activateImages, 0);
++    const deferPreviousImages = () => { if (previousView && previousView !== activeView) deferInactiveViewImages(previousView); };
++    if ('requestIdleCallback' in window) requestIdleCallback(deferPreviousImages, { timeout: 900 });
++    else window.setTimeout(deferPreviousImages, 80);
+     $$('[data-view-link]').forEach(b => b.classList.toggle('active', b.dataset.viewLink === name));
+     $$('.main-nav [data-view-link]').forEach(b => { if (b.dataset.viewLink === name) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
+     $('#mobileMenu').classList.add('hidden'); $('#menuToggle').setAttribute('aria-expanded','false');
+     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+     if (name === 'innerwear') {
+-      // Paint the catalogue first. The image archive is optional, large and loaded after the
+-      // navigation frame has painted, so the tap does not synchronously compete with its DOM work.
+-      renderCatalog();
+-      renderImageLibrary(false);
+-      showSpinFrame(0);
+-      scheduleImageLibraryInit();
++      const token = ++innerwearEntryToken;
++      const catalog = $('#catalogGrid'), archive = $('#imageLibraryGrid');
++      if (catalog && !catalog.childElementCount) catalog.textContent = 'Preparing the style catalogue…';
++      if (archive && !archive.childElementCount) archive.textContent = 'The image archive loads separately below…';
++      scheduleInnerwearRender(token);
+     }
+     if (name === 'sanskari') renderCampaigns();
+     if (name === 'home') renderHomeCampaigns();
+     if (name === 'stories') renderStories();
+diff --git a/sw.js b/sw.js
+--- a/sw.js
++++ b/sw.js
+@@ -1,18 +1,21 @@
+ /* BLACKED V3 Phase 3: lean app-shell cache, bounded navigation wait, media-on-request. */
+ 'use strict';
+-const CACHE_NAME = 'blacked-v7-innerwear-interaction-fix-2';
++const CACHE_NAME = 'blacked-v4-phase3-innerwear-stability-3';
+ const CORE = [
+   './index.html',
+   './styles.css', './part-c-enhancements.css', './phase2-photo-collections.css',
+   './phase3-design-system.css', './phase3.css', './phase4-story-universe.css',
+   './phase5-image-reliability.css', './phase5-product-discovery.css',
+   './phase6-boyfriend-studio.css', './phase6-wellness-collections.css', './phase7-8-enhancements.css',
+   './fallback.js', './app.js', './part-c-enhancements.js', './phase2-photo-collections.js',
+   './phase3.js', './phase3-4-experience.js', './phase4-home-and-fantasy.js', './phase4-story-universe.js',
+   './phase5-image-reliability.js', './phase5-product-discovery.js',
+   './phase6-boyfriend-studio.js', './phase6-wellness-collections.js', './phase7-8-enhancements.js',
++  './phase1-foundation.js', './phase2-core-experience.js', './phase3-v4-experience.js',
++  './phase9-after-dark.js', './phase9-after-dark.css', './phase12-wheels-hub.js', './phase12-wheels-hub.css',
++  './phase13-couples-studio.js', './phase13-couples-studio.css', './phase3-v4-live-diagnostics.html',
+   './manifest.webmanifest', './app-icon.svg', './innerwear-image-library.json', './size-chart-template.json',
+   './phase4-story-universe.json',
+   './phase6-measurement-map.svg', './phase6-product-specs.svg',
+   './phase6-comfort-check.svg', './phase6-image-rights-workflow.svg'
+ ];
+diff --git a/manifest.webmanifest b/manifest.webmanifest
+--- a/manifest.webmanifest
++++ b/manifest.webmanifest
+@@ -1,7 +1,7 @@
+ {
+-  "name": "BLACKED — V2 Phase 4 Collections & Wheels",
+-  "short_name": "BLACKED V2.4",
+-  "description": "BLACKED V2 Phase 4 review build with Phase 2 local campaign-image path repair and image diagnostics.",
++  "name": "BLACKED — V4 Phase 3 Interactive Experience",
++  "short_name": "BLACKED V4",
++  "description": "BLACKED V4 adult-only fictional interactive experience with responsive navigation, collections and optional mood tools.",
+   "start_url": "./index.html",
+   "scope": "./",
+   "display": "standalone",

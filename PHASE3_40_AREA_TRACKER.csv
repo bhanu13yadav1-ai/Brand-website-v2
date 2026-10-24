@@ -1,0 +1,41 @@
+﻿Feature Area ID,Feature Area,Owning Phase,What this Phase 3 package does / deliberately defers,Status / Acceptance test
+1,Home screen / hero / quick actions,Phase 1/2,Preserve existing home; new wheel hub is a shortcut only,Regression after integration
+2,Main navigation / mobile menu / section switching,Phase 1,Phase 1 focus/menu accessibility and delayed image scan; mobile test pending,Live diagnostics + Android
+3,Story catalogue / filters / sorting,Phase 2,Phase 2 clear-filters support; preserve existing search/filter,Live diagnostics + manual
+4,Story reader / chapters,Phase 2,Preserve original reader and navigation,Manual story path
+5,Branching stories / character / tone,Phase 2/3,Phase 3 validates tone choices and start-to-finish story route,Manual story/fantasy path
+6,Bookmarks / progress / Story Vault,Phase 2,Phase 2 resume path; existing storage keys preserved,Opt-in save/reopen/reset
+7,More Dirty for Horny Girls teaser/poll,Phase 3 future enhancement,Do not label teaser as live tool; mark availability honestly,Manual status/copy check
+8,Innerwear catalogue / filters / discovery,Phase 2,Non-blocking view entry; catalogue remains independent of archive,Tap latency + filter tests
+9,Image archive / search / filters,Phase 2,Async manifest; incremental 8-item batches retained,Search/category/sort/load more
+10,Spin-frame / touch swipe / zoom,Phase 2,Keep original 8-frame interaction,Touch + slider + controls
+11,Product detail / claim evidence,Phase 2/5,Reference/demo disclaimers preserved,Open each modal
+12,Wishlist / local saved styles,Phase 2,Preserve existing storage contract,Add/remove/reload
+13,Compare selected references,Phase 2,Save up to 3 selected ids under separate Phase2 key,Select/restore/clear
+14,Sample bag / subtotal / demo checkout,Phase 2/5,No real checkout/payment claims,Add/remove/totals
+15,Campaign galleries / Home spotlight / Sanskari,Phase 2,Preserve current gallery and routes,Open gallery + detail
+16,Noor / Grace and Coming Soon collections,Phase 2/future content,Status labels remain honest; no false live shop,Route/status review
+17,18+ access gate,Phase 3,Gate is not bypassed by the new loader or diagnostics,Do not auto-confirm; test gated views
+18,Wellness guide / anatomy / health education,Phase 4,Do not activate Phase10 early; preserve current views,Phase 4 diagnostics
+19,Measurements / unit converter / saved measurements,Phase 4,Not replaced by Phase 3 work,Phase 4 QA
+20,Fit cues / sizing and product-dimension education,Phase 4,Not replaced by Phase 3 work,Phase 4 QA
+21,Dildo wheel / safety education,Phase 3,Existing wheel preserved; tests for spin/reset/skip/result,Original view + hub route
+22,Butt-plug wheel / safer-use info,Phase 3,Existing wheel preserved; tests for safety labels and reset,Original view + hub route
+23,Boyfriend/land preference wheel,Phase 3,Existing wheel preserved; result is fictional/reference-only,Original view + hub route
+24,Wild Wheel / original locations / hub,Phase 3,Phase12 hub selectively integrated; no wheel clone,Four shortcuts + all original locations
+25,Date planner,Phase 3,Existing tool preserved; test varied settings and regeneration,Three distinct ideas/swap where available
+26,Flirty message generator/copy,Phase 3,"Test materially different tone/context, copy, fallback and editing",Clipboard success/failure check
+27,Bold / dirty mood controls,Phase 3,"Combined Phase3/4 bundle dependency wait, diagnostics and reset path",API + intensity changes
+28,Custom fantasy builder,Phase 3,Existing four-step builder retained; validate Back/Next/boundaries,Start-to-finish combinations
+29,Phase9 After Dark Studio,Phase 3,Loaded once after Phase3/4 bundle and existing Wild Wheel anchor,Diagnostics + all controls
+30,Phase10 Women’s Wellness/Fluid Education,Phase 4,Intentionally deferred to Phase 4; not forgotten,Phase4 activation & medical review
+31,Phase11 Fit Studio,Phase 4,Intentionally deferred to Phase 4; not forgotten,Phase4 activation & sizing review
+32,Phase12 Wheels Hub,Phase 3,Loaded once; links into original wheel nodes,Four hub cards + exact target IDs
+33,Phase13 Couples Studio,Phase 3,Loaded once; uses existing Boyfriend view and local root images,Cards/filters/CTAs at phone widths
+34,Phase14 privacy/export/accessibility hardening,Phase 5,Intentionally deferred to final hardening gate,Privacy/key review + accessibility audit
+35,Phase15 What’s New / release highlights,Phase 5,Intentionally deferred until release readiness,Version/change note check
+36,Fit Passport / notes / temporary photo preview,Phase 4/5,Preserve current functionality; do not add network upload claims,Local-only behavior review
+37,Image recovery / rights/source tracking,Phase 2/5,Keep original retry/source labels; archive remains optional,Broken image/retry test
+38,Product Truth / seller / sales readiness,Phase 5,"No invented seller, stock, medical/material or price claims",Truth-label audit
+39,PWA install / offline / cache freshness,Phase 5,Bump service-worker cache; include Phase3 modules in core cache,Build + stale-cache Android test
+40,Diagnostics / bug report / release checklist,Phase 3/5,New live diagnostic page measures actual module APIs and tap latency,Download JSON + review all FAIL/WARN
